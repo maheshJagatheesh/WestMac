@@ -1,0 +1,55 @@
+page-event-stats {
+    .player-item {
+        padding: 0 0 0 0 !important;
+    }
+
+    .chart-wrap{
+        overflow-x: scroll !important;
+    }
+    .label {
+        padding: 0 !important;
+    }
+    .label-md {
+        margin: 0 !important;
+    }
+    .button-md {
+        background-color: #43B7CC;
+    }
+    .col {
+        a{
+        justify-content: center;
+        display: flex;
+        position: relative;
+        
+      }
+    }
+    span.active:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      // display: inline-block;
+      width: 100%;
+      height: 5px;
+      background: #428CF4;
+      justify-content: center;
+      display: flex;
+      background: -webkit-gradient(linear, left top, right top, from(#428CF4), to(#43C9BB));
+      background: -webkit-linear-gradient(left, #428CF4, #43C9BB);
+      background: -moz-linear-gradient(left, #428CF4, #43C9BB);
+      background: -ms-linear-gradient(left, #428CF4, #43C9BB);
+      background: -o-linear-gradient(left, #428CF4, #43C9BB);
+    }
+    .grid{
+      padding-bottom: 0px !important;
+    }
+}
+// .ActiveSpan{
+//   padding-bottom: 10px;
+//   text-transform: capitalize !important;
+//   font-size: 14px !important;
+//   font-weight: normal !important;
+// }
+// .InactiveSpan{
+//   color: #aaa !important;
+// }

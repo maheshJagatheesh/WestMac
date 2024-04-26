@@ -1,0 +1,66 @@
+page-event-group-send-message {
+  .msg-send .modal-footer{
+    border: none !important;
+  }
+  .group-msg .modal-dialog .modal-content{
+    background-color: #fff !important;
+  }
+  .msg-send textarea{
+    background-color: #fff !important;
+  }
+  .group-msg .modal-body{
+    padding: 20px 10px;
+  }
+  .modal-title.text-center{
+    color: #44c7f4;
+  }
+  .borrowHeading{
+    text-align: left;
+    color: #fff;
+  }
+  .event-card{
+    margin-bottom: 0px !important;
+  }
+  .suit-iconCard{
+    float: right;
+    padding: 0 8px;
+    line-height: 55px;
+    .suit-icon{
+      width:25px;
+      height:25px;
+    }
+  }
+  
+  .medical-bottleCard{
+    margin: 0 8px;
+    line-height: 55px;
+    float: right;
+    .medical-bottle{
+      height:25px;
+    }
+  }
+  .card-title span {
+    padding-top: 0;
+    color: #8B8B8B;
+    font-size: 12px;
+    font-weight: normal;
+    width: 100%;
+  }
+  .suit-iconCard.fixedRight {
+    padding: 0;
+    right: 0!important;
+    width: 26px;
+    left: inherit;
+    top: 45%;
+    position: absolute;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
+
+  .col-xs-10{
+    width: 82.33%
+  }
+}

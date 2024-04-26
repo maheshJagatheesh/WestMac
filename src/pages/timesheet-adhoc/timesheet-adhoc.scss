@@ -1,0 +1,44 @@
+page-timesheet-adhoc {
+    .profileFirst{
+        padding:0
+
+    }
+    .hours{
+        .text-input-md{
+            text-align: right !important;
+        }
+    }
+    .minute{
+        .text-input-md{
+            text-align: left !important;
+        }
+    }
+    .voting .select-val{
+        background-color: transparent !important;
+    }
+    .voting.eventDetails{
+        .datetime-text, ion-input.event_name input{
+            font-size: 17px;
+            display: block;
+        }
+    }
+    ion-datetime{
+        margin: 0 auto;
+        padding: 0!important;
+    }
+    .voting.eventDetails .select-val ion-input.event_name .text-input::placeholder,
+    .select-val ion-input.event_name .text-input, 
+    .select-val ion-datetime.event_date .datetime-placeholder,
+    .select-val ion-datetime.event_date .datetime-text{
+        color: #7E8694!important;
+    }
+    .top-bar .backArrow{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .backArrow.inverse:before{
+        position: absolute;
+        left: 15px;
+    }
+}

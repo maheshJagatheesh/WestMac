@@ -1,0 +1,104 @@
+<!--<ion-header>
+
+  <ion-navbar>
+    <ion-title>ADDITIONAL PASSENGER</ion-title>
+  </ion-navbar>
+
+</ion-header>-->
+
+
+<ion-header>
+  <nav class="navbar navbar-fixed-top">
+      <div class="top-bar clearfix">
+          <div class="pull-left">
+              <div class="backArrow info-item" (click)="goBack()">ADDITIONAL PASSENGER</div>
+          </div>
+      </div>
+  </nav>
+</ion-header>
+
+
+<ion-content class="bg-gray">
+    <div class="bg-gray event">
+        <section class="main">
+            <form class="user-form profile setting-first">
+                <section class="profileFirst heightAuto player-search-swipe-down">
+                    <div class="event-card welfare bg-gray padding-5 mb-0">
+                        <div class="row player-search-image Padding-b-20">
+                            <div class="col-xs-12 search-player search-inner">
+                                <div class="search-icon"><i class="seh material-icons">search</i></div>
+                                <input type="text" name="search" id="search" class="form-control text-input" placeholder="Search" (keyup)="search($event)" (click)="clearsearch()">
+                            </div>
+                        </div>
+
+                        <!--For search start-->
+                        <div class="well select-card savedAddPassenger" *ngFor="let passengerList of searchData"  [ngStyle]="{'display': searchShow}" [attr.data-id]="passengerList.PERSONID"
+                        [ngClass]="{'active': passengerList.active}" (click)="selectadditionalPassenger(passengerList)">
+                            <div class="row" >
+                              <div class="card-img col-xs-2 p-0">
+                                  <span class="" *ngIf="passengerList.PHOTOPATH==''">
+                                      <div class="img-circle"><span class="img-text">{{passengerList.FIRSTNAME[0] | uppercase}} {{passengerList.LASTNAME[0] | uppercase}}</span></div>                                  
+                                  </span>
+                                  <span class="" *ngIf="passengerList.PHOTOPATH !=''">
+                                      <img src="{{global.PROFILEIMAGEURL}}{{passengerList.PHOTOPATH}}" alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+                                  </span>
+                              </div>
+                              <div class="card-title col-xs-10">
+                                  {{passengerList.FIRSTNAME}} {{passengerList.LASTNAME}}
+                                  <span class="sub-text-color">On time</span>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="mt-20" *ngIf="searchData.length > 0" [ngStyle]="{'display': searchShow}">
+                            <div class="row">
+                              <div class="btn-section col-xs-12">
+                                <button type="submit" class="btn btn-save xs-btn" (click)="saveAdditionalPassenger()">ADD</button>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="well select-card" *ngIf="searchData.length == 0" [ngStyle]="{'display': searchShow}">
+                          <div class="row">
+                              <div class="col-xs-12">
+                                  <h5 class="sub-title">NO LIST FOUND</h5>
+                              </div>
+                          </div>
+                        </div>
+                        <!--search End-->
+
+                        <div class="well select-card savedAddPassenger" *ngFor="let passengerList of passengerLists"  [ngStyle]="{'display': searchHide}" [attr.data-id]="passengerList.PERSONID"
+                        [ngClass]="{'active': passengerList.active}" (click)="selectadditionalPassenger(passengerList)">
+                            <div class="row">
+                              <div class="card-img col-xs-2 p-0">
+                                  <span class="" *ngIf="passengerList.PHOTOPATH==''">
+                                      <div class="img-circle"><span class="img-text">{{passengerList.FIRSTNAME[0] | uppercase}} {{passengerList.LASTNAME[0] | uppercase}}</span></div>                                  
+                                  </span>
+                                  <span class="" *ngIf="passengerList.PHOTOPATH !=''">
+                                      <img src="{{global.PROFILEIMAGEURL}}{{passengerList.PHOTOPATH}}" alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+                                  </span>
+                              </div>
+                              <div class="card-title col-xs-10">
+                                  {{passengerList.FIRSTNAME | uppercase}} {{passengerList.LASTNAME | uppercase}}
+                                  <span class="sub-text-color">On time</span>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="well select-card" *ngIf="passengerLists.length == 0" [ngStyle]="{'display': searchHide}">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h5 class="sub-title">NO LIST FOUND</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-20" *ngIf="passengerLists.length > 0" [ngStyle]="{'display': searchHide}">
+                            <div class="row">
+                              <div class="btn-section col-xs-12">
+                                <button type="submit" class="btn btn-save xs-btn" (click)="saveAdditionalPassenger()">ADD</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </form>
+        </section>
+    </div>
+</ion-content>

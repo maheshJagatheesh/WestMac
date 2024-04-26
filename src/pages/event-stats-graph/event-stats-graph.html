@@ -1,0 +1,109 @@
+<!--
+  Generated template for the EventStatsGraphPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>event-stats-graph</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <section class="main bg-black event">
+        <nav class="navbar navbar-fixed-top">
+            <div class="top-bar clearfix">
+                <div class="pull-left">
+                    <div class="backArrow info-item">Events</div>
+                </div>
+                <div class="prev-next pull-right" (click)="goToChooseTeamsPage()">
+                    <a href="javascript:void(0);" class="next"></a>
+                </div>
+            </div>
+            <ul class="nav navbar-nav top-menu">
+                <li class=""><a href="#">Attendance</a></li>
+                <li class=""><a href="#">Welfare</a></li>
+                <li class="active"><a href="#">Stats</a></li>
+                <li class=""><a href="#">Results</a></li>
+            </ul>
+        </nav>
+        <form action="" class="user-form player-item">
+            <section class="profileFirst heightAuto xs-padding">
+                <div class="play_time text-blue text-center">
+                    <h3 class="timeOption">20:05</h3>
+                    <div class="network"><img src="images/signal-rotate.png" alt=""></div>
+                    <div class="play-icon clearfix">
+                        <div class="pull-left">
+                            <img src="images/pause-white.png" alt="">
+                        </div>
+                        <div class="pull-right">
+                            <img src="images/stop.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <h4 class="info-item text-center inverseText">GAME vs TRINITY GRAMMAR</h4>
+                <div class="bookmark-line"></div>
+            </section>
+            <div class="chart-wrap">
+                <img class="clock-icon" src="images/clock.png" alt="">
+                <div id="chart">
+                    <div class="chart-area">
+                        <ul id="numbers">
+                            <li><span>40</span></li>
+                            <li><span>30</span></li>
+                            <li><span>20</span></li>
+                            <li><span>10</span></li>
+                            <li><span></span></li>
+                        </ul>
+                        <ul id="bars">
+                            <li><div data-percentage="14" class="bar"></div></li>
+                            <li><div data-percentage="27" class="bar"></div></li>
+                            <li><div data-percentage="71" class="bar"></div></li>
+                            <li><div data-percentage="38" class="bar"></div></li>
+                            <li><div data-percentage="86" class="bar"></div></li>
+                            <li><div data-percentage="54" class="bar"></div></li>
+                            <li><div data-percentage="21" class="bar"></div></li>
+                            <li><div data-percentage="13" class="bar"></div></li>
+                            <li><div data-percentage="14" class="bar"></div></li>
+                            <li><div data-percentage="27" class="bar"></div></li>
+                            <li><div data-percentage="71" class="bar"></div></li>
+                            <li><div data-percentage="38" class="bar"></div></li>
+                            <li><div data-percentage="86" class="bar"></div></li>
+                        </ul>
+                    </div>
+                    <ul id="bar-title">
+                        <li><span>WILLIS</span></li>
+                        <li><span>WORTHINGTON</span></li>
+                        <li><span>SMITH</span></li>
+                        <li><span>FAVER</span></li>
+                        <li><span>TAN</span></li>
+                        <li><span>SIEGAL</span></li>
+                        <li><span>GRIMES</span></li>
+                        <li><span>BRODSKY</span></li>
+                        <li><span>FRAWLEY</span></li>
+                        <li><span>CARN</span></li>
+                        <li><span>KROGH</span></li>
+                        <li><span>DELA</span></li>
+                        <li><span>TODARDO</span></li>
+
+                    </ul>
+                </div>
+            </div>
+        </form>
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li class="home" (click)="gotoHome()"><a href="javascript:void(0);">Home</a></li>
+                    <li class="events active" (click)="gotoDisplayEvents()"><a href="javascript:void(0);">Events</a></li>
+                    <li class="players" (click)="goToPlayersDashboard()"><a href="javascript:void(0);">Players</a></li>
+                    <li class="comment" (click)="goToChatDashboard()"><a href="javascript:void(0);">Comments</a></li>
+                    <li class="more" (click)="goToMenuPage()"><a href="javascript:void(0);">More</a></li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+</ion-content>

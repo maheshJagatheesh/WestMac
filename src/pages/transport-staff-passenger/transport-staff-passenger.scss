@@ -1,0 +1,46 @@
+page-transport-staff-passenger {
+    .modalView {
+        margin-right: 2%;
+        margin-left: 2%;
+        margin-top: 25%;
+        margin-bottom: 10%;
+        border-radius: 15px;
+    }
+    .fixed-top_ {
+        position: absolute;
+        right: 5%;
+        top: 10px;
+    }
+    ion-icon.close_-button{
+        position: relative;
+        font-size: 20px;
+        top: 3px;
+        padding: 5px;
+    }
+    .btn-remove.xs-btn{
+        width: 134px;
+        margin: 0 auto;
+        display: block;
+    }
+    .modal-title{
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+    .modal-header {
+        padding: 30px;
+        padding-bottom: 10px;
+    }
+    .modal-body .text-center{
+        color: #15233C;
+        font-family: 'Helvetica';
+    }
+    button{
+        background: none;
+    }
+    .no-btn{
+        color: #15233C;
+    }
+    .yes-btn{
+        color: #43B7CC;
+    }
+}

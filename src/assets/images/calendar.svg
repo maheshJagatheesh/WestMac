@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20.5" viewBox="0 0 21 20.5">
+  <g id="Group_6183" data-name="Group 6183" transform="translate(-296 -27.5)">
+    <g id="Rectangle_2066" data-name="Rectangle 2066" transform="translate(296 29)" fill="#fff" stroke="#dedbdb" stroke-width="2">
+      <rect width="21" height="19" rx="1" stroke="none"/>
+      <rect x="1" y="1" width="19" height="17" fill="none"/>
+    </g>
+    <line id="Line_403" data-name="Line 403" y2="3" transform="translate(310.5 28.5)" fill="none" stroke="#dedbdb" stroke-linecap="round" stroke-width="2"/>
+    <line id="Line_404" data-name="Line 404" y2="3" transform="translate(302.5 28.5)" fill="none" stroke="#dedbdb" stroke-linecap="round" stroke-width="2"/>
+    <circle id="Ellipse_602" data-name="Ellipse 602" cx="1.5" cy="1.5" r="1.5" transform="translate(305 37)" fill="#dedbdb"/>
+    <circle id="Ellipse_604" data-name="Ellipse 604" cx="1.5" cy="1.5" r="1.5" transform="translate(310 37)" fill="#dedbdb"/>
+    <circle id="Ellipse_605" data-name="Ellipse 605" cx="1.5" cy="1.5" r="1.5" transform="translate(310 41)" fill="#dedbdb"/>
+    <circle id="Ellipse_606" data-name="Ellipse 606" cx="1.5" cy="1.5" r="1.5" transform="translate(305 41)" fill="#dedbdb"/>
+    <circle id="Ellipse_607" data-name="Ellipse 607" cx="1.5" cy="1.5" r="1.5" transform="translate(300 41)" fill="#dedbdb"/>
+    <circle id="Ellipse_603" data-name="Ellipse 603" cx="1.5" cy="1.5" r="1.5" transform="translate(300 37)" fill="#dedbdb"/>
+    <line id="Line_406" data-name="Line 406" x1="18" transform="translate(297.5 34.5)" fill="none" stroke="#dedbdb" stroke-width="1.5"/>
+  </g>
+</svg>

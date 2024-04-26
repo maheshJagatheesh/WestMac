@@ -1,0 +1,108 @@
+
+<ion-header>
+
+  <ion-navbar>
+      <div class="top-bar clearfix">
+          <div class="pull-left">
+                <div>
+                    <button class="BackButton"(click)="backArrow()" *ngIf="BackButton"><img src="assets/images/arrow-black.svg"></button>
+                    WELFARE
+                </div>
+          </div>
+          <!--<div class="prev-next pull-right" (click)="goToChooseTeamsPage()">
+              <a href="javascript:void(0);" class="next"></a>
+              <a href="javascript:void(0);" class="prev"></a>
+          </div>
+          <div class="calendar pull-right" (click)="addEventToCalendar()">
+            <img src="assets/images/calendar.svg">
+    
+        </div>
+        <div class="location pull-right" (click)="openMap(groundAdress,groundState,latitude,longitude)">
+          <img src="assets/images/Location.svg">
+        </div>-->
+      </div>
+
+  </ion-navbar>
+  <!-- <ion-grid class="nav navbar-nav top-menu">
+        <ion-row  *ngIf="FunctionAccess " > -->
+            <!--<ion-col >
+                <a  href="javascript:void(0)" *ngIf="FunctionAccess.event_tab_Attendance=='yes'" (click)="gotoAttandance()">
+                    <span class=" ActiveSpan InactiveSpan">Attendance</span></a>
+                <a  href="javascript:void(0)" *ngIf="FunctionAccess && FunctionAccess.event_tab_Overview=='yes'" (click)="gotoAttandance()">
+                    <span class=" ActiveSpan InactiveSpan">Overview</span>
+                </a>
+            </ion-col>*ngIf="FunctionAccess.event_Welfare=='yes' && UpcomingSingleEvent && UpcomingSingleEvent.welfare_question==1"-->
+            <!-- <ion-col >
+                <a href="javascript:void(0)">
+                    <span class="active ActiveSpan ">Welfare</span>
+                </a>
+            </ion-col> -->
+            <!-- <ion-col *ngIf=" UpcomingSingleEvent && UpcomingSingleEvent.event_type_id!=2">
+                <a href="javascript:void(0)" (click)="gotoStats()">
+                    <span class=" ActiveSpan InactiveSpan">Stats</span>
+                </a>
+            </ion-col> -->
+            <!--<ion-col *ngIf="FunctionAccess.event_Result=='yes' && UpcomingSingleEvent && UpcomingSingleEvent.event_type_id!=2">
+                <a href="javascript:void(0)" (click)="gotoResults()">
+                    <span class=" ActiveSpan InactiveSpan">Results</span>
+                </a> 
+            </ion-col>-->
+        <!-- </ion-row>
+    </ion-grid> -->
+</ion-header>
+
+
+<ion-content class="welfare-content">
+    <section class="main">
+        <form action="" class="user-form player-item">
+            <section class=" heightAuto xs-padding bg-gray show-card">
+                <div class="event-card welfare" *ngIf="WelfarePeopleDetail==''">
+                    <div class="well select-card " >
+                        <div class="row">
+                            <div class="col-xs-12 ">
+                                <h5 class="sub-title">NO TEAM MATES FOUND</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card welfare" *ngFor="let details of WelfarePeopleDetail">
+                    <div class="well select-card" (click)="PlayerQuestion(details,$event)" style="margin-bottom: 0 !important">
+    
+                        <div class="row">
+                            <div class="card-img col-xs-2 p-0">
+                                <span class="" *ngIf="!details.photopath">
+                                    <div class="img-circle"><span class="img-text">{{details.first_name[0] | uppercase}} {{details.last_name[0] | uppercase}} </span></div>
+                                    <!-- <img src="assets/images/test-user.svg" alt="" class="img-circle"> -->
+                                </span>
+                                <span class="" *ngIf="details.photopath">
+                                            <img src="{{PhotoApiUrl}}{{details.photopath}}" alt="" class="img-circle">
+                                </span>
+                            </div>
+    
+                            <div class="card-title col-xs-8 p-0">{{details.first_name | uppercase}} {{details.last_name | uppercase}}
+                               
+                                <div>
+                                    <span *ngIf="details.uniform_id">#{{details.uniform_id}}</span>
+                                </div>
+                                <div class="suit-iconCard fixedRight" (click)="DisplaySeverityDetails(details)" *ngIf="FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1 && ((details.playerAilmentsSeverityIcon) || (details.showMedicine==1))">
+                                    <img src={{global.ImagesPath}}{{details.playerAilmentsSeverityIcon}} class="suit-icon" *ngIf="(details.playerAilmentsSeverityIcon  && (details.showMedicine==1 || details.showMedicine==0))">
+                                    <img src="{{global.ImagesPath}}pills.svg" class="medical-bottle" *ngIf="((details.showMedicine==1) && (!details.playerAilmentsSeverityIcon))">
+                                </div>
+                                
+                            </div>
+                            <div class="event-next col-xs-1 p-0 show-tickmark">
+                                <ion-icon class="tickIcon" ios="ios-checkmark" md="md-checkmark" color=primary *ngIf="details.welfare_answer==1"></ion-icon>
+                            </div>
+                            
+                            <div class="event-next col-xs-1 p-0">
+                                <a href="javascript:void(0)" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+    
+                  </div>
+            </section>
+          </form>
+          </section>
+
+</ion-content>

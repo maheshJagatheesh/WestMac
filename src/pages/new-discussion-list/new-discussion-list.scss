@@ -1,0 +1,337 @@
+page-new-discussion-list {
+    .button-md {
+        background-color: #FC3E25;
+    }
+    .profileFirst {
+        padding: 0;
+    }
+    .profileFirst .event-card{
+        padding-top: 0;
+        margin-bottom: 0;
+    }
+    .setting-first {
+        padding-top: 15px!important;
+    }
+    .v-center {
+        left: 0px;
+    }
+    .m-15{
+        margin-top: 15px;
+    }
+    .search-player input.text-input{
+        margin-top:0;
+    }
+    .search-inner i.seh{
+        margin-top: 9px;
+    }
+    .info-item {
+        font-size: 16px;
+    }
+    .navbar .top-bar{
+        padding: 20px 10px;
+    }
+    .navbar .top-bar .info-item {
+        line-height: 28px;
+    }
+    .navbar{
+        margin-bottom: 0;
+    }
+    .noList{
+        padding: 18px !important;
+        line-height: inherit!important;
+        font-size: 12px;
+        font-weight: bold;
+        font-family: "Helvetica",sans-serif;
+    }
+    .select-card.active,.select-card.active ion-label {
+        background: #D3B369!important;;
+    }
+    .select-card.active ion-label {
+            border-radius:0;
+    }
+    .select-card.active .ch-time{
+        color:#fff!important;
+    }
+    .select-card.active .unreadMSG{
+        color:#fff!important;
+        border: 1px solid #ffffff;
+    }
+    .doubleArrow{
+        .filtter_button.active{
+            display: none;
+        }
+    }
+    .doubleArrow.active{
+        .filtter_button{
+            display: none;
+        }
+        .filtter_button.active{
+            display: inherit;
+        }
+    }
+    
+    /* Filter design start */
+    .filtter_button{
+        margin-right: 12px;
+        width: 20px;
+        height: auto;
+    }
+    .filter_overlay{
+        width: 96%;
+        height: 100vh;
+        background: rgba(21, 35, 60, 0.9);
+        padding: 20px 20px;
+        margin-bottom: 20px;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0px;
+        z-index: 9999;
+        overflow-y: scroll;
+        pointer-events: auto; /*fix scroll lock on ios12.2*/
+        .close-icon{
+            margin-right: 4px;
+        }
+    }
+    .font_light{
+        font-weight: 300;
+    }
+    .fliter .itemList p{
+        color: #ffffff;
+        font-size: 14px;
+        font-family: "Helvetica Neue", sans-serif;
+        margin: 0;
+        padding: 8px 0;
+        width: 85%;
+    }
+    .fliter .itemList p.sub-title{
+        font-size: 12px;
+        font-weight: bold;
+        font-family: "Helvetica", sans-serif;
+        letter-spacing: 0.15em;
+        display: inline;
+        text-transform: uppercase;
+    }
+    .fliter .filterBack{
+        margin-right: 5px;
+        display: none;
+    }
+    .fliter_options{
+        width: 100%;
+        display: table;
+        padding: 0px 0px 10px 0px;
+        border-bottom: 1px solid #D7D7D7; 
+    }
+    .rounded_images{
+        float: left;
+    }
+    .coustom_img_float{
+        margin-left:10px; 
+    }
+    .next-group{
+        display:flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    //toggle switch
+    
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        margin: 0;
+    }
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    .switch .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #DEDBDB;
+        -webkit-transition: .4s;
+        transition: .4s;
+        padding:0;
+    }
+    .switch .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color:#fff;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    .switch .slider.round:before {
+        border-radius: 50%;
+    }
+    .switch .slider.round {
+        border-radius: 34px;
+    }
+    .switch input:checked + .slider{
+        background-color: #43acd7 !important;
+    }
+    .switch input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+    .fliter_options .itemList {
+        margin-bottom: 0;
+    }
+    .options_wrap{
+        width: 100%;
+        display: table;
+        /* padding: 20px 25px; */
+        padding-top: 40px;
+    }    
+    .options{
+        width: 100%;
+        height:50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid rgba(222, 219, 219, 0.49);
+        position: relative;
+        p{
+            font-size: 14px;
+            color: rgb(255, 255, 255);
+            font-weight: normal;
+            font-family: "Helvetica Neue",sans-serif;
+            margin: 0;
+        }
+        .sub-title{
+            font-size: 12px;
+            font-weight: bold;
+            font-family: "Helvetica",sans-serif;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .pull_right_arrow{
+            position: absolute;
+            right: 0;
+        }
+    }
+    .overlay{
+        /* background: rgba(21, 35, 60, 0.8) !important; */
+        position: absolute;
+        top:0;
+        bottom: 0;
+        right:0;
+        left: 0;
+        z-index: 9999;
+    }
+    /* .overlay .profile{
+        margin: 0!important;
+        padding: 0!important;
+    } */
+    .overlay .scroll-content{
+        /* margin: 0!important; */
+        overflow: hidden;
+    }
+    .fliter_options .itemList >div:first-child{
+        width: 100%;
+        height:50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #fff;
+        position: relative;
+    }
+    .options_wrap .fliter_options{
+        border-bottom: none;
+    }
+    .options_wrap .itemListInfo.subFilter {
+        margin-left: 6%;
+        height:50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #fff;
+        flex-direction: column;
+    }
+    .options_wrap .itemListInfo.subFilter > div:first-child {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #fff;
+        position: relative;
+    }
+    .subFilter.has-child {
+        align-items: flex-start!important;
+        height: auto!important;
+        border-bottom: none!important;
+    }
+    .subFilter.has-child .subChildFilter{
+        margin-left: 6%;
+        width: 94%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #fff;
+    }
+    .subFilter.has-child .subChildFilter:first-child{
+        border-bottom: none!important;
+    }
+    .subFilter.has-child .subChildFilter p{
+        border-bottom: none;
+    }
+    .itemListInfo .division.active:before{
+        content:"";
+        background: url('../assets/images/check.svg') no-repeat;
+        background-position: right;
+        background-size: 100%;
+        width: 32px;
+        height: 32px;
+        display:inline-block;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+    }
+    .itemListInfo.subChildFilter .team.active:before{
+        content:"";
+        background: url('../assets/images/check.svg') no-repeat;
+        background-position: right;
+        background-size: 100%;
+        width: 32px;
+        height: 32px;
+        display:inline-block;
+        position: absolute;
+        right: 5px;
+        top: 3px;
+    }
+    .subChildFilter .team {
+        width: 100%;
+        position: relative;
+    } 
+    .itemListInfo .division {
+        width: 100%;
+        position: relative;
+    } 
+    .itemList >div.active:before{
+        content:"";
+        background: url('../assets/images/check.svg') no-repeat;
+        background-position: right;
+        background-size: 100%;
+        width: 32px;
+        height: 32px;
+        display:inline-block;
+        position: absolute;
+        right: 10px;
+    }
+    .overlay .well{
+        box-shadow: none!important;
+
+    }
+
+    .col-xs-10{
+        width: 82.33%;
+    }
+    /* Filter design end */
+}

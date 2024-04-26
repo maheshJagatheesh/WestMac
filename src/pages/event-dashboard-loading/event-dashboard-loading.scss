@@ -1,0 +1,398 @@
+page-event-dashboard-loading {
+    .top-bar{
+      padding-left: 10px;
+    }
+    .back-button{
+      display: none !important;
+    }
+    .BackButton{
+      background: #fff;
+  
+    }
+    .radial-progressbar .info-right {
+      width: 21%;
+    }
+    .radial-progressbar .info-left {
+      width: 20%;
+    }
+    .progress-item{
+      font-size: 12px !important;
+    }
+    .suit-iconCard{
+      padding: 0;
+      line-height: normal;
+      .suit-icon{
+        width:25px;
+        height:25px;
+      }
+    }
+    
+    .medical-bottleCard{
+      margin: 0 8px;
+      line-height: 55px;
+      float: right;
+      .medical-bottle{
+        height:25px;
+      }
+    }
+    .display-status .Show_Status{
+      line-height: 10px !important;
+    }
+  
+    .col {
+  
+      a{
+        justify-content: center;
+        display: flex;
+        position: relative;
+      }
+    }
+    
+    span.active:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: #428CF4;
+        justify-content: center;
+        display: flex;
+        background: -webkit-gradient(linear, left top, right top, from(#428CF4), to(#43C9BB));
+        background: -webkit-linear-gradient(left, #428CF4, #43C9BB);
+        background: -moz-linear-gradient(left, #428CF4, #43C9BB);
+        background: -ms-linear-gradient(left, #428CF4, #43C9BB);
+        background: -o-linear-gradient(left, #428CF4, #43C9BB);
+      }
+  
+    .grid{
+      padding-bottom: 0px !important;
+    }
+  
+    .well.select-card {
+      background-color: #fff !important;
+      border-radius: 20px !important;
+  
+    }
+    .card-title {
+      color: #000 ;
+      padding:10px !important;
+    }
+    .tabs {
+      color:#000;
+      text-transform: capitalize;
+      font-size: 14px;
+    }
+    .borrowHeading{
+      float: left;
+    }
+    // .borrowOuter{
+    //   padding-top: 30px;
+    // }
+    .ArrowDark{
+        color: map-get($colors , ArrowDarkColor ) !important;
+    }
+    .ArrowLight{
+      color: map-get($colors , ArrowColor ) !important;
+    }
+  
+    .dropdown-menu{
+      top:0%
+    }
+    .card-dropdown:before {
+      top: -20px;
+    }
+    
+    .inactive{
+      opacity: 0.2;
+    }
+    .InjuredPlayer{
+      background-color: map-get($colors , InjuredPlayersColor ) !important;
+      border-radius: 20px !important;
+      padding: 8px 10px;
+      margin-bottom: 10px;
+      .InjuredPlayerStatus{
+        color:map-get($colors , LightGreyish) !important;
+      }
+      .InjuredPlayerName{
+        color:map-get($colors , light) !important;
+      }
+    }
+    .RecoveredPlayer{
+      background-color: map-get($colors , RecoveredPlayersColor ) !important;
+      border-radius: 20px !important;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  
+    .select-card .card-img span.going:before{
+      background: url(../assets/images/right-green.svg) !important;
+    }
+    .select-card .card-img span.maybe:before{
+      background: url(../assets/images/edit-blue.svg) !important;
+  
+    }
+    .checkbox{
+      width: 30px !important;
+      height: 30px !important;
+      background-color: #fff !important;
+      border: 2px solid #DEDBDB !important;
+      border-radius: 20px !important;
+      margin: 0 auto !important;
+  
+    }
+    .checkbox1{
+      width: 23px !important;
+      height: 23px !important;
+      background-color: white;
+      border-radius: 20px !important;
+  
+    }
+    .PresentCheckbox1{
+      background-color: map-get($colors , colorMayBe) !important;
+      position: absolute !important;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      -moz-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+    
+    .AbsentCheckbox1{
+      background-color: map-get($colors , DarkBlueDot) !important;
+      position: absolute !important;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      -moz-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+    .checkbox-col{
+      margin: 14px 0 0 1px;
+      position:relative !important;
+    }
+    .checkArrow-group.OuterDiv{
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: flex-end;
+      justify-content: flex-end ;
+    }
+    .Div-Arrow::before{
+      right: 5%;
+      top:-30px;
+    }
+    .SelectedReason{
+      background: #15233c;
+    }
+    .badge.not-going {
+      background: map-get($colors ,colorNotGoing ) !important;
+    }
+    .suit-iconCard.fixedRight {
+      padding: 0;
+      right: 0!important;
+      width: 26px;
+      left: inherit;
+      top: 45%;
+      position: absolute;
+      -webkit-transform: translate(0, -50%);
+      -moz-transform: translate(0, -50%);
+      -o-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+    }
+    .profile, .login {
+      padding-top: 20%!important;
+    }
+    
+    .segment-button{
+      line-height: 4rem !important;
+      -webkit-justify-content:center;
+      justify-content: center;
+    }
+    .event-card{
+      margin-bottom:0 !important; 
+      padding: 3px !important;
+    }
+    .player-item {
+      padding: 89px 0 0 0 !important;
+    }
+    .show-tickmark{
+      
+      line-height: 50px;
+    }
+    .tickIcon{
+      font-size: 34px;
+      padding-left: 4px;
+      padding-top: 10px;
+    }
+    .suit-iconCard.fixedRight {
+      padding: 0;
+      right: 0!important;
+      width: 26px;
+      left: inherit;
+      top: 45%;
+      position: absolute;
+      -webkit-transform: translate(0, -50%);
+      -moz-transform: translate(0, -50%);
+      -o-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+    }
+  
+    // result
+    .voting .select-val .item-ios.input-has-focus, .voting .select-val .item-md.input-has-focus{
+      border:1px solid #fff!important;
+      background: #eeeeee!important;
+      color: #000000!important;
+    }
+    .voting.score h5{
+      margin-top: 5px!important;
+      text-align: center;
+      line-height: 16px;
+    }
+    .voting .select-val .item-ios.input-has-focus input, .voting .select-val .item-md.input-has-focus input{
+      background: #eeeeee!important;
+      color: #000000!important;
+    }
+    .card-title span {
+      padding-top: 0;
+      color: #8B8B8B;
+      font-size: 12px;
+      font-weight: normal;
+      width: 100%;
+    }
+    .event-next.show-tickmark .next-arrow {
+      color: #43B7CC;
+      padding-left: 4px;
+    }
+    .event-card .select-card.active {
+      background: #15233C;
+    }
+    .event-card .select-card.active .card-title{
+      color: #FFFFFF !important;
+    }
+    .flatten .radio {
+      text-align: right;
+    }
+    .HighLight{
+      font-size: 11px !important;
+      font-weight: 800 !important;
+    }
+    .top-bar .location img {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+    }
+    .top-bar .location {
+      margin-right: 20px;
+    }
+    .card-title{
+      text-transform: uppercase;
+    }
+    .event-next{
+      font-size: 24px;
+      height: auto;
+    }
+    .show-card {
+      padding-top: 2%;
+      padding-bottom: 25%;
+    }
+    .show-card.xs-padding {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .event-card {
+      padding: 6px 10px!important;   
+    }
+    .bg-gray .select-card.RecoveredPlayer {
+      -moz-shadow: 0 0 10px 2px #ccc!important;
+      -webkit-box-shadow: 0 0 10px 2px #ccc!important;
+      box-shadow: 0 0 10px 2px #ccc !important;
+    }
+    .result-content .profile.event-results,.attendance-content .profile{
+      padding-top: 0px!important;
+      margin-bottom: 56px;
+    }
+    .attendance-content .event-card .well.select-card:last-child,
+    .result-content .event-card .well.select-card:last-child{
+      margin-bottom: 60px!important;
+    }
+    .event-card .LastChild-check .well.select-card:last-child{
+      margin-bottom: 12px!important;
+    }
+    .welfare-content .player-item,.welfare-content .show-card{
+      padding-top: 0!important;
+    }
+    .attendance-content .scroll-content,.result-content .scroll-content,.welfare-content .scroll-content{
+      margin-top: 86px;
+    }
+    .iontextarea {
+      border: none !important;
+      height: auto !important;
+      box-shadow: none!important;
+    }
+    button.btn-sm-black{
+      margin: 0 auto;
+      padding: 15px 12px;
+      font-size: 10px;
+      text-transform: uppercase;
+      color: #FFF !important;
+    }
+  }
+  .ActiveSpan{
+    color: #000 !important;
+    line-height: 17px !important;
+    font-weight: bold!important;
+    padding-bottom: 10px;
+    text-transform: capitalize !important;
+    font-size: 14px !important;
+  }
+  .InactiveSpan{
+    color: #aaa !important;
+    line-height: 17px !important;
+    
+    padding-bottom: 10px;
+    text-transform: capitalize !important;
+    font-size: 14px !important;
+  }
+  .img-text{
+    display: block;
+    width: 46px;
+    height: 46px;
+    background: #eee;
+    border-radius: 50%;
+    margin: 8px auto;
+    position: relative;
+    font-weight: bold;
+    font-size: 14px;
+    color: #828282;
+  }
+  // .img-text{
+  //   padding: 9px;
+  //   font-size: 14px;
+  //   font-weight: bold;
+  //   color: #828282;
+  // }
+  .select-card .card-img span.no-response:before {
+    z-index: 9999;
+  }
+  .select-card .card-img span.not-going:before{
+    z-index: 9999;
+  }
+  .calendar{
+    margin-right: 50px;
+  }
+  .medical-bottle{
+    width:25px;
+    height:25px;
+  }
+  

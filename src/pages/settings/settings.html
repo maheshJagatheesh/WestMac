@@ -1,0 +1,88 @@
+<ion-content [ngStyle]="{'background-color': bgThemeColor ? bgThemeColor :  '#ffffff'}" >
+  <section class="main mt-20">
+    <div class="top-bar">
+      <div class="col-xs-3">
+        <div class="backArrow inverse" (click)="goBack()"></div>
+      </div>
+    </div>
+
+    <form action="" class="user-form profile setting-first formUpperPadding">
+      <section class="profileFirst heightAuto">
+        <div class="row setting-row">
+          <div class="card-img col-xs-12 p-0 setting-logo logo_position">
+            <span class=""><img src="assets/images/logo.svg" alt="" class="img-circle"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row setting-row">
+            <div class="card-title col-xs-11 p-0 setting-title textFont" (click)="goToProfileStatisticsPage()"><a href="javascript:void(0);" class="textFontColor {{bgThemeColor}} {{profileHoverActive}}" >PROFILE</a></div>
+            <!--<div class="card-title col-xs-11 p-0 setting-title textFont" (click)="goToGalleryEvents()"><a href="javascript:void(0);" class="textFontColor">PHOTO GALLERY</a></div>-->
+          </div>
+        </div>
+
+        <div class="lineSpace"></div>
+        <div class="form-group">
+          <label class="mb-30 settingTextColor">SETTINGS</label>
+        </div>
+        <div class="divider"></div>
+        <div class="form-group mt-xl">
+          <label class="mb-30 textFontColor">Choose colour theme</label>
+          <div class="themeCircle">
+            <!-- <span><img class="img-circle" [class.active]="(bgThemeColor=='blue')" src="assets/images/theme/blue.svg" alt="" (click)="setTheme('blue')"></span> -->
+            <!-- <span><img class="img-circle" [class.active]="(bgThemeColor=='yellow')" src="assets/images/theme/yellow.svg" alt="" (click)="setTheme('yellow')"></span> -->
+            <span class="img-circle circle-image" [class.active]="(bgThemeColor== (appTheme && appTheme.theme_1))" 
+            [ngStyle]="{'background': appTheme && appTheme.theme_1 ? appTheme.theme_1 :  'blue'}" (click)="setTheme(appTheme.theme_1)"></span>
+            <span class="img-circle circle-image" [class.active]="(bgThemeColor==(appTheme && appTheme.theme_2))"  
+            [ngStyle]="{'background':  appTheme && appTheme.theme_2 ? appTheme.theme_2 :  'yellow'}"
+            (click)="setTheme(appTheme.theme_2)"></span>
+
+          </div>
+          <div class="theme-line" *ngIf="loggedInUserData && (loggedInUserData.ISCONTRACTOR || loggedInUserData.TIMESHEETREVIEWER)"></div>
+
+          <div class="row setting-row" *ngIf="loggedInUserData && (loggedInUserData.ISCONTRACTOR || loggedInUserData.TIMESHEETREVIEWER)" (click)="sendTimesheetDashboard()">
+            <div class="card-title col-xs-11 p-0 setting-title {{bgThemeColor == (appTheme && appTheme.theme_1) ? 'blue' : 'yellow' }}">Timesheet</div>
+            <div class="event-next col-xs-1 p-0 setting-arrow">
+              <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="theme-line" *ngIf="ShowAlert"></div>
+          <div class="row setting-row" *ngIf="ShowAlert" (click)="gotoAlerts()">
+            <div class="card-title col-xs-11 p-0 setting-title">Alert</div>
+            <div class="event-next col-xs-1 p-0 setting-arrow">
+              <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <!-- <div class="theme-line"></div>
+          <div class="row setting-row" (click)="goToSettingsHomeImage()">
+            <div class="card-title col-xs-11 p-0 setting-title">Choose home screen image</div>
+            <div class="event-next col-xs-1 p-0 setting-arrow">
+              <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+            </div>
+          </div> -->
+          <div class="theme-line"></div>
+          <div class="row setting-row" (click)="emailSender()">
+            <div class="card-title col-xs-11 p-0 setting-title {{bgThemeColor == (appTheme && appTheme.theme_1) ? 'blue' : 'yellow' }}">Help &amp; support</div>
+            <div class="event-next col-xs-1 p-0 setting-arrow">
+              <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="theme-line"></div>
+          <div class="row setting-row aboutus-bottom" (click)="showAboutUs()">
+            <div class="card-title col-xs-11 p-0 setting-title {{bgThemeColor == (appTheme && appTheme.theme_1) ? 'blue' : 'yellow' }}">About us</div>
+            <div class="event-next col-xs-1 p-0 setting-arrow">
+              <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right {{bgThemeColor == (appTheme && appTheme.theme_1) ? 'blue' : 'yellow' }}" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="theme-line"></div>
+          <div class="row setting-row aboutus-bottom" (click)="logOut()">
+            <div class="card-title col-xs-11 p-0 setting-title {{bgThemeColor == (appTheme && appTheme.theme_1) ? 'blue' : 'yellow' }}">Logout</div>
+            <div class="event-next col-xs-1 p-0 setting-arrow">
+              <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right {{bgThemeColor == (appTheme && appTheme.theme_1) ? 'blue' : 'yellow' }}" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="theme-line"></div>
+        </div>
+      </section>
+    </form>
+  </section>
+</ion-content>

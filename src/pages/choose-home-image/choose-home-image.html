@@ -1,0 +1,64 @@
+
+<ion-content class="bg-gradient {{bgThemeColor}}">
+  <div class="bg-gradient {{bgThemeColor}}">
+    <section class="main">
+      <form action="" class="user-form profile">
+        <section class="innerContent bg-gradient {{bgThemeColor}}">
+          <div class="form-group">
+            <label class="mb-30">CHOOSE YOUR <br> HOMESCREEN IMAGE</label>
+          </div>
+          <div class="divider"></div>
+          <div class="form-group mt-xl">
+            <div class="homeScreen">
+              <div class="row">
+                <div class="thumbnail col-xs-4" [class.active]="(homeScreen_bg=='img-1.jpg')">
+                  <img src="assets/images/img-xs-1.jpg" alt="" (click)="setHomeImage('img-1.jpg')">
+                </div>
+                <div class="thumbnail col-xs-4" [class.active]="(homeScreen_bg=='img-2.jpg')">
+                  <img src="assets/images/img-xs-2.jpg" alt="" (click)="setHomeImage('img-2.jpg')">
+                </div>
+                <div class="thumbnail col-xs-4" [class.active]="(homeScreen_bg=='img-3.jpg')">
+                  <img src="assets/images/img-xs-3.jpg" alt="" (click)="setHomeImage('img-3.jpg')">
+                </div>
+              </div>
+              <div class="row">
+                <div class="thumbnail col-xs-4" [class.active]="(homeScreen_bg=='img-4.jpg')">
+                  <img src="assets/images/img-xs-4.jpg" alt="" (click)="setHomeImage('img-4.jpg')">
+                </div>
+                <div class="thumbnail col-xs-4"[class.active]="(homeScreen_bg=='img-5.jpg')">
+                  <img src="assets/images/img-xs-5.jpg" alt="" (click)="setHomeImage('img-5.jpg')">
+                </div>
+                <div class="thumbnail col-xs-4" [class.active]="(homeScreen_bg=='img-6.jpg')">
+                  <img src="assets/images/img-xs-6.jpg" alt="" (click)="setHomeImage('img-6.jpg')">
+                </div>
+              </div>
+              <div class="row">
+                <div class="thumbnail col-xs-4" [class.active]="(homeScreen_bg=='img-7.jpg')">
+                  <img src="assets/images/img-xs-7.jpg" alt="" (click)="setHomeImage('img-7.jpg')">
+                </div>
+                <div class="thumbnail col-xs-4" [class.active]="(homeScreen_bg=='img-8.jpg')">
+                  <img src="assets/images/img-xs-8.jpg" alt="" (click)="setHomeImage('img-8.jpg')">
+                </div>
+                <div class="thumbnail col-xs-4" [class.active]="(homeScreen_bg=='img-9.jpg')">
+                  <img src="assets/images/img-xs-9.jpg" alt="" (click)="setHomeImage('img-9.jpg')">
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="thumbnail col-xs-4" [class.active]="(homeScreen_bg=='img-10.jpg')">
+                  <img src="assets/images/img-xs-10.jpg" alt="" (click)="setHomeImage('img-10.jpg')">
+                </div>
+                <div class="thumbnail col-xs-4" [class.active]="(homeScreen_bg=='img-12.jpg')">
+                  <img src="assets/images/img-xs-12.jpg" alt="" (click)="setHomeImage('img-12.jpg')">
+                </div>
+                <div class="thumbnail col-xs-4" [class.active]="(homeScreen_bg=='img-13.jpg')">
+                  <img src="assets/images/img-xs-13.jpg" alt="" (click)="setHomeImage('img-13.jpg')">
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="info-item text-left">You can come back here and change your home screen image at any time under the settings menu.</div>
+        </section>
+      </form>
+    </section>
+  </div>
+</ion-content>

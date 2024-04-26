@@ -1,0 +1,118 @@
+
+#chart {
+  width: 100%;
+  height: 100%;
+  margin: 10px auto 0;
+  display: block;
+  position: relative;
+  padding-bottom: 30px;
+}
+
+#chart #numbers {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0 15px;
+  display: block;
+}
+
+#chart #numbers li {
+  position: relative;
+  text-align: left;
+  padding-right: 1em;
+  list-style: none;
+  height: 50px;
+  border-bottom: 1px solid #444;
+  bottom: 30px;
+}
+
+#chart #numbers li span {
+  color: #797a7d;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+#chart #bars {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+}
+
+#chart #bars li {
+  display: block;
+  width: 6.5%;
+  height: 115px;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  float: left;
+}
+
+#chart #bars li .bar {
+  display: block;
+  width: 15px;
+  margin-left: 0;
+  background: #428CF4;
+  background: -webkit-gradient(linear, bottom bottom, top top, from(#428CF4), to(#43C9BB));
+  background: -webkit-linear-gradient(bottom, #428CF4, #43C9BB);
+  background: -moz-linear-gradient(bottom, #428CF4, #43C9BB);
+  background: -ms-linear-gradient(bottom, #428CF4, #43C9BB);
+  background: -o-linear-gradient(bottom, #428CF4, #43C9BB);
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  border-radius: 20px;
+}
+
+#chart #bars li .bar:hover {
+  background: #5AE;
+  cursor: pointer;
+}
+
+#chart #bars li .bar:hover:before {
+  color: white;
+  content: attr(data-percentage) '%';
+  position: relative;
+  bottom: 20px;
+}
+
+#chart #bars li span {
+  color: #eee;
+  width: 100%;
+  position: absolute;
+  bottom: -2em;
+  left: 0;
+  text-align: center;
+}
+.chart-area{
+  height: 244px;
+  position: relative;
+}
+#bar-title li{
+  list-style: none;
+  color:#fff;
+  float:left;
+  width: 6.5%;
+}
+#bar-title li span{
+  color:#fff;
+  display: block;
+  -moz-transform: rotate(-90deg) translate(-105%);
+  -webkit-transform: rotate(-90deg) translate(-105%);
+  -o-transform: rotate(-90deg) translate(-105%);
+  -ms-transform: rotate(-90deg) translate(-105%);
+  transform: rotate(-90deg) translate(-105%);
+  transform-origin: top left;
+  min-width: 120px;
+  height: 16px;
+  text-align: right;
+  font-size: 9px;
+}
+#bar-title {
+  display: block;
+  height: 150px;
+}

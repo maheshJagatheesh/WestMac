@@ -1,0 +1,31 @@
+<!--
+  Generated template for the TrackMemberPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content class="bg-black" (click)="close($event)">
+  
+  <div class="modal-content modalView">
+    <div class="modal-header">
+        <h5 class="modal-title fontBold text-center text_fix">Notify parents</h5>
+    </div>
+    <div class="modal-body">
+      <div class="membar-card d-flex align-center justify-center">
+        <ion-item>
+          <ion-textarea [(ngModel)]="text" placeholder="Text.."></ion-textarea>
+        </ion-item>
+      </div>
+    </div>
+    <div class="modal-footer clearfix">
+      <div class="text-counter pull-left" *ngIf="text.length<=characters">{{characters-text.length}} characters left</div>
+      <div class="text-counter pull-left" *ngIf="text.length>characters">{{text.length-characters}} characters extra</div>
+      <a href="javascript:void(0)" class="send text-blue pull-right" (click)="sendNotification()">Send</a>
+    </div>
+  
+  </div>
+  
+  
+</ion-content>
+

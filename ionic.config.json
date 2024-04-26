@@ -1,0 +1,7 @@
+{
+  "name": "jaro-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

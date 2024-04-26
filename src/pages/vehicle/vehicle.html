@@ -1,0 +1,77 @@
+
+<ion-content class="bg-black" >
+  <div class="fixed-top_ modal-close">
+    <div class="rotate-text pwrotate-text-white" (click)="close()">
+      <span class="close_" data-dismiss="modal">CLOSE
+          <ion-icon name="close" class="close_-button"></ion-icon>
+      </span>
+    </div>
+  </div>
+  <div class="modal-content modalView">
+    <div class="modal-header shadow">
+        <h5 class="modal-title fontBold text-center">VEHICLE</h5>
+    </div>
+    <div class="modal-body modal-report">
+      <div class="row">
+        <div class="d-flex align-center col-xs-3 p-0">
+          <span class="textGray">Name</span>
+        </div>
+        <div class="col-xs-9 p-0">
+            <input type="text" class="form-control" [(ngModel)]="vehicleName" [readonly]="isRemove">
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="d-flex align-center col-xs-3 p-0">
+          <span class="textGray">Capacity</span>
+        </div>
+        <div class="col-xs-9 p-0">
+            <input type="number" class="form-control" [(ngModel)]="vehicleCapacity" [readonly]="isRemove">
+        </div>
+      </div>
+      <div class="modal-footer mt-20">
+        <div class="row">
+          <div class="col-xs-12" *ngIf="isRemove">
+            <button type="submit" class="btn btn-remove xs-btn" (click)="removeVehicle()">REMOVE</button>
+          </div>
+          <div class="col-xs-12 pr-0" *ngIf="!isRemove">
+            <button type="submit" class="btn btn-save xs-btn" (click)="addVehicle()">ADD</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body modal-report" *ngIf="!isRemove">
+    <h5 class="sm-title text-left col-xs-12">SAVED VEHICLES</h5>
+    <section class="heightAuto">
+      <div class="event-card borrow" [class.emptyCard]="savedVehicleList.length == 0">
+        <div class="well select-card selectCard d-flex align-center" *ngIf="savedVehicleList.length == 0">
+          <div class="row">
+              <div class="col-xs-12">
+                  <h5 class="sub-title">NO SAVED VEHICLES</h5>
+              </div>
+          </div>
+        </div>
+        <div class="well select-card savedVehicle" *ngFor="let vehicle of savedVehicleList" [attr.data-id]="vehicle.vehicleId"
+        [ngClass]="{'active': vehicle.active}" (click)="selectVehicle(vehicle)">
+            <div class="row">
+              <div class="card-title col-xs-9 col-xs-offset-2">
+                  {{vehicle.vehicleName | uppercase}}
+              </div>
+              <div class="event-next col-xs-1 p-0">
+                <a class="next-arrow v-center" href="javascript:void(0);"><i aria-hidden="true" class="fa fa-chevron-right"></i></a>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="mt-20">
+        <div class="row">
+          <div class="btn-section col-xs-12">
+            <button type="submit" class="btn btn-save btn-sm-black xs-btn" (click)="addSavedVehicle()">ADD</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+</ion-content>

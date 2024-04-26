@@ -1,0 +1,111 @@
+page-event-attendance-confirm {
+    .label-text{
+        color:#000;
+    }
+    .input-box{
+        border: 1px solid grey;
+    }
+    .confirm-card{
+        padding: 10px 0;
+        text-align: center;
+    }
+    .modalView{
+        // margin-right: 3%;
+        // margin-left: 3%;
+        margin-top: 25%;
+        margin-bottom: 20%;
+        border-radius: 15px;
+    }
+    .close_{
+        color: #fff !important;
+        font-weight: 100 !important;
+        float: right;
+        .close_-button{
+            padding: 5px
+        }
+    }
+    .fixed-top_{
+        position: absolute;
+        right: 5%;
+
+    }
+    .modal-report select{
+        width: 50%!important;
+    }
+    .modal-report select.disabled{
+        pointer-events: none;
+    }
+    .titleText{
+        color: #707070;
+        font-size: 12px;
+    }
+    .AbsenceCard{
+        padding-left:0px
+    }
+    .AbsenceCard ion-label{
+        padding:0;
+        margin:0 auto;
+    }
+    ion-input.textarea-box{
+        margin: 0 auto;
+        height:110px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    ion-input.textarea-box .text-input{
+        height: auto;
+        margin: 0;
+        width: 100%;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .reasonAbsence .titleText{
+        line-height: 34px;
+        font-weight: normal;
+    }
+    .linkOption{
+        position: relative;
+    }
+    .fixed-left {
+        left: 0;
+        bottom: 16px;
+        position: absolute;
+        font-size:12px;
+    }
+    .linkOption .download-icon{
+        font-size:35px;
+        color: #4297e8;
+    }
+    .top-section .sub-title{
+        font-weight:bold;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+    .scroll-content{
+        padding: 15px 5px!important;
+    }
+    .top-section p.text-fade{
+        font-weight:normal;
+        font-size: 12px;
+    }
+    .linkOption .download-icon:before{
+        content: "";
+        display: block;
+        background: url(../assets/images/download.svg) no-repeat;
+        background-size: 100%;
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+    }
+    ion-input.textarea-box .text-input{
+        border: none;
+    }
+    .medicalCertificateImg{
+        width: 50px;
+        height: 50px;
+    }
+    .modal-title{
+        text-transform: uppercase;
+    }
+
+}

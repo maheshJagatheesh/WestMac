@@ -1,0 +1,19 @@
+page-alert-dashboard {
+    ion-header.top-bar{
+        min-height:63px;
+    }
+    .scroll-content{
+        margin-top: 64px;
+    }
+    .bg-gray .select-events .select-card{
+        border-radius: 0;
+        margin-bottom: 0!important;
+        box-shadow: none!important;
+        border-bottom: 1px solid #e3e3e3!important;
+    }
+
+    button.back-button{
+        display: none!important;
+    }
+    
+}

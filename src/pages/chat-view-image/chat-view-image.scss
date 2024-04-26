@@ -1,0 +1,37 @@
+page-chat-view-image {
+    .modalView{
+        margin-top: 25%;
+        margin-bottom: 20%;
+        border-radius: 15px;
+    }
+    .close_{
+        color: #fff !important;
+        font-weight: 100 !important;
+        float: right;
+        .close_-button{
+            padding: 5px
+        }
+    }
+    .fixed-top_{
+        position: absolute;
+        right: 5%;
+
+    }
+    .titleText{
+        color: #707070;
+        font-size: 12px;
+    }
+    .scroll-content{
+        padding: 15px 5px!important;
+    }
+    .modal-title{
+        text-transform: uppercase;
+    }
+    ion-icon.download{
+        margin-top: 15px;
+        font-size: 20px;
+    }
+    .rotate-text{
+        margin-top: 0;
+    }
+}

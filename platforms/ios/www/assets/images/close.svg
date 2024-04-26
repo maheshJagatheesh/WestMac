@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12.727" height="69.615" viewBox="0 0 12.727 69.615">
+  <g id="Group_6018" data-name="Group 6018" transform="translate(-323.775 -573.385)">
+    <g id="Group_295" data-name="Group 295" transform="translate(324.482 574.092)">
+      <path id="Path_143" data-name="Path 143" d="M196-143l10.587,10.613" transform="translate(-195.276 143)" fill="none" stroke="#000" stroke-width="2"/>
+      <path id="Path_144" data-name="Path 144" d="M0,0,10.587,10.613" transform="translate(0 10.587) rotate(-90)" fill="none" stroke="#000" stroke-width="2"/>
+    </g>
+    <text id="CLOSE" transform="translate(325.256 643) rotate(-90)" fill="#fff" font-size="10" font-family="ArialMT, Arial" letter-spacing="0.15em"><tspan x="9.549" y="9">CLOSE</tspan></text>
+  </g>
+</svg>

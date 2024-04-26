@@ -1,0 +1,19 @@
+page-player-add-for-grading {
+  .btn-section{
+    margin: 0 auto;
+  }
+  input[type="text"]{
+    border: none;
+    color: #000;
+    background: #fafafa;
+  }
+  .edit-profile .title .first-name, .edit-profile .title .last-name{
+    width: 30%;
+  }
+  .errorMsg{
+    text-align: left;
+    color: #f00;
+    float: left;
+    width: 100%;
+  }
+}

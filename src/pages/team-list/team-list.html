@@ -1,0 +1,44 @@
+
+<ion-content class="bg-black borrowPlayer">
+    <section class="main mt-20" style="margin-top: 10%;">
+        <div class="top-bar">
+            <div class="col-xs-3" (click)="backArrow()">
+                <div class="backArrow inverse"></div>
+            </div>
+        </div>
+        <form action="" class="user-form">
+            <h5 class="sm-title text-left col-xs-12 mt-20" >TEAM LIST
+            <section class="heightAuto">
+                <div class="event-card borrow" >
+                    <div class="well select-card " *ngIf="TeamList=='' ">
+                        <div class="row">
+                            <div class="col-xs-12 ">
+                                <h5 class="sub-title">NO TEAM FOUND</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="well select-card" *ngFor="let key of TeamList; let i= index" (click)="choosePlayer(key,$event)">
+                        
+                        <div class="row">
+                            <div class="card-item col-xs-2 p-0">
+                                <div class="text-info">{{i+1}}</div>
+                            </div>
+                            <div class="card-title col-xs-6 p-0"> {{key.lendTeam_name}}</div>
+                            <div class="card-item col-xs-3 p-0">
+                                <div class="text-info">{{key.division_name}}</div>
+                            </div>
+                            <div class="event-next col-xs-1 p-0">
+                                <a href="" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+          </h5>
+        </form>
+        </section>
+
+</ion-content>
+

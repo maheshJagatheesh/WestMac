@@ -1,0 +1,23 @@
+<div class="background group-msg">
+    <div class="modal-content msg-send radius-10 backgroundColor">
+        <div class="modal-header">
+            <h4 class="modal-title text-center">Add Note</h4>
+        </div>
+        <div class="modal-body backgroundColor">
+            <textarea class="form-control msg-box" name="" id="" cols="30" rows="6" maxlength="250" [(ngModel)]="note"></textarea>
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                <div class="submit-link text-left" [class.col-xs-4]="event_notes != ''" [class.col-xs-6]="event_notes == ''">
+                    <button type="submit" class="btn backgroundColor" (click)="close()">Close</button>
+                </div>
+                <div class="submit-link col-xs-4 text-right" *ngIf="event_notes != ''">
+                    <button type="submit" class="btn backgroundColor" (click)="send(true)">Remove</button>
+                </div>
+                <div class="submit-link text-right" [class.col-xs-4]="event_notes != ''" [class.col-xs-6]="event_notes == ''">
+                    <button type="submit" class="btn backgroundColor" (click)="send()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,128 @@
+
+<!-- <ion-header mode="" *ngIf="bgThemeColor=='red' || bgThemeColor=='yellow'">
+  <ion-toolbar class="top-logo" mode="md">
+    <img class="logo-top" [src]="backgroundURL" alt="">
+  </ion-toolbar>
+</ion-header> -->
+<!-- [ngStyle]="{'background': 'url(' + backgroundURL + ') no-repeat','background-position' : 'center !important'}" -->
+
+<!-- [ngStyle]="{'background': 'url(' + backgroundURL + ') no-repeat fixed center'}" -->
+<ion-content class="bg-homeScreen {{bgThemeColor}}"
+[ngStyle]="{'background': 'url(' + backgroundURL + ') no-repeat','background-position' : 'center !important'}">
+  <div>
+    <section class="main">
+      <section class="menu-card">
+        <!-- <div class="option-item"
+        *ngIf="loggedInUserData && loggedInUserData.SHOWTIMESHEETMENU  && (loggedInUserData.ISCONTRACTOR || loggedInUserData.TIMESHEETREVIEWER)"> -->
+
+        <div class="option-item"  *ngIf="loggedInUserData && loggedInUserData.SHOWTIMESHEETMENU">
+          <div class="row">
+            <div class="well col-xs-4">
+              <div class="icon-wrap" (click)="gotoEvents()">
+                <img src="assets/images/home-menu/events.svg" alt="">
+                <label>ACTIVITIES</label>
+                
+              </div>
+            </div>
+            <div class="well col-xs-4">
+              <div class="icon-wrap" (click)="gotoPlayers()">
+                <img src="assets/images/home-menu/players.svg" alt="">
+                <label>GROUPS</label>
+              </div>
+            </div>
+            <div class="well col-xs-4">
+              <div class="icon-wrap chats" (click)="gotoChats()">
+                <div class="badge hide"><span class="counter">0</span></div>
+                <img src="assets/images/home-menu/msg.svg" alt="">
+                <label>CHAT</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="loggedInUserData.SHOWTIMESHEETMENU && (loggedInUserData.ADMINLEVEL==1 || loggedInUserData.ADMINLEVEL==2 ||loggedInUserData.ADMINLEVEL==3)&&(loggedInUserData.ISCONTRACTOR)">
+            <div class="well col-xs-4">
+              <div class="icon-wrap" (click)="gotoTimesheets()" *ngIf="loggedInUserData.ISCONTRACTOR">
+                <img src="assets/images/home-menu/timesheet.svg" alt="">
+                <label>TIMESHEETS</label>
+              </div>
+            </div>
+            <div class="well col-xs-4">
+              <div class="icon-wrap alerts" (click)="gotoMessageLogs()">
+                <div class="badge hide"><span class="counter">0</span></div>
+                <img src="assets/images/home-menu/alerts.svg" alt="">
+                <label>ALERTS</label>
+              </div>
+            </div>
+            <div class="well col-xs-4">
+              <div class="icon-wrap" (click)="gotoSettings()">
+                <img src="assets/images/home-menu/more.svg" alt="">
+                <label>MORE</label>
+              </div>
+            </div>
+          </div>
+
+
+     <!---new oneeeeeee-->
+
+          <div class="row" *ngIf="!(loggedInUserData.SHOWTIMESHEETMENU && (loggedInUserData.ADMINLEVEL === 1 || loggedInUserData.ADMINLEVEL === 2 || loggedInUserData.ADMINLEVEL === 3)&&(loggedInUserData.ISCONTRACTOR))">
+            <div class="well col-xs-6">
+              <div class="icon-wrap alerts" (click)="gotoMessageLogs()">
+                <div class="badge hide"><span class="counter">0</span></div>
+                <img src="assets/images/home-menu/alerts.svg" alt="">
+                <label>ALERTS</label>
+              </div>
+            </div>
+            <div class="well col-xs-6">
+              <div class="icon-wrap" (click)="gotoSettings()">
+                <img src="assets/images/home-menu/more.svg" alt="">
+                <label>MORE</label>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <!-- *ngIf="loggedInUserData && (!loggedInUserData.ISCONTRACTOR && !loggedInUserData.TIMESHEETREVIEWER) "> -->
+        <div class="option-item"
+          *ngIf="loggedInUserData && !loggedInUserData.SHOWTIMESHEETMENU ">
+          <div class="row">
+            <div class="well col-xs-6">
+              <div class="icon-wrap alerts" (click)="gotoMessageLogs()">
+                <div class="badge hide"><span class="counter">0</span></div>
+                <img src="assets/images/home-menu/alerts.svg" alt="">
+                <label>ALERTS</label>
+              </div>
+            </div>
+            <div class="well col-xs-6">
+              <div class="icon-wrap" (click)="gotoPlayers()">
+                <img src="assets/images/home-menu/players.svg" alt="">
+                <label>GROUPS</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="well col-xs-4">
+              <div class="icon-wrap chats" (click)="gotoChats()">
+                <div class="badge hide"><span class="counter">0</span></div>
+                <img src="assets/images/home-menu/msg.svg" alt="">
+                <label>CHAT</label>
+              </div>
+            </div>
+            <div class="well col-xs-4">
+              <div class="icon-wrap" (click)="gotoEvents()">
+                <img src="assets/images/home-menu/events.svg" alt="">
+                <label>ACTIVITIES</label>
+              </div>
+            </div>
+            <div class="well col-xs-4">
+              <div class="icon-wrap" (click)="gotoSettings()">
+                <img src="assets/images/home-menu/more.svg" alt="">
+                <label>MORE</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+</ion-content>

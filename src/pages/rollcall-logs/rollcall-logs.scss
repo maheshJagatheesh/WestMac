@@ -1,0 +1,21 @@
+page-rollcall-logs {
+    .img-circle .img-text {
+        padding: 18px 0 !important;
+        width: 60px !important;
+        height: 60px !important;
+    }
+    .modal-body {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    ion-content.bg-black{
+        background: rgba(21, 35, 60, 0.8)!important;
+    }
+    .logs-card {
+        height: 125px;;
+        overflow-x: hidden;
+        overflow-y: auto;
+        margin-bottom: 5px;
+    }
+
+}

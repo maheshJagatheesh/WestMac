@@ -1,0 +1,222 @@
+<!--
+  Generated template for the EventAttendancePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="header-md header">
+
+    <ion-navbar class="main toolbar toolbar-md"><div class="toolbar-background toolbar-background-md" ng-reflect-klass="toolbar-background" ng-reflect-ng-class="toolbar-background-md"></div><button class="back-button disable-hover bar-button bar-button-md back-button-md bar-button-default bar-button-default-md" ion-button="bar-button" ng-reflect-klass="back-button" ng-reflect-ng-class="back-button-md"><span class="button-inner"><ion-icon class="back-button-icon icon icon-md back-button-icon-md ion-md-arrow-back" role="img" ng-reflect-klass="back-button-icon" ng-reflect-ng-class="back-button-icon-md" aria-label="arrow back" ng-reflect-name="md-arrow-back"></ion-icon><span class="back-button-text back-button-text-md" ng-reflect-klass="back-button-text" ng-reflect-ng-class="back-button-text-md"></span></span><div class="button-effect"></div></button><div class="toolbar-content toolbar-content-md" ng-reflect-klass="toolbar-content" ng-reflect-ng-class="toolbar-content-md">
+  
+      
+  
+      <div class="top-bar clearfix">
+  
+        <div class="pull-left">
+  
+          <div class="backArrow" (click)="backArrow()"> EVENTS </div>
+  
+      </div>
+  
+        
+  
+      </div>
+  
+    </div></ion-navbar>
+  
+    
+  
+  </ion-header>
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>event-attendance</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content class="bg-black">
+  <!-- Loading skeleton -->
+  <div class="skeleton" *ngIf="!isLoaded && !isOffline">
+      <div class="img-card">
+          <span class="img-text animate"></span>
+      </div>
+      <div class="top-info text-center">
+          <h3 class="text-center animate">&nbsp;</h3>
+          <div class="ruller animate">&nbsp;</div>
+          <h4 class="text-center animate">&nbsp;</h4>
+          <p class="text-center animate">&nbsp;</p>
+          <!-- <h5 class="text-center">&nbsp;</h5> -->
+          <div class="ruller">&nbsp;</div>
+      </div>
+      <div class="radio-option">
+          <div class="row">
+              <div class="col-xs-5 list-item p-0">
+                <p class="animate">&nbsp;</p>
+              </div>
+              <div class="col-xs-2 text-center  p-0">
+                  <div class="radio clearfix">
+                        <span class="xs-circle animate"></span>
+                  </div>
+              </div>
+              <div class="col-xs-5 attending_aria_left p-0"><p></p></div>
+          </div>
+          <div class="row">
+              <div class="col-xs-5 list-item p-0">
+                <p class="animate">&nbsp;</p>
+              </div>
+              <div class="col-xs-2 text-center  p-0">
+                  <div class="radio clearfix">
+                        <span class="xs-circle animate"></span>
+                  </div>
+              </div>
+              <div class="col-xs-5 attending_aria_left p-0"><p></p></div>
+          </div>
+          <div class="row">
+              <div class="col-xs-5 list-item p-0">
+                <p class="animate">&nbsp;</p>
+              </div>
+              <div class="col-xs-2 text-center  p-0">
+                  <div class="radio clearfix">
+                        <span class="xs-circle animate"></span>
+                  </div>
+              </div>
+              <div class="col-xs-5 p-0"></div>
+          </div>
+          <div class="row">
+              <div class="col-xs-5 p-0"></div>
+              <div class="col-xs-2 text-center p-0">
+                  <div class="radio clearfix">
+                        <span class="xs-circle animate"></span>
+                  </div>
+              </div>
+              <div class="col-xs-5 list-item p-0">
+                <p class="animate">&nbsp;</p>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-xs-5 p-0"></div>
+              <div class="col-xs-2 text-center p-0">
+                  <div class="radio clearfix">
+                        <span class="xs-circle animate"></span>
+                  </div>
+              </div>
+              <div class="col-xs-5 list-item p-0">
+                <p class="animate">&nbsp;</p>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-xs-5 p-0"></div>
+              <div class="col-xs-2 text-center p-0">
+                  <div class="radio clearfix">
+                        <span class="xs-circle animate"></span>
+                  </div>
+              </div>
+              <div class="col-xs-5 list-item p-0">
+                <p class="animate">&nbsp;</p>
+              </div>
+          </div>
+      </div>
+  </div>
+ 
+  <!-- Loading skeleton End-->
+  <div class="body_aria" *ngIf="isLoaded && !isOffline">
+    <div *ngFor="let player of playerDetails">
+      <div class="card-img">
+        <span *ngIf="!player.photoPath">
+          <div class="img-circle"><span class="img-text">{{player.first_name[0] | uppercase}} {{player.last_name[0] | uppercase}} </span></div>          
+        </span>
+        <span *ngIf="player.photoPath">
+          <img src="{{global.PROFILEIMAGEURL}}{{player.photoPath}}" alt="" class="img-circle" onerror="this.src='assets/images/test-user.svg'">
+        </span>
+      </div>
+      <div *ngFor="let detail of arrDetail">
+        <h3 class="text-center">ATTENDANCE</h3>
+        <div class="ruller"></div>
+        <h4 class="text-center inverseText" *ngIf="detail.event_type_id==1">{{detail.hometeamname}} vs {{detail.awayteamname}}</h4>
+        <h4 class="text-center inverseText" *ngIf="detail.event_type_id==2">{{detail.name}}</h4>
+        <p class="venu" *ngIf="detail.ground_name">{{detail.ground_name}}</p>
+        <p class="venu" *ngIf="detail.ground_address && detail.ground_state">{{detail.ground_address}}, {{detail.ground_state}}</p>
+        <p class="venu_time">{{detail.date_started | date: 'MMM d'}} AT {{detail.time_started}}</p>
+        <div class="ruller"></div>
+      </div>
+
+      <div class="radio_aria">
+        <div class="row" *ngFor="let key of reason_options_list[0]">
+          <div class="col-xs-5 attending_aria_right p-0"><p *ngIf="key.confirm_reason == 'Y'">{{key.reason_display}}</p></div>
+          <div class="col-xs-2 text-center">
+            <div class="radio clearfix" [class.absent]="key.confirm_reason == 'N'">
+              <input 
+                type="radio" 
+                class="attendence"  
+                name="attendence" 
+                [value]="key.reason_display.trim()"
+                [checked]="key.reason.trim() === player.reasondeclined.trim() || key.reason_display.trim() === player.reasondeclined.trim() ? true : false"  
+                (click)="SinglePlayersAttdStates(key.confirm_reason,'',key.reason_display,player.child_person_id,$event)"  
+              />
+              <label class=""></label>
+            </div>
+          </div>
+          <div class="col-xs-5 attending_aria_left p-0"><p *ngIf="key.confirm_reason == 'N'">{{key.reason_display }}</p></div>
+        </div>
+        <!-- <div class="row">
+          <div class="col-xs-5 attending_aria_right p-0"><p>Yes,5mint late</p></div>
+          <div class="col-xs-2 text-center">
+              <div class="radio clearfix">
+                  <input type="radio" value="" name="">
+                  <label class=""></label>
+            </div>
+          </div>
+          <div class="col-xs-5 attending_aria_left p-0"><p></p></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-5 attending_aria_right p-0"><p>Yes, ingured</p></div>
+          <div class="col-xs-2 text-center">
+              <div class="radio clearfix">
+                  <input type="radio" value="" name="">
+                  <label class=""></label>
+            </div>
+          </div>
+          <div class="col-xs-5 attending_aria_left p-0"><p></p></div>
+        </div> -->
+      </div>
+
+      <!-- <div class="radio_aria">
+          <div class="row">
+            <div class="col-xs-5 attending_aria_right p-0"><p></p></div>
+            <div class="col-xs-2 text-center">
+                <div class="radio clearfix">
+                    <input type="radio" value="" name="">
+                    <label class=""></label>
+              </div>
+            </div>
+            <div class="col-xs-5 attending_aria_left p-0"><p>Not my usual</p></div>
+          </div>
+          <div class="row">
+              <div class="col-xs-5 attending_aria_right p-0"><p></p></div>
+              <div class="col-xs-2 text-center">
+                  <div class="radio absent clearfix">
+                      <input type="radio" value="" name="">
+                      <label class=""></label>
+                </div>
+              </div>
+              <div class="col-xs-5 attending_aria_left p-0"><p>No,sick</p></div>
+            </div>
+        </div> -->
+    </div>
+  </div>
+
+  <!-- Offline -->
+  <div class="background_blue" *ngIf="isOffline">
+    <div class="off-wrap">
+      <p><img src="assets/images/events-new-icon/offline-logo.svg" class=""></p>
+      <h3>OFFLINE</h3>
+      <p>Your network is unavalaible, please check your data or connection</p>
+      <button type="button" class="btn btn-sm-black try-again" (click)="tryAgain()">TRY AGAIN</button>
+    </div>  
+  </div>
+
+  
+
+</ion-content>

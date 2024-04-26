@@ -1,0 +1,37 @@
+<div >
+    <div class="background group-msg" >
+            <!-- (clickOutside)="close()" -->
+        <div class="modal-content radius-20 backgroundColor">
+            <div class="modal-header">
+                <h4 class="modal-title text-center">Group Message</h4>
+                <p class="header-title text-center">Do you want to send a group message to:</p>
+            </div>
+            <div class="modal-body ">
+                <ul class="list-group msg-item">
+                    <li class="list-group-item">
+                        <a href="javascript:void(0)"><span class="circle-group Going" (click)="selectState(1,$event)"><i class="material-icons">add</i></span> {{DupeventAttendLen[0]}} Going</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="javascript:void(0)"><span class="circle-group NoResponse" (click)="selectState(3,$event)"><i class="material-icons">add</i></span> {{DupeventAttendLen[2]}} No response</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="javascript:void(0)"><span class="circle-group NotGoing" (click)="selectState(2,$event)"><i class="material-icons">add</i></span> {{DupeventAttendLen[1]}} Not going</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="javascript:void(0)"><span class="circle-group MayBe" (click)="selectState(4,$event)"><i class="material-icons">add</i></span> {{DupeventAttendLen[3]}} Maybe</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="submit-link col-xs-6 text-center border-rt" (click)="backArrow()">
+                        <button type="submit" class="btn">No</button>
+                    </div>
+                    <div class="submit-link col-xs-6 text-center" (click)="yes()">
+                        <button type="submit" class="btn">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+page-scanning {
+    /* ion-content { background: none transparent !important; } */
+    .event-card ion-item-sliding.well.select-card:last-child{
+        margin-bottom: 0 !important;
+    }
+    .event-card ion-item-sliding.well.select-card ion-item{
+        background-color: inherit;
+        padding: 8px 0;
+    }
+    ion-item-sliding.well.select-card{
+        padding: 0 10px;
+    }
+    ion-item-options .button{
+        background-color: #FF6945;
+        border: 1px solid #FF6945;
+    }
+    ion-item-options,ion-item-options button{
+        width:30%;
+    }
+    span.textWhite{
+        color: #FFF;
+        font-size: 14px;
+    }
+}
+/* ion-app { background: none transparent !important; } */

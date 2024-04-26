@@ -1,0 +1,33 @@
+page-player-details {
+  .navbar-inner{
+    padding-top: 10vh;
+  }
+  ion-header.header.bg-black {
+    background: #15233C;
+  }
+  .navbar-fixed-top{
+    top:20px;
+  }
+  .info-item{
+    text-transform: uppercase;
+  }
+  .img-text{
+    line-height: 50px !important;
+    font-size: 20px;
+    display: block;
+    width: 76px;
+    height: 76px;
+    background: #eee;
+    border-radius: 50%;
+    margin: 8px auto;
+    position: relative;
+
+  }
+  .header-md::after{
+    background-image: none !important;
+  }
+  .inverse{
+    color:#000 !important;
+    font-weight: 300px;
+  }
+}

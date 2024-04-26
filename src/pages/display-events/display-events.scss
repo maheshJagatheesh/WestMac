@@ -1,0 +1,142 @@
+page-display-events {
+    .fontBold{
+        margin-top: -6px
+    }
+    .emptyclass{
+        padding: 0px 15px 0px 15px;
+    }
+    .more{
+        position: relative !important;
+        height: 16px;
+        padding-bottom: 20px;
+        padding-right: 10px;
+        .span{
+            float:right;
+        }
+    }
+    .event-icons .check-icon{
+        opacity: 0.5;
+    }
+    .event-icons .RemoveOpacity{
+        opacity: 1 !important;
+
+    }
+    .info-item .reasonCard{
+        padding-left: 10px
+
+    }
+
+    .profile{
+        padding-top: 21% !important;
+        }
+    .cardBottom{
+        margin-bottom: 25% !important
+    }
+    .header{
+        background: none
+    }
+    .navbar-fixed-bottom li.events.active {
+        margin-top: -3px;
+    }
+    .ScrolledUpCard{
+        margin-top: 8% !important;
+    }
+    .doubleArrow{
+        margin-right: 15px !important;
+        margin-top: 12px !important;
+    }
+
+    .eventOption.black.float-top {
+        position: inherit;
+        margin-top: -40px;
+    }
+    .eventOption.black.Remove-float-top {
+        position: inherit;
+        margin-top: 0px !important;
+    }
+    .eventOption.blue{
+        background: #AEAEAE;
+    }
+    .PastEventCard{
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .SubTitleTop{
+        margin-top: -1%;
+    }
+    .mapUpcoming{
+        margin-top: -1% !important;
+    }
+    .eventOption.black.float-top {
+        top: 60px;
+    }
+
+    .mbsc-material{
+        .mbsc-cal-c .mbsc-cal .mbsc-cal-body .mbsc-cal-row .mbsc-selected .mbsc-cal-cell-txt {
+            background: none !important;
+        }
+        .mbsc-cal-today{
+            border: 1px solid #9C895D;
+            border-radius: 50%;
+        }
+        .mbsc-cal-day-date{
+            font-size: 16px !important;
+            font-weight: bold;
+            color: map-get($colors, dark )
+        }
+        .mbsc-cal-year, .mbsc-cal-month {
+           text-align: left;
+           padding-left: 10px;
+        }
+        .mbsc-fr-w{
+            background: none !important;
+        }
+        .mbsc-cal-c{
+            padding: 0;
+        }
+    }
+    .mbsc-material.mbsc-form {
+        background: none !important;
+    }
+
+    .mbsc-cal-scroll-c {
+        padding-bottom: 15px;
+    }
+    .mbsc-material .mbsc-cal .mbsc-cal-btn{
+        display:none;
+    }
+    .mbsc-ic-material-keyboard-arrow-right::before{
+        content: "\a" !important
+    }
+    .mbsc-ic-material-keyboard-arrow-left::before{
+        content: "\a" !important
+    }
+    mbsc-form-group {
+        margin: 0;
+        margin-top: -5%;
+    }
+    .ClickableDiv{
+        padding-top: 20px
+    }
+      
+    .event-icons .check-icon.check-top-arrow:before{
+        content: "\f0de";
+        font-family:FontAwesome;
+        position:absolute;
+        right: 0;
+        top: 30px;
+        font-size: 50px;
+        color: #404c62;
+    }
+    .event-icons .close-icon.close-top-arrow:before{
+        content: "\f0de";
+        font-family:FontAwesome;
+        position:absolute;
+        right: -2px;
+        top: 30px;
+        font-size: 50px;
+        color: #404c62;
+    }
+      
+}
+

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="66" height="69.666" viewBox="0 0 66 69.666">
+  <g id="bus-front-12" transform="translate(-1 -1)">
+    <line id="Line_461" data-name="Line 461" y2="9.022" transform="translate(66 30.194)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+    <line id="Line_462" data-name="Line 462" y2="9.022" transform="translate(2 30.194)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+    <line id="Line_463" data-name="Line 463" y1="11.278" x2="11.278" transform="translate(33.633 31.322)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="Path_1643" data-name="Path 1643" d="M22.278,56v6.767H11V56" transform="translate(0.49 6.899)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="Path_1644" data-name="Path 1644" d="M54.278,56v6.767H43V56" transform="translate(2.232 6.899)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="Path_1645" data-name="Path 1645" d="M59.722,62.9H7V6.511A4.372,4.372,0,0,1,11.218,2H55.5a4.372,4.372,0,0,1,4.218,4.511Z" transform="translate(0.639)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+    <line id="Line_464" data-name="Line 464" x2="9.022" transform="translate(29.489 8.767)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+    <circle id="Ellipse_625" data-name="Ellipse 625" cx="3.383" cy="3.383" r="3.383" transform="translate(13.659 49.366)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+    <circle id="Ellipse_626" data-name="Ellipse 626" cx="3.383" cy="3.383" r="3.383" transform="translate(47.575 49.366)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+    <line id="Line_465" data-name="Line 465" x1="52.722" transform="translate(7.639 42.6)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+    <line id="Line_466" data-name="Line 466" x2="52.722" transform="translate(7.639 15.533)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,0 +1,82 @@
+<!--
+  Generated template for the VehicleDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="header-md">
+  <ion-navbar class="main">
+    <div class="top-bar clearfix">
+      <div class="pull-left">
+        <div>
+            <button class="BackButton bg-white" (click)="backArrow()"><img src="assets/images/arrow-black.svg"></button>
+            EVENTS
+          </div>
+      </div>
+  </div>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bg-gray">
+    <div class="top-section mt-10">
+        <h4 class="info-item text-center text-blue" *ngIf="EventDetails">{{EventDetails.name}}</h4>
+        <div class="title-md text-center" *ngFor="let data1 of BusDetailData">
+          <p>{{data1.VEHICLENAME | titlecase}} - {{data1.TOTALPASSENGER}}/{{data1.VEHICLECAPACITY}} capacity</p>
+        </div>
+        <p class="text-center"*ngFor="let data1 of BusDetailData">{{data1.TRACKINGSTATUS}}</p>
+        <div class="avatar-group d-flex justify-center" *ngFor="let data2 of BusDetailData">
+          <div *ngFor="let staffItem of data2.STAFFLIST;let i=index">
+            <div class="img-xs" [class.overlapImg]="i>0">
+              <span class="" *ngIf="staffItem.PHOTOPATH">
+                    <img alt="" class="staffImage img-circle" src={{global.PROFILEIMAGEURL}}{{staffItem.PHOTOPATH}}>
+              </span>
+              <span class="" *ngIf="!staffItem.PHOTOPATH">
+                  <div class="img-xs"><span class="img-text">{{staffItem.FIRSTNAME[0]}} {{staffItem.LASTNAME[0]}} </span></div>                                  
+              </span>
+            </div>
+            <!-- <div class="img-xs overlapImg">
+                <span class="">
+                      <img alt="" class="img-circle" src='{{staffItem.PHOTOPATH}}'>
+                </span>
+              </div> -->
+        </div>
+      </div>
+    </div>
+    <section class="main mt-30">
+      <div class="info-list-item">
+          <div class="row border-bottom" (click)="gotoNotifyParents()">
+            <div class="notify xs-icon col-xs-1 p-0"></div>
+            <div class="card-title col-xs-10 p-0 font_fix">Notify parents</div>
+            <div class="next col-xs-1 p-0">
+                <a class="next-arrow" href="javascript:void(0);">
+                  <i aria-hidden="true" class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+          <div class="row border-bottom" (click)="gotoLastRollcall()">
+              <div class="rollcall xs-icon col-xs-1 p-0"></div>
+              <div class="card-title col-xs-10 p-0 font_fix">Passengers</div>
+              <div class="next col-xs-1 p-0">
+                  <a class="next-arrow" href="javascript:void(0);">
+                    <i aria-hidden="true" class="fa fa-chevron-right"></i>
+                  </a>
+              </div>
+          </div>
+      </div>
+
+      <div class="full-width mt-30 mb-20">
+        <button  expand="block" class="btn btn-rounded btn-teal" (click)="gotoLastRollcall()">
+            <span>GO TO ROLLCALL</span>
+        </button>
+      </div>
+    </section>
+    <div #map id="map"></div>
+
+    <div class="btn-wrap" *ngIf="totalPassenger == 0" (click)="removeVehicle()">
+      <button  expand="block" class="btn btn-remove">
+          <span>REMOVE VEHICLE</span>
+      </button>
+    </div>
+</ion-content>

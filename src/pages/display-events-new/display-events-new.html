@@ -1,0 +1,546 @@
+<div class="top-bar clearfix navbar-fixed-top">
+    <div class="prev-next pull-right doubleArrow" *ngIf="!offlineConnection && isEventList" (click)="showFilter()">
+        <a href="javascript:void(0);"><img src="assets/images/event-filter-icon.svg" class="filtter_button"></a>
+        <a href="javascript:void(0);"><img src="assets/images/event-filter-icon-active.svg"
+                class="filtter_button active"></a>
+    </div>
+    <div class="prev-next pull-left leftArrow">
+        <a href="javascript:void(0);" class="showFullCalender" (click)="showFullCalender()"><i
+                class="fa fa-chevron-left"></i></a>
+        <a href="javascript:void(0);" class="hideFullCalender" (click)="hideFullCalender()"><i
+                class="fa fa-times"></i></a>
+    </div>
+</div>
+<ion-header class="top-bar">
+    <!--<div class="bg-header navbar-fixed-top ">
+            <div class="title fontBold ScrolledUpCard">EVENTS
+                <!--<img src="assets/images/group-name.png" class="rounded-circle pull-right coustom_img_float">
+                <img src="assets/images/group-name.png" class="rounded-circle pull-right coustom_img_float">
+                <img src="assets/images/group-name.png" class="rounded-circle pull-right coustom_img_float">-->
+    <!-- </div>
+    </div> -->
+    <mbsc-form class="CalenderView">
+        <mbsc-form-group>
+            <mbsc-calendar [options]="myCalendarOptions" [marked]="MarkedEvents" [ngModelOptions]="{standalone: true}"
+                [(ngModel)]="calendarOneWeek" display="inline" weeks="1"></mbsc-calendar>
+        </mbsc-form-group>
+    </mbsc-form>
+</ion-header>
+
+
+<ion-content class="bg-gray event cardBottom" (ionScrollEnd)="detectBottom()">
+    <!--(ionScrollEnd)="logScrollEnd()"-->
+
+    <ion-refresher (ionRefresh)="detectTop($event)">
+        <ion-refresher-content pullingText="Load Previous Event" pullingIcon="arrow-dropdown"
+            refreshingSpinner="circles">
+        </ion-refresher-content>
+    </ion-refresher>
+    <!-- no internet message start -->
+    <!-- <div class="background_grey" *ngIf="offlineConnection">
+        <div class="off-wrap">
+            <p><img src="assets/images/events-new-icon/offline-logo-alt.svg" class=""></p>
+            <h3>OFFLINE</h3>
+            <p>Your network is unavalaible, please check your data or connection</p>
+            <button type="button" class="btn btn-sm-black try-again" (click)="tryAgain()">TRY AGAIN</button>
+        </div>
+    </div> -->
+    <!-- no internet message end -->
+
+    <section class="main" >
+        <!-- loading skeleton -->
+        <div class="skeleton" *ngIf="!isEventList">
+            <h3 class="title fadeShine"></h3>
+            <div class="list-item">
+                <div class="infoList fadeShine"></div>
+                <div class="infoList fadeShine"></div>
+            </div>
+            <h4 class="title fadeShine"></h4>
+            <div class="dark_underline"></div>
+            <div class="well eventOption fadeShine"></div>
+
+            <h4 class="title fadeShine"></h4>
+            <div class="dark_underline"></div>
+            <div class="well eventOption fadeShine"></div>
+        </div>
+
+        <!-- loading skeleton End-->
+        <form action="" class="user-form profile cardBottom" *ngIf="monthArray || PastmonthArray">
+            <mbsc-form class="CalenderFullView">
+                <mbsc-form-group>
+                    <mbsc-calendar [options]="myCalendarOptions" [marked]="MarkedEvents"
+                        [ngModelOptions]="{standalone: true}" [(ngModel)]="calendarOneWeek" display="inline"
+                        months="1"></mbsc-calendar>
+                </mbsc-form-group>
+            </mbsc-form>
+
+            <section class="profileFirst heightAuto xs-padding">
+
+
+                <div class="eventFixed" *ngFor="let key of eventList; let i = index">
+                    <h4 *ngIf="i==0 || (i>0 && key.DATE_STARTED != eventList[i-1].DATE_STARTED)"
+                        class="text-left heading_blue_section" id="H{{key.DATE_STARTED | date: 'MMMd'}}">
+                        {{key.DATE_STARTED | date: "EEEE d MMMM"}}</h4>
+                    <div *ngIf="i==0 || (i>0 && key.DATE_STARTED != eventList[i-1].DATE_STARTED)"
+                        class="dark_underline"></div>
+                    <div class="PastEventCard">
+                        <div class="well eventOption text-left" id="G{{key.DATE_STARTED | date: 'MMMd'}}"
+                            (click)="gotoEventHome(key)" *ngIf="key.EVENT_TYPE_ID==1"
+                            [ngStyle]="{'background':  appTheme && appTheme.Games_color_tile ? appTheme.Games_color_tile : '#fdb913'}">
+                            <div class="row">
+                                <div class="col-xs-11 p-0 mb-10">
+                                    <h4 class="coustom_pull_left fontBold sportDivision"
+                                    [ngStyle]="{'color':  appTheme && appTheme.Games_color_text_1 ? appTheme.Games_color_text_1 : '#fff'}">
+                                        <span *ngFor="let child of key.CHILDLIST; let i=index;"><span *ngIf="i>0">,
+                                            </span>{{child.FIRSTNAME}} {{child.LASTNAME}}</span>
+                                        <span *ngIf="key.CHILDLIST.length">-</span> {{key.SPORTNAME}} -
+                                        {{key.DIVISION_NAME}}
+                                    </h4>
+                                </div>
+                                <div class="col-xs-1 p-0 mb-10 text-right next-group">
+                                    <img src="assets/images/right arrow.svg" class="next_arrow">
+                                </div>
+                                <div class="col-xs-9 p-0">
+                                    <h4 class="sub-title_coustom fontBold"
+                                    [ngStyle]="{'color':  appTheme && appTheme.Games_color_text_1 ? appTheme.Games_color_text_1 : '#15233C'}">
+                                    {{key.TEAMHOME_NAME}} vs {{key.TEAMAWAY_NAME}}</h4>
+                                </div>
+                                <div class="img-group col-xs-3 p-0 text-right" *ngIf="key.CHILDLIST.length > 0">
+                                    <span class="xs_img" *ngFor="let child of key.CHILDLIST">
+                                        <img *ngIf="child.PHOTOPATH != ''; else noImage"
+                                            src="{{global.PROFILEIMAGEURL + child.PHOTOPATH}}" alt="" class="img-circle"
+                                            onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+                                        <ng-template #noImage>
+                                            <div class="img-circle"><span class="img-text">{{child.FIRSTNAME[0] |
+                                                    uppercase}} {{child.LASTNAME[0] | uppercase}} </span></div>
+                                        </ng-template>
+                                    </span>
+                                </div>
+                               
+                            </div>
+                            <h4 class="coustom_pull_left fontBold"
+                            [ngStyle]="{'color':  appTheme && appTheme.Games_color_text_1 ? appTheme.Games_color_text_1 : '#fff'}">
+                                <span *ngIf="key.TIME != ''">{{key.TIME}},
+                                </span>{{key.DATE_STARTED | date: "EEEE d"}}</h4>
+                            <div class="row">
+                                <div class="col-xs-10 infoText p-0">
+                                    <h4 class="add-item" *ngIf="key.GROUND_NAME != '' && key.GROUND_ADDRESS != ''"
+                                    [ngStyle]="{'color':  appTheme && appTheme.Games_color_text_2 ? appTheme.Games_color_text_2 : '#000000'}">
+                                        {{key.GROUND_NAME}}, {{key.GROUND_ADDRESS}}</h4>
+                                </div>
+                            </div>
+                           
+                            <!-- <div class="divider mt-10" *ngIf="key.ISSCOREUPDATED"></div> -->
+                            <div class="divider mt-10"></div>
+                            <!-- <div class="text-left" *ngIf="key.ISSCOREUPDATED"> -->
+                                <div class="text-left">
+                                <h4 class="infoBox">
+                                    <img *ngIf="key.HOMECLUBLOGO.length > 0 && key.AWAYCLUBLOGO.length > 0"
+                                        src="{{global.CHATGROUPLOGOURL}}{{key.HOMECLUBLOGO}}" class="xs-img">
+                                    <span class="text-score" [ngStyle]="{'color':  appTheme && appTheme.Games_color_text_2 ? appTheme.Games_color_text_2 : '#fff'}">
+                                        {{key.simple_home_score}} - {{key.simple_away_score}}</span>
+                                    <img *ngIf="key.HOMECLUBLOGO.length > 0 && key.AWAYCLUBLOGO.length > 0"
+                                        src="{{global.CHATGROUPLOGOURL}}{{key.AWAYCLUBLOGO}}" class="xs-img">
+                                </h4>
+                            </div>
+                            <div class="divider mt-10" *ngIf="key.EVENT_NOTES != ''"></div>
+                            <div class="text-left" *ngIf="key.EVENT_NOTES != ''">
+                                <h4 class="infoBox">
+                                    <img src="assets/images/megaphone.svg" class="megafone_png">
+                                    <span class="text-item" [ngStyle]="{'color':  appTheme && appTheme.Games_color_text_2 ? appTheme.Games_color_text_2 : '#fff'}">
+                                        {{key.EVENT_NOTES}}</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="PastEventCard">
+                        <div class="well eventOption blue-alt text-left" id="T{{key.DATE_STARTED | date: 'MMMd'}}"
+                            (click)="gotoEventHome(key)" *ngIf="key.EVENT_TYPE_ID==2"
+                            [ngStyle]="{'background':  appTheme && appTheme.Training_color_tile ? appTheme.Training_color_tile : '#004278'}">
+                            <div class="row">
+                                <div class="col-xs-11 p-0 mb-10">
+                                    <h4 class="coustom_pull_left fontBold sportDivision"
+                                    [ngStyle]="{'color':  appTheme && appTheme.Training_color_text_1 ? appTheme.Training_color_text_1 : '#fff'}">
+                                        <span *ngFor="let child of key.CHILDLIST; let i=index;"><span *ngIf="i>0">,
+                                            </span>{{child.FIRSTNAME}} {{child.LASTNAME}}</span>
+                                        <span *ngIf="key.CHILDLIST.length">-</span> {{key.SPORTNAME}} -
+                                        {{key.DIVISION_NAME}}
+                                    </h4>
+                                </div>
+                                <div class="col-xs-1 p-0 mb-10 text-right next-group">
+                                    <img src="assets/images/right arrow.svg" class="next_arrow">
+                                </div>
+                               
+                                <div class="col-xs-9 p-0">
+                                    <h4 class="sub-title_coustom fontBold"
+                                    [ngStyle]="{'color':  appTheme && appTheme.Training_color_text_1 ? appTheme.Training_color_text_1 : '#15233C'}">
+                                    {{key.EVENT_NAME}}</h4>
+                                    <h4 class="sub-title_coustom fontBold" [ngStyle]="{'color':  appTheme && appTheme.Training_color_text_1 ? appTheme.Training_color_text_1 : '#15233C'}">
+                                        {{key.TEAMHOME_NAME}}</h4>
+                                </div>
+                                <div class="img-group col-xs-3 p-0 text-right" *ngIf="key.CHILDLIST.length > 0">
+                                    <span class="xs_img" *ngFor="let child of key.CHILDLIST">
+                                        <img *ngIf="child.PHOTOPATH != ''; else noImage"
+                                            src="{{global.PROFILEIMAGEURL + child.PHOTOPATH}}" alt="" class="img-circle"
+                                            onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+                                        <ng-template #noImage>
+                                            <div class="img-circle"><span class="img-text">{{child.FIRSTNAME[0] |
+                                                    uppercase}} {{child.LASTNAME[0] | uppercase}} </span></div>
+                                        </ng-template>
+                                    </span>
+                                </div>
+                                <div class="col-xs-1 p-0 mb-10 text-right next-group" *ngIf="offlinecheck(key)">
+                                    <img src="assets/images/offline.png">
+                                </div>
+                            </div>
+                            <h4 class="coustom_pull_left fontBold" [ngStyle]="{'color':  appTheme && appTheme.Training_color_text_1 ? appTheme.Training_color_text_1 : '#15233C'}">
+                                <span *ngIf="key.TIME != ''">{{key.TIME}},
+                                </span>{{key.DATE_STARTED | date: "EEEE d"}}</h4>
+                            <h4 class="add-item" *ngIf="key.GROUND_NAME != '' && key.GROUND_ADDRESS != ''" [ngStyle]="{'color':  appTheme && appTheme.Training_color_text_2 ? appTheme.Training_color_text_2 : '#15233C'}">
+                                {{key.GROUND_NAME}}, {{key.GROUND_ADDRESS}}</h4>
+                            <div class="divider mt-10" *ngIf="key.EVENT_NOTES != ''"></div>
+                            <div class="text-left" *ngIf="key.EVENT_NOTES != ''">
+                                <h4 class="text-item" [ngStyle]="{'color':  appTheme && appTheme.Training_color_text_2 ? appTheme.Training_color_text_2 : '#fff'}">
+                                    {{key.EVENT_NOTES}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="event-card select-events bg-gray cardBottom" *ngIf="isEventList && eventList.length == 0">
+                    <div class="well select-card ">
+                        <div class="row">
+                            <div class="col-xs-12 ">
+                                <h5 class="sub-title">No events this week, browse calendar or refine your filter
+                                    selection</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <ion-infinite-scroll threshold="50px" (ionInfinite)="initInfinteScroll($event)">
+                <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+                </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+        </form>
+
+    </section>
+
+
+</ion-content>
+
+<div class="filter_overlay" style="display: none;" (swipe)="onSwipe($event)">
+    <div class="fliter">
+        <div class="itemList clearfix">
+            <div class="pull-left">
+                <img class="filterBack" src="assets/images/arrow-white.svg" (click)="filterBack()" />
+                <p class="sub-title"
+                    *ngIf="(FunctionAccess?.user_adminLevel == 4) || (PersonData && PersonData.ISPARENT) ">FILTER</p>
+                <p class="sub-title2"
+                    *ngIf="(FunctionAccess?.user_adminLevel == 1) ||  (FunctionAccess?.user_adminLevel == 2) || (FunctionAccess?.user_adminLevel == 3)">
+                    ACTIVITY</p>
+            </div>
+            <div class="pull-right close-icon" (click)="closeFilter()">
+                <img src="assets/images/close-icon.svg" alt="">
+            </div>
+        </div>
+
+        <!-- filter for coach start -->
+        <div class="fliter_options"
+            *ngIf="(FunctionAccess && FunctionAccess?.user_adminLevel == 2) || (FunctionAccess?.user_adminLevel == 3) ">
+            <p class="color">
+                <span class="suggestion">Select activity to filter</span>
+                <span class="selected">{{selectedFilter}} Selected</span>
+            </p>
+            <div class="itemList clearfix">
+                <div class="pull-left">
+                    <p>Activity</p>
+                </div>
+                <!-- <div class="pull-right">
+                    <div class="toggle"> 
+                        <label class="switch">
+                        <input type="checkbox" class="sports" value="0" [checked]="sportIds.indexOf('0') > -1">
+                        <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div> -->
+            </div>
+            <div class="itemList clearfix" *ngFor="let key of sportsList;let j = index">
+                <div class="font_light" class="sports" [class.active]="sportIds.indexOf(key.SPORTID?.toString()) > -1"
+                    id="{{key.SPORTID}}" (click)="openSublist2(j)">
+                    <p>{{key.SPORTNAME}}</p>
+                    <p id="{{key.SPORTID}}events1" style="width: 25%;color: gray;"></p>
+                </div>
+
+                <div id="sublist{{j}}" style="display: none;">
+                    <div class="itemListInfo clearfix subFilter has-child"
+                        *ngFor="let division of key.DIVISIONLIST; let i = index">
+                        <div class="font_light" class="division"
+                            [class.active]="(divisionIds.indexOf(division.DIVISIONID.toString()) > -1 || divisionIds.indexOf('0') > -1)"
+                            id="{{division.DIVISIONID}}"
+                            (click)="openSportsList2(key.SPORTNAME[0],division.DIVISIONID,i)">
+                            <p class="divi">{{division.DIVISIONNAME}}</p>
+                            <p id="{{division.DIVISIONID}}events1" style="width: 5%;color: gray;"></p>
+                        </div>
+                        <div id="div{{key.SPORTNAME[0]}}{{division.DIVISIONID}}{{i}}" class="font_light"
+                            class="division" style="display: none;">
+                            <div class="itemListInfo clearfix subChildFilter" *ngFor="let team of division.TEAMLIST">
+                                <div class="font_light" class="team"
+                                    [class.active]="(selectedTeams.indexOf(team.CLUBDIVISIONID?.toString()) > -1)"
+                                    id="{{team.CLUBDIVISIONID}}"
+                                    (click)="marking(key.SPORTID,team.CLUBDIVISIONID,division.DIVISIONID)">
+                                    <p class="divi">{{team.TEAMNAME}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- filter for coach ends  -->
+
+        <!-- filter for parent and player start -->
+        <div class="fliter_options"
+            *ngIf="(FunctionAccess && FunctionAccess.user_adminLevel == 4) || ((PersonData && PersonData.ISPARENT) && (!FunctionAccess.user_adminLevel == 1)) ">
+            <div class="itemList clearfix">
+                <div class="pull-left">
+                    <p class="parent">Sports</p>
+                </div>
+                <!-- <div class="pull-right">
+                    <div class="toggle">
+                        <label class="switch">
+                        <input type="checkbox" class="sports" value="0" [checked]="sportIds.indexOf('0') > -1">
+                        <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div> -->
+            </div>
+            <div class="itemList clearfix" *ngFor="let key of sportsList">
+                <div class="font_light" class="sports" [class.active]="sportIds.indexOf(key.SPORTID?.toString()) > -1"
+                    id="{{key.SPORTID}}">
+                    <p>{{key.SPORTNAME}}</p>
+                </div>
+                <div class="itemListInfo clearfix subFilter has-child" *ngFor="let division of key.DIVISIONLIST">
+                    <div class="font_light" class="division"
+                        [class.active]="(divisionIds.indexOf(division.DIVISIONID.toString()) > -1 || divisionIds.indexOf('0') > -1)"
+                        id="{{division.DIVISIONID}}">
+                        <p>{{division.DIVISIONNAME}}</p>
+                    </div>
+                    <div class="itemListInfo clearfix subChildFilter" *ngFor="let team of division.TEAMLIST">
+                        <div class="font_light" class="team"
+                            [class.active]="(selectedTeams.indexOf(team.CLUBDIVISIONID?.toString()) > -1)"
+                            id="{{team.CLUBDIVISIONID}}">
+                            <p>{{team.TEAMNAME}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- filter for  parent and player ends -->
+
+
+        <div class="options_wrap" *ngIf="FunctionAccess && FunctionAccess.user_adminLevel == 1">
+            <!-- <div class="options">
+              <p class="sub-title">Filter</p>
+              <img src="assets/images/e-remove.png" class="pull_right_arrow close-icon">
+            </div> -->
+            <!-- edited on 1/6/2020 start            -->
+            <!-- <div class="options teamLink">
+                <p>My Teams</p>
+                <img src="assets/images/right arrow.svg" class="pull_right_arrow">
+            </div>                  
+            <div class="options sportLink">
+              <p>Sports and teams</p>
+              <img src="assets/images/right arrow.svg" class="pull_right_arrow">
+            </div>        -->
+            <!-- edited on 1/6/2020 start            -->
+
+
+            <!-- <div class="options divisionLink">
+              <p>Division</p>
+              <img src="assets/images/right arrow.svg" class="pull_right_arrow">
+            </div> -->
+            <!-- <div class="options teamLink">
+              <p>Teams</p>
+              <img src="assets/images/right arrow.svg" class="pull_right_arrow">
+            </div> -->
+
+            <!-- style="display: none;" -->
+            <div class="fliter_options sportFilter">
+                <p class="color">
+                    <span class="suggestion">Select activity to filter</span>
+                    <span class="selected">{{selectedFilter}} Selected</span>
+                </p>
+                <!-- <div class="itemList clearfix">
+                    <div class="pull-left"><p>Show all my sports</p></div>
+                    <div class="pull-right">
+                        <div class="toggle">
+                            <label class="switch">
+                            <input type="checkbox" class="sports" name="sports" value="0" [checked]="sportIds.indexOf('0') > -1">
+                            <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="itemList clearfix" *ngFor="let key of sportsList;let i = index">
+                    <div class="font_light" class="sports"
+                        [class.active]="sportIds.indexOf(key.SPORTID?.toString()) > -1" id="{{key.SPORTID}}"
+                        (click)="openSublist(i)">
+                        <p>{{key.SPORTNAME}}</p>
+                        <p id="{{key.SPORTID}}events2" style="width: 25%;color: gray;"></p>
+                    </div>
+                    <!-- <div class="pull-right">
+                        <div class="toggle">
+                            <label class="switch">
+                            <input type="checkbox" class="sports" name="sports" value="{{key.SPORTID}}" [checked]="sportIds.indexOf(key.SPORTID.toString()) > -1">
+                            <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div> -->
+                    <div id="sub{{i}}" style="display: none;">
+                        <div class="itemListInfo clearfix subFilter has-child"
+                            *ngFor="let division of key.DIVISIONLIST;let j = index">
+                            <div class="font_light" class="division"
+                                [class.active]="(divisionIds.indexOf(division.DIVISIONID.toString()) > -1 || divisionIds.indexOf('0') > -1)"
+                                id="{{division.DIVISIONID}}"
+                                (click)="openSportsList(key.SPORTNAME[0],division.DIVISIONID,j)">
+                                <p class="divi">{{division.DIVISIONNAME}}</p>
+                                <p id="{{division.DIVISIONID}}events2" style="width: 5%;color: gray;"></p>
+                            </div>
+                            <div id="divi{{key.SPORTNAME[0]}}{{division.DIVISIONID}}{{j}}" class="font_light"
+                                class="division" style="display: none;">
+                                <div class="itemListInfo clearfix subChildFilter"
+                                    *ngFor="let team of division.TEAMLIST">
+                                    <div class="font_light" class="team"
+                                        [class.active]="(selectedTeams.indexOf(team.CLUBDIVISIONID?.toString()) > -1)"
+                                        id="{{team.CLUBDIVISIONID}}"
+                                        (click)="marking2(key.SPORTID,team.CLUBDIVISIONID,division.DIVISIONID)">
+                                        <p class="divi">{{team.TEAMNAME}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="fliter_options divisionFilter" style="display: none;">
+                <div class="itemList clearfix">
+                    <div class="pull-left"><p>Show all my division</p></div>
+                    <div class="pull-right">
+                        <div class="toggle">
+                            <label class="switch">
+                            <input type="checkbox" class="division" name="division" value="0" [checked]="divisionIds.indexOf('0') > -1">
+                            <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="itemList clearfix" *ngFor="let key of divisionList">
+                    <div class="pull-left font_light"><p>{{key.DIVISIONNAME}}</p></div>
+                    <div class="pull-right">
+                        <div class="toggle">
+                            <label class="switch">
+                            <input type="checkbox" class="division" name="division" value="{{key.DIVISIONID}}" [checked]="(divisionIds.indexOf(key.DIVISIONID.toString()) > -1 || divisionIds.indexOf('0') > -1)">
+                            <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="fliter_options teamFilter" style="display: none;">
+                <!-- <div class="itemList clearfix">
+                    <div class="pull-left"><p>Show all my teams</p></div>
+                    <div class="pull-right">
+                        <div class="toggle">
+                            <label class="switch">
+                            <input type="checkbox" class="team" name="team" value="0" [checked]="selectedTeams.indexOf('0') > -1">
+                            <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="itemList clearfix" *ngFor="let key of teamList">
+                    <div class="font_light" class="team"
+                        [class.active]="selectedTeams.indexOf(key.CLUBDIVISIONID?.toString()) > -1"
+                        id="{{key.CLUBDIVISIONID}}">
+                        <p style="float: left;width:100% ;">{{key.TEAMNAME}}</p>
+                        <p style="float: right;">{{key.DIVISIONNAME}}</p>
+                    </div>
+                    <!-- <div class="pull-right">
+                        <div class="toggle">
+                            <label class="switch">
+                            <input type="checkbox" class="team" name="team" value="{{key.CLUBDIVISIONID}}" [checked]="selectedTeams.indexOf(key.CLUBDIVISIONID.toString()) > -1">
+                            <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- filter for parent start -->
+        <div class="fliter_options" *ngIf="PersonData && PersonData.ISPARENT">
+            <div class="itemList clearfix">
+                <div class="pull-left">
+                    <p>View</p>
+                </div>
+                <!-- <div class="pull-right">
+                    <div class="toggle">
+                        <label class="switch">
+                        <input type="checkbox" class="childId" name="childId" value="0" [checked]="childIds.indexOf('0') > -1">
+                        <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div> -->
+            </div>
+            <div class="itemList clearfix" *ngFor="let key of PersonData.siblings">
+                <div class="font_light" class="childId" id="{{key.person_id}}"
+                    [class.active]="childIds.indexOf(key.person_id.toString()) > -1">
+                    <p>{{key.last_name}} {{key.first_name}} </p>
+                </div>
+                <!-- <div class="pull-right">
+                    <div class="toggle">
+                        <label class="switch">
+                        <input type="checkbox" class="childId" name="childId" value="{{key.person_id}}" [checked]="childIds.indexOf(key.person_id.toString()) > -1">
+                        <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div> -->
+            </div>
+            <div class="itemList clearfix">
+                <div class="font_light" class="childId" style="margin-left: 20px;" id="{{PersonData.PERSON_ID}}"
+                    [class.active]="childIds.indexOf(PersonData.PERSON_ID.toString()) > -1">
+                    <p>Self</p>
+                </div>
+            </div>
+        </div>
+        <!-- filter for parent ends -->
+
+    </div>
+</div>
+<!-- <content-drawer [options]="drawerOptions">
+        <div class="content">
+          The world is your oyster.
+          <p>
+            If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
+          </p>
+        </div>
+    </content-drawer> -->
+<!-- <ion-footer>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="home" (click)="gotoHome()"><a href="javascript:void(0);">Home</a></li>
+                <li class="events active"><a href="javascript:void(0);">Events</a></li>
+                <li class="players" (click)="goToPlayersDashboard()"><a href="javascript:void(0);">Players</a></li>
+                <li class="comment" (click)="goToChatDashboard()"><a href="javascript:void(0);">Comments</a></li>
+                <li class="more" (click)="goToMenuPage()"><a href="javascript:void(0);">More</a></li>
+            </ul>
+        </div>
+    </nav>
+</ion-footer> -->

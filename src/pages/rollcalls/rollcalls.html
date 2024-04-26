@@ -1,0 +1,227 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Transport
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class=" borrowPlayer">
+    <div class="top-section bgTeal d-flex column" *ngIf="EventDetails">
+            <h2 class="header">TRANSPORT</h2>
+            <h4 class="info-item text-center ff_impliment inverseText">{{EventDetails.name}}</h4>
+            <p class="text-center inverseText">
+                <span  *ngIf="EventDetails.ground_name">{{EventDetails.ground_name}}</span>
+                <br>
+                <span *ngIf="EventDetails.ground_address || EventDetails.ground_state">
+                <span>{{EventDetails.ground_address}} {{(EventDetails.ground_address && EventDetails.ground_state)?',':''}} {{EventDetails.ground_state}}</span>
+                </span>
+                <span *ngIf="!EventDetails.ground_address || !EventDetails.ground_state">Undefined Location</span>
+            </p>
+            <div class="title-md text-center">{{EventDetails.week}} {{EventDetails.days}} {{EventDetails.months}} AT {{EventDetails.time_started}}</div>
+            <div class="bus-img text-center mt-10">
+                <img src="assets/images/transport/bus-front.svg" alt="">
+            </div>
+            <div class="toggleGroup clearfix">
+                <div class="toggle pull-left">
+                    <label class="switch">
+                        <input type="checkbox" class="staffIsPassenger">
+                        <span class="slider round" (click)="updateStaffIsPassenger()"></span>
+                    </label>
+                </div>
+                <div class="text-info pull-left inverseText">I am a passenger
+                    <div class="no-vehicle text-left" *ngIf="!StartedTracking || !trackingDetails.SELECTEDBUS.length">No vehicle selected</div>
+                    <div class="no-vehicle text-left" *ngIf="StartedTracking && trackingDetails.SELECTEDBUS.length">{{trackingDetails.SELECTEDBUS[0].VEHICLENAME}}  Wrong one? <span (click)="updateVehicle()" class="ul-text">update vehicle</span></div>
+                </div>
+            </div>
+            <div class="toggleGroup clearfix" *ngIf="staffIsPassenger == '1'">
+                <div class="toggle pull-left">
+                    <label class="switch">
+                        <input type="checkbox" class="locationTracking">
+                        <span class="slider round" (click)="setLocationTracking()"></span>
+                    </label>
+                </div>
+                <div class="text-info pull-left inverseText">Enable localisation tracking
+                    <div class="no-vehicle text-left" *ngIf="!StartedTracking || !trackingDetails.SELECTEDBUS.length">No vehicle selected</div>
+                    <div class="no-vehicle text-left" *ngIf="StartedTracking && trackingDetails.SELECTEDBUS.length">{{trackingDetails.SELECTEDBUS[0].VEHICLENAME}}  Wrong one? <span (click)="updateVehicle()" class="ul-text">update vehicle</span></div>
+                </div>
+            </div>
+            <div class="full-width mt-20">
+                <button  expand="block" class="btn btn-rounded btn-teal" (click)="openRollcallModal()">
+                    <span>CREATE ROLLCALL</span>
+                </button>
+            </div>
+    </div>
+    <section class="main mt-20">
+        <form action="" class="user-form">
+          <!-- <div class="toggleGroup clearfix">
+              <div class="text-info pull-left inverseText">Enable localisation tracking:</div>
+              <div class="toggle pull-right">
+                  <label class="switch">
+                    <input type="checkbox" class="locationTracking">
+                    <span class="slider round" (click)="setLocationTracking()"></span>
+                  </label>
+              </div>
+          </div> -->
+            <h5 class="sm-title text-left col-xs-12">ROLLCALLS</h5>
+            <section class="profileFirst heightAuto">
+                <div class="event-card borrow" [class.emptyCard]="rollcallList.length == 0">
+                    <div class="well select-card selectCard d-flex align-center noRollcall" *ngIf="rollcallList.length == 0">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h5 class="sub-title">NO ROLLCALLS</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="well select-card" [class.active]="rollcall.rollcall_id==activeRollcallID" [class.locked]="rollcall.isLocked==1" *ngFor="let rollcall of rollcallList;let i=index" (click)="goToRollcallDetails(rollcall.rollcall_id, rollcall.rollcallName, rollcall.isLocked)">
+                      <div class="row">
+                          <div class="sl-no col-xs-2 p-0">
+                              <span class="v-center">{{i+1}}</span>
+                          </div>
+                          <div class="card-title col-xs-7 p-0">
+                              {{rollcall.rollcallName.toString() | titlecase}}
+                              <p *ngIf="rollcall.isLocked==1">Locked</p>
+                          </div>
+                          <div class="col-xs-2 p-0 d-flex justify-center align-center">
+                                <span class="count">{{rollcall.presentCount}}/{{rollcall.passengers}}</span>
+                            </div>
+                          <div class="event-next checkArrow-group col-xs-1 p-0">
+                              <div class="v-center">
+                                <div class="arrowUp ArrowLight">
+                                  <a class="next-arrow v-center" href="javascript:void(0);"><i aria-hidden="true" class="fa fa-chevron-right"></i></a>
+                                </div>
+                              </div>
+                          </div>
+                          <ul class="dropdown-menu card-dropdown" style="display:none; ">
+                              <li>
+                                <a href="javascript:void(0)"></a>
+                              </li>
+          
+                          </ul>
+                      </div>
+                    </div>
+                    <!-- <div class="circle-plus addIconCircle mt-20">
+                        <ion-icon ios="ios-add" md="md-add" class="addIcon"></ion-icon>
+                    </div> -->
+                </div>
+               
+                <h5 class="sm-title text-left col-xs-12">VEHICLES</h5>
+                <div class="event-card location" [class.emptyCard]="vehicleList.length == 0">
+                    <div class="well select-card selectCard d-flex align-center" *ngIf="vehicleList.length == 0">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h5 class="sub-title">NO VEHICLE</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="well select-card" *ngFor="let vehicle of vehicleList" (click)="gotoVehicleDetails(vehicle)">
+                        <div class="row">
+                            <div class="card-title col-xs-9">
+                                <div class="avatar-group d-flex column">
+                                    {{vehicle.vehicleName.toString() | uppercase}}
+                                    <div class="d-flex justify-center p-0">
+                                        <div class="img-xs" *ngFor="let key1 of vehicle.staffList;let i=index" [class.overlapImg]="i>0">
+                                            <span class="" *ngIf="key1.PHOTOPATH">
+                                                <img alt="" class="staffImage img-circle" src={{global.PROFILEIMAGEURL}}{{key1.PHOTOPATH}}>
+                                            </span>
+                                            <span class="" *ngIf="key1.PHOTOPATH==''">
+                                                <div class="img-xs"><span class="img-text">{{key1.FIRSTNAME[0]}} {{key1.LASTNAME[0]}} </span></div>                                  
+                                            </span>
+                                        </div>
+                                        <!-- <div class="img-xs overlapImg">
+                                            <span class="">
+                                                <img alt="" class="img-circle" src='http://api-dev.gojaro.com/profileimage/27443.jpg'>
+                                            </span>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 p-0 d-flex justify-center align-center">
+                                    <span class="count">{{vehicle.totalPassenger?vehicle.totalPassenger:'0'}}/{{vehicle.vehicleCapacity?vehicle.vehicleCapacity:'0'}}</span>
+                                </div>
+                            <div class="event-next col-xs-1 p-0">
+                                <a class="next-arrow v-center" href="javascript:void(0);"><i aria-hidden="true" class="fa fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="circle-plus addIconCircle mt-20">
+                        <ion-icon ios="ios-add" md="md-add" class="addIcon" (click)="openVehicleModal()"></ion-icon>
+                    </div>
+                </div>
+                <h5 class="sm-title text-left col-xs-12">TRANSPORT STAFF</h5>
+                <div class="event-card location" [class.emptyCard]="staffList.length == 0">
+                    <div class="well select-card selectCard d-flex align-center" *ngIf="staffList.length == 0">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h5 class="sub-title">NO STAFF</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="well select-card" *ngFor="let staff of staffList" (click)="openStaffModal(staff.staff_id, staff.firstName +' '+ staff.lastName)">
+                        <div class="row">
+                          <div class="card-img col-xs-2 p-0">
+                              <span class="" *ngIf="staff.photoPath==''">
+                                  <div class="img-circle"><span class="img-text">{{staff.firstName[0]}} {{staff.lastName[0]}} </span></div>                                  
+                              </span>
+                              <span class="" *ngIf="staff.photoPath">
+                                  <img src="{{global.PROFILEIMAGEURL}}{{staff.photoPath}}" alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+                              </span>
+                          </div>
+                          <div class="card-title col-xs-9">
+                              {{staff.firstName | uppercase}} {{staff.lastName | uppercase}}
+                              <span class="busName">{{staff.vehicleName}}</span>
+                          </div>
+                          <div class="event-next col-xs-1 p-0">
+                            <!-- <a class="next-arrow v-center" href="javascript:void(0);" *ngIf="staff.locationEnabled==1"><i aria-hidden="true" class="fa fa-chevron-right"></i></a> -->
+                            <a class="next-arrow v-center" href="javascript:void(0);" *ngIf="staff.locationEnabled==1">
+                                <img alt="" class="img-circle" src='/assets/images/transport/location-green.svg'>
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="addIconCircle mt-20">
+                        <ion-icon ios="ios-add" md="md-add" class="addIcon edit-icon staffIcon" (click)="openStaffModal()"></ion-icon>
+                    </div>
+                </div>
+
+                <h5 class="sm-title text-left col-xs-12">ADDITIONAL PASSENGER</h5>
+                <div class="event-card location">
+                    <div class="well select-card selectCard d-flex align-center" *ngIf="passengerLists.length == 0">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h5 class="sub-title">NO ADDITIONAL PASSENGER</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="well select-card" *ngFor="let passengerList of passengerLists">
+                        <div class="row">
+                            <div class="card-img col-xs-2 p-0">
+                                <span class="" *ngIf="passengerList.PHOTOPATH==''">
+                                    <div class="img-circle"><span class="img-text">{{passengerList.FIRSTNAME[0]}} {{passengerList.LASTNAME[0]}}</span></div>                                  
+                                </span>
+                                <span class="" *ngIf="passengerList.PHOTOPATH !=''">
+                                    <img src="{{global.PROFILEIMAGEURL}}{{passengerList.PHOTOPATH}}" alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+                                </span>
+                            </div>
+                            <div class="card-title col-xs-9">
+                                {{passengerList.FIRSTNAME | uppercase}} {{passengerList.LASTNAME | uppercase}}
+                                <span class="busName">{{passengerList.VEHICLENAME}}</span>
+                            </div>
+                            <!--<div class="event-next col-xs-1 p-0">
+                            <a class="next-arrow v-center" href="javascript:void(0);" *ngIf="staff.locationEnabled==1">
+                                <img alt="" class="img-circle" src='/assets/images/transport/location-green.svg'>
+                            </a>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="circle-plus addIconCircle mt-20">
+                        <ion-icon ios="ios-add" md="md-add" class="addIcon" (click)="goToAdditionalPassPage(transportId)"></ion-icon>
+                    </div>
+                </div>
+            </section>
+        </form>
+        </section>
+        
+  </ion-content>
+  
+  

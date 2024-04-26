@@ -1,0 +1,35 @@
+page-chat-group-info {
+    .select-card .card-title .row{
+        width: 100%;
+    }
+    .select-card .card-title .row p.ch-time{
+        text-align: left;
+    }
+    .profileFirst .chat-new-message h5, .profileFirst .chat-logo h5.sport{
+        color: #2c94b3;
+    }
+    .navbar .top-bar{
+        padding: 5px 10px;
+    }
+    .setting-first{
+        padding-top: 20%!important;
+    }
+    .profileFirst .chat-logo h4.teamName{
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .mute-notifications{
+        border-radius: 0px!important;
+        padding: 8px!important;
+    }
+    .notifications-taggle{
+        width: 40%;
+        display: inline-block;
+    }
+    .toggle-bar{
+        align-items: center;
+        justify-content: space-around;
+        white-space: nowrap;
+        width: 100%;
+    }
+}

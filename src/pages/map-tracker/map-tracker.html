@@ -1,0 +1,26 @@
+<ion-header class="header-md">
+  <ion-navbar class="main">
+    <div class="top-bar clearfix">
+      <div class="pull-left">
+        <div>
+            <button class="BackButton bg-white"></button>
+            EVENTS
+          </div>
+      </div>
+    </div>
+  </ion-navbar>
+  
+</ion-header>
+
+
+<ion-content>
+    <ion-fab end top edge>
+        <button ion-fab class="btn-img" *ngFor="let key of memberDetails" (click)="ActivateMap(key.staff_id?key.staff_id:key.transportstaffid)">
+            <img alt="" class="img-circle" *ngIf="key.photopath" src={{global.PROFILEIMAGEURL}}{{key.photopath}}> 
+            <div class="img-circle" *ngIf="!key.photopath"><span class="img-text">{{key.firstname[0] | uppercase}} {{key.lastname[0] | uppercase}} </span></div> 
+        </button>
+        
+    </ion-fab>
+    <div #map id="map"></div>
+    
+</ion-content>

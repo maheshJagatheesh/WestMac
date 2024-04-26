@@ -1,0 +1,23 @@
+page-login {
+    .form-control{
+        font-size: 30px !important;
+        height: 47px;
+    }
+    .portalCard{
+        margin-bottom: 40px;
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .login-circle.xs:before{
+        background: url(../assets/images/arrow-blue.svg) no-repeat;
+        background-size: 26px;
+        background-position: center;
+    }
+    p{
+        color:#0A4E93;
+    }
+    .mt-xxl{
+        color:#0A4E93;
+    }
+    
+}

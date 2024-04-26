@@ -1,0 +1,167 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><span *ngIf="contractorData">{{contractorData.first_name}} {{contractorData.last_name}}</span> TIMESHEETS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg-gray event">
+  <section class="profileFirst heightAuto xs-padding" >
+    <div class="player-section" *ngIf="contractorData">
+        <div class="thumbImage">
+          <span class="" *ngIf="contractorData.photoPath==''">
+              <div class="img-circle"><span class="img-text">{{contractorData.first_name[0]}} {{contractorData.last_name[0]}} </span></div>
+
+          </span>
+          <span class="" *ngIf="contractorData.photoPath">
+                      <img src="{{global.PROFILEIMAGEURL}}{{contractorData.photoPath}}" alt="" class="img-circle">
+          </span>
+        </div>
+        <div class="player-info">
+            <h5 >{{contractorData.first_name}} {{contractorData.last_name}}</h5>
+            <p >{{contractorData.designation}}</p>
+        </div>
+    </div>
+    <div class="navbar navbar-default event-menu" >
+        <ul class="nav navbar-nav">
+            <li class="" (click)="getStatusType('Pending',$event)">
+				<a class="pending" href="javascript:void(0)">
+                    <svg class="pending-value" xmlns="http://www.w3.org/2000/svg" width="18.388" height="18.388" viewBox="0 0 18.388 18.388">
+                        <g id="Group_6257" data-name="Group 6257" transform="translate(-1654.684 -1129)" *ngIf="eventsStatusCount[0] < 10">
+                            <g id="Group_6247" data-name="Group 6247" transform="translate(1654.684 1129)">
+                            <path id="Path_1396" data-name="Path 1396" d="M18.127,46.5a.346.346,0,0,0-.157-.039.412.412,0,0,0-.3.131l-.836.836a.392.392,0,0,0-.117.287v3.317a2.1,2.1,0,0,1-2.089,2.09H3.761A2.012,2.012,0,0,1,2.285,52.5a2.012,2.012,0,0,1-.614-1.476V40.162a2.012,2.012,0,0,1,.614-1.476,2.012,2.012,0,0,1,1.476-.614H14.627a2.321,2.321,0,0,1,.588.078.42.42,0,0,0,.117.026.413.413,0,0,0,.3-.13l.64-.64a.406.406,0,0,0,.117-.379.4.4,0,0,0-.235-.3,3.6,3.6,0,0,0-1.528-.327H3.761A3.623,3.623,0,0,0,1.1,37.5,3.623,3.623,0,0,0,0,40.162V51.028a3.623,3.623,0,0,0,1.1,2.658,3.622,3.622,0,0,0,2.658,1.1H14.627a3.769,3.769,0,0,0,3.762-3.761V46.875A.379.379,0,0,0,18.127,46.5Z" transform="translate(0 -36.401)"/>
+                            </g>
+                            <text id="_5" data-name="5" transform="translate(1664 1143)" font-size="13" font-family="Helvetica-Bold, Helvetica" font-weight="700" letter-spacing="0.05em"><tspan x="-3.615" y="0">{{eventsStatusCount[0]}}</tspan></text>
+                        </g>
+						<g id="Group_6263" data-name="Group 6263" transform="translate(-1750.684 -1137)" *ngIf="eventsStatusCount[0] == 10">
+							<g id="Group_6251" data-name="Group 6251" transform="translate(1750.684 1137)">
+							  <path id="Path_1396" data-name="Path 1396" d="M18.127,46.5a.346.346,0,0,0-.157-.039.412.412,0,0,0-.3.131l-.836.836a.392.392,0,0,0-.117.287v3.317a2.1,2.1,0,0,1-2.089,2.09H3.761A2.012,2.012,0,0,1,2.285,52.5a2.012,2.012,0,0,1-.614-1.476V40.162a2.012,2.012,0,0,1,.614-1.476,2.012,2.012,0,0,1,1.476-.614H14.627a2.321,2.321,0,0,1,.588.078.42.42,0,0,0,.117.026.413.413,0,0,0,.3-.13l.64-.64a.406.406,0,0,0,.117-.379.4.4,0,0,0-.235-.3,3.6,3.6,0,0,0-1.528-.327H3.761A3.623,3.623,0,0,0,1.1,37.5,3.623,3.623,0,0,0,0,40.162V51.028a3.623,3.623,0,0,0,1.1,2.658,3.622,3.622,0,0,0,2.658,1.1H14.627a3.769,3.769,0,0,0,3.762-3.761V46.875A.379.379,0,0,0,18.127,46.5Z" transform="translate(0 -36.401)"/>
+							</g>
+							<text id="_10" data-name="10" transform="translate(1760 1151)" font-size="12" font-family="Helvetica-Bold, Helvetica" font-weight="700" letter-spacing="0.05em"><tspan x="-6.974" y="0">{{eventsStatusCount[0]}}</tspan></text>
+					    </g>
+						<g id="Group_6262" data-name="Group 6262" transform="translate(-1532.684 -1160)" *ngIf="eventsStatusCount[0] > 10">
+							<g id="Group_6252" data-name="Group 6252" transform="translate(1532.684 1160)">
+							  <path id="Path_1396" data-name="Path 1396" d="M18.127,46.5a.346.346,0,0,0-.157-.039.412.412,0,0,0-.3.131l-.836.836a.392.392,0,0,0-.117.287v3.317a2.1,2.1,0,0,1-2.089,2.09H3.761A2.012,2.012,0,0,1,2.285,52.5a2.012,2.012,0,0,1-.614-1.476V40.162a2.012,2.012,0,0,1,.614-1.476,2.012,2.012,0,0,1,1.476-.614H14.627a2.321,2.321,0,0,1,.588.078.42.42,0,0,0,.117.026.413.413,0,0,0,.3-.13l.64-.64a.406.406,0,0,0,.117-.379.4.4,0,0,0-.235-.3,3.6,3.6,0,0,0-1.528-.327H3.761A3.623,3.623,0,0,0,1.1,37.5,3.623,3.623,0,0,0,0,40.162V51.028a3.623,3.623,0,0,0,1.1,2.658,3.622,3.622,0,0,0,2.658,1.1H14.627a3.769,3.769,0,0,0,3.762-3.761V46.875A.379.379,0,0,0,18.127,46.5Z" transform="translate(0 -36.401)"/>
+							</g>
+							<text id="_10_" data-name="10+" transform="translate(1542 1173)" font-size="9" font-family="Helvetica-Bold, Helvetica" font-weight="700" letter-spacing="-0.134em"><tspan x="-6.427" y="0">{{eventsStatusCount[0]}}</tspan></text>
+						</g>
+                    </svg>
+                    pending
+				</a>
+			</li>
+            <li class="" (click)="getStatusType('Approved',$event)">
+				<a class="approved" href="javascript:void(0)">
+                    <svg class="approved-value" xmlns="http://www.w3.org/2000/svg" width="18.388" height="18.388" viewBox="0 0 18.388 18.388">
+                        <g id="Group_6257" data-name="Group 6257" transform="translate(-1654.684 -1129)" *ngIf="eventsStatusCount[1] < 10">
+                            <g id="Group_6247" data-name="Group 6247" transform="translate(1654.684 1129)">
+                            <path id="Path_1396" data-name="Path 1396" d="M18.127,46.5a.346.346,0,0,0-.157-.039.412.412,0,0,0-.3.131l-.836.836a.392.392,0,0,0-.117.287v3.317a2.1,2.1,0,0,1-2.089,2.09H3.761A2.012,2.012,0,0,1,2.285,52.5a2.012,2.012,0,0,1-.614-1.476V40.162a2.012,2.012,0,0,1,.614-1.476,2.012,2.012,0,0,1,1.476-.614H14.627a2.321,2.321,0,0,1,.588.078.42.42,0,0,0,.117.026.413.413,0,0,0,.3-.13l.64-.64a.406.406,0,0,0,.117-.379.4.4,0,0,0-.235-.3,3.6,3.6,0,0,0-1.528-.327H3.761A3.623,3.623,0,0,0,1.1,37.5,3.623,3.623,0,0,0,0,40.162V51.028a3.623,3.623,0,0,0,1.1,2.658,3.622,3.622,0,0,0,2.658,1.1H14.627a3.769,3.769,0,0,0,3.762-3.761V46.875A.379.379,0,0,0,18.127,46.5Z" transform="translate(0 -36.401)"/>
+                            </g>
+                            <text id="_5" data-name="5" transform="translate(1664 1143)" font-size="13" font-family="Helvetica-Bold, Helvetica" font-weight="700" letter-spacing="0.05em"><tspan x="-3.615" y="0">{{eventsStatusCount[1]}}</tspan></text>
+                        </g>
+						<g id="Group_6263" data-name="Group 6263" transform="translate(-1750.684 -1137)" *ngIf="eventsStatusCount[1] == 10">
+							<g id="Group_6251" data-name="Group 6251" transform="translate(1750.684 1137)">
+							  <path id="Path_1396" data-name="Path 1396" d="M18.127,46.5a.346.346,0,0,0-.157-.039.412.412,0,0,0-.3.131l-.836.836a.392.392,0,0,0-.117.287v3.317a2.1,2.1,0,0,1-2.089,2.09H3.761A2.012,2.012,0,0,1,2.285,52.5a2.012,2.012,0,0,1-.614-1.476V40.162a2.012,2.012,0,0,1,.614-1.476,2.012,2.012,0,0,1,1.476-.614H14.627a2.321,2.321,0,0,1,.588.078.42.42,0,0,0,.117.026.413.413,0,0,0,.3-.13l.64-.64a.406.406,0,0,0,.117-.379.4.4,0,0,0-.235-.3,3.6,3.6,0,0,0-1.528-.327H3.761A3.623,3.623,0,0,0,1.1,37.5,3.623,3.623,0,0,0,0,40.162V51.028a3.623,3.623,0,0,0,1.1,2.658,3.622,3.622,0,0,0,2.658,1.1H14.627a3.769,3.769,0,0,0,3.762-3.761V46.875A.379.379,0,0,0,18.127,46.5Z" transform="translate(0 -36.401)"/>
+							</g>
+							<text id="_10" data-name="10" transform="translate(1760 1151)" font-size="12" font-family="Helvetica-Bold, Helvetica" font-weight="700" letter-spacing="0.05em"><tspan x="-6.974" y="0">{{eventsStatusCount[1]}}</tspan></text>
+					    </g>
+						<g id="Group_6262" data-name="Group 6262" transform="translate(-1532.684 -1160)" *ngIf="eventsStatusCount[1] > 10">
+							<g id="Group_6252" data-name="Group 6252" transform="translate(1532.684 1160)">
+							  <path id="Path_1396" data-name="Path 1396" d="M18.127,46.5a.346.346,0,0,0-.157-.039.412.412,0,0,0-.3.131l-.836.836a.392.392,0,0,0-.117.287v3.317a2.1,2.1,0,0,1-2.089,2.09H3.761A2.012,2.012,0,0,1,2.285,52.5a2.012,2.012,0,0,1-.614-1.476V40.162a2.012,2.012,0,0,1,.614-1.476,2.012,2.012,0,0,1,1.476-.614H14.627a2.321,2.321,0,0,1,.588.078.42.42,0,0,0,.117.026.413.413,0,0,0,.3-.13l.64-.64a.406.406,0,0,0,.117-.379.4.4,0,0,0-.235-.3,3.6,3.6,0,0,0-1.528-.327H3.761A3.623,3.623,0,0,0,1.1,37.5,3.623,3.623,0,0,0,0,40.162V51.028a3.623,3.623,0,0,0,1.1,2.658,3.622,3.622,0,0,0,2.658,1.1H14.627a3.769,3.769,0,0,0,3.762-3.761V46.875A.379.379,0,0,0,18.127,46.5Z" transform="translate(0 -36.401)"/>
+							</g>
+							<text id="_10_" data-name="10+" transform="translate(1542 1173)" font-size="9" font-family="Helvetica-Bold, Helvetica" font-weight="700" letter-spacing="-0.134em"><tspan x="-6.427" y="0">{{eventsStatusCount[1]}}</tspan></text>
+						</g>
+                    </svg>
+                    approved
+                </a>
+            </li>
+            <li class="" (click)="getStatusType('Rejected',$event)">
+				<a class="rejected" href="javascript:void(0)">
+                    <svg class="rejected-value" xmlns="http://www.w3.org/2000/svg" width="18.388" height="18.388" viewBox="0 0 18.388 18.388">
+                        <g id="Group_6257" data-name="Group 6257" transform="translate(-1654.684 -1129)" *ngIf="eventsStatusCount[2] < 10">
+                            <g id="Group_6247" data-name="Group 6247" transform="translate(1654.684 1129)">
+                            <path id="Path_1396" data-name="Path 1396" d="M18.127,46.5a.346.346,0,0,0-.157-.039.412.412,0,0,0-.3.131l-.836.836a.392.392,0,0,0-.117.287v3.317a2.1,2.1,0,0,1-2.089,2.09H3.761A2.012,2.012,0,0,1,2.285,52.5a2.012,2.012,0,0,1-.614-1.476V40.162a2.012,2.012,0,0,1,.614-1.476,2.012,2.012,0,0,1,1.476-.614H14.627a2.321,2.321,0,0,1,.588.078.42.42,0,0,0,.117.026.413.413,0,0,0,.3-.13l.64-.64a.406.406,0,0,0,.117-.379.4.4,0,0,0-.235-.3,3.6,3.6,0,0,0-1.528-.327H3.761A3.623,3.623,0,0,0,1.1,37.5,3.623,3.623,0,0,0,0,40.162V51.028a3.623,3.623,0,0,0,1.1,2.658,3.622,3.622,0,0,0,2.658,1.1H14.627a3.769,3.769,0,0,0,3.762-3.761V46.875A.379.379,0,0,0,18.127,46.5Z" transform="translate(0 -36.401)"/>
+                            </g>
+                            <text id="_5" data-name="5" transform="translate(1664 1143)" font-size="13" font-family="Helvetica-Bold, Helvetica" font-weight="700" letter-spacing="0.05em"><tspan x="-3.615" y="0">{{eventsStatusCount[2]}}</tspan></text>
+                        </g>
+						<g id="Group_6263" data-name="Group 6263" transform="translate(-1750.684 -1137)" *ngIf="eventsStatusCount[2] == 10">
+							<g id="Group_6251" data-name="Group 6251" transform="translate(1750.684 1137)">
+							  <path id="Path_1396" data-name="Path 1396" d="M18.127,46.5a.346.346,0,0,0-.157-.039.412.412,0,0,0-.3.131l-.836.836a.392.392,0,0,0-.117.287v3.317a2.1,2.1,0,0,1-2.089,2.09H3.761A2.012,2.012,0,0,1,2.285,52.5a2.012,2.012,0,0,1-.614-1.476V40.162a2.012,2.012,0,0,1,.614-1.476,2.012,2.012,0,0,1,1.476-.614H14.627a2.321,2.321,0,0,1,.588.078.42.42,0,0,0,.117.026.413.413,0,0,0,.3-.13l.64-.64a.406.406,0,0,0,.117-.379.4.4,0,0,0-.235-.3,3.6,3.6,0,0,0-1.528-.327H3.761A3.623,3.623,0,0,0,1.1,37.5,3.623,3.623,0,0,0,0,40.162V51.028a3.623,3.623,0,0,0,1.1,2.658,3.622,3.622,0,0,0,2.658,1.1H14.627a3.769,3.769,0,0,0,3.762-3.761V46.875A.379.379,0,0,0,18.127,46.5Z" transform="translate(0 -36.401)"/>
+							</g>
+							<text id="_10" data-name="10" transform="translate(1760 1151)" font-size="12" font-family="Helvetica-Bold, Helvetica" font-weight="700" letter-spacing="0.05em"><tspan x="-6.974" y="0">{{eventsStatusCount[2]}}</tspan></text>
+					    </g>
+						<g id="Group_6262" data-name="Group 6262" transform="translate(-1532.684 -1160)" *ngIf="eventsStatusCount[2] > 10">
+							<g id="Group_6252" data-name="Group 6252" transform="translate(1532.684 1160)">
+							  <path id="Path_1396" data-name="Path 1396" d="M18.127,46.5a.346.346,0,0,0-.157-.039.412.412,0,0,0-.3.131l-.836.836a.392.392,0,0,0-.117.287v3.317a2.1,2.1,0,0,1-2.089,2.09H3.761A2.012,2.012,0,0,1,2.285,52.5a2.012,2.012,0,0,1-.614-1.476V40.162a2.012,2.012,0,0,1,.614-1.476,2.012,2.012,0,0,1,1.476-.614H14.627a2.321,2.321,0,0,1,.588.078.42.42,0,0,0,.117.026.413.413,0,0,0,.3-.13l.64-.64a.406.406,0,0,0,.117-.379.4.4,0,0,0-.235-.3,3.6,3.6,0,0,0-1.528-.327H3.761A3.623,3.623,0,0,0,1.1,37.5,3.623,3.623,0,0,0,0,40.162V51.028a3.623,3.623,0,0,0,1.1,2.658,3.622,3.622,0,0,0,2.658,1.1H14.627a3.769,3.769,0,0,0,3.762-3.761V46.875A.379.379,0,0,0,18.127,46.5Z" transform="translate(0 -36.401)"/>
+							</g>
+							<text id="_10_" data-name="10+" transform="translate(1542 1173)" font-size="9" font-family="Helvetica-Bold, Helvetica" font-weight="700" letter-spacing="-0.134em"><tspan x="-6.427" y="0">{{eventsStatusCount[2]}}</tspan></text>
+						</g>
+                    </svg>
+                    Rejected
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="event-card select-events bg-gray cardBottom" *ngIf="monthArray.length<=0">
+        <div class="well select-card " >
+            <div class="row">
+                <div class="col-xs-12 ">
+                    <h5 class="sub-title">No Event Present</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ExtraMonth" *ngFor="let key of monthArray;let y=index">
+
+        <div class="event-card select-events bg-gray"  *ngIf="y <=CardViewSeeMore">
+            <div *ngIf="y <=CardViewSeeMore">
+                <div class="event-black" >
+                    <h5 class="v-center">{{key[key.length-2]}}</h5>
+                </div>
+
+                <div  *ngFor="let key1 of key; let i=index;">
+
+                        <div class="well select-card " [class.disabled]="key1.CONTRACTORS[0].TSStatus=='Approved'" (click)="key1.CONTRACTORS[0].TSStatus=='Approved'?'':gotoReviewerTimesheet(key1,key1.CONTRACTORS[0])" *ngIf="i<key.length-2">
+                            <div class="row">
+                                <div class="event-date col-xs-3 p-0">
+                                    <div class="badge badge-blue">{{key1.weekday}} {{key1.day}}</div>
+                                    <p class="time-center">{{key1.time24HR}}</p>
+                                </div>
+                                <div class="event-title col-xs-8 p-0">
+                                    <h5>{{key1.event_name}}</h5>
+                                    <p>{{key1.event_team}}</p>
+                                    <!-- <p>{{key1.hoursRec}} {{key1.TSStatus}}</p> -->
+                                    <p class="status-info" [class.pending]="key1.CONTRACTORS[0].TSStatus=='Pending' || !key1.CONTRACTORS[0].TSStatus" [class.approved]="key1.CONTRACTORS[0].TSStatus=='Approved'" [class.rejected]="key1.CONTRACTORS[0].TSStatus=='Rejected'">{{key1.CONTRACTORS[0].hoursRec}} 
+                                        <span>{{key1.CONTRACTORS[0].TSStatus?key1.CONTRACTORS[0].TSStatus:'Pending'}}</span>
+                                    </p>
+                                </div>
+                                <div class="event-next col-xs-1 p-0">
+                                    <a href="javascript:void(0)" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="event-card select-events bg-gray multi-shadow" >
+            <div *ngIf="y ==CardViewSeeMore && key[key.length-1]!=''">
+                <div class="event-black" >
+                    <h5 class="v-center">{{key[key.length-1]}}</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-more mb-50 clearfix" *ngIf="y ==CardViewSeeMore && key[key.length-1]!=''" (click)="CardSeeMore($event)">
+            <a href="javascript:void(0)" class="see-more pull-right">SEE MORE</a>
+        </div>
+        <div class="section-more clearfix mt-20" *ngIf="y <=CardViewSeeMore" (click)="CardSeeLess(y)" style="display:none">
+            <a href="javascript:void(0)"  class="see-more pull-right">SEE LESS</a>
+        </div>
+
+    </div>
+  </section>
+
+
+</ion-content>

@@ -1,0 +1,18 @@
+page-pregame-rollcall {
+    .navbar-default.event-menu{
+        padding: 5px;
+    }
+    .radio label::before{
+        border: 3px solid #eee;
+        background-color: #000;
+    }
+    .radio label::after{
+        background-color: #444f63;
+    }
+    .list-group{
+        margin-bottom:0!important;
+    }
+    .list-group-item:last-child{
+        border-bottom:none;
+    }
+}

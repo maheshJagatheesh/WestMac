@@ -1,0 +1,23 @@
+<ion-content>
+  <section class="main bg-grey-gradient">
+    <div class="Logo-Header">
+      <img class="logo" [src]="logoURL" alt="Logo" style="width:190px"/>
+      <!-- <p style="margin-top:35px" (click)="gotoSSO()">Sign in</p> -->
+      <p style="margin-top:35px" (click)="goToLogin()">Sign in</p>
+      <button type="button" class="btn-login lg-btn" (click)="gotoSSO()">With my school credentials</button>
+      <!-- <p class="mt-20"  (click)="goToLogin();">With JARO credentials</p> -->
+
+   <!--- </div>(click)="gotoSSO()"
+    <div class="brand-logo v-center" >
+      <div class="login-circle" ></div>-->
+    </div>
+
+    <div class="footer-item v-bottom" >
+     <!--- <a class="title" href="javascript:void(0);" (click)="goToLogin();">Login using JARO credentials</a>-->
+      <p class="mt-20"  (click)="goToLogin();">With JARO credentials</p>
+      <!----<div class="links">
+        <a href="javascript:void(0)"><img class="play-vid" src="assets/images/play-video.svg" alt=""/> Watch a quick video introduction</a>
+      </div>-->
+    </div>
+  </section>
+</ion-content>

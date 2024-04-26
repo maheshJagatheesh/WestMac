@@ -1,0 +1,59 @@
+
+<ion-content class="bg-black borrowPlayer">
+    <section class="main mt-20">
+        <div class="top-bar" (click)="backArrow()">
+            <div class="col-xs-3">
+                <div class="backArrow inverse"></div>
+            </div>
+        </div>
+        <form action="" class="user-form">
+            <h5 class="sm-title text-left col-xs-12 mt-20">CHOOSE TEAM MATE/S</h5>
+            <section class="profileFirst heightAuto">
+                <div class="event-card borrow">
+                        <div class="well select-card " *ngIf="!PlayerList">
+                                <div class="row">
+                                    <div class="col-xs-12 ">
+                                        <h5 class="sub-title">No Team Mates Found</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                    <div  #selectPlayerCard class="well select-card" *ngFor="let key of PlayerList">
+                        <div class="row" (click)="selectPlayers(key.PERSON_ID,selectPlayerCard,selectFontColor)" >
+                            <div class="card-img col-xs-2 p-0 active">
+                                <span class="" *ngIf="key.PHOTOPATH==null || key.PHOTOPATH==''">
+                                    <div class="img-circle">
+                                        <span class="img-text">{{key.FIRST_NAME[0] | uppercase}} {{key.LAST_NAME[0] | uppercase}}
+                                        </span>
+                                    </div>
+                                    <!-- <img src="assets/images/test-user.svg" alt="" class="img-circle"> -->
+                                </span>
+                            
+                            <span class="" *ngIf="key.PHOTOPATH!=null && key.PHOTOPATH!=''">
+                                <img src="{{PhotoApiUrl}}{{key.PHOTOPATH}}" alt="" class="img-circle">
+                            </span>
+                            </div>
+                            <div #selectFontColor class="card-title col-xs-7 p-0">{{key.FIRST_NAME | uppercase}} {{key.LAST_NAME | uppercase}}
+                                <div>
+                                    <span *ngIf="key.UNIFORMID">#{{key.UNIFORMID}}</span>
+                                </div>
+                                <div class="suit-iconCard fixedRight" (click)="DisplaySeverityDetails(key)" *ngIf="FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1 && ((key.PLAYERAILMENTSSEVERITYICON) || (key.showMedicine==1))">
+                                    <img src={{global.ImagesPath}}{{key.PLAYERAILMENTSSEVERITYICON}} class="suit-icon" *ngIf="(key.PLAYERAILMENTSSEVERITYICON  && (key.showMedicine==1 || key.showMedicine==0))">
+                                    <img src="{{global.ImagesPath}}pills.svg" class="medical-bottle" *ngIf="((key.showMedicine==1) && (!key.PLAYERAILMENTSSEVERITYICON))">
+                                </div>
+        
+                            </div>
+                           
+                        </div>
+                    </div>
+
+                    <div class="btn-section mb-50 mt-30" *ngIf="PlayerList">
+                        <button type="submit" class="btn btn-save btn-sm-black radius-10" (click)="borrow()">BORROW</button>
+                    </div>
+                </div>
+
+            </section>
+        </form>
+        </section>
+</ion-content>
+

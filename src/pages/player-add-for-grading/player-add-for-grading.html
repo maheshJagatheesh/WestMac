@@ -1,0 +1,129 @@
+<!--
+  Generated template for the PlayerAddForGradingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <nav class="navbar navbar-fixed-top">
+    <div class="top-bar clearfix">
+      <div class="pull-left" (click)="goToPlayersDashboard()">
+        <div class="backArrow info-item">TEAM MATES</div>
+      </div>
+      <div class="prev-next pull-right" (click)="goToChooseTeamsPage()">
+        <a href="javascript:void(0);" class="next"></a>
+        <a href="javascript:void(0);" class="prev"></a>
+      </div>
+    </div>
+    <ul class="nav navbar-nav top-menu player-menu">
+      <li class=""><a href="javascript:void(0);" (click)="goToPlayerGroupMessage()">Group message</a></li>
+      <li class=""><a href="javascript:void(0);" (click)="goToPlayerGrading()">Grading</a></li>
+      <li class="active"><a href="javascript:void(0);">Add player</a></li>
+    </ul>
+  </nav>
+</ion-header>
+
+<ion-content>
+  <div class="bg-gray event">
+    <section class="main">
+      <form action="" class="user-form player-item" [formGroup]="playerAddForm">
+        <input type="hidden" name="profileImage" value="" formControlName="profileImage" />
+        <section class="profileFirst heightAuto xs-padding">
+          <div class="row">
+            <div class="well edit-profile col-xs-12 radius-20">
+              <div class="row">
+                <div class="card-img col-xs-3 p-0">
+                  <img src="assets/images/camera-white.png" alt="" class="img-circle" (click)="getPhoto()">
+                </div>
+                <div class="col-xs-9 p-0">
+                  <span class="errorMsg">{{errorMsg}}</span>
+                  <div class="title clearfix">
+                    <span class="first-name"><input type="text" name="firstName" formControlName="firstName" placeholder="Firstname" /> </span>
+                    <span class="last-name"><input type="text" name="lastName" formControlName="lastName" placeholder="Lastname" /></span>
+                  </div>
+                  <ul class="list-group profile-list">
+                    <li class="list-group-item"><img src="assets/images/mail.png" alt="">
+                      <span><input type="text" name="email" placeholder="add email…" formControlName="email" autocapitalize="none" /></span>
+                    </li>
+                    <li class="list-group-item"><img src="assets/images/phone.png" alt="">
+                      <span><input type="text" name="phone" placeholder="add phone…" formControlName="phone" /></span>
+                    </li>
+                    <li class="list-group-item" (click)="toggleEmergencyContact()"><img src="assets/images/sister.png" alt="">
+                      <span>add emergency contact…</span>
+                    </li>
+                    <li *ngIf="showEmergencyContact">
+                      <div class="title clearfix">
+                        <span class="first-name"><input type="text" name="addFirstName" formControlName="addFirstName" placeholder="Firstname" /> </span>
+                        <span class="last-name"><input type="text" name="addLastName" formControlName="addLastName" placeholder="Lastname" /></span>
+                      </div>
+                      <ul class="list-group profile-list">
+                        <li class="list-group-item"><img src="assets/images/mail.png" alt="">
+                          <span><input type="text" name="addEmail" formControlName="addEmail" placeholder="add email…" autocapitalize="none" /></span>
+                        </li>
+                        <li class="list-group-item"><img src="assets/images/phone.png" alt="">
+                          <span><input type="text" name="addPhone" formControlName="addPhone" placeholder="add phone…" /></span>
+                        </li>
+                        <li class="list-group-item"><img src="assets/images/phone.png" alt="">
+                          <span>
+                            <select name="addRelationship" formControlName="addRelationship">
+                              <option value="">Select Relationship</option>
+                              <option value="1">Parent</option>
+                              <option value="2">Guardian</option>
+                            </select>
+                          </span>
+                        </li>
+                        <li class="list-group-item"><img src="assets/images/phone.png" alt="">
+                          <span>
+                            <select name="addEmergencies" formControlName="addEmergencies">
+                              <option value="">Select Emergencies</option>
+                              <option value="1">Yes</option>
+                              <option value="0">No</option>
+                            </select>
+                          </span>
+                        </li>
+                        <li class="list-group-item"><img src="assets/images/phone.png" alt="">
+                          <span>
+                            <select name="addNotify" formControlName="addNotify">
+                              <option value="">Select Notify</option>
+                              <option value="1">Yes</option>
+                              <option value="0">No</option>
+                            </select>
+                          </span>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="list-group-item"><img src="assets/images/medical.png" alt="">
+                      <span>add medical information…</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row">
+                <div class="btn-section">
+                  <button type="submit" class="btn btn-save xs-btn" (click)="playerAddForGrading()">SAVE</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="javascript:void(0);" class="circle-plus mt-20">
+            <i class="material-icons">add</i>
+          </a>
+        </section>
+      </form>
+    </section>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="home" (click)="gotoHome()"><a href="javascript:void(0);">Home</a></li>
+        <li class="events" (click)="gotoDisplayEvents()"><a href="javascript:void(0);">Events</a></li>
+        <li class="players active" (click)="goToPlayersDashboard()"><a href="javascript:void(0);">Players</a></li>
+        <li class="comment" (click)="goToChatDashboard()"><a href="javascript:void(0);">Comments</a></li>
+        <li class="more" (click)="goToMenuPage()"><a href="javascript:void(0);">More</a></li>
+      </ul>
+    </div>
+  </nav>
+</ion-footer>

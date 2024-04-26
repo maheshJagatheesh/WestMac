@@ -1,0 +1,62 @@
+
+<ion-content class="bg-black borrowPlayer">
+    <section class="main mt-20">
+        <div class="top-bar" (click)="backArrow()">
+            <div class="col-xs-3">
+                <div class="backArrow inverse"></div>
+            </div>
+        </div>
+        <form action="" class="user-form">
+            
+            <section class="profileFirst heightAuto">
+                <div class="event-card borrow" *ngIf="eventAttend" >
+                    <div class="injuryCardBottom" *ngFor="let StateAttendy of eventAttend;let i=index">
+                        <div *ngIf="i<3">
+                            <div class="well select-card" [class.red]="Attendy.injuryStatus==1" *ngFor="let Attendy of StateAttendy">
+                                <div class="row" (click)="incidentReport(Attendy)">
+                                    <div class="card-img col-xs-2 p-0">
+                                            <span  *ngIf="!Attendy.PHOTOPATH">
+                                                <div class="img-circle"><span class="img-text">{{Attendy.first_name[0]}} {{Attendy.last_name[0]}} </span></div>
+                                                <!-- <img src="assets/images/test-user.svg" alt="" class="img-circle"> -->
+                                            </span>
+                                            <span  *ngIf="Attendy.PHOTOPATH">
+                                                <img src={{PhotoApiUrl}}{{Attendy.PHOTOPATH}} alt="" class="img-circle">
+                                            </span>
+                            
+                                            </div>
+                                    <div class="card-title col-xs-8 p-0">{{Attendy.first_name | uppercase}} {{Attendy.last_name | uppercase}}
+                                        
+                                        <div>
+                                            <span *ngIf="Attendy.uniformid">#{{Attendy.uniformid}}</span>
+                                        </div>
+                                        <div class="suit-iconCard fixedRight" (click)="DisplaySeverityDetails(Attendy)" *ngIf="FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1 && ((Attendy.playerAilmentsSeverityIcon) || (Attendy.showMedicine==1))">
+                                            <img src={{global.ImagesPath}}{{Attendy.playerAilmentsSeverityIcon}} class="suit-icon" *ngIf="(Attendy.playerAilmentsSeverityIcon  && (Attendy.showMedicine==1 || Attendy.showMedicine==0))">
+                                            <img src="{{global.ImagesPath}}pills.svg" class="medical-bottle" *ngIf="((Attendy.showMedicine==1) && (!Attendy.playerAilmentsSeverityIcon))">
+                                        </div>
+                                        
+                                    </div>
+                                    <!-- <div class="col-xs-3 p-0">
+                                        <div class="suit-iconCard" (click)="DisplaySeverityDetails(Attendy.playerAilments)" *ngIf="Attendy.playerAilmentsSeverityIcon && FunctionAccess && FunctionAccess.medicalKit=='yes'">
+                                            <img src={{global.ImagesPath}}{{Attendy.playerAilmentsSeverityIcon}}  class="suit-icon">
+                                        </div> -->
+                                        
+                                        <!-- <div class="medical-bottleCard" (click)="MedicineInformation(Attendy)" *ngIf="Attendy.showMedicine==1 && FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1">
+                                            <img src="{{global.ImagesPath}}medicine_bottle.png" class="medical-bottle">
+                                        </div>
+                                    </div> -->
+                                    <div class="event-add col-xs-2 p-0">
+                                        <i class="material-icons">add</i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </section>
+        </form>
+        </section>
+
+</ion-content>

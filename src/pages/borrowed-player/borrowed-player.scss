@@ -1,0 +1,67 @@
+page-borrowed-player {
+    .addIconCircle{
+        margin-top: 10% !important;
+        margin-bottom: 10% !important;
+    }
+    .addIcon{
+        color:white;
+        padding: 5px !important;
+        font-size: 2.2em !important;
+    }
+    .card-Close{
+        padding: 15px;
+        font-size: 2em;
+        color: red;
+    }
+    .img-text{
+        padding: 9px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #828282;
+    }
+    .suit-iconCard{
+        float: right;
+        padding: 0 8px;
+        line-height: 55px;
+        .suit-icon{
+          width:25px;
+          height:25px;
+        }
+      }
+      
+      .medical-bottleCard{
+        margin: 0 8px;
+        line-height: 55px;
+        float: right;
+        .medical-bottle{
+          height:25px;
+        }
+      }
+    .card-title span {
+        padding-top: 0;
+        color: #8B8B8B;
+        font-size: 12px;
+        font-weight: normal;
+        width: 100%;
+    }
+    .card-Close{
+        padding-left: 7px !important;
+    }
+    .suit-iconCard.fixedRight {
+      padding: 0;
+      right: 0!important;
+      width: 26px;
+      left: inherit;
+      top: 45%;
+      position: absolute;
+      -webkit-transform: translate(0, -50%);
+      -moz-transform: translate(0, -50%);
+      -o-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+    }
+
+    .col-xs-6{
+      width: 49%;
+    }
+}

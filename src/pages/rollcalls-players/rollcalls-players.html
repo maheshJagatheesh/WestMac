@@ -1,0 +1,218 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+                
+                <div class=" col-xs-10 p-0">
+                        <button class="BackButton bg-white"(click)="backArrow()"><img src="assets/images/arrow-black.svg"></button>
+                    Transport</div>
+            <div class="bardcode col-xs-2 position_fix">
+                
+                <img (click)="openScanner()" src="assets/images/transport/barcode-black.svg" alt="" class="coustom_position">
+            </div>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content id="BodyContent" class="" >
+    <section class="main mt-20">
+        <form action="" class="user-form" id="searchForm" >
+            <div class="navbar-search p-0-16">
+                <div class="row">
+                   
+                    <div  class="search-bar col-xs-11 padding_search_fix">
+                        <div id="SearchBar" class="input-wrap">
+                            
+                            <input type="text" class="form-control search-input" placeholder="Search" [(ngModel)]="getNameFilter" name="srch-term" id="srch-term" (input)="SearchFilter('nameFilter',getNameFilter)">
+                            <div class="microphone_icon" (click)="listen();"><img src="assets/images/transport/microphone.svg"></div>
+                            <!-- <img class="filterImage" src="assets/images/transport/microphone.svg" alt="" > -->
+                        </div>
+                      
+                        
+                      
+                    </div>
+                    <div id='SearchBar' class="col-xs-1 p-0" >
+                        <div class="counter" (click)="showFilter(ShowFilter)">
+                            <!-- <span><span [class.textGreen]="Count > 0">{{Count}}</span>/{{TotalCount}}</span> -->
+                            <img class="filterImage" src="assets/images/transport/filter_list.svg" alt="" class="filter_fix" >
+                        </div>
+                
+                    </div>
+                </div>
+            </div>
+            <div class="FilterCard" *ngIf="ShowFilter" >
+                <!-- <div class="navbar navbar-default event-menu mt-20">
+                    <ul class="nav navbar-nav">
+                        <li class="unactive" [class.active]="activeFilter=='all'" (click)="SubFilter('all')"><a class="" href="javascript:void(0)">ALL</a></li>
+                        <li class="unactive" [class.active]="activeFilter=='unchecked'"><a class="" (click)="SubFilter('unchecked')" href="javascript:void(0)">UNCHECKED</a></li>
+                        <li class="unactive" [class.active]="activeFilter=='scratched'"><a class="" (click)="SubFilter('scratched')" href="javascript:void(0)">SCRATCHED</a></li>
+                    </ul>
+                </div> -->
+            
+                <!-- <h5 class="sm-title text-left col-xs-12" *ngIf="StatusListFilter.length>0">Pre-rollcall status:</h5>
+                <div class="option-group col-xs-12" *ngIf="StatusListFilter.length>0">
+                    <ul class="list-group">
+                        <li class="list-group-item text-left clearfix" *ngFor="let key of StatusListFilter"> {{key.status_name}}
+                            <div class="col-xs-2 checkArrow-group">
+                                <div class="col-xs-2 p-0 checkbox-col" >
+                
+                                    <div class="checkbox1" (click)="assignFilters('rollcallStatusId',key.rollcall_status_id,$event)">
+                                    </div>
+                                    <div class="checkbox"></div>
+                                </div>
+                            </div>
+                        </li> 
+                    
+                    </ul>
+                </div> -->
+                <h5 class="sm-title text-left col-xs-12" *ngIf="TeamListFilter.length>0">Team</h5>
+                <div class="option-group col-xs-12" *ngIf="TeamListFilter.length>0">
+                    <ul class="list-group">
+                        <li class="list-group-item text-left clearfix" *ngFor="let key of TeamListFilter"> {{key.TEAMNAME}}
+                            <div class="col-xs-2 checkArrow-group">
+                                <div class="col-xs-2 p-0 checkbox-col" >
+                
+                                    <div class="checkbox1" (click)="assignFilters('teamId',key.CLUBDIVISIONID,$event)">
+                                    </div>
+                                    <div class="checkbox"></div>
+                                </div>
+                            </div>
+                        </li> 
+                    
+                    </ul>
+                </div>
+                <h5 class="sm-title text-left col-xs-12" *ngIf="SportListFilter.length>0">Sport</h5>
+                <div class="option-group col-xs-12" *ngIf="SportListFilter.length>0">
+                    <ul class="list-group">
+                        <li class="list-group-item text-left clearfix" *ngFor="let key of SportListFilter"> {{key.SPORTNAME}}
+                            <div class="col-xs-2 checkArrow-group">
+                                <div class="col-xs-2 p-0 checkbox-col" >
+                
+                                    <div class="checkbox1" (click)="assignFilters('sportId',key.SPORTID,$event)">
+                                    </div>
+                                    <div class="checkbox"></div>
+                                </div>
+                            </div>
+                        </li> 
+                    
+                    </ul>
+                </div>
+                <h5 class="sm-title text-left col-xs-12" *ngIf="VehicleListFilter.length>0">Previous Vehicle</h5>
+                <div class="option-group col-xs-12 mb15" *ngIf="VehicleListFilter.length>0">
+                    <ul class="list-group">
+                        <li class="list-group-item text-left clearfix" *ngFor="let key of VehicleListFilter;let i=index"> {{key.vehicleName}}
+                                <div class="col-xs-2 checkArrow-group">
+                                    <div class="col-xs-2 p-0 checkbox-col" >
+                    
+                                        <div class="checkbox1" (click)="assignFilters('vehiclesId',key.vehiclesId,$event)">
+                                        </div>
+                                        <div class="checkbox"></div>
+                                    </div>
+                                </div>
+                          
+                        </li>
+                    
+                    </ul>
+                </div>
+                <!-- <h5 class="sm-title text-left col-xs-12" *ngIf="StaffListFilter.length>0">Last tagged by:</h5>
+                <div class="option-group col-xs-12" *ngIf="StaffListFilter.length>0">
+                    <ul class="list-group">
+                        <li class="list-group-item text-left clearfix" *ngFor="let key of StaffListFilter"> {{key.firstName}} {{key.lastName}}
+                         
+                            <div class="col-xs-2 checkArrow-group">
+                                <div class="col-xs-2 p-0 checkbox-col" >
+                
+                                    <div class="checkbox1" (click)="assignFilters('staffId',key.staff_id,$event)">
+                                    </div>
+                                    <div class="checkbox"></div>
+                                </div>
+                            </div>
+                        </li>
+                    
+                        
+                    </ul>
+                </div> -->
+            </div>
+            <div class="transport-header clearfix" >
+                <div class="rollcall-header">
+                    <div class="top-bar col-xs-8" >
+                        {{rollcallName.toString() | uppercase}}
+                        <br>
+                        <span><span [class.textGreen]="Count > 0">{{Count}}</span>/{{TotalCount}}</span>
+                        <span class="textLock" *ngIf="rollcalIisLocked==1">- Locked</span>
+                    </div>
+                    <div class="col-xs-4 text-right">
+                            <label class="select">
+                                <select name="" id="" class="form-control custom-select" (change)="changeVehicle($event.target.value)">
+                                    <option value="{{i}}" [selected]="vehiclesId == key.vehiclesId" *ngFor="let key of VehicleListFilter;let i=index">{{key.vehicleName}}</option>
+                                </select>
+                            </label>
+                    </div>
+                </div>
+              
+              </div>
+
+            <div class="event-card" >
+                <div class="well select-card locked" *ngIf="passengersList.length<1 && (passengersListSuccess=='1' || passengersListSuccess=='2')">
+                    <div class="row">
+                        <div class="card-img col-xs-2 p-0">
+                           
+                        </div>
+                        <div class="card-title col-xs-8">
+                            <p style="text-align: center">No Data Found</p>
+                        </div>
+                        <div class="event-next col-xs-2 p-0">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <ion-list no-lines *ngFor="let passenger of passengersList">
+                    <ion-item-sliding class="well select-card" [class.attendenceClose]="passenger.isRemove==1" [class.locked]="rollcalIisLocked==1">
+                        <ion-item>
+                            <div class="row" (click)="goToPlayerRollcallLog(passenger, $event)">
+                                <div class="card-img col-xs-2 p-0">
+                                    <span class="" *ngIf="passenger.photoPath==''">
+                                        <div class="img-circle"><span class="img-text">{{passenger.firstName[0]}} {{passenger.lastName[0]}} </span></div>                                  
+                                    </span>
+                                    <span class="" *ngIf="passenger.photoPath">
+                                        <img src="{{global.PROFILEIMAGEURL}}{{passenger.photoPath}}" alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+                                    </span>
+                                </div>
+                                <div class="card-title col-xs-8">
+                                    {{passenger.firstName | uppercase}} {{passenger.lastName | uppercase}}
+                                    <p>{{passenger.statusName}}</p>
+                                </div>
+                                <div class="event-next col-xs-2 p-0" (click)="(passenger.isPresent==1)?unscratchPassenger(passenger.rollcallPersonsId):updatePassengerStatus(passenger.rollcallPersonsId)">
+                                    <span class="custom-radio v-center">
+                                        <div class="radio clearfix">
+                                            <input *ngIf="passenger.isRemove==0" type="radio" class="status" [checked]="passenger.isPresent==1" [disabled]="isUpdating">
+                                            <input *ngIf="passenger.isRemove==1" type="radio" class="status" [checked]="passenger.isRemove==1" [disabled]="isUpdating">
+                                            <label></label>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                        </ion-item>
+                        <ion-item-options side="right" *ngIf="passenger.isPresent==1 && rollcalIisLocked == 0">
+                            <button class="btn-danger" ion-button danger (click)="presentRemoveActionSheet(passenger.rollcallPersonsId)">REMOVE</button>
+                        </ion-item-options>
+                        <ion-item-options side="right" *ngIf="passenger.isRemove==1 && rollcalIisLocked == 0">
+                            <button ion-button danger (click)="unscratchPassenger(passenger.rollcallPersonsId)">ADD</button>
+                        </ion-item-options>
+                    </ion-item-sliding>
+                </ion-list>
+
+                <div class="mt-20">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="button" class="btn btn-remove xs-btn" (click)="removeRollcall()" *ngIf="Count==0">REMOVE ROLLCALL</button>
+                            <button type="button" class="btn btn-orange btn-rounded lock" (click)="lockUnlockRollcall()" *ngIf="Count>0">{{(rollcalIisLocked == 0)?'LOCK':'UNLOCK'}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        </section>
+        
+  </ion-content>
+  
+  

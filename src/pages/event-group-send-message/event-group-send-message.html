@@ -1,0 +1,127 @@
+
+<ion-content class="bg-black borrowPlayer">
+  <section class="main mt-20">
+    <div class="top-bar" (click)="backArrow()">
+      <div class="col-xs-3">
+        <div class="backArrow inverse"></div>
+      </div>
+    </div>
+    <form action="" class="user-form">
+      <div class="fade group-msg player-group-message" role="dialog">
+        <div class="modal-dialog plr-group-msg">
+          <div class="modal-content msg-send radius-10">
+            <div class="modal-header">
+              <h4 class="modal-title text-center">Alert Message</h4>
+            </div>
+            <div class="modal-body">
+              <textarea class="form-control msg-box plr-msg-box" name="message" [(ngModel)]="message" cols="30" rows="6"></textarea>
+            </div>
+            <div class="modal-footer">
+              <div class="row">
+                <div class="submit-link col-xs-12 text-right"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h5 class="sm-title text-left col-xs-12 mt-20">CHOOSE PLAYER/S</h5>
+      <section class="profileFirst heightAuto">
+        <div class="event-card borrow" >
+          <div *ngFor="let StateAttendy of DupeventAttendsec;let i=index" style="padding-bottom:10px">
+            <div *ngIf="i<3">
+                <div class="well select-card" *ngFor="let Attendy of StateAttendy" [attr.data-id]="Attendy.person_id"
+                [ngClass]="{'active': Attendy.active}" (click)="selectPlayer(Attendy)">
+                  <div class="row">
+                    <div class="card-img col-xs-2 p-0">
+                      <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2" [class.no-response]="Attendy.state==3"
+                            [class.maybe]="Attendy.state==4" *ngIf="!Attendy.PHOTOPATH">
+                            <div class="img-circle"><span class="img-text">{{Attendy.first_name[0]}} {{Attendy.last_name[0]}} </span></div>
+                        <!-- <img src="assets/images/test-user.svg" alt="" class="img-circle"> -->
+                      </span>
+                      <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2" [class.no-response]="Attendy.state==3"
+                            [class.maybe]="Attendy.state==4" *ngIf="Attendy.PHOTOPATH">
+                        <img src={{PhotoApiUrl}}{{Attendy.PHOTOPATH}} alt="" class="img-circle" >
+                      </span>
+                    </div>
+                    <div class="card-title col-xs-10 p-0" [class.InjuredPlayerName]="Attendy.injuryStatus==1">{{Attendy.first_name
+                      | uppercase}} {{Attendy.last_name | uppercase}}
+                      <p class="Show_Status" [class.InjuredPlayerStatus]="Attendy.injuryStatus==1" *ngIf="Attendy.uniformid">{{Attendy.uniformid}}</p>
+                      <div class="suit-iconCard fixedRight" (click)="DisplaySeverityDetails(Attendy)" *ngIf="FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1 && ((Attendy.playerAilmentsSeverityIcon) || (Attendy.showMedicine==1))">
+                          <img src={{global.ImagesPath}}{{Attendy.playerAilmentsSeverityIcon}} class="suit-icon" *ngIf="(Attendy.playerAilmentsSeverityIcon  && (Attendy.showMedicine==1 || Attendy.showMedicine==0))">
+                          <img src="{{global.ImagesPath}}pills.svg" class="medical-bottle" *ngIf="((Attendy.showMedicine==1) && (!Attendy.playerAilmentsSeverityIcon))">
+                        </div>
+                    </div>
+                  </div>
+           </div>
+
+            </div>
+            
+          </div>
+          <div class="borrowHeading" *ngIf="BorrowTagFlag==1">
+            <p>BORROWED PLAYER/S</p>
+          </div>
+          <div *ngFor="let StateAttendy of DupEventAttendSecBorrowed;let i=index" style="padding-bottom:5px">
+              <div *ngIf="i<3">
+                  <div class="well select-card" *ngFor="let Attendy of StateAttendy" [attr.data-id]="Attendy.person_id"
+                  [ngClass]="{'active': Attendy.active}" (click)="selectPlayer(Attendy)">
+                    <div class="row">
+                      <div class="card-img col-xs-2 p-0">
+                        <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2" [class.no-response]="Attendy.state==3"
+                              [class.maybe]="Attendy.state==4" *ngIf="!Attendy.photoPath">
+                              <div class="img-circle"><span class="img-text">{{Attendy.first_name[0]}} {{Attendy.last_name[0]}} </span></div>
+                          <!-- <img src="assets/images/test-user.svg" alt="" class="img-circle"> -->
+                        </span>
+                        <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2" [class.no-response]="Attendy.state==3"
+                              [class.maybe]="Attendy.state==4" *ngIf="Attendy.photoPath">
+                          <img src={{PhotoApiUrl}}{{Attendy.photoPath}} alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+                        </span>
+                      </div>
+                      <div class="card-title col-xs-10 p-0" [class.InjuredPlayerName]="">{{Attendy.first_name | uppercase}}
+                        {{Attendy.last_name | uppercase}}
+                        <p class="Show_Status" [class.InjuredPlayerStatus]="" *ngIf="Attendy.uniformid">{{Attendy.uniformid}}</p>
+                        <div class="suit-iconCard fixedRight" (click)="DisplaySeverityDetails(Attendy)" *ngIf="FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1 && ((Attendy.playerAilmentsSeverityIcon) || (Attendy.showMedicine==1))">
+                            <img src={{global.ImagesPath}}{{Attendy.playerAilmentsSeverityIcon}} class="suit-icon" *ngIf="(Attendy.playerAilmentsSeverityIcon  && (Attendy.showMedicine==1 || Attendy.showMedicine==0))">
+                            <img src="{{global.ImagesPath}}pills.svg" class="medical-bottle" *ngIf="((Attendy.showMedicine==1) && (!Attendy.playerAilmentsSeverityIcon))">
+                          </div>
+                      </div>
+                      
+                    </div>
+             </div>
+                
+              </div>
+          </div>
+          <div class="borrowHeading" *ngIf="teamStaffs.length" style="margin-top: 30px;">
+            <p>STAFF</p>
+          </div>
+          <div class="well select-card" *ngFor="let staff of teamStaffs" [attr.data-id]="staff.person_id"
+               [ngClass]="{'active': staff.active}" (click)="selectPlayer(staff)">
+            <div class="row">
+              <div class="card-img col-xs-2 p-0">
+                <span *ngIf="!staff.photoPath">
+                    <div class="img-circle"><span class="img-text">{{staff.first_name[0]}} {{staff.last_name[0]}} </span></div>
+                  <!-- <img src="assets/images/test-user.svg" alt="" class="img-circle"> -->
+                </span>
+                <span *ngIf="staff.photoPath">
+                  <img src={{PhotoApiUrl}}{{staff.photoPath}} alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+                </span>
+              </div>
+              <div class="card-title col-xs-7 p-0">{{staff.first_name | uppercase}}
+                {{staff.last_name | uppercase}}
+                <p class="Show_Status" *ngIf="staff.designation">{{staff.designation}}</p>
+                <div class="suit-icon" (click)="DisplaySeverityDetails(staff.playerAilments)" *ngIf="staff.playerAilmentsSeverityIcon && FunctionAccess && FunctionAccess.medicalKit=='yes'">
+                    <img src={{global.ImagesPath}}{{staff.playerAilmentsSeverityIcon}} >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="btn-section mb-30 mt-30" >
+        <button type="submit" class="btn btn-save btn-sm-black radius-10" (click)="sendMessage()">SEND ALERT MESSAGE</button>
+      </div>
+
+    </form>
+  </section>
+
+</ion-content>
+

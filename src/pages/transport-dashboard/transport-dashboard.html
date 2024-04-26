@@ -1,0 +1,142 @@
+<ion-header class="header-md">
+  <ion-navbar class="main">
+
+    <div class="top-bar clearfix">
+      <div class="pull-left">
+
+        <div>
+            <button class="BackButton bg-white"(click)="backArrow()"><img src="assets/images/arrow-black.svg"></button>
+            Events
+          </div>
+      </div>
+      <div class="prev-next pull-right" (click)="goToChooseTeamsPage()">
+        <a href="javascript:void(0);" class="next"></a>
+      </div>
+  </div>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="bg-gray event">
+  <section class="main">
+
+    <form action="" class="user-form profile bg-black" style=" padding-top: 0%!important;">
+      <section class="profileFirst heightAuto xs-padding" (click)="resetColors($event)">
+        <div *ngFor="let detail of arrDetail">
+          <div class="form-group">
+            <div class="date_time text-blue text-center">
+              <span class="dateOption">{{key.week}} {{date}} {{detail.months }}</span>
+              <span class="glyphicon glyphicon-time" *ngIf="arrDetail"></span>
+              <span class="timeOption">
+                <span>{{key.time_started}}</span>
+              </span>
+            </div>
+          </div>
+          <h4 class="info-item text-center inverseText">{{detail.name}}
+            <p class="text-center inverseText">
+              <span *ngIf="detail.ground_name">{{detail.ground_name}}</span>
+              <br>
+              <span *ngIf="detail.ground_address && detail.ground_state" (click)="openMap(detail.ground_address, detail.ground_state,detail.geoloc_latitude,detail.geoloc_longitude)">{{detail.ground_address}},
+                {{detail.ground_state}}</span>
+              <span *ngIf="!detail.ground_address || !detail.ground_state">Undefined Location</span>
+            </p>
+          </h4>
+
+          <div class="bookmark-line mt-30"> <i class="glyphicon glyphicon-bookmark" style="background: #fff;width: 30px;height: 30px;border-radius: 15px;padding-top: 10px;"></i></div>
+          <p class="text-center inverseText mt-30">{{detail.event_notes}}</p>
+          <!--event note-->
+        </div>
+        <div class="radial-progressbar mt-30">
+          <div class="row">
+            <div class="info-left col-xs-3 p-0">
+              <div class="row text-right Going" (click)="eventState('Going',$event)">
+                <span class="badge maybe" style=" background-color:colorGoing !important;height: 20px;">{{DupeventAttendLen[0]}}</span>
+                <h4 class="progress-item" style="color: #fff;">Going</h4>
+              </div>
+              <div class="divider"></div>
+              <div class="row text-right MayBe" (click)="eventState('Maybe',$event)">
+                <span class="badge going" style="background-color:colorMaybe !important; height: 20px;">{{DupeventAttendLen[3]}}</span>
+                <h4 class="progress-item" style="color: #fff;">Notified</h4>
+              </div>
+            </div>
+
+            <div class="radial-circle col-xs-6 p-0">
+              <circle-progress [percent]="percentArray[0]" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="0"
+                [outerStrokeColor]="GoingColor" [animation]="false" [showInnerStroke]="false" [showTitle]="false"
+                [showSubtitle]="false" [showUnits]="false" class="going">
+
+              </circle-progress>
+              <circle-progress [percent]="percentArray[3]" [radius]="80" [outerStrokeWidth]="16" [innerStrokeWidth]="0"
+                [outerStrokeColor]="MaybeColor" [showInnerStroke]="false" [animation]="false" [showTitle]="false"
+                [showSubtitle]="false" [showUnits]="false" class="maybe">
+              </circle-progress>
+              <circle-progress [percent]="percentArray[1]" [radius]="60" [outerStrokeWidth]="16" [innerStrokeWidth]="0"
+                [outerStrokeColor]="NotGoingColor" [showInnerStroke]="false" [animation]="false" [showTitle]="false"
+                [showSubtitle]="false" [showUnits]="false" class="not-going">
+              </circle-progress>
+              <circle-progress [percent]="percentArray[2]" [radius]="40" [outerStrokeWidth]="16" [innerStrokeWidth]="0"
+                [outerStrokeColor]="NoResponseColor" [showInnerStroke]="false" [animation]="false" [showTitle]="false"
+                [showSubtitle]="false" [showUnits]="false" class="no-response">
+              </circle-progress>
+            </div>
+
+            <div class="info-right col-xs-3 p-0">
+              <div class="row text-left NotGoing" (click)="eventState('Not going',$event)">
+                <span class="badge not-going" style="color:colorNotGoing !important;">{{DupeventAttendLen[1]}}</span>
+                <h4 class="progress-item" style="color: #fff;">Not going</h4>
+              </div>
+              <div class="divider"></div>
+              <div class="row text-left NoResponse" (click)="eventState('No response',$event)">
+                <span class="badge no-response" style="background-color:colorNoResponse !important;">{{DupeventAttendLen[2]}}</span>
+                <h4 class="progress-item" style="color: #fff;">No response</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scrollDown">
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </div>
+        <div class="navbar-inner clearfix">
+          <ul class="nav navbar-nav">
+            <li class="group" *ngIf="FunctionAccess && FunctionAccess.event_GroupMessage=='yes'" (click)="gotoGroupMessage()">
+              <a href="javascript:void(0)">
+                <div class="icon-circle"></div> GROUP MESSAGE
+              </a>
+            </li>
+
+            <li class="transport" *ngIf="FunctionAccess && FunctionAccess.event_NotifyPlayer=='yes'" (click)="notify_player()">
+              <a href="javascript:void(0)">
+                <div class="icon-circle"></div> TRANSPORT
+              </a>
+            </li>
+            
+            <!--
+                        <li class="session" (click)="gotoSessionPlan()">
+                            <a href="javascript:void(0)">
+                                <div class="icon-circle"></div> SESSION PLAN
+                            </a></li> -->
+            <li class="injury" *ngIf="FunctionAccess && FunctionAccess.user_adminLevel" (click)="gotoInjuredList()">
+              <a href="javascript:void(0)">
+                <div class="icon-circle"></div> INJURY
+              </a></li>
+          </ul>
+        </div>
+      </section>
+    
+    </form>
+  </section>
+</ion-content>
+<!-- <ion-footer>
+  <div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="home" (click)="gotoHome()"><a href="javascript:void(0)">Home</a></li>
+        <li class="events active" (click)="gotoDisplayEvents()"><a href="javascript:void(0)">Events</a></li>
+        <li class="players" (click)="goToPlayersDashboard()"><a href="javascript:void(0)">Players</a></li>
+        <li class="comment" (click)="goToChatDashboard()"><a href="javascript:void(0)">Comments</a></li>
+        <li class="more" (click)="goToMenuPage()"><a href="javascript:void(0)">More</a></li>
+      </ul>
+    </div>
+  </div>
+</ion-footer> -->

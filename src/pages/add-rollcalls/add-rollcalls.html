@@ -1,0 +1,43 @@
+
+<ion-content class="bg-black" >
+    <div class="fixed-top_ modal-close">
+            <!-- <img src="assets/images/close-white.png" alt="" data-dismiss="modal"> -->
+            <div class="rotate-text pwrotate-text-white" (click)="close()">
+                  <span class="close_" data-dismiss="modal">CLOSE
+                      <ion-icon name="close" class="close_-button"></ion-icon>
+                  </span>
+            </div>
+    </div>
+  <div class="modal-content modalView">
+      <div class="modal-header shadow">
+          <h5 class="modal-title fontBold text-center">ROLLCALLS</h5>
+      </div>
+      <div class="modal-body modal-report">
+        <div class="row">
+          <div class="d-flex align-center col-xs-3 p-0">
+            <span class="textGray">Name</span>
+          </div>
+          <div class="col-xs-9 p-0">
+              <input type="text" class="form-control" [(ngModel)]="rollcallName">
+          </div>
+        </div>
+        <div class="row">
+          <div class="toggleGroup p-0 mt-20 clearfix">
+              <div class="text-info pull-left textGray">Make Rollcall dynamic<p>Control only previous check-in</p></div>
+              <div class="toggle pull-right">
+                  <label class="switch">
+                      <input type="checkbox" (checked)="isDynamic=='1'">
+                      <span class="slider round" (click)="setDynamic()"></span>
+                    </label>
+              </div>
+          </div>
+        </div>
+        <div class="btn-section mt-30">
+            <button type="submit" class="btn btn-save xs-btn" (click)="addRollcall()">ADD</button>
+        </div>
+        <div class="modal-footer"></div>
+
+        </div>
+    </div>
+    
+</ion-content>

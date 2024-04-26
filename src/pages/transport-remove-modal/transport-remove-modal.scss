@@ -1,0 +1,54 @@
+page-transport-remove-modal {
+    ion-item{
+        
+        ion-label{
+            color:map-get($Transport-colors, hightlightedText ) !important;
+            font-weight: 200 !important;
+            font-size:20px !important;
+        }
+
+    }
+    .item-inner {
+        padding-right: 8px;
+        border-bottom: 1px solid #dedede !important;
+    }
+    .modal-content,.item-md{
+        background-color: #f8f8f8 !important;
+    }
+    .modal-footer{
+        top:initial;
+        bottom: 0px;
+    }
+
+    .logsCard ion-item {
+        border-bottom: 1px solid #aaa;
+        padding: 0;
+    }
+    .logsCard ion-item:last-child{
+        border-bottom: none!important;
+    }
+    .modal-content,.modal-body{
+        padding: 5px 0;
+        border-radius: 10px;
+    }
+    .fixed_bottom{    
+        position: fixed;
+        width: 95%;
+        left: 0%;
+        bottom: 17%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(3%, 0%);
+    }
+    .fixed_bottom_cancel{
+        position: fixed;
+        width: 95%;
+        left: 0%;
+        bottom: 3%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(3%, 0%);
+    }
+    ion-content.bg-black {
+        background: rgba(21, 35, 60, 0.6);
+    }
+
+}

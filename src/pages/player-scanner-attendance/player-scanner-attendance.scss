@@ -1,0 +1,20 @@
+page-player-scanner-attendance {
+    .noBarcodeCard{
+        padding-top: 30%;
+        background: #fff;
+        width: 231px;
+        height: 231px;
+    }
+    ion-content.bg-black{
+        background: rgba(21, 35, 60, 0.8)!important;
+    }
+    .img-circle{
+        .img-text{
+            width: 76px;
+            height: 76px;
+            line-height: 50px;
+            font-size: 20px;
+        }
+    }
+
+}

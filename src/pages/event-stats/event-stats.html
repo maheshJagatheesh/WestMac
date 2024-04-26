@@ -1,0 +1,193 @@
+<!--
+  Generated template for the EventStatsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+
+    <ion-navbar>
+        <div class="top-bar clearfix">
+            <div class="pull-left">
+                <div>Stats</div>
+            </div>
+            <div class="prev-next pull-right" (click)="goToChooseTeamsPage()">
+                <a href="javascript:void(0);" class="next"></a>
+                <a href="javascript:void(0);" class="prev"></a>
+            </div>
+        </div>
+    </ion-navbar>
+    <ion-grid class="nav navbar-nav top-menu" >
+        <ion-row >
+            <ion-col >
+                <a  href="javascript:void(0)" *ngIf="FunctionAccess && FunctionAccess.event_tab_Attendance=='yes'" (click)="gotoAttandance()">
+                    <span class="ActiveSpan InactiveSpan">Attendance</span></a>
+                <a  href="javascript:void(0)" *ngIf="FunctionAccess && FunctionAccess.event_tab_Overview=='yes'" (click)="gotoAttandance()">
+                    <span class="ActiveSpan InactiveSpan">Overview</span>
+                </a>
+            </ion-col>
+            
+            <ion-col>
+                <a href="javascript:void(0)" (click)="gotoWelfare()">
+                    <span class="ActiveSpan InactiveSpan">Welfare</span>
+                </a>
+            </ion-col>
+            <ion-col  >
+                <a href="javascript:void(0)" >
+                    <span class="active ActiveSpan">Stats</span>
+                </a>
+            </ion-col>
+            <ion-col >
+                <a href="javascript:void(0)" (click)="gotoResults()">
+                    <span class="ActiveSpan InactiveSpan">Results</span>
+                </a> 
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <!-- <ul class="nav navbar-nav top-menu">
+        <li class=""><a href="javascript:void(0);" (click)="gotoAttandance()">Overview</a></li>
+        <li class=""><a href="javascript:void(0);" (click)="gotoWelfare()">Welfare</a></li>
+        <li class="active"><a href="javascript:void(0);" (click)="gotoStats()">Stats</a></li>
+        <li class=""><a href="javascript:void(0);" (click)="gotoResults()">Results</a></li>
+    </ul> -->
+</ion-header>
+
+
+<ion-content>
+    <div class="bg-black event" [ngStyle]="{'display': statsView}">
+        <section class="main">
+            <form action="" class="user-form player-item">
+                <section class="profileFirst heightAuto xs-padding">
+                    <div class="play_time text-blue text-center">
+                        
+                        <h3 class="timeOption">{{minutes + ":" + seconds}}</h3>
+                        <div class="network"><img src="{{signalIcon}}" alt="" id="signalIco" (click)="goToGraph()"></div>
+                        <div class="play-icon" [ngStyle]="{'display': playDisp}" >
+                            <i class="fa fa-play" aria-hidden="true" (click)="pressPlay()"></i>
+                        </div>
+                        <div class="play-icon clearfix" [ngStyle]="{'display': pauseDisp}">
+                            <div class="pull-left">
+                                <img src="assets/images/pause-white.png" alt="" (click)="pressPause()">
+                            </div>
+                            <div class="pull-right">
+                                <img src="assets/images/stop.png" alt="" (click)="pressStop()">
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="info-item text-center inverseText">GAME vs TRINITY GRAMMAR</h4>
+                    <div class="bookmark-line"></div>
+                    <h6 class="text-info inverseText mt-30">ACTIVE</h6>
+                    <h1 class="xl-info inverseText" id="uniformId">{{uniformId}}</h1>
+                </section>
+
+                <div class="event-card bg-gray">
+                    <ion-list no-lines *ngFor="let player of players" class="well select-card">
+                        <ion-item-sliding>
+                            <ion-item>
+                                <div class="row" (click)="setTimer(player.person_id, player.uniform_id, player.game_seconds, player.game_minutes)"
+                                    data-id="{{player.person_id}}">
+                                    <div class="card-img col-xs-2 p-0">
+                                        <span class="progressCircle"><img src="{{'https://database.gojaro.com/profiles/' + player.photopath}}"
+                                                alt="" class="img-circle"></span>
+                                    </div>
+                                    <div class="card-title col-xs-6 p-0">{{player.first_name + " " + player.last_name}}
+                                        <p>#{{player.uniform_id}}</p>
+                                    </div>
+                                    <div class="play-start col-xs-2 p-0" *ngIf="player.person_id != personId">
+                                        <span *ngIf="player.game_minutes == ''">00</span>
+                                        <span *ngIf="player.game_minutes != '' && player.game_minutes < 10">{{"0" +
+                                            player.game_minutes}}</span>
+                                        <span *ngIf="player.game_minutes != '' && player.game_minutes > 9">{{player.game_minutes}}</span>
+                                        <span>:</span>
+                                        <span *ngIf="player.game_seconds == ''">00</span>
+                                        <span *ngIf="player.game_seconds != '' && player.game_seconds < 10">{{"0"+player.game_seconds}}</span>
+                                        <span *ngIf="player.game_seconds != '' && player.game_seconds > 9">{{player.game_seconds}}</span>
+                                    </div>
+                                    <div class="play-start col-xs-2 p-0" *ngIf="player.person_id == personId">
+                                        <span *ngIf="minutes == ''">00</span>
+                                        <span *ngIf="minutes != '' && minutes < 10">{{minutes}}</span>
+                                        <span *ngIf="minutes != '' && minutes > 9">{{minutes}}</span>
+                                        <span>:</span>
+                                        <span *ngIf="seconds == ''">00</span>
+                                        <span *ngIf="seconds != '' && seconds < 10">{{ seconds}}</span>
+                                        <span *ngIf="seconds != '' && seconds > 9">{{seconds}}</span>
+                                    </div>
+
+                                    <div class="col-xs-2 p-0">
+                                        <div class="play" *ngIf="player.person_id == personId">
+                                            <i class="fa fa-play" aria-hidden="true" [ngStyle]="{'display': playDisp}"></i>
+                                        </div>
+                                        <div class="play" *ngIf="player.person_id != personId">
+                                            <i class="fa fa-play" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="play pause select" *ngIf="player.person_id == personId">
+                                            <img src="assets/images/pause.png" alt="" [ngStyle]="{'display': pauseDisp}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </ion-item>
+                            <ion-item-options side="left">
+                                <button ion-button (click)="onClickApplyAction(player.person_id, player.first_name, player.last_name, player.uniform_id, player.game_minutes, player.game_seconds)">APPLY
+                                    ACTION</button>
+                            </ion-item-options>
+                        </ion-item-sliding>
+                    </ion-list>
+                </div>
+            </form>
+        </section>
+    </div>
+    <section class="main bg-black event" [ngStyle]="{'display': graphView}">
+        <form action="" class="user-form player-item">
+            <section class="profileFirst heightAuto xs-padding">
+                <div class="play_time text-blue text-center">
+                    <div class="play-icon" [ngStyle]="{'display': playDisp}">
+                        <i class="fa fa-play" aria-hidden="true" (click)="pressPlay()"></i>
+                    </div>
+                    <div class="play-icon clearfix" [ngStyle]="{'display': pauseDisp}">
+                        <div class="pull-left">
+                            <img src="assets/images/pause-white.png" alt="" (click)="pressPause()">
+                        </div>
+                        <div class="pull-right">
+                            <img src="assets/images/stop.png" alt="" (click)="pressStop()">
+                        </div>
+                    </div>
+                </div>
+                <h4 class="info-item text-center inverseText">GAME vs TRINITY GRAMMAR</h4>
+                <div class="bookmark-line"></div>
+            </section>
+            <div class="chart-wrap">
+                <img class="clock-icon" src="assets/images/clock.png" alt="">
+                <div id="chart">
+                    <div class="chart-area">
+                        <ul id="numbers">
+                            <li><span>40</span></li>
+                            <li><span>30</span></li>
+                            <li><span>20</span></li>
+                            <li><span>10</span></li>
+                            <li><span></span></li>
+                        </ul>
+                        <ul id="bars" class="graphClass">
+                        </ul>
+                    </div>
+                    <ul id="bar-title">
+                        <li *ngFor="let player of players"><span>{{player.first_name}}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </section>
+</ion-content>
+<ion-footer>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="home" (click)="gotoHome()"><a href="javascript:void(0);">Home</a></li>
+                <li class="events active" (click)="gotoDisplayEvents()"><a href="javascript:void(0);">Events</a></li>
+                <li class="players" (click)="goToPlayersDashboard()"><a href="javascript:void(0);">Players</a></li>
+                <li class="comment" (click)="goToChatDashboard()"><a href="javascript:void(0);">Comments</a></li>
+                <li class="more" (click)="goToMenuPage()"><a href="javascript:void(0);">More</a></li>
+            </ul>
+        </div>
+    </nav>
+</ion-footer>

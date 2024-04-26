@@ -1,0 +1,102 @@
+page-player-question {
+    .muscleNameCard{
+        color: #fff;
+    }
+    .img-text{
+        width: 76px;
+        height: 76px;
+        line-height: 50px;
+        font-size: 20px;
+        padding-top: 26px !important;
+    }
+    .nameCard{
+        text-transform: uppercase;
+    }
+    .text_inputCard{
+        border: 1px solid #fff;
+        margin: 0 auto !important;
+        .text-input{
+            text-align: center;
+            color: #fff;
+        }
+    }
+    .text_inputCard.number{
+        width: 55%;
+    }
+    .timeCard{
+        padding: 20px;
+        color: #fff;
+        align-items: center;
+    }
+    
+    .Show-card{
+        margin:5%
+    }
+    .SkeletonCard{
+        fill: #404c62;
+        width: 100%;
+        height: 100%;
+    }
+    .light-0{
+        fill:map-get($colors , skeleton0);
+    }
+    .light-meduim-1{
+        fill:map-get($colors , skeleton1);
+
+    }
+    .medium-2{
+        fill:map-get($colors , skeleton2);
+    }
+    .dark-meduim-3{
+        fill:map-get($colors , skeleton3);
+    }
+    .dark-4{
+        fill:map-get($colors , skeleton4);
+    }
+    .grey-default{
+        fill: #404c62;
+    }
+    .emojiWrap{
+        // width: 24% !important;
+        padding: 0 5px !important;
+        .radioEmoji{
+            opacity: 0 !important;
+        }
+        img{
+            width: 50px;
+        }
+        p{
+            font-size: 10px;
+            line-height: 1.1;
+            margin-bottom: 0;
+        }
+    }
+    .emojiValue{
+        // color: #fff;
+        // font-size: 10px;
+        // text-align: left;
+        // padding-left: 18%;
+        color: #fff;
+        font-size: 10px;
+        text-align: center;
+        margin-top: -12px;
+    }
+    .ImageActive
+    {
+        background-color: rgba(0, 138, 151, 0.2);
+        border-radius: 7px;height: 64px;
+        width: 69px !important;
+    }
+
+    .option{
+        color: white;
+    }
+
+    .info-content h5 {
+        text-align: left;
+        line-height: 20px;
+        font-size: 12px;
+        font-weight: normal;
+        font-family: 'Helvetica', sans-serif;
+    }
+}

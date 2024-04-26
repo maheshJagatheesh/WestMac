@@ -1,0 +1,293 @@
+
+<ion-content class="bg-black" >
+        <div class="fixed-top_ modal-close">
+                <!-- <img src="assets/images/close-white.png" alt="" data-dismiss="modal"> -->
+                <div class="rotate-text pwrotate-text-white" (click)="close()">
+                      <span class="close_" data-dismiss="modal">CLOSE
+                          <ion-icon name="close" class="close_-button"></ion-icon>
+                      </span>
+                  </div>
+        </div>
+
+
+
+      <div class="modal-content modalView">
+          <div class="modal-header shadow">
+
+              <h5 class="modal-title fontBold text-center">INCIDENT REPORT</h5>
+          </div>
+          <div class="modal-body modal-report" *ngFor="let key1 of GETINCIDENT;">
+              <div *ngFor="let key of GETPERSONDETAILS;">
+                    <div class="card-img">
+                        <img src="assets/images/test-user.svg" alt="" class="img-circle">
+                    </div>
+                    <h5 class="info-item text-gray">{{key.first_name}} {{key.last_name}}</h5>
+                    <p class="text-fade">{{key1.date_started}}</p>
+                    <h5 class="info-item mt-30">EMERGENCY INFORMATION</h5>
+                    
+                    <p class="text-fade">
+                            <span>Medical Conditions:</span><br>
+                        <span *ngIf="!key.medical_condition || key.medical_condition==''">No medical conditions recorded  </span>
+                        <span *ngIf="key.medical_condition">{{key.medical_condition}}</span>
+                        <br> Emergency contact: <br>
+                        
+                        <span *ngFor="let emergencyContact of key.emergency_contacts" class="emgcont">
+                            {{emergencyContact.parentName | titlecase}} : {{emergencyContact.phone_mobile}}
+                        </span>
+                        </p>
+
+                    <!--section start-->
+                    <h5 class="info-item mt-30">INCIDENT DETAILS</h5>
+                    <h4 class="text-fade">Activity involved in:</h4>
+                    <div class="form-group" >
+                        <textarea name="" id="" cols="30" rows="6" [(ngModel)]="incidentactivity" placeholder={{key1.incidentactivity}}></textarea>
+                        
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">Time of incident:</label>
+                            </div>
+                            <div class="col-xs-6 p-0">
+                                <!-- <input type="text" class="form-control" [(ngModel)]="incident_time"  placeholder={{key1.incident_time}}> -->
+                                <ion-datetime class="form-control" [(ngModel)]="incident_time" display-timezone="HH:mm" displayFormat="HH:mm"></ion-datetime>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">Cause of injury:</label>
+                            </div>
+                            <div class="col-xs-6 p-0" (click)="gotoSelectDropView('CAUSE OF INJURY','16')">
+                                <label class=" form-control select" >{{dropdownValues[5].count}} selected</label>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">Parents called:</label>
+                            </div>
+                            <div class="col-xs-6 p-0">
+                                <div class="checkbox checkbox-info checkbox-circle"  (click)="parentsCalled(relativeInformed)">
+                                    <input id="checkbox1" class="styled" type="checkbox" [checked]="relativeInformed==1">
+                                    <label for="checkbox1">&nbsp;</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">Occurred at the club:</label>
+                            </div>
+                            <div class="col-xs-6 p-0">
+                                <div class="checkbox checkbox-info checkbox-circle" *ngFor="let key2 of OccuredatClub" (click)="AddIncidentId(OccuredatClub[0].INCIDENT_AREA_ID,OccuredatClub[0].AREA_DATA)">
+                                    <input id="checkbox2" class="styled" type="checkbox"  
+                                            [checked]="(OccuredatClub[0].AREA_DATA!=null) && (OccuredatClub[0].AREA_DATA==1 || readAddedIncidentId(OccuredatClub[0].INCIDENT_AREA_ID))">
+                                    <label for="checkbox1">&nbsp;</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">Witness</label>
+                            </div>
+                            <div class="col-xs-6 p-0">
+                                <input type="text" class="form-control"  [(ngModel)]="incidentwitnesses" placeholder={{key1.incidentwitnesses}}>
+                            </div>
+                        </div>
+                    </div>
+                    <!--section end-->
+
+                    <h5 class="info-item mt-30">INCIDENT DETAILS</h5>
+                    
+                    <div class="form-group" *ngFor="let values of InjuryArray; let i = index;">
+                        <div class="row" *ngIf="values.show">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">{{values.key}}:</label>
+                            </div>
+                            <div class="col-xs-6 p-0" (click)="gotoSelectDropView(values.key,values,'6',i)">
+                                <!-- <label class=" form-control select" >{{dropdownValues[0].count}} selected</label> -->
+                                <label class=" form-control select"  *ngIf="values.selected">selected</label>
+                                <label class=" form-control select"  *ngIf="!values.selected">Not Selected</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <!--section start-->
+                    <!-- <h5 class="info-item mt-30">INCIDENT DETAILS</h5>
+                    <div class="form-group" *ngFor="let key1 of GETINCIDENT;">
+                        <div class="row">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">Body part:</label>
+                            </div>
+                            <div class="col-xs-6 p-0" (click)="gotoSelectDropView('BODY PARTS','6')">
+                                <label class=" form-control select" >{{dropdownValues[0].count}} selected</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">Nature:</label>
+                            </div>
+                            <div class="col-xs-6 p-0" (click)="gotoSelectDropView('NATURE OF INJURY','8')">
+                                <label class=" form-control select" >{{dropdownValues[1].count}} selected</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">When did the injury occur?</label>
+                            </div>
+                            <div class="col-xs-6 p-0" (click)="gotoSelectDropView('When did the injury occur?','11')">
+                                <label class=" form-control select" >{{dropdownValues[2].count}} selected</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">Recurrent injury:</label>
+                            </div>
+                            <div class="col-xs-6 p-0">
+                                <label class="select" >
+                                    <select class="form-control" [(ngModel)]="RecurrentOption">
+                                        <option value=''>Select</option>
+                                        <option value=0>No</option>
+                                        <option value=1>Yes</option>
+                                    </select>
+                                </label>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">Caused by collision:</label>
+                            </div>
+                            <div class="col-xs-6 p-0">
+                                <label class="select" >
+                                    <select class="form-control" [(ngModel)]="CollisionReason">
+                                        <option value=''>Select</option>
+                                        <option value=0>No</option>
+                                        <option value=1>Yes, with another team mates</option>
+                                        <option value=2>Yes, with the ball</option>
+                                    </select>
+                                </label>
+                                
+                            </div>
+                        </div>
+                    </div> -->
+                    <!--section end-->
+                    <!--section tarts-->
+                    <!-- <h5 class="info-item mt-30">TREATMENT</h5>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">Nature:</label>
+                            </div>
+                            <div class="col-xs-6 p-0" (click)="gotoSelectDropView('TREATMENT / ACTION TAKEN','14')">
+                                <label class=" form-control select" >{{dropdownValues[3].count}} selected</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">Referral for further treatment</label>
+                            </div>
+                            <div class="col-xs-6 p-0" (click)="gotoSelectDropView('Referral for further treatment','15')">
+                                <label class=" form-control select" >{{dropdownValues[4].count}} selected</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">Follow up:</label>
+                            </div>
+                            <div class="col-xs-6 p-0">
+                                <input type="text" class="form-control" [(ngModel)]="followuptreatment" placeholder={{key1.followuptreatment}}>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!--end here-->
+                    <!-- <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-5 p-0 ">
+                                <label class="form-label">Caused by collision:</label>
+                            </div>
+                            <div class="col-xs-7 p-0">
+                                    <label class="select" >
+                                            <select class="form-control" [(ngModel)]="CollisionReason">
+                                                <option value=0>No</option>
+                                                <option value=1>Yes, with another player</option>
+                                                <option value=2>Yes, with the ball</option>
+                                            </select>
+                                        </label>
+                                
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">Follow up:</label>
+                            </div>
+                            <div class="col-xs-6 p-0">
+                                <input type="text" class="form-control" [(ngModel)]="followuptreatment" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xs-6 p-0">
+                                <label class="form-label">Incident:</label>
+                            </div>
+                            <div class="col-xs-6 p-0" >
+                                <label class="select">
+                                    <select class="form-control" [(ngModel)]="incident">
+                                        <option value=0>Not Injured</option>
+                                        <option value=1>Injured</option>
+                                        <option value=2>Cleared from Injury</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-section mt-30" *ngIf="injurySaveButton">
+                    <button type="submit" class="btn btn-save xs-btn" (click)="RecordInjury()">RECORD INJURY</button>
+                </div>
+                <div class="modal-footer"></div>
+
+            </div>
+        </div>
+        
+</ion-content>
+<!-- <ion-footer [hidden]="keyboard.isOpen()">
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="home" (click)="gotoHome()"><a href="javascript:void(0);">Home</a></li>
+                <li class="events active" (click)="gotoDisplayEvents()"><a href="javascript:void(0);">Events</a></li>
+                <li class="players" (click)="goToPlayersDashboard()"><a href="javascript:void(0);">Players</a></li>
+                <li class="comment" (click)="goToChatDashboard()"><a href="javascript:void(0);">Comments</a></li>
+                <li class="more" (click)="goToMenuPage()"><a href="javascript:void(0);">More</a></li>
+            </ul>
+        </div>
+      </div>
+</ion-footer> -->

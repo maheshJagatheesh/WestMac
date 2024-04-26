@@ -1,0 +1,41 @@
+page-vote-for-player {
+  .btn-section{
+    text-align: center;
+  }
+  .btn-sm-black{
+    color: #fff;
+    border-color: #fff;
+  }
+  .section-title{
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    text-align: left;
+    font-weight: normal;
+    padding-left: 20px;
+    background-color: #404c62;
+    height: 40px;
+  }
+  .scroll-content{
+    margin-bottom: 0px !important;
+  }  
+  .suit-icon{
+    width:22px;
+    height:22px;
+  }
+  .medical-bottle{
+    width:15px;
+    height:22px;
+  }
+  .card-title span {
+    padding-top: 0;
+    color: #8B8B8B;
+    font-size: 12px;
+    font-weight: normal;
+    width: 100%;
+  }
+
+  .col-xs-5{
+    width: 40.67%;
+  }
+}

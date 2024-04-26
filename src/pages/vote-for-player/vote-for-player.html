@@ -1,0 +1,66 @@
+
+<ion-content class="bg-black">
+  <section class="main mt-20">
+    <div class="top-bar">
+        <div class="col-xs-6">
+          <div class="backArrow inverse inverseText" (click)="goBack()"></div>
+        </div>
+    </div>
+    <form action="" *ngIf="loggedInUserData && FunctionAccess">
+      <section class="heightAuto p-0" *ngFor="let player of playerDetails">
+        <div class="player-section">
+          <div class="thumbImage image-sm">
+            <img *ngIf="player.photopath != null && player.photopath.length > 0; else noImage" src="{{global.PROFILEIMAGEURL}}{{player.photopath}}" alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+            <ng-template #noImage><div class="img-circle"><span class="img-text">{{player.first_name[0] | uppercase}} {{player.last_name[0] | uppercase}} </span></div></ng-template>
+          </div>
+          <div class="player-info mt-20">
+            <h4 class="info-item">{{player.first_name}} {{player.last_name}}</h4>
+            <p *ngIf="player.uniform_id != null && player.uniform_id.toString().length > 0">#{{player.uniform_id}}</p>
+            
+          </div>
+        </div>
+      </section>
+
+      <h5 class="section-title">3-2-1 VOTING</h5>
+      <div class="event-card">
+        <div class="well select-card" *ngFor="let player of players">
+          <div class="row">
+            <div class="card-img col-xs-2 p-0">
+              <span class="">
+                  <div class="img-circle" *ngIf="player.photoPath == ''"><span class="img-text">{{player.first_name[0] | uppercase}} {{player.last_name[0] | uppercase}} </span></div>
+                  <img src="{{global.PROFILEIMAGEURL}}/{{player.photoPath}}" alt="" class="img-circle"
+                       onerror="this.src='assets/images/test-user.svg'" *ngIf="player.photoPath != ''">
+                  <!-- <img src="assets/images/test-user.svg" alt="" class="img-circle" *ngIf="player.photoPath == ''"> -->
+              </span>
+            </div>
+            <div class="card-title col-xs-5 p-0">{{player.first_name | uppercase}} {{player.last_name | uppercase}}
+              
+              <div>
+                  <!-- <span class="suit-icon" (click)="DisplaySeverityDetails(player.playerAilments)" *ngIf="player.playerAilmentsSeverityIcon && FunctionAccess && FunctionAccess.medicalKit=='yes'">
+                      <img src={{global.ImagesPath}}{{player.playerAilmentsSeverityIcon}} >
+                  </span> 
+                  <span *ngIf="player.showMedicine==1 && FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1"  (click)="gFn.MedicineInformation(player)">
+                      <img src="{{global.ImagesPath}}medicine_bottle.png" class="medical-bottle">
+                  </span> -->
+                  <span *ngIf="player.uniform_id">#{{player.uniform_id}}</span>
+              </div>
+              
+              
+            </div>
+            <div class="voting col-xs-5 p-0">
+              <a href="javascript:void(0)" class="select-val vote3" [class.active]="player.person_id == player.vote3" (click)="saveVote($event, player.person_id, 3)">3</a>
+              <a href="javascript:void(0)" class="select-val vote2" [class.active]="player.person_id == player.vote2" (click)="saveVote($event, player.person_id, 2)">2</a>
+              <a href="javascript:void(0)" class="select-val vote1" [class.active]="player.person_id == player.vote1" (click)="saveVote($event, player.person_id, 1)">1</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-section mb-50 mt-30" (click)="resetVote()">
+          <button class="btn btn-save btn-sm-black radius-10" type="submit">{{btnText}}</button>
+        </div>
+      </div>
+
+    </form>
+  </section>
+</ion-content>
+

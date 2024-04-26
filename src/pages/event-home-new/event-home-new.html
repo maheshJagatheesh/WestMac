@@ -1,0 +1,192 @@
+
+<ion-header class="header-md header">
+  <ion-navbar>
+      <div class="top-bar clearfix">
+        <div class="pull-left col-xs-6 pl-5">
+          <div>EVENTS</div>
+        </div>
+      </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="grey_container">
+    <!-- <div class="background_grey" *ngIf="offlineConnection">
+      <div class="off-wrap">
+        <p><img src="assets/images/events-new-icon/offline-logo-alt.svg" class=""></p>
+        <h3>OFFLINE</h3>
+        <p>Your network is unavalaible, please check your data or connection</p>
+        <button type="button" class="btn btn-sm-black try-again" (click)="tryAgain()">TRY AGAIN</button>
+      </div>
+    </div> -->
+<!-- no internet message end -->
+
+  <!-- loading section -->
+  <!-- <div class="loding_overlay" *ngIf="!isLoaded && !offlineConnection">
+      <div class="h4_loading fadeShine"></div>
+      <div class="h3_loading fadeShine"></div>
+      <div class="p_loading fadeShine"></div>
+      <div class="p_loading_2nd fadeShine"></div>
+      <div class="icon_loading mt-30">
+          <div class="inner fadeShine"></div>
+          <div class="inner fadeShine"></div>
+      </div>
+      <div class="icon_loading">
+          <div class="inner fadeShine"></div>
+          <div class="inner fadeShine"></div>
+      </div>  
+      <div class="options_loading fadeShine"></div>
+      <div class="options_loading fadeShine"></div>
+      <div class="options_loading fadeShine"></div>
+      <div class="options_loading fadeShine"></div>
+      <div class="options_loading fadeShine"></div>
+      <div class="options_loading fadeShine"></div>
+      <div class="options_loading fadeShine"></div>
+      <div class="options_loading_2nd fadeShine"></div>
+  </div> -->
+  <!-- loading section end-->
+
+  <div class="grey_container xs-padding" *ngIf="arrDetail.length">
+    <div class="time_text" *ngFor="let detail of arrDetail">
+        <div class="card-img" *ngIf="loggedInUserData && loggedInUserData.ISPARENT">
+          <div *ngFor="let child of detail.childs">
+            <span *ngIf="!child.PHOTOPATH">
+              <div class="img-circle"><span class="img-text">{{child.FIRSTNAME[0] | uppercase}} {{child.LASTNAME[0] | uppercase}} </span></div>          
+            </span>
+            <span *ngIf="child.PHOTOPATH">
+              <img src="{{global.PROFILEIMAGEURL}}{{child.PHOTOPATH}}" alt="" class="img-circle" onerror="this.src='assets/images/test-user.svg'">
+            </span>
+          </div>
+        </div>
+        <h3 *ngIf="key.event_type_id==2">TRAINING - {{SPORTNAME }}</h3>
+        <h3 *ngIf="key.event_type_id==1">{{SPORTNAME }} - {{division_name}}</h3>
+        <!-- <h4>{{key.week}} {{date}} {{detail.months }} {{key.time_started}}</h4> -->
+        <h4>{{new_date | date: "EEEE d/M/yy"}} {{key.time_started | lowercase }}</h4>
+        <h3 *ngIf="key.event_type_id==1">{{key.hometeamname}} vs {{key.awayteamname}}</h3>
+        <h3 *ngIf="key.event_type_id==2 && (division_name == key.hometeamname)">{{key.hometeamname}}</h3>
+        <h3 *ngIf="(key.event_type_id==2) && (division_name != key.hometeamname)">{{division_name}}, {{key.hometeamname}}</h3>
+        <!-- <h3 *ngIf="key.event_type_id==2">{{key.name}}</h3> -->
+        <p *ngIf="detail.ground_name != '' && detail.ground_address != '' && detail.ground_state != ''">{{detail.ground_name}}
+          <br>{{detail.ground_address}}, {{detail.ground_suburb}},
+          {{detail.ground_state}}, {{detail.event_postcode}} </p>
+    </div>
+
+    <div class="icon_wraper clearfix">
+
+      <div class="icon-card bg-map pull-left"
+      [ngStyle]="{'background-color': cardTiles && cardTiles.Map_color_tile ? cardTiles.Map_color_tile : '#A79F9A'}"
+         *ngIf="!showTransport" (click)="openMap(groundAdress,groundState,latitude,longitude)">
+        <h4 style="color:white !important;">MAP</h4>
+        <p><img src="assets/images/events-new-icon/map-location.svg" class="icon_img"></p>
+      </div>
+
+      <div class="icon-card bg-blue-alt pull-left" *ngIf="showTransport" (click)="gotoTransport()">
+        <h4 >TRANSPORT</h4>
+        <p><img src="assets/images/events-new-icon/bus-front.svg" class="icon_img"></p>
+      </div>
+      
+      <div class="icon-card bg-blue-new pull-right" 
+      [ngStyle]="{'background-color': cardTiles && cardTiles.Attendance_color_tile ? cardTiles.Attendance_color_tile :  '#004278'}" 
+      (click)="gotoAttendance()" *ngIf="(loggedInUserData.ISPARENT !== 1 && this.FunctionAccess.user_adminLevel != 4)">
+        <h4>ATTENDANCE</h4>
+        <p><img src="assets/images/events-new-icon/attendence-calender.svg" class="icon_img"></p>
+
+      </div>
+
+      <div class="icon-card bg-blue"  *ngIf="(FunctionAccess && FunctionAccess.user_adminLevel ==4)" (click)="addEventToCalendar()" [class.pull-right]="FunctionAccess && FunctionAccess.user_adminLevel ==4" >
+        <h4 style="color:white !important;">ADD TO CALENDAR</h4>
+        <p><img src="assets/images/events-new-icon/calendar-alt.svg" class="icon_img"></p>
+      </div>
+       
+    
+      
+      <div class="icon-card bg-injury pull-right" 
+      [ngStyle]="{'background-color': cardTiles && cardTiles.Injury_color_tile ? cardTiles.Injury_color_tile :  '#BE3A34'}"
+       *ngIf="(FunctionAccess && FunctionAccess.event_Injury!='no') && (this.FunctionAccess.user_adminLevel == 1 || this.FunctionAccess.user_adminLevel == 2 || this.FunctionAccess.user_adminLevel == 3)"  (click)="gotoInjuredList()">
+        <h4>INJURY</h4>
+        <p><img src="assets/images/events-new-icon/ingury.svg" class="icon_img"></p>
+      </div>
+
+      <div class="icon-card bg-alert pull-left"
+      [ngStyle]="{'background-color': cardTiles && cardTiles.Alert_color_tile ? cardTiles.Alert_color_tile :  '#fdb913'}"
+      *ngIf="FunctionAccess && FunctionAccess.event_GroupMessage=='yes'" (click)="gotoGroupMessage()">
+        <h4 class="inverseText">ALERT</h4>
+        <p><img src="assets/images/events-new-icon/comment-add.svg" class="icon_img"></p>
+      </div>
+
+      <!-- <div class="icon-card bg-darkBlue" [class.pull-left]="FunctionAccess && FunctionAccess.user_adminLevel ==3" [class.pull-left]="FunctionAccess && FunctionAccess.user_adminLevel != 3" *ngIf="loggedInUserData && FunctionAccess && (FunctionAccess.user_adminLevel == 1 || FunctionAccess.user_adminLevel == 2) && (UpcomingSingleEvent && UpcomingSingleEvent.event_type_id != 2) && (!loggedInUserData.ISPARENT)" (click)="gotoResults()">
+        <h4 style="font-size: 15px;">RESULTS</h4>
+        <p><img src="assets/images/events-new-icon/result_parent.svg"  style="width: 50px;
+          margin-top: 21px;" class="icon_img"></p>
+      </div> -->
+    </div>
+    
+
+    <div class="options_wrap">
+      <div class="options" *ngIf="showTransport" (click)="openMap(groundAdress,groundState,latitude,longitude)">
+        <img src="assets/images/events-new-icon/blue/m-location-small.svg" style="width: 20px">
+        <p>Map</p>
+        <img src="assets/images/events-new-icon/Select arrow.svg" style="width: 15px" class="pull_right_arrow">
+      </div>
+
+      <div class="options" *ngIf="(FunctionAccess && (FunctionAccess.event_Welfare=='self' || FunctionAccess.event_Welfare=='yes')) && UpcomingSingleEvent && UpcomingSingleEvent.welfare_question==1" (click)="(FunctionAccess && FunctionAccess.event_Welfare=='self')? WelfarePlayerQuestion():gotoWelfare()">
+        <img src="assets/images/events-new-icon/wellfare-face.svg" style="width: 20px">
+        <p>Welfare</p>
+        <img src="assets/images/events-new-icon/Select arrow.svg" style="width: 15px" class="pull_right_arrow">
+      </div>
+
+      <div class="options" *ngIf="FunctionAccess && FunctionAccess.event_Result=='yes' && UpcomingSingleEvent && UpcomingSingleEvent.event_type_id != 2" (click)="gotoResults()">
+        <img src="assets/images/events-new-icon/blue/result123.svg" style="width: 20px">
+        <p>Results</p>
+        <img src="assets/images/events-new-icon/Select arrow.svg" style="width: 15px" class="pull_right_arrow">
+      </div>
+
+      <div class="options" *ngIf="loggedInUserData && loggedInUserData.ISCONTRACTOR" (click)="goToTimesheet()">
+        <img src="assets/images/events-new-icon/blue/time-watch.svg" style="width: 20px">
+        <p>Timesheet</p>
+        <img src="assets/images/events-new-icon/Select arrow.svg" style="width: 15px" class="pull_right_arrow">
+      </div>
+
+      <div class="options" *ngIf="FunctionAccess && FunctionAccess.event_BorrowPlayer=='yes'" (click)="borrow_player()">
+        <img src="assets/images/events-new-icon/blue/borrow-icon.svg" style="width: 20px">
+        <p>Borrow teammates</p>
+        <img src="assets/images/events-new-icon/Select arrow.svg" style="width: 15px" class="pull_right_arrow">
+      </div>
+
+      <div class="options" *ngIf="FunctionAccess.showSurveyMenu == 'yes' && isSurvey" (click)="goToSurvey()">
+        <img src="assets/images/events-new-icon/blue/survey.svg" style="width: 20px">
+        <p>Survey</p>
+        <img src="assets/images/events-new-icon/Select arrow.svg" style="width: 15px" class="pull_right_arrow">
+      </div>
+
+      <!-- <div class="options">
+        <img src="assets/images/events-new-icon/green/
+        stat-icon.svg" style="width: 20px">
+        <p>Stats</p>
+        <img src="assets/images/events-new-icon/Select arrow.svg" style="width: 15px" class="pull_right_arrow">
+      </div> -->
+
+      <div class="options" *ngIf="FunctionAccess.user_adminLevel !=4 && (!this.loggedInUserData.ISPARENT || (loggedInUserData.ISPARENT && loggedInUserData.PERSON_ID == this.loggedInUserData.PARENT_ID))" (click)="gotoCreateNote()">
+        <img src="assets/images/events-new-icon/blue/note-megaphone.svg" style="width: 20px">
+        <p>Notes</p>
+        <img src="assets/images/events-new-icon/Select arrow.svg" style="width: 15px" class="pull_right_arrow">
+      </div>
+
+      <div class="options" *ngFor="let groupChat of arrDetail[0].groupInfo" (click)="gotoChat(groupChat.GROUPID, groupChat.GROUPTYPE, groupChat.GROUPNAME, groupChat.CLIENTID)">
+        <img src="assets/images/events-new-icon/blue/chat.svg" style="width: 20px">
+        <p>Access to group chat
+          <span *ngIf="arrDetail[0].groupInfo.length == 2 && (arrDetail[0].event_type_id == 1 && groupChat.ISHOME == 1)">[Home]</span>
+          <span *ngIf="arrDetail[0].groupInfo.length == 2 && (arrDetail[0].event_type_id == 1 && groupChat.ISAWAY == 1)">[Away]</span>
+        </p>
+        <img src="assets/images/events-new-icon/Select arrow.svg" style="width: 15px" class="pull_right_arrow">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="grey_container xs-padding" *ngIf="isLoaded && !offlineConnection && !arrDetail.length">
+    <div class="time_text">
+      <h3>No Upcoming Event</h3>
+    </div>
+  </div>
+
+</ion-content>

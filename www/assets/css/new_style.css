@@ -1,0 +1,915 @@
+/*start CSS 54 and 55 html*/
+.pwmodaltitle{
+    color: #15233C;
+
+}
+.pwmodaltext p{
+    color: #15233C;
+    font-size: 14px;
+    text-align: left;
+
+}
+.navbar-fixed-bottom, .navbar-fixed-top {
+    position: fixed;
+    right: 0;
+    left: 0;
+    /*z-index: 9999!important;*/
+}
+.pwrotate-text-white{
+    font-size: 10px;
+    color: #FFFFFF;
+    text-align: center;
+}
+.pwclose-top-white img{
+    right: -22px;
+}
+/*End CSS 54 and 55 html*/
+
+/*start CSS 56 html*/
+/*.event-check-right a, .check-icon i{
+    color: #43B7CC;
+    margin-top: 18px;
+}*/
+/*end CSS 56 html*/
+
+/*start css 67 html */
+/*No css*/
+/*end css 67 html */
+
+/*start css 68 html */
+.borrow .select-card.active{
+    background-color: #43B7CC;
+}
+.active .card-title-white{
+    color:#FFFFFF;
+}
+.active .card-title-white p{
+    color:#FFFFFF;
+}
+.event-borrow-player .btn-section .save-borrow {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    padding: 16px 12px;
+    border-radius: 10px;
+    box-shadow: none;
+}
+.event-borrow-player .text-borrow{
+    padding: 30px;
+    margin-bottom: 10px;
+}
+/*end css 68 html */
+
+/*start css 69 html*/
+.event-borrow-player .btn-section .save-borrow-gradient {
+    background-color: transparent;
+    color: #FFFFFF;
+    padding: 16px 12px;
+    border-radius: 10px;
+    box-shadow: none;
+    background:-webkit-linear-gradient(left, #428CF4, #43C9BB);
+}
+/*end css 69 html*/
+
+/*start css 70 html*/
+.borrowPlayer .close-white{
+    top: 1%;
+
+}
+.borrowPlayer .close-white .rotate-text{
+    font-size: 10px;
+
+}
+.borrowPlayer .close-white img{
+    right: -23px;
+    top:2px;
+}
+/*end css 70 html*/
+
+/*start css 72,73 and 76 html*/
+.navbar-more
+{
+    list-style-type:none;
+    font-size:12px;
+    text-align: left;
+}
+.navbar-more li
+{
+
+    padding:18px 0px 18px 0px;
+}
+
+.navbar-more a
+{
+    color:white!important;
+    text-decoration:none;
+}
+.close-text-bottom {
+    position: absolute;
+    right: 5%;
+    top: 85%;
+    font-size: 10px;
+}
+
+.close-text-bottom img {
+    position: relative;
+    right: -22px;
+}
+
+.navbar-more a.active {
+    color: #15233C!important;
+}
+/*end css 72,73 and 76 html*/
+
+/*start css 74 html*/
+.set-choose-theme{
+    color:#15233C;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Helvetica Neue",sans-serif;
+}
+.setting-arrow{
+    position: relative;
+    height: 27px;
+
+}
+.setting-title{
+    font-size: 14px;
+    color:#15233C;
+    margin-top: 15px;
+    margin-bottom: 13px;
+}
+.setting-arrow .next-arrow i {
+    color:white;
+    margin-left: 16px;
+    margin-top: 13px;
+    margin-bottom: 0px;
+}
+.setting-logo{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.setting-logo img{
+    width: 42px;
+    height: 42px;
+}
+.setting-first{
+    height: 725px;
+}
+
+.image-space{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/*end css 74 html*/
+
+/*start css 75 html*/
+/* No css */
+/*end css 75 html*/
+
+/*start css 77 html*/
+.profile-details{
+    font-size: 14px;
+    color: #15233C;
+    margin-top: 6px;
+}
+.profile-image{
+    text-align: center;
+    margin-top: 35px;
+}
+/*end css 77 html*/
+/*start css 79 and 80 html*/
+
+.galry-event-mnu>li {
+    width: 33.33%!important;
+}
+/*.top-menu.gallery-menu li:first-child {
+    width: 42%;
+}
+.top-menu.gallery-menu li {
+    width: 26%;
+}
+.top-menu.gallery-menu li:last-child {
+    width: 32%;
+}*/
+.player-home-list{
+    margin-top: 60px;
+}
+/*end css 79 and 80 html*/
+
+
+/*start css 84 and 85 html*/
+.player-grading li a{
+    color: #ccc!important;
+
+}
+.player-grading.navbar-nav>li.gup-mes {
+    width: 135px;
+    margin-left: 11px;
+}
+.player-grading.navbar-nav>li.add-play {
+    width: 135px;
+}
+
+
+/*end css 84 and 85 html*/
+
+/*start css 86, 87 and 91 html*/
+.month-report{
+    font-weight: bold;
+}
+.left-side{
+    width: 95%;
+}
+/*end css 86, 87 and 91  html*/
+
+/*start css 97 html */
+/*default*/
+.text-center{
+    color: #000000;
+
+
+}
+.plyr-nav-botm-disbale {
+    z-index: 1010 !important;
+}
+.plyr-modal-center{
+    left: -3px;
+}
+/*end css 97 html */
+
+/*start css 98 html*/
+/*No css (Default)
+/*end css 98 html*/
+
+/*start css 99 and 100  html*/
+.text-position{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.nav-top-menu-disable{
+    z-index: 1030!important;
+}
+.player-phone-two{
+    padding: 95px 31px 10px 27px;
+}
+.group-msg .modal-title.text-position{
+    font-weight: 600;
+}
+.btn-save.xs-btn.btn-save.player-med-save{
+    margin-right: 12px;
+    margin-top: 145px;
+    width: 86px;
+}
+
+/*end css 99 and 100 html*/
+
+/*start css 101 and 103 html*/
+.player-medical2{
+    background-color: #FAFAFA!important;
+}
+.player-med-title{
+    font-size: 16px;
+    color: #707070;
+}
+
+.borrow .select-card.player-medical2{
+    height: 283px!important;
+}
+/*end css 101 and 103 html*/
+
+/*start css 108 html*/
+.event-player .team-chat{
+    margin-top: 50px;
+}
+/*end css 108 html*/
+/*start css 115 html*/
+/*No css (default)
+/*end css 115 html*/
+
+/*start css 121 html*/
+.icon-space{
+    margin-top: 10px;
+    top: -20px;
+}
+
+.galry-act-close img {
+    position: relative;
+    right: -29px;
+
+}
+.gallery-plus i {
+    margin-left: 8px;
+}
+.gallery-act-title{
+    font-size: 12px;
+    width: 131px;
+    margin-left: 10px;
+}
+.bg-gal-slight-black{
+    background:#404C62 ;
+}
+/*end css 121 html*/
+/*start css 126 html*/
+.bg-slight-black {
+    background: #404C62;
+}
+/*end css 126 html*/
+
+/*start css 118 html */
+.gallery-home{
+    margin-bottom: 10px;
+    color: #15233C;
+    font-size: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+.gallery-menu li a {
+    color: #aaa !important;
+    width: 140px;
+}
+.top-menu.navbar-nav.timeline-select>li.active:before{
+    left: 25%;
+    width: 49%;
+}
+/*end css 118 html */
+/*start css 119 html*/
+.select-text {
+    margin-top: 31px;
+    color: #43B7CC;
+}
+.navbar-nav>li.add:before{
+    content: "";
+    background: url('../images/gallery-menu/add.png') no-repeat;
+    background-size:auto;
+    width:22px;
+    height:22px;
+    display: block;
+    margin:0 auto;
+    position: relative;
+    bottom: -2px;
+}
+.navbar-nav>li.love:before{
+    content: "";
+    background: url('../images/gallery-menu/love.png') no-repeat;
+    background-size:auto;
+    width:25px;
+    height:25px;
+    display: block;
+    margin:0 auto;
+    position: relative;
+    bottom: -2px;
+}
+.navbar-nav>li.delete:before{
+    content: "";
+    background: url('../images/gallery-menu/delete.png') no-repeat;
+    background-size:auto;
+    width:25px;
+    height:25px;
+    display: block;
+    margin:0 auto;
+    position: relative;
+    bottom: -2px;
+}
+.gallery-nav-bottom>li {
+    width: 33%;
+}
+.gallery-thumbnail{
+    padding: 1px;
+}
+.gallery-timeline{
+    margin-top: -55px;
+}
+.gallery-pinch{
+    font-size: 12px;
+    margin-top: 15px;
+}
+.gallery-form{
+    margin-bottom: 55px;
+}
+.gallery-text{
+    height: 70px;
+}
+.backArrow.gallery-pinch:before{
+    height: 21px;
+}
+
+/*end css 119 html*/
+/*start css 120 html*/
+.gallery-row-timeline .active span.going:before {
+    content: "";
+    position: absolute;
+    background: url(../images/gallery-right-blue.png)no-repeat;
+    width: 47px;
+    height: 40px;
+    display: block;
+    right: 0px;
+    bottom: 0px;
+}
+
+.galry-add .navbar-nav>li.active>a {
+    padding: 0 5px;
+    font-size: 11px;
+    visibility: visible;
+    width: 23px;
+    height: 23px;
+    border: 2px solid #909090;
+    border-radius: 20%;
+    border-color: #43B7CC;
+    margin-left: 60px;
+    margin-top: 4px;
+}
+.galry-add-color{
+    position: absolute;
+    color: #43B7CC;
+    margin-left: -10px;
+    margin-top: -1px;
+    font-size: 20px!important;
+}
+
+
+.galry-slider img {
+    width: 100%;
+    height: auto;
+    max-height: 511px;
+    max-width: 100%;
+    object-fit: cover;
+    height: 513px;
+}
+.galry-slider-form{
+    /* padding: 62% 0 0 0 !important;*/
+}
+.galry-nav-bottom>li {
+    width: 30%;
+}
+/*end css 123 html */
+
+/*start css 124 html*/
+div.select-mark{
+    content: "";
+    position: absolute;
+    background: url(../images/gallery-right-blue.png)no-repeat;
+    width: 47px;
+    height: 40px;
+    display: block;
+    right: -8px;
+    bottom: 12px;
+    margin-top: -13px;
+
+}
+.right-mark{
+    position: relative;
+}
+/*end css 124 html */
+
+/*start css 125 html*/
+.gallery-associate-event{
+    margin-left: 125px;
+}
+.gallery-menu{
+    width: 100%;
+    position: fixed;
+    height: 41px;
+}
+.galry-menu-img {
+    height: 55px;
+}
+.photo-paralal img{
+    margin-left: 25px;
+    height: 49px;
+    margin-top: 5px;
+}
+.galry-associate-event{
+    height: 70px;
+}
+.photo-paralal{
+    width: 51px;
+}
+
+.photo-paralal-two img{
+    margin-left: 21px;
+    height: 49px;
+    margin-top: 5px;
+}
+.photo-text{
+    margin-top: 24px;
+    width: 60px;
+    margin-left: 41px;
+    font-size: 12px;
+    text-align: left;
+    color: #15233C;
+    font-weight: bold;
+}
+.gallery-create{
+    margin-top: -28px;
+    left: 60px;
+    text-align: left;
+    font-size: 12px;
+}
+.gallery-associate-space{
+    height: 25px;
+}
+.row .gallery-associate-thumbnail{
+    padding: 4px;
+
+}
+.plush-grad{
+    margin-left: 2px;
+}
+/*.add-to-album-center{
+    margin-left: 140px;
+}*/
+/*end css 125 html*/
+
+/*start css 127 html */
+.gallery-search i{
+    color: #fff;
+    float: right;
+}
+section.gallery-search-first {
+    margin-top: -22px;
+}
+.galry-share-with-fans{
+    background-color: #EFF1F5;
+}
+.galry-tag-people-center{
+    margin-left: 140px;
+    text-align: left;
+}
+/*end css 127 html */
+/*start css 128 html*/
+.player-search-image .card-img img{
+    width: 46px;
+    height: 46px;
+    max-width: 100%;
+}
+.player-search-swipe-down{
+    padding: 3px 0px;
+}
+
+.search-player input.text-input {
+    background-color: #E5E5E5;
+    font-size: 16px;
+    color: #8E8E93;
+    font-weight: 600;
+    text-align: left;
+    border: none;
+    border-radius: 25px;
+    margin-top: 20px;
+    height: 40px;
+    padding-left: 37px;
+    padding-right: 28px;
+}
+.search-player{
+    padding: 0px 0px 0px 0px;
+    position: relative;
+    margin-left: -9px;
+}
+.search-icon{
+    position: absolute;
+    left: 13px;
+    width: 20px;
+
+}
+.search-inner i.seh {
+    position: absolute;
+    pointer-events: none;
+    float: left;
+    margin-top: 25px;
+    /* margin-left: -171px;*/
+    color: #8E8E93;
+}
+.microph-image {
+    position: absolute;
+    right: 1px;
+    width: 21px;
+    margin-top: -30px;
+}
+.player-search-line {
+    border: 0.5px solid #E5E5E5;
+}
+.player-search-list{
+    font-size: 12px;
+    color: #15233C;
+    margin-top: 18px;
+    margin-bottom: 13px;
+}
+.top-plyr-sarch-menu{
+    top:-10px;
+}
+.tag-people-center{
+    margin-left: 140px;
+    color: #15233C;
+}
+/*end css 128 html*/
+/*start css 129 html*/
+.share-with-fan-center{
+    margin-left: 125px;
+    text-align: left;
+}
+/*end css 129 html*/
+
+/*start css 122 and 25 html */
+.galry-title {
+    position: absolute;
+    float: left;
+    margin-top: 10px;
+    color: #8B8B8B;
+    font-size: 13px;
+    text-align: left;
+}
+.galry-no{
+    position: absolute;
+    float: left;
+    margin-top: 28px;
+    margin-right: 141px;
+    color: #8B8B8B;
+    font-size: 13px;
+    text-align: left;
+}
+.galry-title-right{
+    margin-top: 11px;
+    float: left;
+    text-align: left;
+    margin-left: 2px;
+    color: #8B8B8B;
+    font-size: 13px;
+}
+.galry-no-right{
+    position: absolute;
+    float: left;
+    margin-top: 28px;
+    margin-left: 3px;
+    color: #8B8B8B;
+    font-size: 13px;
+    text-align: left;
+
+}
+.add-to-album-image{
+    height: 60px!important;
+}
+.add-to-album-center{
+    margin-left: 140px;
+    text-align: left;
+    color: #15233C;
+}
+/*end css 122 and 25 html */
+
+/*start css 116 and 117 html */
+.galry-event{
+    margin-top: 9px;
+}
+
+/*start css 106 and 107 html */
+.chat-new-message {
+    margin-top: 6px;
+    padding: 10px 51px 1px 26px;
+    text-align: left;
+    color: #15233C;
+    left: 22px;
+}
+div.chat-img{
+    position: absolute;
+    right: 18px;
+    top: 66px;
+}
+.chat-text{
+    margin-left: 0;
+    color:#15233C;
+}
+/*end css 106 and 107 html*/
+/*start css 109 html*/
+.select-card .chat-home{
+    line-height: 24px;
+}
+.ch-time{
+    position: static!important;
+    text-align: right;
+    color: #8B8B8B!important;
+    font-size: 13px!important;
+    line-height: 18px!important;
+    font-family:"Helvetica", sans-serif;
+    padding-top:5px;
+    margin: 0;
+}
+.ch-text{
+    margin: 0;
+    font-size: 13px;
+    color: #8B8B8B;
+    font-family: "Helvetica",sans-serif;
+
+}
+.chat-home span {
+    line-height: 24px;
+    display: inline-block;
+}
+.welfare .select-card.active .card-title, .welfare .select-card.active .card-title h5,
+.welfare .select-card.active .event-next p, .select-card .card-img span.img-white{
+    color: #FFFFFF!important;
+}
+.select-card .card-img span.img-white{
+    background: #15233c;
+
+}
+/*end css 109 html */
+
+/*start css 104 html */
+.prev-next.chat-search-prev-next{
+    margin-right: 15px;
+}
+/* No css (default 128,109)*/
+/*end css 104 html */
+/*start css 105 html */
+.well.chat-delete-side {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+/*end css 105 html */
+/*start css 83 html */
+.user-form input.form-control.ply-first-name {
+    background: transparent;
+    color: #15233C;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    border: none;
+    box-shadow: inset 0 0 0 rgba(0,0,0,.0);
+}
+.edit-profile .title .ply-last-name {
+    float: left;
+    padding-left: 49px;
+    margin-top: -34px;
+}
+.user-form input.form-control.ply-last-name {
+    background: transparent;
+    color: #15233C;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    box-shadow: inset 0 0 0 rgba(0,0,0,.0)
+}
+.profile-list li input {
+    display: table-cell;
+}
+.text-input {
+    border: none;
+    margin-left: 10px;
+    text-align: left;
+    font-size: 14px;
+    color: #707070;
+    font-family: 'Helvetica',sans-serif;
+    background: transparent;
+}
+/*end css 83 html*/
+/*start css 81 html */
+
+.fade.player-group-message{
+    opacity:96;
+}
+.form-control.plr-msg-box{
+    color: #000000;
+    font-size: 17px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 33px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.togle-slider .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #DEDBDB;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.togle-slider .slider:before {
+    position: absolute;
+    content: "";
+    height: 27px;
+    width: 27px;
+    left: -3px;
+    bottom: 3px;
+    background-color: #FFFFFF;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.togle-slider input:checked + .slider {
+    background-color: #43B7CC;
+}
+
+.togle-slider input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+.togle-slider input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.togle-slider .slider.round {
+    border-radius: 34px;
+}
+
+.togle-slider .slider.round:before {
+    border-radius: 50%;
+}
+.plr-grup-msg-chk{
+    padding: 0px 0px;
+}
+.check-text{
+    color: #FFFFFF;
+    font-size: 14px;
+    text-align: left;
+    vertical-align: -9px;
+}
+.switch.plyr-list{
+    margin-top: 16px;
+}
+.send-to-all {
+    text-align: left;
+    padding-left: 10px;
+}
+.send-to-select{
+    text-align: left;
+    padding-left: 10px;
+}
+.send-to-group{
+    text-align: left;
+    padding-left: 10px;
+}
+.plr-group-msg{
+    width: 95%!important;
+    height: 277px!important;
+}
+.plyr-all-list{
+    margin-top: -29px;
+}
+.plyr-section{
+    margin-top: -21px;
+}
+/*end css 81 html*/
+
+/*start css 92 html */
+
+.player-aw-text{
+    font-size: 12px;
+    text-align: left;
+}
+.border-right{
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+.text-cent{
+
+    color: #FFFFFF;
+}
+.navbar-inner>.navbar-nav>li .icon-circle.icon-circle-border{
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+/*start css 92 html*/
+
+/*start css 111 html */
+.navbar-chat-microph input {
+    width: 100%;
+    padding: 10px 15px;
+    height: 40px;
+    margin: 10px 0;
+    background-image: url(../images/microphone.png);
+    background-repeat: no-repeat;
+    background-position: 95% 55%;
+    border-radius: 25px;
+}
+.chat-camera {
+    width: 25px;
+    height: 25px;
+    max-width: 100%;
+    margin-top: 17px;
+    margin-left: 5px;
+}
+.chat-text-size{
+    font-size: 12px;
+    text-align: left;
+    color: #15233C;
+}
+.chat-date-right{
+    text-align: right;
+}
+
+/*end css 111 html */

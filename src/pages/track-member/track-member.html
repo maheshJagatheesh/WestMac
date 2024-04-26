@@ -1,0 +1,51 @@
+<!--
+  Generated template for the TrackMemberPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content class="bg-black" (click)="close($event)">
+  
+  <div class="modal-content modalView">
+    <div class="modal-header shadow">
+        <h5 class="modal-title fontBold text-center">WHO DO YOU WANT TO SEE?</h5>
+    </div>
+    <div class="modal-body">
+      <div class="membar-card d-flex align-center justify-center" *ngIf="!member">
+        <div class="card-img" *ngFor="let key of StaffList">
+          <div (click)="openMap(key.staff_id)">
+              <span class="">
+                <img alt="" class="img-circle" *ngIf="key.photoPath" src={{global.PROFILEIMAGEURL}}{{key.photoPath}}> 
+                <div class="img-circle" *ngIf="!key.photoPath"><span class="img-text">{{key.firstName[0] | uppercase}} {{key.lastName[0] | uppercase}} </span></div>                            
+              </span>
+              <div class="infoText">
+                <p class="text-center m-0">{{key.firstName}} {{key.lastName}}</p>
+                <h5 class="text-center m-0">{{key.vehicleName}}</h5>
+              </div>
+          </div>
+         
+        </div>
+      </div>
+
+      <div class="membar-card d-flex align-center justify-center" *ngIf="member">
+        <div class="card-img" *ngFor="let key of ChildList" >
+          <div (click)="openMap(key.TRANSPORTSTAFFID)">
+              <span class="">
+                <img alt="" class="img-circle" *ngIf="key.PHOTOPATH" src={{global.PROFILEIMAGEURL}}{{key.PHOTOPATH}}> 
+                <div class="img-circle" *ngIf="!key.PHOTOPATH"><span class="img-text">{{key.FIRSTNAME[0] | uppercase}} {{key.LASTNAME[0] | uppercase}} </span></div>                            
+              </span>
+              <div class="infoText">
+                <p class="text-center m-0">{{key.FIRSTNAME}} {{key.LASTNAME}}</p>
+                <!-- <h5 class="text-center m-0">{{key.vehicleName}}</h5> -->
+              </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  
+  
+</ion-content>

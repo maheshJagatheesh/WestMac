@@ -1,0 +1,61 @@
+<ion-content class="bg-black" (click)="setTimePad()">
+    <section class="main mt-20">
+        <div class="top-bar" (click)="backArrow()">
+            <div class="col-xs-12">
+                <div class="backArrow inverse inverseText"><span>ADHOC TIMESHEET</span></div>
+            </div>
+        </div>
+      
+      
+          <form action="" class="user-form profile bg-black" style=" padding-top: 5%!important;">
+            <section class="profileFirst heightAuto" >
+              <div>
+                <div class="form-group">
+                  <h5 class="section-title mt-30">EVENT INFO</h5>
+                  <div class="date_time text-blue text-center">
+                    <span class="voting eventDetails">
+                      <ion-item class="select-val">
+                        <ion-input class="event_name" placeholder="Event Name" [(ngModel)]="eventName" [ngModelOptions]="{standalone: true}"></ion-input>
+                      </ion-item>
+                      <ion-item class="select-val">
+                        <ion-datetime class="event_date" placeholder="Event Date" displayFormat="YYYY-MM-DD HH:mm" minuteValues="0,15,30,45" [(ngModel)]="eventDate" [ngModelOptions]="{standalone: true}"></ion-datetime>
+                      </ion-item>
+                    </span>
+                  </div>
+                </div>
+                <h4 class="info-item text-center inverseText"></h4>
+              </div>
+              <!-- <div class="bg-info mt-20 clearfix">
+                <div class="sm-title pull-left">TIMESHEET </div>
+              </div> -->
+            <h5 class="section-title mt-30">HOURS RECORDED</h5>
+                  <div class="voting score clearfix">
+                      <div >
+                          <ion-item class="select-val">
+                              <!-- <ion-label>hh:mm A (15 min steps)</ion-label> -->
+                              <ion-datetime class="hours" displayFormat="HH:mm" minuteValues="0,15,30,45" [(ngModel)]="Time" [ngModelOptions]="{standalone: true}"></ion-datetime>
+                            </ion-item>
+                          <!-- <div class="select-val">
+                              <ion-item>
+                                  <ion-input class="hours" type="number" elastic (input)="Morelength()" placeholder='00' [(ngModel)]="scoreHour" name="scoreHour" (click)="EditData('hours')"></ion-input>
+                                   <ion-label class="middlePart" style="order:1;">:</ion-label>
+                                  <ion-input class="minute" type="number" elastic (input)="Morelength()" placeholder='00' [(ngModel)]="scoreMinutes" name="scoreMinutes" (click)="EditData('minute')"  style="order:1;"></ion-input>
+                              </ion-item>
+                          </div> -->
+                      </div>
+                  </div>
+                  <div class="background group-msg">
+                    <div class="modal-content msg-send radius-20 backgroundColor">
+                        <h4 class="modal-title text-center">COMMENT</h4>
+                        <div class="modal-body backgroundColor">
+                            <textarea class="form-control msg-box" name="" id="" cols="30" rows="7" [(ngModel)]="comment" [ngModelOptions]="{standalone: true}" [readonly]="isSaved">{{comment}}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="btn-section mb-30 mt-30">
+                <button type="submit" class="btn btn-save btn-sm-black radius-10" (click)="Save()">SAVE AND SUBMIT TIMESHEET</button>
+            </div>
+          </form>
+        </section>
+  </ion-content>  

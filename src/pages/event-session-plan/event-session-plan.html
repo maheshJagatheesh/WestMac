@@ -1,0 +1,44 @@
+<!--
+  Generated template for the EventSessionPlanPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content class="bg-black borrowPlayer">
+    <section class="main mt-20">
+        <div class="top-bar" (click)="backArrow()">
+            <div class="col-xs-3">
+                <div class="backArrow inverse"></div>
+            </div>
+        </div>
+        <form action="" class="user-form">
+            <h5 class="sm-title text-left col-xs-12 mt-20">SESSION PLAN</h5>
+            <section class="profileFirst heightAuto">
+                <div class="event-card borrow">
+                    <div class="well cardBackground" *ngFor="let key of PlanDetail">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h5 class="sub-title" *ngIf="PlanDetail">{{key.description}}</h5>
+                                <h5 class="sub-title" *ngIf="!PlanDetail">TO COME</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </form>
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li class="home"><a href="#">Home</a></li>
+                    <li class="events active"><a href="#">Events</a></li>
+                    <li class="players"><a href="#">Players</a></li>
+                    <li class="comment"><a href="#">Comments</a></li>
+                    <li class="more"><a href="#">More</a></li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+    
+</ion-content>

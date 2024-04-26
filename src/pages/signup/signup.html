@@ -1,0 +1,28 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content class="main bg-gradient">
+  <section class="main bg-gradient">
+    <form action="" class="user-form login-wrap login" [formGroup]="signupForm">
+      <div class="form-group">
+        <label for="username">USERNAME</label>
+        <input type="text" class="form-control" id="username" placeholder="" formControlName="username" required>
+      </div>
+      <div class="divider"></div>
+      <div class="form-group">
+        <label for="password">PASSWORD</label>
+        <input type="password" class="form-control" id="password" placeholder="" formControlName="password" required>
+      </div>
+      <div class="login-icon text-center" (click)="SignUp()">
+        <button class="login-circle xs" type="submit"></button>
+      </div>
+      <!-- <div class="forget mt-30 text-up">
+          <a href="javascript:void(0);" class="forget-pass">Forgotten your password?</a>
+        </div> -->
+
+    </form>
+  </section>
+</ion-content>

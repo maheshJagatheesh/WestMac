@@ -1,0 +1,6 @@
+framework module Pods_WestMac_Co_Curricular {
+  umbrella header "Pods-WestMac Co-Curricular-umbrella.h"
+
+  export *
+  module * { export * }
+}

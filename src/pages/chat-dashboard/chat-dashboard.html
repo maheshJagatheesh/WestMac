@@ -1,0 +1,569 @@
+<!--
+  Generated template for the ChatDashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <nav class="navbar navbar-fixed-top player-home-nav">
+        <div class="top-bar clearfix">
+            <!-- <div class="prev-next pull-right chat-search-prev-next" (click)="goToChooseTeamsPage()">
+                <a href="javascript:void(0);" class="next"></a>
+            </div> -->
+            <div class="prev-next pull-right doubleArrow" *ngIf="FunctionAccess && FunctionAccess.user_adminLevel != 4  && isLoaded" (click)="showFilter()">
+                <a href="javascript:void(0);"><img src="assets/images/event-filter-icon.svg" class="filtter_button"></a>
+                <a href="javascript:void(0);"><img src="assets/images/event-filter-icon-active.svg" class="filtter_button active"></a>
+            </div>
+            <div class="bg-header">
+                <div class="title fontBold chat-text">CHAT</div>
+                <div class="title chat-img" (click)="toggleOverview()"><img src="{{chatIcon}}" class="microphone"/></div>
+            </div>
+        </div>
+    </nav>
+</ion-header>
+
+
+<ion-content class="bg-gray">
+  <div class="bg-gray event">
+      <section class="main">
+        <!-- no internet message start -->
+        <div class="background_grey" *ngIf="isOffline">
+            <div class="off-wrap">
+                <p><img src="assets/images/events-new-icon/offline-logo-alt.svg" class=""></p>
+                <h3>OFFLINE</h3>
+                <p>Your network is unavalaible, please check your data or connection</p>
+                <button type="button" class="btn btn-sm-black try-again">TRY AGAIN</button>
+            </div>
+        </div>
+        <!-- no internet message end -->
+        <!-- loading skeleton -->
+        <div class="skeleton" *ngIf="!isLoaded && !isOffline">
+            
+            <div class="event-card bg-gray">
+                <div class="search-bar fadeShine"></div>
+              <!-- Regular player combined Start -->
+                <div class="title fadeShine"></div>
+                <div class=" select-card well mt-10 fadeShine">
+                  <div class="row">
+                    <div class="card-img col-xs-2 p-0">
+                      <span>
+                        <div class="img-circle">
+                            <span class="img-text"></span>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="card-title col-xs-8 p-0"></div>
+                    <div class="col-xs-2 checkArrow-group"></div>
+                  </div>
+              </div>
+              <div class=" select-card well fadeShine">
+                  <div class="row">
+                    <div class="card-img col-xs-2 p-0">
+                      <span>
+                        <div class="img-circle">
+                            <span class="img-text"></span>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="card-title col-xs-8 p-0"></div>
+                    <div class="col-xs-2 checkArrow-group"></div>
+                  </div>
+              </div>
+              <div class=" select-card well fadeShine">
+                  <div class="row">
+                    <div class="card-img col-xs-2 p-0">
+                      <span>
+                        <div class="img-circle">
+                            <span class="img-text"></span>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="card-title col-xs-8 p-0"></div>
+                    <div class="col-xs-2 checkArrow-group"></div>
+                  </div>
+              </div>
+              <div class=" select-card well fadeShine">
+                  <div class="row">
+                    <div class="card-img col-xs-2 p-0">
+                      <span>
+                        <div class="img-circle">
+                            <span class="img-text"></span>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="card-title col-xs-8 p-0"></div>
+                    <div class="col-xs-2 checkArrow-group"></div>
+                  </div>
+              </div>
+              <div class="title fadeShine"></div>
+              <div class=" select-card well fadeShine">
+                  <div class="row">
+                    <div class="card-img col-xs-2 p-0">
+                      <span>
+                        <div class="img-circle">
+                            <span class="img-text"></span>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="card-title col-xs-8 p-0"></div>
+                    <div class="col-xs-2 checkArrow-group"></div>
+                  </div>
+              </div>
+              <div class=" select-card well fadeShine">
+                  <div class="row">
+                    <div class="card-img col-xs-2 p-0">
+                      <span>
+                        <div class="img-circle">
+                            <span class="img-text"></span>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="card-title col-xs-8 p-0"></div>
+                    <div class="col-xs-2 checkArrow-group"></div>
+                  </div>
+              </div>
+              <div class=" select-card well fadeShine">
+                  <div class="row">
+                    <div class="card-img col-xs-2 p-0">
+                      <span>
+                        <div class="img-circle">
+                            <span class="img-text"></span>
+                        </div>
+                      </span>
+                    </div>
+                    <div class="card-title col-xs-8 p-0"></div>
+                    <div class="col-xs-2 checkArrow-group"></div>
+                  </div>
+              </div>
+              <div class=" select-card well fadeShine">
+                    <div class="row">
+                      <div class="card-img col-xs-2 p-0">
+                        <span>
+                          <div class="img-circle">
+                              <span class="img-text"></span>
+                          </div>
+                        </span>
+                      </div>
+                      <div class="card-title col-xs-8 p-0"></div>
+                      <div class="col-xs-2 checkArrow-group"></div>
+                    </div>
+                </div>
+                <div class=" select-card well fadeShine">
+                    <div class="row">
+                      <div class="card-img col-xs-2 p-0">
+                        <span>
+                          <div class="img-circle">
+                              <span class="img-text"></span>
+                          </div>
+                        </span>
+                      </div>
+                      <div class="card-title col-xs-8 p-0"></div>
+                      <div class="col-xs-2 checkArrow-group"></div>
+                    </div>
+                </div>
+                <div class=" select-card well fadeShine">
+                    <div class="row">
+                      <div class="card-img col-xs-2 p-0">
+                        <span>
+                          <div class="img-circle">
+                              <span class="img-text"></span>
+                          </div>
+                        </span>
+                      </div>
+                      <div class="card-title col-xs-8 p-0"></div>
+                      <div class="col-xs-2 checkArrow-group"></div>
+                    </div>
+                </div>
+              <!-- Regular player combined End -->
+      
+            </div>
+        </div>
+        <!-- loading skeleton end -->
+          <form action="" class="user-form profile setting-first" *ngIf="isLoaded && !isOffline">
+              <section class="profileFirst heightAuto player-search-swipe-down">
+                  <div class="event-card welfare bg-gray">
+                      <div class="row player-search-image">
+                          <div class="col-xs-12 search-player search-inner">
+                              <div class="search-icon"><i class="seh material-icons">search</i></div>
+                              <input type="text" name="search" id="search" class="form-control text-input" placeholder="Search" (keyup)="search($event)" (click)="clearsearch()" (focus)="inputFocus()" (blur)="inputBlur()">
+                              <!--<div class="microph-image" (click)="listen()"><img src="assets/images/microphone-voice.png" class="microphone"/></div>-->
+                          </div>
+                      </div>
+                      <!--Search start-->
+                      <div class="row" [ngStyle]="{'display': searchShow}" *ngIf="searchData.length">
+                            <div class=" col-xs-5 p-0 chat-new-message">
+                                <h5>GROUP</h5>
+                            </div>
+                        </div>
+                        <div class="well select-card" *ngFor="let search of searchData" [ngStyle]="{'display': searchShow}">
+                            <div class="row" (click)="viewGroupChat(search.GROUP_ID, search.CLUB_DIVISION_ID_FK, search.GROUP_TYPE, groupPhoto, search.GROUP_NAME,groupPhoto,$event)">
+                                <div class="card-img col-xs-2 p-0">
+                                    <span class="">
+                                        <img src="assets/images/group-blue-icon.svg" alt="" class="img-circle">
+                                  </span>
+                                </div>
+                                <div class="card-title col-xs-10 p-0 chat-home">
+                                    <div class="row">
+                                        <div class="col-xs-7 p-0">
+                                               <span>{{search.GROUP_NAME}}</span>
+                                        </div>
+                                        <div class="col-xs-5 p-10">
+                                                <p class="ch-time">{{search.CHATDATE}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <h5 class="ch-text">{{search.MESSAGE}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="well select-card" *ngIf="searchData.length == 0" [ngStyle]="{'display': searchShow}">
+                            <div class="row">
+                                <div class="card-title col-xs-12 p-0 chat-home">
+                                    <div class="row">
+                                        <div class="col-xs-12 p-0 text-center noList">
+                                            <span>No Group List Found</span>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        
+                      <!--search end-->
+                      <div class="row" [ngStyle]="{'display': searchHide}" *ngIf="chatGroups.length">
+                          <div class=" col-xs-5 p-0 chat-new-message">
+                              <h5>GROUP</h5>
+                          </div>
+                      </div>
+                      <div class="well select-card" *ngFor="let chatGroup of chatGroups;" [ngStyle]="{'display': searchHide}">
+                          <div class="row" >
+                              <div class="card-img col-xs-2 p-0">
+                                  <span class="" (click)="settingGroupIcon(chatGroup.group_id)">
+                                      <!-- <img [src]="chatGroup.groupImage ?global.GroupImageURL+chatGroup.groupImage:'assets/images/group-name.svg' " alt="" class="img-circle"> -->
+                                      <img [src]="chatGroup.groupImage ? global.MESSAGEIMAGE+chatGroup.groupImage:'assets/images/group-name.svg' " alt="" class="img-circle">
+
+                                </span>
+                              </div>
+                              <div class="card-title chat-list col-xs-10 p-0" (click)="viewGroupChat(chatGroup.group_id, chatGroup.team_id, chatGroup.group_type, groupPhoto, chatGroup.group_name,groupPhoto,chatGroup.groupImage,$event)">
+                                  <div class="row">
+                                      <div class="col-xs-7 p-0">
+                                            <span>{{chatGroup.group_name}}</span>
+                                      </div>
+                                      <div class="col-xs-5 p-0 text-right">
+                                        <p class="ch-time">{{chatGroup.chatDateTime}}</p>
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                        <div class="col-xs-10 p-0">
+                                            <h5 class="ch-text" [ngStyle]="{'display': showHideOverview}">{{chatGroup.message}}</h5>
+                                        </div>
+                                        <!-- <div *ngIf="chatGroup.unReadChat != '' && chatGroup.unReadChat != '0'" class="col-xs-2 p-0">
+                                            <img src="assets/images/chat-counter/{{chatGroup.unReadChat}}.svg">
+                                        </div> -->
+                                        <div class="col-xs-10 p-0"> 
+                                            <h5 class="ch-text blocked"  [ngStyle]="{'display': showHideOverview}">NEW</h5>
+                                        </div>
+                                        
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- <div class="well select-card" *ngIf="chatGroups.length == 0" [ngStyle]="{'display': searchHide}">
+                            <div class="row">
+                                <div class="card-title col-xs-12 p-0 chat-home">
+                                    <div class="row">
+                                        <div class="col-xs-12 p-0 text-center noList">
+                                            <span>No Group List Found</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                      <div class="row">
+                          <div class=" col-xs-5 p-0 chat-new-message">
+                              <h5>CHAT</h5>
+                          </div>
+                      </div>
+
+                        <ion-list class="list list-md" *ngFor="let discussion of chats;">
+                            
+                            <ion-item-sliding class="well select-card" (ionDrag)="slidingOnOff($event)">
+                                <ion-item>
+                                    <div class="row" (click)="discussion.groupType == 3 ? viewGroupChat(discussion.group_id,team_id ,discussion.groupType, discussion.photoPath, discussion.chat_name,discussion.groupContactId,$event) : viewChat(discussion.group_id, discussion.chat_name, discussion.photoPath, discussion.personId, discussion.lastName, discussion.isBlocked, $event)">
+                                        <div class="card-img col-xs-2 p-0">
+                                            <span class="">
+                                                
+                                                <div *ngIf="discussion.groupType == 3" class="{{discussion.photoPath}} background_color_hover"></div>
+                                                <img *ngIf="discussion.photoPath != '' && discussion.groupType != 3; else noImage" src="{{global.PROFILEIMAGEURL + discussion.photoPath}}" alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+                                                <ng-template #noImage>
+                                                    <div class="img-circle" *ngIf="discussion.chat_name != '' && discussion.groupType != 3"><span class="img-text">{{discussion.chat_name[0] | uppercase}} {{discussion.lastName[0] | uppercase}} </span></div>
+                                                    <div class="img-circle" *ngIf="discussion.chat_name == '' && discussion.groupType != 3"><span class="img-text"> N N </span></div>
+                                                </ng-template>
+                                            </span>
+                                        </div>
+                                        <div class="card-title chat-list col-xs-10 p-0">
+                                            <div class="row">
+                                                <div class="col-xs-7 p-0">
+                                                    <span>{{discussion.chat_name}} <span *ngIf="discussion.groupType != 3 && discussion.role">{{discussion.role}}</span></span>
+                                                </div>
+                                                <div class="col-xs-5 p-0 text-right">
+                                                <p class="ch-time">{{discussion.chatDateTime}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-10 p-0">
+                                                    <h5 class="ch-text" *ngIf="discussion.isBlocked==0" [ngStyle]="{'display': showHideOverview}">{{discussion.message}}</h5>
+                                                    <h5 class="ch-text blocked" *ngIf="discussion.isBlocked==1" [ngStyle]="{'display': showHideOverview}">Sender blocked</h5>
+                                                </div>
+                                                <!-- <div *ngIf="discussion.unReadChat != '' && discussion.unReadChat != '0'" class="col-xs-2 p-0">
+                                                    <img src="assets/images/chat-counter/{{discussion.unReadChat}}.svg">
+                                                </div> -->
+                                                <!-- new messages -->
+                                                <div  *ngIf="discussion.isBlocked==0 && discussion.unReadChat > 0">
+                                                    <span class="ch-text blocked new-msg"  [ngStyle]="{'display': showHideOverview}"><p>NEW</p></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ion-item>
+                                <ion-item-options side="left" *ngIf="discussion.groupType == 3">
+                                    <button ion-button danger (click)="leaveDiscussion(discussion.group_id,discussion.groupContactId)">LEAVE</button>
+                                </ion-item-options>
+                                <ion-item-options side="right" *ngIf="discussion.groupType == 3">
+                                    <button ion-button danger (click)="deletedDiscussionGroup(discussion.group_id,discussion.groupContactId)">DELETE</button>
+                                </ion-item-options>
+                            </ion-item-sliding>
+                        </ion-list>
+
+                      <!--<ion-list no-lines class="well select-card" *ngFor="let chat of chats">
+                          <ion-item-sliding>
+                                <ion-item>
+                                <div class="row" ion-item-sliding (click)="viewChat(chat.group_id, chat.chat_person_name, chat.photoPath, chat.char_Person_id,chat.lastName,$event)">
+                                    <div class="card-img col-xs-2 p-0">
+                                        <span class="">
+                                            
+                                            <img *ngIf="chat.photoPath != ''; else noImage" src="{{global.PROFILEIMAGEDEVURL + chat.photoPath}}" alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+                                            <ng-template #noImage>
+                                                <div class="img-circle" *ngIf="chat.chat_person_name != ''"><span class="img-text">{{chat.chat_person_name[0] | uppercase}} {{chat.lastName[0] | uppercase}} </span></div>
+                                                <div class="img-circle" *ngIf="chat.chat_person_name == ''"><span class="img-text"> N N </span></div>
+                                            </ng-template>
+                                        </span>
+                                    </div>
+                                    <div class="card-title col-xs-10 p-0 chat-home">
+                                        <div class="row">
+                                            <div class="col-xs-7 p-0">
+                                                   <span *ngIf="chat.chat_person_name != ''">{{chat.chat_person_name}}</span>
+                                                   <span *ngIf="chat.chat_person_name == ''">No Name</span>
+                                            </div>
+                                            <div class="col-xs-5 p-10">
+                                              <p class="ch-time">{{chat.chatDateTime}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-10 p-0">
+                                                <h5 [ngStyle]="{'display': showHideOverview}" class="ch-text">{{chat.message}}</h5>
+                                            </div>
+                                            <div class="col-xs-2 p-0">
+                                                <p *ngIf="chat.unReadChat != '' && chat.unReadChat != '0'" class="unreadMSG">{{chat.unReadChat}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                </ion-item>-->
+                                <!--<ion-item-options side="right" >
+                                    <button ion-button danger>DELETE</button>
+                                </ion-item-options>-->
+                          <!--</ion-item-sliding >
+                      </ion-list>-->
+                      <div class="well select-card" *ngIf="chats.length == 0">
+                            <div class="row">
+                                <div class="card-title col-xs-12 p-0 chat-home">
+                                    <div class="row">
+                                        <div class="col-xs-12 p-0 text-center noList">
+                                            <span>No Discussion List Found</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  </div>
+              </section>
+          </form>
+      </section>
+  </div>
+  <ion-fab bottom right class="fab-mb-20" (click)="goToNewDiscussionCreatePage()" *ngIf="isLoaded && !isOffline">
+        <button ion-fab fab-fixed class="chat-svg">
+          <ion-icon name="chatboxes" is-active="false"></ion-icon>
+        </button>
+   </ion-fab>
+</ion-content>
+
+<div class="filter_overlay" style="display: none;" (swipe)="onSwipe($event)">
+    <div class="fliter">
+        <div class="itemList clearfix">
+            <div class="pull-left">
+                <img class="filterBack" src="assets/images/arrow-white.svg" (click)="filterBack()" />
+                <p class="sub-title">ACTIVITY</p>
+            </div>
+            <div class="pull-right close-icon" (click)="closeFilter()">
+                <img src="assets/images/close-icon.svg" alt="">
+            </div>
+        </div>
+        <!-- <div class="fliter_options" *ngIf="(FunctionAccess && FunctionAccess.user_adminLevel != 1) || (PersonData && PersonData.ISPARENT)">
+            <div class="itemList clearfix" *ngFor="let key of sportsList">
+                <div class="font_light" class="sports" [class.active]="sportIds.indexOf(key.SPORTID.toString()) > -1" id="{{key.SPORTID}}"><p>{{key.SPORTNAME}}</p></div>
+                <div class="itemListInfo clearfix subFilter has-child" *ngFor="let division of key.DIVISIONLIST">
+                    <div class="font_light" class="division" [class.active]="(divisionIds.indexOf(division.DIVISIONID.toString()) > -1 || divisionIds.indexOf('0') > -1)" id="{{division.DIVISIONID}}"><p>{{division.DIVISIONNAME}}</p></div>
+                    <div class="itemListInfo clearfix subChildFilter" *ngFor="let team of division.TEAMLIST">
+                        <div class="font_light" class="team" [class.active]="(selectedTeams.indexOf(team.CLUBDIVISIONID.toString()) > -1)" id="{{team.CLUBDIVISIONID}}"><p>{{team.TEAMNAME}}</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fliter_options" *ngIf="PersonData && PersonData.ISPARENT">
+            <div class="itemList clearfix" *ngFor="let key of PersonData.siblings">
+                <div class="font_light" class="childId" id="{{key.person_id}}" [class.active]="childIds.indexOf(key.person_id.toString()) > -1"><p>{{key.first_name}} {{key.last_name}}</p></div>
+            </div>
+        </div> -->
+
+        <div class="options_wrap">          
+            <!-- <div class="options teamLink">
+                <p>My Teams</p>
+                <img src="assets/images/right arrow.svg" class="pull_right_arrow">
+            </div> -->
+            <div class="options hideTeamChatsLink" *ngIf="FunctionAccess && FunctionAccess.user_adminLevel != 4">                
+                <div class="itemList clearfix">
+                    <div class="pull-left"><p>Hide team chats</p></div>
+                    <div class="pull-right">
+                        <div class="toggle">
+                            <label class="switch">
+                            <input type="checkbox" class="hideTeamChats" name="hideTeamChats" [(ngModel)]="hideTeamChats" value="1" [checked]="hideTeamChats">
+                            <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>               
+            <!-- <div class="options sportLink">
+                <p>My teams</p>
+                <img src="assets/images/right arrow.svg" class="pull_right_arrow">
+            </div>   -->
+            <!-- <div class="options roleLink" *ngIf="FunctionAccess && FunctionAccess.user_adminLevel != 4">
+                <p>Roles</p>
+                <img src="assets/images/right arrow.svg" class="pull_right_arrow">
+            </div> -->                  
+            <!-- <div class="options divisionLink">
+              <p>Division</p>
+              <img src="assets/images/right arrow.svg" class="pull_right_arrow">
+            </div> -->                 
+            <!-- <div class="options teamLink">
+              <p>Teams</p>
+              <img src="assets/images/right arrow.svg" class="pull_right_arrow">
+            </div> -->
+
+            <div class="fliter_options sportFilter" style="display: none;">
+                <p class="color">
+                    <span class="suggestion">Select activity to filter</span>
+                    <span class="selected">{{selectedFilter}} Selected</span>
+                </p>
+                <!-- <div class="itemList clearfix">
+                    <div class="pull-left"><p>Show all my sports</p></div>
+                    <div class="pull-right">
+                        <div class="toggle">
+                            <label class="switch">
+                            <input type="checkbox" class="sports" name="sports" value="0" [checked]="sportIds.indexOf('0') > -1">
+                            <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="itemList clearfix" *ngFor="let key of sportsList;let i = index"  >
+                    <div class="font_light" class="sports" [class.active]="sportIds.indexOf(key.SPORTID?.toString()) > -1" id="{{key.SPORTID}}" (click)="openSublist(i)"><p>{{key.SPORTNAME}}</p><p id="{{key.SPORTID}}chat" style="width: 25%;color: gray;"></p></div>
+                    <!-- <div class="pull-right">
+                        <div class="toggle">
+                            <label class="switch">
+                            <input type="checkbox" class="sports" name="sports" value="{{key.SPORTID}}" [checked]="sportIds.indexOf(key.SPORTID.toString()) > -1">
+                            <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div> -->
+                    <div id="fun{{i}}" style="display:none;">
+                    <div class="itemListInfo clearfix subFilter has-child" *ngFor="let division of key.DIVISIONLIST;let j = index">
+                        <div class="font_light" class="division" [class.active]="(divisionIds.indexOf(division.DIVISIONID.toString()) > -1 || divisionIds.indexOf('0') > -1)" id="{{division.DIVISIONID}}" (click)="openSportsList(key.SPORTNAME[0],division.DIVISIONID,j)"><p class="divi">{{division.DIVISIONNAME}}</p><p id="{{division.DIVISIONID}}chat" style="width: 5%;color: gray;"></p></div>
+                        <div id="funy4{{key.SPORTNAME[0]}}{{division.DIVISIONID}}{{j}}" class="font_light" class="division" style="display: none;">
+                            <div class="itemListInfo clearfix subChildFilter" *ngFor="let team of division.TEAMLIST">
+                                <div class="font_light" class="team" [class.active]="(selectedTeams.indexOf(team.CLUBDIVISIONID?.toString()) > -1)" id="{{team.CLUBDIVISIONID}}" (click)="marking(key.SPORTID,team.CLUBDIVISIONID,division.DIVISIONID)"><p class="divi">{{team.TEAMNAME}}</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="fliter_options divisionFilter" style="display: none;">
+                <div class="itemList clearfix">
+                    <div class="pull-left"><p>Show all my division</p></div>
+                    <div class="pull-right">
+                        <div class="toggle">
+                            <label class="switch">
+                            <input type="checkbox" class="division" name="division" value="0" [checked]="divisionIds.indexOf('0') > -1">
+                            <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="itemList clearfix" *ngFor="let key of divisionList">
+                    <div class="pull-left font_light"><p>{{key.DIVISIONNAME}}</p></div>
+                    <div class="pull-right">
+                        <div class="toggle">
+                            <label class="switch">
+                            <input type="checkbox" class="division" name="division" value="{{key.DIVISIONID}}" [checked]="(divisionIds.indexOf(key.DIVISIONID.toString()) > -1 || divisionIds.indexOf('0') > -1)">
+                            <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="fliter_options teamFilter" style="display: none;">
+                <!-- <div class="itemList clearfix">
+                    <div class="pull-left"><p>Show all my teams</p></div>
+                    <div class="pull-right">
+                        <div class="toggle">
+                            <label class="switch">
+                            <input type="checkbox" class="team" name="team" value="0" [checked]="selectedTeams.indexOf('0') > -1">
+                            <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="itemList clearfix" *ngFor="let key of teamList">
+                    <div class="font_light" class="team" [class.active]="selectedTeams.indexOf(key.CLUBDIVISIONID?.toString()) > -1" id="{{key.CLUBDIVISIONID}}"><p>{{key.TEAMNAME}}</p></div>
+                    <!-- <div class="pull-right">
+                        <div class="toggle">
+                            <label class="switch">
+                            <input type="checkbox" class="team" name="team" value="{{key.CLUBDIVISIONID}}" [checked]="selectedTeams.indexOf(key.CLUBDIVISIONID.toString()) > -1">
+                            <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="fliter_options roleFilter" style="display: none;">
+                <div class="itemList clearfix">
+                    <div class="font_light" class="role" [class.active]="roles.indexOf('1') > -1" id="1"><p>Admins</p></div>
+                </div>
+                <div class="itemList clearfix" *ngIf="loggedInUserData && !loggedInUserData.ISPARENT">
+                    <div class="font_light" class="role" [class.active]="roles.indexOf('2') > -1" id="2"><p>Players</p></div>
+                </div>
+                <div class="itemList clearfix">
+                    <div class="font_light" class="role" [class.active]="roles.indexOf('3') > -1" id="3"><p>Parents</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

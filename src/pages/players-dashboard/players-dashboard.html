@@ -1,0 +1,441 @@
+<!--
+  Generated template for the PlayersDashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <nav class="navbar navbar-fixed-top player-home-nav">
+      <div class="top-bar clearfix">
+          <!-- <div class="prev-next pull-right chat-search-prev-next" (click)="goToChooseTeamsPage()">
+              <a href="javascript:void(0);" class="next"></a>
+          </div> -->
+          <div class="prev-next pull-right doubleArrow" *ngIf="isLoaded" (click)="showFilter()">
+              <a href="javascript:void(0);"><img src="assets/images/event-filter-icon.svg" class="filtter_button"></a>
+              <a href="javascript:void(0);"><img src="assets/images/event-filter-icon-active.svg" class="filtter_button active"></a>
+          </div>
+          <div class="bg-header">
+              <div *ngIf="FunctionAccess?.user_adminLevel == 1 || FunctionAccess?.user_adminLevel == 2" class="title fontBold chat-text">GROUPS</div>
+              <div *ngIf="FunctionAccess?.user_adminLevel == 4" class="title fontBold chat-text">GROUPS</div>
+          </div>
+      </div>
+  </nav>
+</ion-header>
+
+<ion-content>
+  <section class="main">
+    <!-- no internet message start -->
+    <div class="background_grey" *ngIf="isOffline">
+        <div class="off-wrap">
+            <p><img src="assets/images/events-new-icon/offline-logo-alt.svg" class=""></p>
+            <h3>OFFLINE</h3>
+            <p>Your network is unavalaible, please check your data or connection</p>
+            <button type="button" class="btn btn-sm-black try-again" (click)="tryAgain()">TRY AGAIN</button>
+        </div>
+    </div>
+    <!-- no internet message end -->
+    <!-- loading skeleton -->
+    <div class="skeleton" *ngIf="!isLoaded && !isOffline">
+        
+        <div class="event-card bg-gray">
+            <div class="search-bar fadeShine"></div>
+          <!-- Regular player combined Start -->
+            <!-- <div class="title fadeShine"></div> -->
+            <div class=" select-card well mt-10 fadeShine">
+              <div class="row">
+                <div class="card-img col-xs-2 p-0">
+                  <span>
+                    <div class="img-circle">
+                        <span class="img-text"></span>
+                    </div>
+                  </span>
+                </div>
+                <div class="card-title col-xs-8 p-0"></div>
+                <div class="col-xs-2 checkArrow-group"></div>
+              </div>
+          </div>
+          <div class=" select-card well fadeShine">
+              <div class="row">
+                <div class="card-img col-xs-2 p-0">
+                  <span>
+                    <div class="img-circle">
+                        <span class="img-text"></span>
+                    </div>
+                  </span>
+                </div>
+                <div class="card-title col-xs-8 p-0"></div>
+                <div class="col-xs-2 checkArrow-group"></div>
+              </div>
+          </div>
+          <div class=" select-card well fadeShine">
+              <div class="row">
+                <div class="card-img col-xs-2 p-0">
+                  <span>
+                    <div class="img-circle">
+                        <span class="img-text"></span>
+                    </div>
+                  </span>
+                </div>
+                <div class="card-title col-xs-8 p-0"></div>
+                <div class="col-xs-2 checkArrow-group"></div>
+              </div>
+          </div>
+          <div class=" select-card well fadeShine">
+              <div class="row">
+                <div class="card-img col-xs-2 p-0">
+                  <span>
+                    <div class="img-circle">
+                        <span class="img-text"></span>
+                    </div>
+                  </span>
+                </div>
+                <div class="card-title col-xs-8 p-0"></div>
+                <div class="col-xs-2 checkArrow-group"></div>
+              </div>
+          </div>
+          <!-- <div class="title fadeShine"></div> -->
+          <div class=" select-card well fadeShine">
+              <div class="row">
+                <div class="card-img col-xs-2 p-0">
+                  <span>
+                    <div class="img-circle">
+                        <span class="img-text"></span>
+                    </div>
+                  </span>
+                </div>
+                <div class="card-title col-xs-8 p-0"></div>
+                <div class="col-xs-2 checkArrow-group"></div>
+              </div>
+          </div>
+          <div class=" select-card well fadeShine">
+              <div class="row">
+                <div class="card-img col-xs-2 p-0">
+                  <span>
+                    <div class="img-circle">
+                        <span class="img-text"></span>
+                    </div>
+                  </span>
+                </div>
+                <div class="card-title col-xs-8 p-0"></div>
+                <div class="col-xs-2 checkArrow-group"></div>
+              </div>
+          </div>
+          <div class=" select-card well fadeShine">
+              <div class="row">
+                <div class="card-img col-xs-2 p-0">
+                  <span>
+                    <div class="img-circle">
+                        <span class="img-text"></span>
+                    </div>
+                  </span>
+                </div>
+                <div class="card-title col-xs-8 p-0"></div>
+                <div class="col-xs-2 checkArrow-group"></div>
+              </div>
+          </div>
+          <div class=" select-card well fadeShine">
+                <div class="row">
+                  <div class="card-img col-xs-2 p-0">
+                    <span>
+                      <div class="img-circle">
+                          <span class="img-text"></span>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="card-title col-xs-8 p-0"></div>
+                  <div class="col-xs-2 checkArrow-group"></div>
+                </div>
+            </div>
+            <div class=" select-card well fadeShine">
+                <div class="row">
+                  <div class="card-img col-xs-2 p-0">
+                    <span>
+                      <div class="img-circle">
+                          <span class="img-text"></span>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="card-title col-xs-8 p-0"></div>
+                  <div class="col-xs-2 checkArrow-group"></div>
+                </div>
+            </div>
+            <div class=" select-card well fadeShine">
+                <div class="row">
+                  <div class="card-img col-xs-2 p-0">
+                    <span>
+                      <div class="img-circle">
+                          <span class="img-text"></span>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="card-title col-xs-8 p-0"></div>
+                  <div class="col-xs-2 checkArrow-group"></div>
+                </div>
+            </div>
+          <!-- Regular player combined End -->
+  
+        </div>
+    </div>
+    <!-- loading skeleton end -->
+    <form action="" class="user-form player-item" *ngIf="isLoaded && !isOffline">
+      <section class="profileFirst heightAuto xs-padding">
+        <div class="row player-search-image">
+            <div class="col-xs-12 search-player search-inner mb-20">
+                <div class="search-icon"><i class="seh material-icons">search</i></div>
+                <input type="text" name="search" id="search" class="form-control text-input" placeholder="Search" (keyup)="search($event)" (click)="clearsearch()" (focus)="inputFocus()" (blur)="inputBlur()">
+            </div>
+        </div>
+        <div class="event-card welfare bg-gray player-home-list" *ngIf="players.length > 0 && PlayerDetailSuccess; else noPlayers">
+          <div class="well select-card" [class.active]="(activePlayer==player.PERSON_ID)" *ngFor="let player of players">
+            <div class="row">
+              <div class="card-img col-xs-2 p-0" (click)="playerDetails(player.PERSON_ID)">
+                <span class="">
+                  <img *ngIf="player.PHOTOPATH != null && player.PHOTOPATH.length > 0; else noImage" src="{{global.PROFILEIMAGEURL}}{{player.PHOTOPATH}}" alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+                  <ng-template #noImage>
+                      <div class="img-circle"><span class="img-text">{{player.FIRST_NAME[0]}} {{player.LAST_NAME[0]}} </span></div>
+
+                  </ng-template>
+                </span>
+              </div>
+              <div class="card-title col-xs-9">
+                <p (click)="playerDetails(player.PERSON_ID)">{{player.FIRST_NAME | uppercase}} {{player.LAST_NAME | uppercase}}</p>
+                <div (click)="playerDetails(player.PERSON_ID)">
+                  <span *ngIf="player.UNIFORMID != null && player.UNIFORMID.length > 0">#{{player.UNIFORMID}}</span>
+                </div>
+                <div class="suit-iconCard fixedRight" (click)="DisplaySeverityDetails(player)" *ngIf="FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1 && ((player.PLAYERAILMENTSSEVERITYICON) || (player.SHOWMEDICINE==1))">
+                    <img src={{global.ImagesPath}}{{player.PLAYERAILMENTSSEVERITYICON}} class="suit-icon" *ngIf="(player.PLAYERAILMENTSSEVERITYICON  && (player.SHOWMEDICINE==1 || player.SHOWMEDICINE==0))">
+                    <img src="{{global.ImagesPath}}pills.svg" class="medical-bottle" *ngIf="((player.SHOWMEDICINE==1) && (!player.PLAYERAILMENTSSEVERITYICON))">
+                </div>
+            
+              </div>
+              <!---<div class="col-xs-3 p-0">
+                  <div class="suit-iconCard" (click)="DisplaySeverityDetails(player.PLAYERAILMENTS)" *ngIf="player.PLAYERAILMENTSSEVERITYICON && FunctionAccess && FunctionAccess.medicalKit=='yes'">
+                      <img src={{global.ImagesPath}}{{player.PLAYERAILMENTSSEVERITYICON}}  class="suit-icon">
+                  </div> -->
+                <!--                 
+                  <div class="medical-bottleCard" (click)="MedicineInformation(player)" *ngIf="player.SHOWMEDICINE==1 && FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1">
+                      <img src="{{global.ImagesPath}}medicine_bottle.png" class="medical-bottle">
+                  </div> -->
+              <!-- </div> -->
+
+              <div class="event-next col-xs-1 p-0" *ngIf="(FunctionAccess && FunctionAccess.user_adminLevel!=4) || (loggedInUserData.PERSON_ID.toString() == player.PERSON_ID.toString())">
+                <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #noPlayers>
+          <div class="event-card welfare bg-gray player-home-list">
+            <div class="well select-card noPlayerCard">
+              <div class="row">
+                <div class="card-title col-xs-12 p-0"><p>No Teammates Found</p></div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </section>
+    </form>
+  </section>
+</ion-content>
+
+<div class="filter_overlay" style="display: none;" (swipe)="onSwipe($event)">
+  <div class="fliter">
+      <div class="itemList clearfix">
+          <div class="pull-left">
+              <img class="filterBack" src="assets/images/arrow-white.svg" (click)="filterBack()" />
+              <p class="sub-title" *ngIf="(FunctionAccess && (FunctionAccess?.user_adminLevel == 4) || (PersonData && PersonData.ISPARENT) )">FILTER</p>
+              <p class="sub-title2" *ngIf="FunctionAccess && ((FunctionAccess.user_adminLevel == 1) ||  (FunctionAccess?.user_adminLevel == 2) || (FunctionAccess?.user_adminLevel == 3))">ACTIVITY</p>
+          </div>
+          <div class="pull-right close-icon" (click)="closeFilter()">
+              <img src="assets/images/close-icon.svg" alt="">
+          </div>
+      </div>
+
+      <!-- filter for coach start -->
+      <div class="fliter_options" *ngIf="(FunctionAccess && FunctionAccess?.user_adminLevel == 2) || (FunctionAccess?.user_adminLevel == 3) ">
+        <p class="color">
+          <span class="suggestion">Select activity to filter</span>
+          <span class="selected">{{selectedFilter}} Selected</span>
+        </p>  
+        <div class="itemList clearfix">
+              <div class="pull-left"><p>Activity</p></div>
+          </div>
+          <div class="itemList clearfix" *ngFor="let key of sportsList;let j = index">
+              <div class="font_light" class="sports" [class.active]="sportIds.indexOf(key.SPORTID?.toString()) > -1" id="{{key.SPORTID}}" (click)="openSublist2(j)"><p>{{key.SPORTNAME}}</p><p id="{{key.SPORTID}}player" style="width: 25%;color: gray;"></p></div>
+
+              <div id="coachlist{{j}}" style="display: none;">
+                <div class="itemListInfo clearfix subFilter has-child" *ngFor="let division of key.DIVISIONLIST; let i = index">
+                    <div class="font_light" class="division" [class.active]="(divisionIds.indexOf(division.DIVISIONID.toString()) > -1 || divisionIds.indexOf('0') > -1)" id="{{division.DIVISIONID}}" (click)="openSportsList2(key.SPORTNAME[0],division.DIVISIONID,i)"><p class="divi">{{division.DIVISIONNAME}}</p><p id="{{division.DIVISIONID}}player" style="width: 5%;color: gray;"></p></div>
+                    <div id="coachlists{{key.SPORTNAME[0]}}{{division.DIVISIONID}}{{i}}" class="font_light" class="division" style="display: none;">
+                      <div class="itemListInfo clearfix subChildFilter" *ngFor="let team of division.TEAMLIST">
+                          <div class="font_light" class="team" [class.active]="(selectedTeams.indexOf(team.CLUBDIVISIONID?.toString()) > -1)" id="{{team.CLUBDIVISIONID}}" (click)="marking(key.SPORTID,team.CLUBDIVISIONID,division.DIVISIONID)"><p class="divi">{{team.TEAMNAME}}</p></div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
+      <!-- filter for coach ends -->
+
+      <!-- filetr for parent and player start-->
+      <div class="fliter_options" *ngIf="(FunctionAccess && FunctionAccess?.user_adminLevel == 4) || ((PersonData && PersonData.ISPARENT) && (!FunctionAccess.user_adminLevel == 1)) ">
+        <div class="itemList clearfix">
+            <div class="pull-left"><p class="parent">Sports</p></div>
+        </div>
+        <div class="itemList clearfix" *ngFor="let key of sportsList">
+            <div class="font_light" class="sports" [class.active]="sportIds.indexOf(key.SPORTID?.toString()) > -1" id="{{key.SPORTID}}"><p>{{key.SPORTNAME}}</p></div>
+            <div class="itemListInfo clearfix subFilter has-child" *ngFor="let division of key.DIVISIONLIST">
+                <div class="font_light" class="division" [class.active]="(divisionIds.indexOf(division.DIVISIONID.toString()) > -1 || divisionIds.indexOf('0') > -1)" id="{{division.DIVISIONID}}"><p>{{division.DIVISIONNAME}}</p></div>
+                <div class="itemListInfo clearfix subChildFilter" *ngFor="let team of division.TEAMLIST">
+                    <div class="font_light" class="team" [class.active]="(selectedTeams.indexOf(team.CLUBDIVISIONID.toString()) > -1)" id="{{team.CLUBDIVISIONID}}"><p>{{team.TEAMNAME}}</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- filter for parent and player ends -->
+
+      <div class="options_wrap" *ngIf="FunctionAccess && FunctionAccess.user_adminLevel == 1">
+         
+        <!-- <div class="options teamLink">
+              <p>My Teams</p>
+              <img src="assets/images/right arrow.svg" class="pull_right_arrow">
+          </div>
+          <div class="options sportLink">
+              <p>Sports and teams</p>
+              <img src="assets/images/right arrow.svg" class="pull_right_arrow">
+          </div> -->
+
+          <!-- <div class="options roleLink" *ngIf="FunctionAccess && FunctionAccess.user_adminLevel != 4">
+              <p>Roles</p>
+              <img src="assets/images/right arrow.svg" class="pull_right_arrow">
+          </div> -->                  
+          <!-- <div class="options divisionLink">
+            <p>Division</p>
+            <img src="assets/images/right arrow.svg" class="pull_right_arrow">
+          </div> -->                 
+          <!-- <div class="options teamLink">
+            <p>Teams</p>
+            <img src="assets/images/right arrow.svg" class="pull_right_arrow">
+          </div> -->
+
+          <!-- style="display: none;" -->
+          <div class="fliter_options sportFilter" >
+            <p class="color">
+              <span class="suggestion">Select activity to filter</span>
+              <span class="selected">{{selectedFilter}} Selected</span>
+            </p>
+              <!-- <div class="itemList clearfix">
+                  <div class="pull-left"><p>Show all my sports</p></div>
+                  <div class="pull-right">
+                      <div class="toggle">
+                          <label class="switch">
+                          <input type="checkbox" class="sports" name="sports" value="0" [checked]="sportIds.indexOf('0') > -1">
+                          <span class="slider round"></span>
+                          </label>
+                      </div>
+                  </div>
+              </div> -->
+              <div class="itemList clearfix" *ngFor="let key of sportsList;let i = index">
+                  <div class="font_light" class="sports" [class.active]="sportIds.indexOf(key.SPORTID?.toString()) > -1" id="{{key.SPORTID}}" (click)="openSublist(i)"><p>{{key.SPORTNAME}}</p><p id="{{key.SPORTID}}player2" style="width: 25%;color: gray;"></p></div>
+                  <!-- <div class="pull-right">
+                      <div class="toggle">
+                          <label class="switch">
+                          <input type="checkbox" class="sports" name="sports" value="{{key.SPORTID}}" [checked]="sportIds.indexOf(key.SPORTID.toString()) > -1">
+                          <span class="slider round"></span>
+                          </label>
+                      </div>
+                  </div> -->
+                  <div id="fun2{{i}}" style="display: none">
+                  <div class="itemListInfo clearfix subFilter has-child" *ngFor="let division of key.DIVISIONLIST; let j = index">
+                      <div class="font_light" class="division" [class.active]="(divisionIds.indexOf(division.DIVISIONID.toString()) > -1 || divisionIds.indexOf('0') > -1)" id="{{division.DIVISIONID}}" (click)="openSportsList(key.SPORTNAME[0],division.DIVISIONID,j)"><p class="divi">{{division.DIVISIONNAME}}</p><p id="{{division.DIVISIONID}}player2" style="width: 5%;color: gray;"></p></div>
+                      <div id="funys{{key.SPORTNAME[0]}}{{division.DIVISIONID}}{{j}}" class="font_light" class="division" style="display: none;">
+                        <div class="itemListInfo clearfix subChildFilter" *ngFor="let team of division.TEAMLIST">
+                            <div class="font_light" class="team" [class.active]="(selectedTeams.indexOf(team.CLUBDIVISIONID?.toString()) > -1)" id="{{team.CLUBDIVISIONID}}" (click)="marking2(key.SPORTID,team.CLUBDIVISIONID,division.DIVISIONID)"><p class="divi">{{team.TEAMNAME}}</p></div>
+                        </div>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- <div class="fliter_options divisionFilter" style="display: none;">
+              <div class="itemList clearfix">
+                  <div class="pull-left"><p>Show all my division</p></div>
+                  <div class="pull-right">
+                      <div class="toggle">
+                          <label class="switch">
+                          <input type="checkbox" class="division" name="division" value="0" [checked]="divisionIds.indexOf('0') > -1">
+                          <span class="slider round"></span>
+                          </label>
+                      </div>
+                  </div>
+              </div>
+              <div class="itemList clearfix" *ngFor="let key of divisionList">
+                  <div class="pull-left font_light"><p>{{key.DIVISIONNAME}}</p></div>
+                  <div class="pull-right">
+                      <div class="toggle">
+                          <label class="switch">
+                          <input type="checkbox" class="division" name="division" value="{{key.DIVISIONID}}" [checked]="(divisionIds.indexOf(key.DIVISIONID.toString()) > -1 || divisionIds.indexOf('0') > -1)">
+                          <span class="slider round"></span>
+                          </label>
+                      </div>
+                  </div>
+              </div>
+          </div> -->
+
+          <div class="fliter_options teamFilter" style="display: none;">
+              <!-- <div class="itemList clearfix">
+                  <div class="pull-left"><p>Show all my teams</p></div>
+                  <div class="pull-right">
+                      <div class="toggle">
+                          <label class="switch">
+                          <input type="checkbox" class="team" name="team" value="0" [checked]="selectedTeams.indexOf('0') > -1">
+                          <span class="slider round"></span>
+                          </label>
+                      </div>
+                  </div>
+              </div> -->
+              <div class="itemList clearfix" *ngFor="let key of teamList">
+                  <div class="font_light" class="team" [class.active]="selectedTeams.indexOf(key.CLUBDIVISIONID?.toString()) > -1" id="{{key.CLUBDIVISIONID}}"><p style="float: left;width:100% ;">{{key.TEAMNAME}}</p><p style="float: right;">{{key.DIVISIONNAME}}</p></div>
+                  <!-- <div class="pull-right">
+                      <div class="toggle">
+                          <label class="switch">
+                          <input type="checkbox" class="team" name="team" value="{{key.CLUBDIVISIONID}}" [checked]="selectedTeams.indexOf(key.CLUBDIVISIONID.toString()) > -1">
+                          <span class="slider round"></span>
+                          </label>
+                      </div>
+                  </div> -->
+              </div>
+          </div>
+
+          <div class="fliter_options roleFilter" style="display: none;">
+              <div class="itemList clearfix">
+                  <div class="font_light" class="role" [class.active]="roles.indexOf('1') > -1" id="1"><p>Admins</p></div>
+              </div>
+              <div class="itemList clearfix" *ngIf="loggedInUserData && !loggedInUserData.ISPARENT">
+                  <div class="font_light" class="role" [class.active]="roles.indexOf('2') > -1" id="2"><p>Members</p></div>
+              </div>
+              <div class="itemList clearfix">
+                  <div class="font_light" class="role" [class.active]="roles.indexOf('3') > -1" id="3"><p>Parents</p></div>
+              </div>
+          </div>
+      </div>
+
+
+      <!-- filte for parent start  -->
+      <div class="fliter_options" *ngIf="loggedInUserData && loggedInUserData.ISPARENT">
+        <div class="itemList clearfix">
+            <div class="pull-left"><p>View</p></div>
+        </div>
+        <div class="itemList clearfix" *ngFor="let key of loggedInUserData.siblings">
+            <div class="font_light" class="childId" id="{{key.person_id}}" [class.active]="childIds.indexOf(key.person_id.toString()) > -1"><p>{{key.last_name}} {{key.first_name}} </p></div>
+        </div>
+        <div class="itemList clearfix">
+            <div class="font_light" class="childId" style="margin-left: 20px;" id="{{loggedInUserData.PERSON_ID}}" [class.active]="childIds.indexOf(loggedInUserData.PERSON_ID.toString()) > -1"><p>Self</p></div>
+        </div>
+    </div>
+      <!-- filte for parent ends  -->
+
+  </div>
+</div>
+

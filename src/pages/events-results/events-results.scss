@@ -1,0 +1,181 @@
+page-events-results {
+    .report-text {
+        color: white !important;
+    }
+    .top-bar {
+        padding-left: 0;
+    }
+    .back-button {
+        display: none !important;
+    }
+    .BackButton {
+        background: #fff;
+        padding-left: 0;
+    }
+    .col {
+        a {
+            justify-content: center;
+            display: flex;
+            position: relative;
+        }
+    }
+    .iontextarea {
+        border: none !important;
+        height: auto !important;
+        box-shadow: none!important;
+    }
+    span.active:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        // display: inline-block;
+        width: 100%;
+        height: 5px;
+        background: #428CF4;
+        justify-content: center;
+        display: flex;
+        background: -webkit-gradient(linear, left top, right top, from(#428CF4), to(#43C9BB));
+        background: -webkit-linear-gradient(left, #428CF4, #43C9BB);
+        background: -moz-linear-gradient(left, #428CF4, #43C9BB);
+        background: -ms-linear-gradient(left, #428CF4, #43C9BB);
+        background: -o-linear-gradient(left, #428CF4, #43C9BB);
+    }
+    .grid {
+        padding-bottom: 0 !important;
+    }
+    .card-title {
+        text-transform: uppercase;
+    }
+    .event-next {
+        font-size: 24px;
+        height: auto;
+    }
+    .event-next.show-tickmark {
+        font-size: 34px;
+    }
+    .event-next.show-tickmark .next-arrow {
+        color: #43B7CC;
+        padding-left: 4px;
+    }
+    .event-card .select-card.active {
+        background: #15233C;
+    }
+    .event-card .select-card.active .card-title {
+        color: #FFFFFF !important;
+    }
+    .flatten .radio {
+        text-align: right;
+    }
+    .HighLight {
+        font-size: 11px !important;
+        font-weight: 800 !important;
+    }
+    .top-bar .location img {
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+    }
+    .top-bar .location {
+        margin-right: 20px;
+    }
+    .suit-iconCard {
+        float: right;
+        padding: 0 8px;
+        line-height: 55px;
+        .suit-icon {
+            width: 25px;
+            height: 25px;
+        }
+    }
+    .medical-bottleCard {
+        margin: 0 8px;
+        line-height: 55px;
+        float: right;
+        .medical-bottle {
+            height: 25px;
+        }
+    }
+    .card-title span {
+        padding-top: 0;
+        color: #8B8B8B;
+        font-size: 12px;
+        font-weight: normal;
+        width: 100%;
+    }
+    .suit-iconCard.fixedRight {
+        padding: 0;
+        right: 0!important;
+        width: 26px;
+        left: inherit;
+        top: 45%;
+        position: absolute;
+        -webkit-transform: translate(0, -50%);
+        -moz-transform: translate(0, -50%);
+        -o-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+    }
+    .voting .select-val .item-ios.input-has-focus,
+    .voting .select-val .item-md.input-has-focus {
+        border: 1px solid #fff!important;
+        background: #eeeeee!important;
+        color: #000000!important;
+    }
+    .voting.score h5 {
+        margin-top: 5px!important;
+    }
+    .voting .select-val .item-ios.input-has-focus input,
+    .voting .select-val .item-md.input-has-focus input {
+        background: #eeeeee!important;
+        color: #000000!important;
+    }
+    button.btn-sm-black {
+        margin: 0 auto;
+    }
+    .btn-sm-black:hover,
+    .btn:focus,
+    .btn:hover,
+    .btn.active {
+        color: #fff;
+    }
+    ion-header .grid {
+        padding: 0 5px;
+    }
+    .col-xs-1 {
+        width: 7.33%;
+    }
+    .text-input {
+        border: none;
+        margin-left: 10px;
+        text-align: center;
+        font-size: 24px;
+        color: #707070;
+        // color: #15233c;
+        font-family: 'Helvetica', sans-serif;
+        background: transparent;
+    }
+    .inverseText {
+        color: #fff!important;
+        text-align: center !important;
+    }
+    ion-grid .item-md {
+        /* text-align: center; */
+        padding-right: 25%;
+        position: relative;
+        // font-size: 3rem !important;
+        font-size: 34px!important;
+        font-weight: bold;
+        /* text-transform: none; */
+        color: #DEDBDB!important;
+        // background-color: #15233c;
+        background-color: #1b3e7c !important;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .voting.score {
+        width: 65% !important;
+    }
+}

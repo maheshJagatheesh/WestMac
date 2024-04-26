@@ -1,0 +1,129 @@
+page-vehicle-details {
+    .title-md {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .img-xs{
+        width:35px;
+        height:35px;
+    }
+    .img-xs img{
+        border: 2px solid #fff;
+    }
+    .info-list-item .card-title{
+        font-size: 14px;
+        font-weight: bold;
+        font-family: "Helvetica",sans-serif;
+        color:#000;
+        line-height: 25px;
+    }
+    .next{
+        text-align: right;
+        display: table;
+    }
+    .next-arrow{
+        vertical-align: middle;
+        display: table-cell;
+    }
+    .info-list-item .border-bottom{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        padding-bottom: 5px;
+        margin-bottom: 10px!important;
+    }
+    .next-arrow i{
+        color:rgba(0, 0, 0, 0.15);
+        font-size: 18px;
+    }
+    .info-list-item .notify:before{
+        content: '';
+        background-image: url(../../assets/images/transport/comment-add.svg);
+        background-size: 100%;
+        width: 16px;
+        height: 16px;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .info-list-item .rollcall:before{
+        content: '';
+        background-image: url(../../assets/images/transport/list.svg);
+        background-size: 100%;
+        width: 16px;
+        height: 15px;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .bg-map{
+        background: url(../../assets/images/transport/bg-map.jpg) no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 200px;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: inline-block;
+    }
+    #map {
+        width: 100%;
+        height: 200px;
+        // div{
+        //     background-color: transparent !important;
+        // }
+    }
+    .font_fix{
+        font-size: 16px !important;
+        font-weight: bold;
+        font-family: 'Helvetica', sans-serif;
+    }
+    .back-button .back-button-icon:before {
+        height: 20px;
+        vertical-align: bottom;
+    }
+    .staffImage {
+        width: 35px;
+        height: 35px;
+    }
+    .img-xs .img-text{
+        width: 35px;
+        height: 35px;
+        margin: 0;
+        line-height: 36px;
+        text-align: center;
+        font-size: 11px;
+    }
+    .btn-teal {
+        width: 100%;
+        padding: 15px 12px;
+        font-size: 10px;
+        text-transform: uppercase;
+        background-color: #096B91;
+        border-color: #096B91;
+        color: #fff;
+    }
+    .btn-rounded {
+        border-radius: 25px;
+    }
+    .btn-wrap{
+        margin: 20px 30px;
+    }
+    .btn-remove{
+        background-color: #eff1f5;
+        border-color: #F17B5E;
+        color: #F17B5E;
+    }
+    /* .top-bar .BackButton.bg-white{
+        display:none;
+    } */
+
+    ion-navbar.toolbar.toolbar-ios{
+        padding: 0 16px!important;
+        padding-top: 12px !important;
+
+    }
+    .toolbar-ios ion-icon.back-button-icon{
+        margin-top: 5px;
+    }
+   
+}

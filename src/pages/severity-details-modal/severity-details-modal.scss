@@ -1,0 +1,124 @@
+page-severity-details-modal {
+    .BackButton{
+        background: #fff;
+    }
+    .problemCard{
+        color: white;
+        font-size:1.5rem;
+    }
+    .detailCard{
+        color:#c1c1c1;
+        font-size:1.5rem;
+        padding-left: 20px;
+    }
+    .severityCard{
+        color:#c1c1c1;
+        font-size:1.5rem;
+        padding-left: 20px;
+    }
+    .MedicineCard{
+        color: white;
+        font-size:1.6rem;
+    }
+    .blue-font{
+      color: #15233b !important;
+    }
+    .med-prof-item{
+      height: 60px;
+    }
+    // .defaultCheckbox1{
+    //   background-color: map-get($colors , DarkBlueDot);
+    //   position: absolute !important;
+    //   top: 3px;
+    //   left: 4px;
+    //   z-index: 2;
+    //   width: 23px !important;
+    //   height: 23px !important;
+    //   border-radius: 20px !important;
+    // }
+    
+    .PresentCheckbox1{
+        background-color:  #68E048 !important;
+        position: absolute !important;
+        top: 3px;
+        left: 4px;
+        z-index: 2;
+        width: 23px !important;
+        height: 23px !important;
+        border-radius: 20px !important;
+    }
+    .AbsentCheckbox1{
+        background-color: #ff4a4a !important;
+        position: absolute !important;
+        top: 3px;
+        left: 4px;
+        z-index: 2;
+        width: 23px !important;
+        height: 23px !important;
+        border-radius: 20px !important;
+    }
+    .checkbox{
+        width: 30px !important;
+        height: 30px !important;
+        background-color: #fff !important;
+        border: 2px solid #DEDBDB !important;
+        border-radius: 20px !important;
+        margin: 0 auto !important;
+    
+      }
+      .checkbox1{
+        width: 23px !important;
+        height: 23px !important;
+        background-color: white;
+        border-radius: 20px !important;
+    
+      }
+      .checkArrow-group.OuterDiv{
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end ;
+      }
+      .medicineNameCard {
+        padding-top: 7px;
+      } 
+      .player-med-title {
+        background-color: #FAFAFA!important;
+        height: 160px !important;
+        width: 100%;
+        border: none;
+        pointer-events: none;
+        line-height: 1.5;
+      }
+      .borrow .select-card.player-medical2 {
+        height: 200px!important;
+      }
+      .img-circle .img-text {
+        font-size: 20px;
+        width: 76px;
+        height: 76px;
+        padding: 25px 0;
+      }
+      .top-bar{
+        padding-left: 10px;
+      }
+
+      .contactCard{
+        border: solid 1px #ffffff;
+        margin: 12px 10px 0px 10px;
+        background-color: #ffffff;
+        display: grid;
+        border-radius: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        .MedicineCard{
+          font-size: 1.4rem !important;
+          padding: 2px  !important;
+        }
+
+      }
+
+}

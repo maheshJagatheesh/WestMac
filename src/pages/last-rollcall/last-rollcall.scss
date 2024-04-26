@@ -1,0 +1,193 @@
+page-last-rollcall {
+    .navbar-default.event-menu {
+        padding: 5px;
+    }
+    .event-menu .navbar-nav>li>a {
+        background-color: rgba(255, 255, 255, 0.2)!important;
+        border: none;
+        text-align: center;
+    }
+    
+    .FilterCard .radio label::before{
+        border: 3px solid #eee;
+        background-color: #000;
+    }
+    .FilterCard .radio label::after{
+        // background-color: #444f63;
+        display: inline-block;
+        position: absolute;
+        content: " ";
+        width: 11px;
+        height: 11px;
+        left: 3px;
+        top: 3px;
+        margin-left: -20px;
+        border-radius: 50%;
+    }
+    .FilterCard .list-group{
+        margin-bottom:0!important;
+    }
+    .FilterCard .list-group-item:last-child{
+        border-bottom:none;
+    }
+    .FilterCard .option-group {
+        background-color: #000;
+    }
+    .FilterCard .list-group-item {
+        background-color: transparent;
+        border: none;
+        clear: both;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 10px 0px;
+        line-height: 30px;
+    }
+    .FilterCard .custom-radio {
+        float: right;
+        width: 30px;
+        margin-top: -5px;
+    }
+    .event-card ion-item-sliding.well.select-card:last-child{
+        margin-bottom: 0 !important;
+    }
+    .event-card ion-item-sliding.well.select-card ion-item{
+        background-color: inherit;
+        padding: 8px 0;
+    }
+    ion-item-sliding.well.select-card{
+        padding: 0 10px;
+    }
+    ion-item-options .button{
+        background-color: #FF6945;
+        border: 1px solid #FF6945;
+    }
+    ion-item-options,ion-item-options button{
+        width:30%;
+    }
+    .radio label::after{
+        background-color: none !important;
+    }
+    .unactive{        
+        border: none;
+        text-align: center;
+    }
+    .checkbox{
+        width: 30px !important;
+        height: 30px !important;
+        // background-color: #000 !important;
+        border: 3px solid #000 !important;
+        border-radius: 20px !important;
+        margin: 0 auto !important;
+    
+    }
+    .checkbox1{
+        width: 24px !important;
+        height: 24px !important;
+        background-color: #CDCDCD;
+        border-radius: 25px !important;
+        position: absolute !important;
+        top: 3px;
+        left: 3px;
+        z-index: 2;
+    }
+    .checked{
+        background: map-get($Transport-colors ,selectCheck );
+        width: 20px !important;
+        height: 20px !important;
+        top: 5px;
+        left: 5px;
+        background-size: 100%;
+    }
+    .checkArrow-group{
+        float: right;
+    }     
+    .checkbox-col{
+        position:relative !important;
+    }
+    .btn-remove{
+        background-color: transparent;
+        width: 60%; 
+    }
+    .content{
+        background-color: map-get($Transport-colors ,light )
+    }
+    .sm-title {
+        color: #000;
+    }
+    .transport-header .select:after{
+        background-color: map-get($Transport-colors , secondary );
+    }
+    .transport-header .form-control.custom-select{
+        background: map-get($Transport-colors , secondary );
+    }
+    .transport-header .top-bar {
+        line-height: 18px;
+        text-align: left;
+        font-size: 13px;
+        .textGreen{
+            font-size: 13px !important;
+        }
+    }
+    .rollcall-header{
+        padding-top: 15px;
+    }
+    .navbar-search .search-input.form-control{
+        background: #dedede
+    }
+    // .navbar-search .search-bar .input-wrap::after{
+    //     content: "";
+    //     position: absolute;
+    //     right: 10px;
+    //     top: 5px;
+    //     background: url(/assets/images/transport/microphone.svg) no-repeat;
+    //     padding: 12px 10px;
+    //     background-position: right center;
+    //     background-size: 11px;
+    //     display: inline-block;
+    //     z-index: 0;
+    // }
+    #searchForm {
+        padding: 0px !important;
+    }
+    .FilterCard .option-group {
+        background-color: #CDCDCD;
+    }
+    // .radio label::after {
+    //     background: map-get($Transport-colors ,selectCheck ) !important;
+    // }
+    .mb15{
+        margin-bottom: 15px
+    }
+    .microphone_icon{
+        position: absolute;
+        right: 2px;
+        top: 0px;
+        padding: 6px 10px;
+        display: inline-block;
+        z-index: 0;
+    }
+    //ios header fix
+
+    .toolbar-ios ion-title{
+        padding: 0 10px 1px 55px!important;
+    }
+    .toolbar-title-ios{
+        text-align: left;
+        padding-left: 5px;
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 25px;
+        letter-spacing: 0.02em;
+        font-family: "Halvetica", sans-serif;
+        color: #15233C;
+    }
+    .toolbar-ios ion-icon.back-button-icon {
+        padding: 6px 0 0 6px;
+    }
+    .toolbar-ios ion-icon.back-button-icon {
+        margin-top: 12px;
+    }
+    ion-list.list-ios{
+        margin: -1px 0 10px;
+    }
+
+}

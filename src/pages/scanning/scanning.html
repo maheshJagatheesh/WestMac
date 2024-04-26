@@ -1,0 +1,64 @@
+<ion-header class="inverse p-20">
+    <div class="transport-header clearfix">
+        <div class="top-bar col-xs-5" (click)="backArrow()">
+                <div class="backArrow inverse inverseText backbtnText">SCANNING</div>
+        </div>
+        <div class="counterText col-xs-3 text-center p-0">
+            <div class="inverseText">
+                <span class="textWhite" [class.textGreen]="presentCount > 0">{{presentCount}}</span>/{{TotalCount}}
+            </div>
+        </div>
+        <div class="col-xs-4 text-right">
+              <label class="select">
+                  <select name="" id="" class="form-control custom-select" (change)="changeVehicle($event.target.value)">
+                    <option value="{{key.vehiclesId}}" [selected]="vehiclesId == key.vehiclesId" *ngFor="let key of VehicleListFilter">{{key.vehicleName}}</option>
+                  </select>
+              </label>
+        </div>
+      </div>
+</ion-header>
+<ion-content class="bg-black">
+    <section class="main">
+        <div class="bg-black">
+            <div class="event-card fixed-card-bottom">
+                <ion-list no-lines *ngFor="let passenger of passengersList">
+                    <ion-item-sliding class="well select-card" [class.attendenceClose]="passenger.isRemove==1" *ngIf="(scannedID.length && (scannedID == passenger.ABF || scannedID == passenger.person_id))">
+                        <ion-item>
+                            <div class="row">
+                                <div class="card-img col-xs-2 p-0">
+                                    <span class="" *ngIf="passenger.photoPath==''">
+                                        <div class="img-circle"><span class="img-text">{{passenger.firstName[0]}} {{passenger.lastName[0]}} </span></div>                                  
+                                    </span>
+                                    <span class="" *ngIf="passenger.photoPath">
+                                        <img src="{{global.PROFILEIMAGEURL}}{{passenger.photoPath}}" alt="" class="img-circle">
+                                    </span>
+                                </div>
+                                <div class="card-title col-xs-8">
+                                    {{passenger.firstName | uppercase}} {{passenger.lastName | uppercase}}
+                                    <p>{{passenger.statusName}}</p>
+                                </div>
+                                <div class="event-next col-xs-2 p-0">
+                                    <span class="custom-radio v-center">
+                                        <div class="radio clearfix">
+                                                <input *ngIf="passenger.isRemove==0" type="radio" class="status" [checked]="passenger.isPresent==1" (click)="(passenger.isPresent==1)?unscratchPassenger(passenger.rollcallPersonsId):updatePassengerStatus(passenger.rollcallPersonsId)">
+                                                <input *ngIf="passenger.isRemove==1" type="radio" class="status" [checked]="passenger.isRemove==1">
+                                            <label></label>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                        </ion-item>
+                        <ion-item-options side="right" *ngIf="passenger.isPresent==1">
+                            <button class="btn-danger" ion-button danger (click)="presentRemoveActionSheet(passenger.rollcallPersonsId)">REMOVE</button>
+                        </ion-item-options>
+                        <ion-item-options side="right" *ngIf="passenger.isRemove==1">
+                            <button ion-button danger (click)="unscratchPassenger(passenger.rollcallPersonsId)">UNSCRATCH</button>
+                        </ion-item-options>
+                    </ion-item-sliding>
+                </ion-list>
+            </div>
+        </div>
+    </section>
+</ion-content>
+  
+  

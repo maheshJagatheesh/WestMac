@@ -1,0 +1,41 @@
+<!--
+  Generated template for the CallModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content>
+  <div class="modal fade group-msg in" role="dialog" style="display: block;">
+    <div class="modal-dialog player-phone-two">
+      <!-- Modal content-->
+      <div class="modal-content group-msg radius-20">
+        <div class="">
+          <h4 class="modal-title text-center"></h4>
+          <p class="header-title text-center"></p>
+        </div>
+        <div class="modal-body">
+          <h4 class="modal-title text-center text-position" *ngIf="emergency; else callPlayer">
+            Emergency Contact<br/>
+            <div *ngFor="let emergencyContact of emergencyContacts">
+              {{emergencyContact.parentName | titlecase}} ({{relations[emergencyContact.relationship]}}) <br/>
+              {{emergencyContact.phone_mobile}}
+            </div>
+          </h4>
+          <ng-template #callPlayer>
+            <h4 class="modal-title text-center text-position">{{phone}}</h4>
+          </ng-template>
+        </div>
+        <div class="modal-footer">
+          <div class="row">
+            <div class="submit-link col-xs-6 text-center border-rt">
+              <button type="submit" class="btn" (click)="closeModal()">Cancel</button>
+            </div>
+            <div class="submit-link col-xs-6 text-center">
+              <button type="submit" class="btn" (click)="presentActionSheet()">Call</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

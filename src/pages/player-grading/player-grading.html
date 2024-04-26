@@ -1,0 +1,91 @@
+<!--
+  Generated template for the PlayerGradingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <nav class="navbar navbar-fixed-top">
+    <div class="top-bar clearfix">
+      <div class="pull-left">
+        <div class="backArrow info-item" (click)="goToPlayersDashboard()">PLAYERS</div>
+      </div>
+      <div class="prev-next pull-right" (click)="goToChooseTeamsPage()">
+        <a href="javascript:void(0);" class="next"></a>
+        <a href="javascript:void(0);" class="prev"></a>
+      </div>
+    </div>
+    <ul class="nav navbar-nav top-menu player-menu">
+      <li class=""><a href="javascript:void(0);" (click)="goToPlayerGroupMessage()">Group message</a></li>
+      <li class="active"><a href="javascript:void(0);">Grading</a></li>
+      <li class=""><a href="javascript:void(0);" (click)="goToPlayerAddForGrading()">Add player</a></li>
+    </ul>
+  </nav>
+</ion-header>
+
+<ion-content>
+  <div class="bg-gray event">
+    <section class="main">
+      <form action="" class="user-form player-item">
+        <section class="profileFirst heightAuto xs-padding">
+          <div class="event-card welfare bg-gray player-list">
+            <div class="well select-card" [class.active]="(activeReport=='REPORT 1')" (click)="playerGradeReport('REPORT 1')">
+              <div class="row">
+                <div class="card-title col-xs-11 p-0">REPORT 1 </div>
+                <div class="event-next col-xs-1 p-0">
+                  <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="well select-card" [class.active]="(activeReport=='REPORT 2')" (click)="playerGradeReport('REPORT 2')">
+              <div class="row">
+                <div class="card-title col-xs-11 p-0">REPORT 2 </div>
+                <div class="event-next col-xs-1 p-0">
+                  <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="well select-card" [class.active]="(activeReport=='WEEKLY REPORT')" (click)="playerGradeReport('WEEKLY REPORT')">
+              <div class="row">
+                <div class="card-title col-xs-11 p-0">WEEKLY REPORT </div>
+                <div class="event-next col-xs-1 p-0">
+                  <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="well select-card" [class.active]="(activeReport=='MONTHLY REPORT')" (click)="playerGradeReport('MONTHLY REPORT')">
+              <div class="row">
+                <div class="card-title col-xs-11 p-0">MONTHLY REPORT </div>
+                <div class="event-next col-xs-1 p-0">
+                  <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="well select-card" [class.active]="(activeReport=='TRAINING REPORT')" (click)="playerGradeReport('TRAINING REPORT')">
+              <div class="row">
+                <div class="card-title col-xs-11 p-0">TRAINING REPORT </div>
+                <div class="event-next col-xs-1 p-0">
+                  <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </form>
+    </section>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="home" (click)="gotoHome()"><a href="javascript:void(0);">Home</a></li>
+        <li class="events" (click)="gotoDisplayEvents()"><a href="javascript:void(0);">Events</a></li>
+        <li class="players active" (click)="goToPlayersDashboard()"><a href="javascript:void(0);">Players</a></li>
+        <li class="comment" (click)="goToChatDashboard()"><a href="javascript:void(0);">Comments</a></li>
+        <li class="more" (click)="goToMenuPage()"><a href="javascript:void(0);">More</a></li>
+      </ul>
+    </div>
+  </nav>
+</ion-footer>

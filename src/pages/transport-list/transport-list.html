@@ -1,0 +1,129 @@
+<ion-header class="header-md">
+  <ion-navbar class="main">
+    <div class="top-bar clearfix">
+      <div class="pull-left">
+        <div>
+            <!-- <button class="BackButton bg-white"(click)="backArrow()"><img src="assets/images/arrow-black.svg"></button> -->
+            EVENTS
+          </div>
+      </div>
+  </div>
+  </ion-navbar>
+  
+</ion-header>
+
+<ion-content class="borrowPlayer">
+  <div class="top-section bgTeal d-flex column" *ngIf="EventDetails">
+          <h2 class="header">TRANSPORT</h2>
+          <h4 class="info-item text-center inverseText">{{EventDetails.name}}</h4>
+          <p class="text-center inverseText">
+            <span  *ngIf="EventDetails.ground_name">{{EventDetails.ground_name}}</span>
+            <br>
+            <span *ngIf="EventDetails.ground_address || EventDetails.ground_state">
+              <span>{{EventDetails.ground_address}} {{(EventDetails.ground_address && EventDetails.ground_state)?',':''}} {{EventDetails.ground_state}}</span>
+            </span>
+            <span *ngIf="!EventDetails.ground_address || !EventDetails.ground_state">Undefined Location</span>
+          </p>
+          <div class="title-md text-center">{{EventDetails.week}} {{EventDetails.days}} {{EventDetails.months}} AT {{EventDetails.time_started}}</div>
+          <div class="bus-img text-center mt-30">
+              <img src="assets/images/transport/bus-front.svg" alt="">
+          </div>
+          <div class="full-width mt-20">
+            <button  expand="block" class="btn btn-rounded btn-teal"  [class.disabled]="!trackingEnable">
+              <span *ngIf="trackingEnable" (click)="gotomember()">CONNECT TO TRACKING</span>
+              <span *ngIf="!trackingEnable" (click)="gotomember()">TRACKING DISABLED</span>
+            </button>
+          </div>
+  </div>
+  <section class="main">
+      <!--<div class="top-bar">
+          <div class="col-xs-3 pull-left">
+              <div class="backArrow inverse" (click)="backArrow()"></div>
+          </div>
+          <div class="barcode col-xs-2 pull-right" (click)="showBarcode()">
+            <img src="assets/images/transport/barcode-qr.svg" alt="">
+          </div>
+      </div>-->
+      <form action="" class="user-form">
+          <h5 class="sub-title text-left col-xs-12">TRANSPORT</h5>
+          <section class="profileFirst heightAuto">
+              <div class="event-card transportPlayer">
+                  <div class="well select-card" [class.locked]="key.isLocked==1" *ngFor="let key of rollcallList;let i=index">
+                      <div class="row">
+                          <div class="sl-no col-xs-2 p-0">
+                              <span class="v-center">{{i+1}}</span>
+                          </div>
+                          <div class="card-title col-xs-8 p-0">
+                              <h5 class="sub-title">{{key.rollcallName}}</h5>
+                              <p *ngIf="key.isLocked==1">Locked</p>
+                          </div>
+                          <div class="event-next checkArrow-group col-xs-2 p-0">
+                              <div class="v-center">
+                                <div class="arrowUp ArrowLight" (click)="ArrowFunctionality($event)">
+                                  <ion-icon name="ios-arrow-down" class=" collapsed-arrow"></ion-icon>
+                                </div>
+                              </div>
+                          </div>
+                          <ul class="dropdown-menu card-dropdown" style="display:none; ">
+                              <li *ngFor="let key1 of StatusList" (click)="updateStatus(key.rollcall_id,key1.rollcall_status_id)">
+                                <a href="javascript:void(0)">{{key1.status_name}}</a>
+                              </li>
+          
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="well select-card" *ngIf="rollcallList.length<1 && (getRollcallListSuccess=='1' || getRollcallListSuccess=='2')">
+                    <div class="row">
+                      <div class="card-img col-xs-2 p-0">
+                        
+                      </div>
+                      <div class="card-title col-xs-8">
+                        <p style="text-align: center">No Data Found</p>
+                      </div>
+                      <div class="event-next col-xs-2 p-0">
+                        
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <!-- <h5 class="sub-title text-left col-xs-12">LOCATION</h5>
+              <div #map id="map" style="display: none"></div>
+              <div class="event-card location">
+                  <div class="well select-card" *ngFor="let key of StaffList">
+                      <div class="row" (click)="ActivateMap(key)">
+                        <div class="card-img col-xs-2 p-0">
+                          <span class="">
+                            <img *ngIf="key.photoPath" alt="" class="img-circle" src={{global.PROFILEIMAGEURL}}{{key.photoPath}}>
+                            <div *ngIf="!key.photoPath" class="img-circle"><span class="img-text">{{key.firstName[0]}} {{key.lastName[0]}} </span></div>
+                          </span>
+                        </div>
+                        <div class="card-title col-xs-8">
+                            {{key.firstName}} {{key.lastName}}
+                            <p><span *ngIf="key.vehicleName">{{key.vehicleName}}</span></p>
+                        </div>
+                        <div class="event-next col-xs-2 p-0">
+                          <a class="next-arrow v-center" href="javascript:void(0);"><i aria-hidden="true" class="fa fa-chevron-right"></i></a>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="well select-card" *ngIf="StaffList.length<1 && (StaffListSuccess=='2' || StaffListSuccess=='1')">
+                    <div class="row">
+                      <div class="card-img col-xs-2 p-0">
+                        
+                      </div>
+                      <div class="card-title col-xs-8">
+                        <p style="text-align: center">No Data Found</p>
+                      </div>
+                      <div class="event-next col-xs-2 p-0">
+                        
+                      </div>
+                    </div>
+                </div>
+                 
+              </div> -->
+          </section>
+      </form>
+  </section>
+      
+</ion-content>
+

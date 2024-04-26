@@ -1,0 +1,39 @@
+page-injury-incident-report {
+    // .outerCard{
+    //     margin-top: 25%;
+    //     margin-left: 5%;
+    //     margin-right: 5%;
+    //     margin-bottom: 10%;
+    // }
+    .modalView{
+        margin-right: 3%;
+        margin-left: 3%;
+        margin-top: 25%;
+        margin-bottom: 20%;
+        border-radius: 15px;
+    }
+    .close_{
+        color: #fff !important;
+        font-weight: 100 !important;
+        float: right;
+        .close_-button{
+            padding: 5px
+        }
+    }
+    .fixed-top_{
+        position: absolute;
+        right: 5%;
+
+    }
+    .emgcont{
+        display: block;
+    }
+
+}
+
+
+.toast-success {
+    > div{
+         background-color:green !important;
+     }
+    }

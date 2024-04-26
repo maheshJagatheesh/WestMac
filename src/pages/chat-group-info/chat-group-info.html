@@ -1,0 +1,80 @@
+<!--
+  Generated template for the ChatGroupInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <nav class="navbar navbar-fixed-top">
+    <div class="top-bar clearfix">
+        <div class="pull-left">
+            <div class="backArrow info-item" (click)="goBack()">INFO</div>
+        </div>
+    </div>
+  </nav>
+</ion-header>
+
+
+<ion-content>
+    <div class="bg-gray event">
+        <section class="main">
+          <form class="user-form profile setting-first">
+              <section class="profileFirst heightAuto player-search-swipe-down">
+                  <div class="event-card welfare bg-gray">
+
+                    <div class="chat-logo text-center">
+                        <h4 class="teamName">{{teamName}}</h4>
+                        <h5>{{divisionName}}</h5>
+                        <h5 class="sport">{{sportName}}</h5>
+                    </div>
+                  </div>
+
+                    <div class="well select-card mute-notifications">
+                        <div class="row">
+                            <div class="d-flex p-0 chat-home toggle-bar">
+                                <span>Mute Notifications</span>
+                                <ion-item class="notifications-taggle">
+                                  <ion-toggle checked="{{isMuteStatus}}" color="secondary" mode="ios" (ionChange)="muteUnmuteFunction(groupId)"></ion-toggle>
+                                </ion-item>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-card welfare bg-gray">
+                    <div class="row">
+                        <div class=" col-xs-5 p-0 chat-new-message">
+                            <h5>{{memberList}} PARTICIPANTS</h5>
+                        </div>
+                    </div>
+                    <div class="well select-card" *ngFor="let memberInfoList of groupInfo">
+                      <div class="row">
+                          <div class="card-img col-xs-2 p-0">
+                              <span class="">
+                                  <img *ngIf="memberInfoList.PHOTOPATH != ''; else noImage" src="{{global.PROFILEIMAGEURL + memberInfoList.PHOTOPATH}}" alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+                                  <!--<img src="assets/images/test-user.svg" alt="" class="img-circle">-->
+                                  <ng-template #noImage>
+                                      <div class="img-circle" *ngIf="memberInfoList.FIRSTNAME != ''"><span class="img-text">{{memberInfoList.FIRSTNAME[0] | uppercase}} {{memberInfoList.LASTNAME[0] | uppercase}} </span></div>
+                                      <div class="img-circle" *ngIf="memberInfoList.FIRSTNAME == ''"><span class="img-text"> N N </span></div>
+                                  </ng-template>
+                            </span>
+                          </div>
+                          <div class="card-title col-xs-10 p-0 chat-home">
+                              <div class="row">
+                                  <div class="col-xs-7 p-0">
+                                        <span>{{memberInfoList.FIRSTNAME}} {{memberInfoList.LASTNAME}}</span>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-xs-12 p-0">
+                                    <p class="ch-time">{{memberInfoList.USERINFO}}</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+              </section>
+          </form>
+      </section>
+    </div>
+</ion-content>

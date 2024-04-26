@@ -1,0 +1,38 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content>
+  <section class="main bg-gradient {{bgThemeColor}}">
+    <form action="" class="user-form login-wrap login" [formGroup]="loginForm" (ngSubmit)="loginSubmit();">
+      <div class="form-group">
+        <label for="username">USERNAME</label>
+        <input type="text" class="form-control" id="username" placeholder="" formControlName="username" required>
+      </div>
+      <div class="divider"></div>
+      <div class="form-group">
+        <label for="password">PASSWORD</label>
+        <input type="password" class="form-control" id="password" placeholder="" formControlName="password" required>
+      </div>
+      <div class="login-icon text-center">
+        <button class="login-circle xs {{bgThemeColor}}" type="submit" [disabled]="!loginForm.valid"></button>
+      </div>
+      <!-- <div class="portalCard" [hidden]="keyboard.isOpen()" > -->
+        <!-- <p *ngIf="SSODetails && SSODetails.ISSSOENABLED==1" (click)="gotoSSO()">Login through school portal</p> -->
+      <!-- </div> -->
+      <!-- <div [hidden]="keyboard.isOpen()" class="forget mt-xxl" > -->
+ <!-- <p *ngIf="SSODetails && SSODetails.ISSSOENABLED==1" (click)="gotoSSO()">Login through school portal</p> -->
+	  <!-- </div> -->
+      
+    </form>
+    <div class="footer-item v-bottom" >
+      <!--- <a class="title" href="javascript:void(0);" (click)="goToLogin();">Login using JARO credentials</a>-->
+       <p class="mt-20"  style="font-weight: 600;" *ngIf="!keyboard.isVisible" (click)="goTogetStarted();">Login through school portal</p>
+       <!----<div class="links">
+         <a href="javascript:void(0)"><img class="play-vid" src="assets/images/play-video.svg" alt=""/> Watch a quick video introduction</a>
+       </div>-->
+     </div>
+  </section>
+</ion-content>

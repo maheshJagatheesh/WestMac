@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.598" height="16.015" viewBox="0 0 16.598 16.015">
+  <g id="m-location" transform="translate(0.5 0.529)">
+    <path id="Path_1641" data-name="Path 1641" d="M11.619,18.233,7.2,16.467,2,18.025V5.558L7.2,4l5.2,2.078,5.2-1.558v5.714" transform="translate(-2 -4)" fill="none" stroke="#BCA164" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1"/>
+    <circle id="Ellipse_624" data-name="Ellipse 624" cx="1.04" cy="1.04" r="1.04" transform="translate(11.439 9.089)" fill="none" stroke="#BCA164" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_1642" data-name="Path 1642" d="M44.239,34.039c0,1.875-3.12,4.761-3.12,4.761S38,35.913,38,34.039a3.121,3.121,0,0,1,6.239,0Z" transform="translate(-28.641 -23.994)" fill="none" stroke="#BCA164" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_459" data-name="Line 459" y2="12.479" transform="translate(5.199 0)" fill="none" stroke="#BCA164" stroke-miterlimit="10" stroke-width="1"/>
+    <line id="Line_460" data-name="Line 460" y2="3.64" transform="translate(10.399 2.08)" fill="none" stroke="#BCA164" stroke-miterlimit="10" stroke-width="1"/>
+  </g>
+</svg>

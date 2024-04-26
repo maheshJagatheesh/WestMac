@@ -1,0 +1,98 @@
+<!--
+  Generated template for the SettingsProfileEditPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content class="bg-gradient {{bgThemeColor}}">
+  <section class="main mt-20">
+    <div class="top-bar">
+      <div class="col-xs-3">
+        <div class="backArrow" (click)="goBack()"></div>
+      </div>
+    </div>
+
+    <form action="" class="user-form profile" [formGroup]="profileEditForm">
+      <input type="hidden" name="photoPath" value="" formControlName="photoPath" />
+      <section class="profileFirst profile-first">
+        <div class="row">
+          <div class="well edit-profile col-xs-12 radius-20">
+            <div class="row" *ngFor="let profileDetail of profileDetails">
+              <div class="card-img col-xs-3 p-0" *ngIf="profileDetail.photoPath.length > 0; else noImage">
+                <img src="{{global.PROFILEIMAGEURL}}{{profileDetail.photoPath}}?r={{randomNumber}}" alt="" class="img-circle" (click)="getPhoto()">
+              </div>
+              <ng-template #noImage>
+                <div class="card-img col-xs-3 p-0">
+                  <img src="assets/images/test-user.svg" alt="" class="img-circle" class="img-circle" (click)="getPhoto()">
+                </div>
+              </ng-template>
+
+
+              <div class="col-xs-9 p-0">
+                <span class="errorMsg">{{errorMsg}}</span>
+                <div class="title clearfix">
+                  <span class="first-name inputMargin"><input type="text" name="first_name" formControlName="first_name"value="{{profileDetail.first_name}}" /></span> <span class="last-name inputPadding"><input type="text" name="last_name" formControlName="last_name" value="{{profileDetail.last_name}}" /></span>
+                </div>
+                <ul class="list-group profile-list">
+                  <li class="list-group-item"><img src="assets/images/mail.png" alt=""><span><input type="text" name="email" formControlName="email" value="{{profileDetail.email_address}}" /></span></li>
+                  <li class="list-group-item"><img src="assets/images/phone.png" alt=""> <span><input type="text" name="phone_mobile" formControlName="phone_mobile" value="{{profileDetail.phone_mobile}}" /></span>  </li>
+                  <li class="list-group-item" (click)="toggleEmergencyContact()"><img src="assets/images/sister.png" alt=""> <span>{{profileDetail.emergency_contact.first_name}} {{setRelationship}} {{profileDetail.emergency_contact.phone_mobile}}</span></li>
+                  <li *ngIf="showEmergencyContact">
+                    <div class="title clearfix">
+                      <span class="first-name inputMargin"><input type="text" name="addFirstName" formControlName="addFirstName" value="{{profileDetail.emergency_contact.first_name}}" /> </span>
+                      <span class="last-name inputPadding"><input type="text" name="addLastName" formControlName="addLastName" value="{{profileDetail.emergency_contact.last_name}}" /></span>
+                    </div>
+                    <ul class="list-group profile-list">
+                      <li class="list-group-item"><img src="assets/images/mail.png" alt="">
+                        <span><input type="text" name="addEmail" formControlName="addEmail" value="{{profileDetail.emergency_contact.email_address}}" /></span>
+                      </li>
+                      <li class="list-group-item"><img src="assets/images/phone.png" alt="">
+                        <span><input type="text" name="addPhone" formControlName="addPhone" value="{{profileDetail.emergency_contact.phone_mobile}}" /></span>
+                      </li>
+                      <li class="list-group-item"><img src="assets/images/phone.png" alt="">
+                        <span>
+                            <select name="addRelationship" formControlName="addRelationship">
+                              <option value="">Select Relationship</option>
+                              <option value="1">Parent</option>
+                              <option value="2">Guardian</option>
+                            </select>
+                          </span>
+                      </li>
+                      <li class="list-group-item"><img src="assets/images/phone.png" alt="">
+                        <span>
+                            <select name="addEmergencies" formControlName="addEmergencies">
+                              <option value="">Select Emergencies</option>
+                              <option value="1">Yes</option>
+                              <option value="0">No</option>
+                            </select>
+                          </span>
+                      </li>
+                      <li class="list-group-item"><img src="assets/images/phone.png" alt="">
+                        <span>
+                            <select name="addNotify" formControlName="addNotify">
+                              <option value="">Select Notify</option>
+                              <option value="1">Yes</option>
+                              <option value="0">No</option>
+                            </select>
+                          </span>
+                      </li>
+
+                    </ul>
+                  </li>
+                  <li class="list-group-item"><img src="assets/images/medical.png" alt=""> <span>Medical: N/A</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="btn-section">
+                <button type="submit" class="btn btn-save xs-btn" (click)="updateProfileDetails()">UPDATE DETAILS</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </form>
+  </section>
+
+</ion-content>

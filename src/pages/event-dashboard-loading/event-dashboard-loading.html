@@ -1,0 +1,712 @@
+<ion-header class="header-md">
+  <ion-navbar class="main">
+
+    <div class="top-bar clearfix">
+      <div class="pull-left">
+
+        <div>
+            <button class="BackButton"(click)="backArrow()" *ngIf="BackButton"><img src="assets/images/arrow-black.svg"></button>
+            DASHBOARD
+          </div>
+      </div>
+      <div class="prev-next pull-right" (click)="goToChooseTeamsPage()">
+        <a href="javascript:void(0);" class="next"></a>
+      </div>
+    
+      <div class="calendar pull-right" (click)="addEventToCalendar()">
+        <img src="assets/images/calendar.svg">
+
+    </div>
+    <div class="location pull-right" (click)="openMap(groundAdress,groundState,latitude,longitude)">
+      <img src="assets/images/Location.svg">
+    </div>
+  </div>
+
+  </ion-navbar>
+  <ion-segment class ="top_tab top-menu" [(ngModel)]="segments" color="primary" (ionChange)="segmentChanged($event)" *ngIf="FunctionAccess">
+      <ion-segment-button class="Attendance_tab" value="Attendance" >
+        
+          <a href="javascript:void(0)" *ngIf="FunctionAccess.event_tab_Attendance=='yes'" >
+            <span [class.InactiveSpan]="segments!='Attendance'" [class.active]="segments=='Attendance'" [class.ActiveSpan]="segments=='Attendance'">Attendance</span></a>
+          <a href="javascript:void(0)" *ngIf="FunctionAccess.event_tab_Overview=='yes'" >
+            <span [class.InactiveSpan]="segments!='Attendance'" [class.active]="segments=='Attendance'" [class.ActiveSpan]="segments=='Attendance'">Overview</span>
+          </a>
+        </ion-segment-button>
+       
+        <ion-segment-button class="Welfare_tab" value="Welfare" style="display: none">
+            <a href="javascript:void(0)" >
+                <span [class.InactiveSpan]="segments!='Welfare'" [class.active]="segments=='Welfare'" [class.ActiveSpan]="segments=='Welfare'">Welfare</span>
+              </a>
+        </ion-segment-button>
+        <ion-segment-button class="Result_tab" value="Result" style="display: none">
+            <a href="javascript:void(0)" >
+                <span [class.InactiveSpan]="segments!='Result'" [class.active]="segments=='Result'" [class.ActiveSpan]="segments=='Result'">Results</span>
+              </a>
+        </ion-segment-button>
+    </ion-segment>
+  
+</ion-header>
+
+<ion-content class="bg-gray event attendance-content" *ngIf="segments=='Attendance'">
+  <section class="main">
+
+    <form action="" class="user-form profile bg-black" >
+      <section class="profileFirst heightAuto xs-padding" (click)="resetColors($event)">
+        <div *ngFor="let detail of arrDetail">
+          <div class="form-group">
+            <div class="date_time text-blue text-center">
+              <span class="dateOption">{{key.week}} {{date}} {{detail.months }}</span>
+              <span class="glyphicon glyphicon-time" *ngIf="arrDetail"></span>
+              <span class="timeOption">
+                <span>{{key.time_started}}</span>
+              </span>
+            </div>
+            <div class="homeAway-title text-center text-blue" *ngIf="UpcomingSingleEvent && UpcomingSingleEvent.event_type_id!=2">{{homeAwayText}}</div>
+          </div>
+          <h4 class="info-item text-center inverseText">{{detail.name}}
+            <p class="text-center inverseText">
+              <span *ngIf="detail.ground_name">{{detail.ground_name}}</span>
+              <br>
+              <span *ngIf="detail.ground_address && detail.ground_state" (click)="openMap(detail.ground_address, detail.ground_state,detail.geoloc_latitude,detail.geoloc_longitude)">{{detail.ground_address}},
+                {{detail.ground_state}}</span>
+              <span *ngIf="!detail.ground_address || !detail.ground_state">Undefined Location</span>
+            </p>
+          </h4>
+
+          <div class="bookmark-line mt-30"> <i class="glyphicon glyphicon-bookmark" style="background: #fff;width: 30px;height: 30px;border-radius: 15px;padding-top: 10px;"></i></div>
+          <p class="text-center inverseText mt-30">{{detail.event_notes}}</p>
+          <!--event note-->
+        </div>
+        <!-- <div>
+          <ion-icon class="alertIcon" name="ios-alert" (click)="gotoReqAttendance()" *ngIf="SymbolAlert"></ion-icon>
+        </div> -->
+        
+        <div class="radial-progressbar mt-30">
+          <div class="row">
+            <div class="info-left col-xs-3 p-0">
+              <div class="row text-right Going" (click)="eventState('Going',$event)">
+                <span class="badge maybe" style=" background-color:colorGoing !important;height: 20px;">{{DupeventAttendLen[0]}}</span>
+                <h4 class="progress-item" style="color: #fff;">Going</h4>
+              </div>
+              <div class="divider"></div>
+              <div class="row text-right MayBe" (click)="eventState('Maybe',$event)">
+                <span class="badge going" style="background-color:colorMaybe !important; height: 20px;">{{DupeventAttendLen[3]}}</span>
+                <h4 class="progress-item" style="color: #fff;">Notified</h4>
+              </div>
+            </div>
+
+            <div class="radial-circle col-xs-6 p-0">
+              <circle-progress [percent]="percentArray[0]" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="0"
+                [outerStrokeColor]="GoingColor" [animation]="false" [showInnerStroke]="false" [showTitle]="false"
+                [showSubtitle]="false" [showUnits]="false" class="going">
+
+              </circle-progress>
+              <circle-progress [percent]="percentArray[3]" [radius]="80" [outerStrokeWidth]="16" [innerStrokeWidth]="0"
+                [outerStrokeColor]="MaybeColor" [showInnerStroke]="false" [animation]="false" [showTitle]="false"
+                [showSubtitle]="false" [showUnits]="false" class="maybe">
+              </circle-progress>
+              <circle-progress [percent]="percentArray[1]" [radius]="60" [outerStrokeWidth]="16" [innerStrokeWidth]="0"
+                [outerStrokeColor]="NotGoingColor" [showInnerStroke]="false" [animation]="false" [showTitle]="false"
+                [showSubtitle]="false" [showUnits]="false" class="not-going">
+              </circle-progress>
+              <circle-progress [percent]="percentArray[2]" [radius]="40" [outerStrokeWidth]="16" [innerStrokeWidth]="0"
+                [outerStrokeColor]="NoResponseColor" [showInnerStroke]="false" [animation]="false" [showTitle]="false"
+                [showSubtitle]="false" [showUnits]="false" class="no-response">
+              </circle-progress>
+            </div>
+
+            <div class="info-right col-xs-3 p-0">
+              <div class="row text-left NotGoing" (click)="eventState('Not going',$event)">
+                <span class="badge not-going" style="color:colorNotGoing !important;">{{DupeventAttendLen[1]}}</span>
+                <h4 class="progress-item" style="color: #fff;">Not going</h4>
+              </div>
+              <div class="divider"></div>
+              <div class="row text-left NoResponse" (click)="eventState('No response',$event)">
+                <span class="badge no-response" style="background-color:colorNoResponse !important;">{{DupeventAttendLen[2]}}</span>
+                <h4 class="progress-item" style="color: #fff;">No response</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scrollDown">
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </div>
+        
+        <div class="navbar-inner clearfix">
+          <ul class="nav navbar-nav">
+            <li class="group" *ngIf="FunctionAccess && FunctionAccess.event_GroupMessage=='yes'" (click)="gotoGroupMessage()">
+              <a href="javascript:void(0)">
+                <div class="icon-circle"></div> GROUP MESSAGE
+              </a>
+            </li>
+            <li class="borrow" *ngIf="FunctionAccess && FunctionAccess.event_BorrowPlayer=='yes'" (click)="borrow_player()">
+              <a href="javascript:void(0)">
+                <div class="icon-circle"></div> BORROW TEAM MATES
+              </a>
+            </li>
+            <li class="notify" *ngIf="FunctionAccess && FunctionAccess.event_NotifyPlayer=='yes'" (click)="notify_player()">
+              <a href="javascript:void(0)">
+                <div class="icon-circle"></div> NOTIFY
+              </a>
+            </li>
+            <li class="welfare" *ngIf="FunctionAccess && FunctionAccess.event_Welfare=='self' && UpcomingSingleEvent && UpcomingSingleEvent.welfare_question==1" (click)="WelfarePlayerQuestion($event)">
+              <a href="javascript:void(0)">
+                <div class="icon-circle"></div> WELFARE
+              </a>
+            </li>
+            <li class="timesheet" *ngIf="PersonData && PersonData.ISCONTRACTOR" (click)="goToTimesheet()">
+              <a href="javascript:void(0)">
+                <div class="icon-circle"></div> TIMESHEET
+              </a>
+            </li>
+
+            <!--
+                        <li class="session" (click)="gotoSessionPlan()">
+                            <a href="javascript:void(0)">
+                                <div class="icon-circle"></div> SESSION PLAN
+                            </a></li> -->
+            <li class="injury" *ngIf="FunctionAccess && FunctionAccess.event_Injury!='no'" (click)="gotoInjuredList()">
+              <a href="javascript:void(0)">
+                <div class="icon-circle"></div> INJURY
+              </a></li>
+          </ul>
+        </div>
+      </section>
+      <div class="event-card bg-gray" *ngIf="!eventAttend && !BorrowedPlayerPresent">
+        <div class="well select-card ">
+          <div class="row">
+            <div class="col-xs-12 ">
+              <h5 class="sub-title">NO TEAM MATES Present</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card bg-gray" (click)="hideAttendanceList($event)">
+        <div class="LastChild-check" *ngIf="eventAttend && !(combinedPlayersArray?.length > 0)">
+          <div *ngFor="let StateAttendy of DupeventAttendsec;let i=index">
+            <div *ngIf="i<3">
+            <div class=" select-card" [class.well]="Attendy.injuryStatus!=1 && Attendy.injuryStatus!=2"
+              [class.RecoveredPlayer]="Attendy.injuryStatus==2" [class.InjuredPlayer]="Attendy.injuryStatus==1" *ngFor="let Attendy of StateAttendy">
+
+              <div class="row">
+                <div class="card-img col-xs-2 p-0">
+                  <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2" [class.no-response]="Attendy.state==3"
+                    [class.maybe]="Attendy.state==4" *ngIf="!Attendy.PHOTOPATH">
+                    <div class="img-circle"><span class="img-text">{{Attendy.first_name[0] | uppercase}} {{Attendy.last_name[0] | uppercase}} </span></div>
+                    
+                  </span>
+                  <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2" [class.no-response]="Attendy.state==3"
+                    [class.maybe]="Attendy.state==4" *ngIf="Attendy.PHOTOPATH">
+                    <img src={{PhotoApiUrl}}{{Attendy.PHOTOPATH}} alt="" class="img-circle">
+                  </span>
+                </div>
+
+                <div class="card-title col-xs-8 p-0" [class.InjuredPlayerName]="Attendy.injuryStatus==1">{{Attendy.first_name
+                  | uppercase}} {{Attendy.last_name | uppercase}}
+                    <div class="select-group clearfix">
+                      <div class="pull-left checkArrow-group" [class.OuterDiv]="PersonData.PERSON_ID==Attendy.person_id && FunctionAccess.event_EventDetail=='self'" *ngIf="FunctionAccess">
+                        <div *ngIf="FunctionAccess.event_EventDetail=='yes'">
+                            <div class=" arrowUp ArrowLight" (click)="ArrowFunctionality($event)">
+                              <ion-icon name="ios-arrow-down" class=" collapsed-arrow"></ion-icon>
+                            </div>
+
+                          </div>
+                          <div class="  " *ngIf="PersonData.PERSON_ID==Attendy.person_id && FunctionAccess.event_EventDetail=='self'">
+                            <div class="p-0 arrowUp loggedIn-Arrow ArrowLight" (click)="ArrowFunctionality($event)">
+                              <ion-icon name="ios-arrow-down" class=" collapsed-arrow"></ion-icon>
+                            </div>
+                          </div>
+                          
+                      </div>
+                      
+                      <div class="display-status pull-left">
+                        <p class="Show_Status" [class.InjuredPlayerStatus]="Attendy.injuryStatus==1" *ngIf="Attendy.reasondeclined_by_coach==''">{{Attendy.reasondeclined}}</p>
+                        <p class="Show_Status" [class.InjuredPlayerStatus]="Attendy.injuryStatus==1" *ngIf="Attendy.reasondeclined_by_coach!=''">{{Attendy.reasondeclined_by_coach}}</p>
+                      </div>
+                    </div>
+                    <div class="suit-iconCard fixedRight" (click)="DisplaySeverityDetails(Attendy)" *ngIf="FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1 && ((Attendy.playerAilmentsSeverityIcon) || (Attendy.showMedicine==1))">
+                      <img src={{global.ImagesPath}}{{Attendy.playerAilmentsSeverityIcon}} class="suit-icon" *ngIf="(Attendy.playerAilmentsSeverityIcon  && (Attendy.showMedicine==1 || Attendy.showMedicine==0))">
+                      <img src="{{global.ImagesPath}}pills.svg" class="medical-bottle" *ngIf="((Attendy.showMedicine==1) && (!Attendy.playerAilmentsSeverityIcon))">
+                    </div>
+                </div>
+                
+                <div class="col-xs-2 checkArrow-group" [class.OuterDiv]="PersonData.PERSON_ID==Attendy.person_id && FunctionAccess.event_EventDetail_checkbox=='self'"
+                  *ngIf="FunctionAccess">
+                  <div class="col-xs-2 p-0 checkbox-col" *ngIf="FunctionAccess.event_EventDetail_checkbox=='yes'">
+
+                    <div class="checkbox1" [class.PresentCheckbox1]="Attendy.attended==1" [class.AbsentCheckbox1]="Attendy.attended==0"
+                      (click)="AttendanceMark($event,Attendy.attended,Attendy.person_id)">
+                    </div>
+                    <div class="checkbox"></div>
+                  </div>
+                </div>
+
+                <ul class="dropdown-menu card-dropdown" style="display:none; ">
+                  <li *ngFor="let key of reason_options_list[0]" (click)="SinglePlayersAttdStates(key.confirm_reason,'',key.reason_display,Attendy.person_id,$event)">
+                    <a href="javascript:void(0)" [class.SelectedReason]="key.reason_display==Attendy.reasondeclined_by_coach || key.reason_display==Attendy.reasondeclined">{{key.reason_display}}</a>
+                  </li>
+
+                </ul>
+              </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Regular player combined Start -->
+        <div class="LastChild-check" *ngIf="combinedPlayersArray?.length > 0">
+          <div class=" select-card" [class.well]="Attendy.injuryStatus!=1 && Attendy.injuryStatus!=2"
+            [class.RecoveredPlayer]="Attendy.injuryStatus==2" [class.InjuredPlayer]="Attendy.injuryStatus==1"
+            *ngFor="let Attendy of combinedPlayersArray">
+
+            <div class="row">
+              <div class="card-img col-xs-2 p-0">
+                <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2"
+                  [class.no-response]="Attendy.state==3" [class.maybe]="Attendy.state==4" *ngIf="!Attendy.PHOTOPATH">
+                  <div class="img-circle"><span class="img-text">{{Attendy.first_name[0] | uppercase}} {{Attendy.last_name[0] | uppercase}} </span>
+                  </div>
+                  
+                </span>
+                <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2"
+                  [class.no-response]="Attendy.state==3" [class.maybe]="Attendy.state==4" *ngIf="Attendy.PHOTOPATH">
+                  <img src={{PhotoApiUrl}}{{Attendy.PHOTOPATH}} alt="" class="img-circle">
+                </span>
+              </div>
+
+              <div class="card-title col-xs-8 p-0" [class.InjuredPlayerName]="Attendy.injuryStatus==1">
+                  {{Attendy.first_name | uppercase}} {{Attendy.last_name | uppercase}}
+                  <div class="select-group clearfix">
+                    <div class="pull-left checkArrow-group"
+                      [class.OuterDiv]="PersonData.PERSON_ID==Attendy.person_id && FunctionAccess && FunctionAccess.event_EventDetail=='self'"
+                      *ngIf="FunctionAccess">
+                      <div *ngIf="FunctionAccess && FunctionAccess.event_EventDetail=='yes'">
+                        <div class=" arrowUp ArrowLight" (click)="ArrowFunctionality($event)">
+                          <ion-icon name="ios-arrow-down" class=" collapsed-arrow"></ion-icon>
+                        </div>
+
+                      </div>
+                      <div class="  " *ngIf="PersonData.PERSON_ID==Attendy.person_id && FunctionAccess && FunctionAccess.event_EventDetail=='self'">
+                        <div class=" p-0 arrowUp loggedIn-Arrow ArrowLight" (click)="ArrowFunctionality($event)">
+                          <ion-icon name="ios-arrow-down" class=" collapsed-arrow"></ion-icon>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="display-status pull-left">
+                      <p class="Show_Status" [class.InjuredPlayerStatus]="Attendy.injuryStatus==1"
+                        *ngIf="Attendy.reasondeclined_by_coach==''">{{Attendy.reasondeclined}}</p>
+                      <p class="Show_Status" [class.InjuredPlayerStatus]="Attendy.injuryStatus==1"
+                        *ngIf="Attendy.reasondeclined_by_coach!=''">{{Attendy.reasondeclined_by_coach}}</p>
+                    </div>
+                  </div>
+                  
+                  <div class="suit-iconCard fixedRight" (click)="DisplaySeverityDetails(Attendy)" *ngIf="FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1 && ((Attendy.playerAilmentsSeverityIcon) || (Attendy.showMedicine==1))">
+                    <img src={{global.ImagesPath}}{{Attendy.playerAilmentsSeverityIcon}} class="suit-icon" *ngIf="(Attendy.playerAilmentsSeverityIcon  && (Attendy.showMedicine==1 || Attendy.showMedicine==0))">
+                    <img src="{{global.ImagesPath}}pills.svg" class="medical-bottle" *ngIf="((Attendy.showMedicine==1) && (!Attendy.playerAilmentsSeverityIcon))">
+                  </div>
+              </div>
+            
+              <div class="col-xs-2 checkArrow-group"
+                [class.OuterDiv]="PersonData.PERSON_ID==Attendy.person_id && FunctionAccess.event_EventDetail_checkbox=='self'"
+                *ngIf="FunctionAccess">
+                <div class="col-xs-2 p-0 checkbox-col" *ngIf="FunctionAccess.event_EventDetail_checkbox=='yes'">
+
+                  <div class="checkbox1" [class.PresentCheckbox1]="Attendy.attended==1"
+                    [class.AbsentCheckbox1]="Attendy.attended==0"
+                    (click)="AttendanceMark($event,Attendy.attended,Attendy.person_id)">
+                  </div>
+                  <div class="checkbox"></div>
+                </div>
+              </div>
+              
+
+              <ul class="dropdown-menu card-dropdown" style="display:none; ">
+                <li *ngFor="let key of reason_options_list[0]"
+                  (click)="SinglePlayersAttdStates(key.confirm_reason,'',key.reason_display,Attendy.person_id,$event)">
+                  <a href="javascript:void(0)"
+                    [class.SelectedReason]="key.reason_display==Attendy.reasondeclined_by_coach || key.reason_display==Attendy.reasondeclined">{{key.reason_display}}</a>
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+        </div>
+        <!-- Regular player combined End -->
+
+        <!--  borrowed player -->
+        <div class="borrowHeading" *ngIf="BorrowTagFlag==1">
+          <p>BORROWED TEAM MATES</p>
+        </div>
+        <div class="well select-card " *ngIf="BorrowTagFlag==1 && EmptyBorrowPlayer">
+          <div class="row">
+            <div class="col-xs-12 ">
+              <h5 class="sub-title">NO TEAM MATES PRESENT</h5>
+            </div>
+          </div>
+        </div>
+        <div class="borrowOuter" *ngIf="BorrowTagFlag==1 && !(combinedBorrowedPlayersArray?.length > 0)">
+          
+          <div *ngFor="let StateAttendy of DupEventAttendSecBorrowed;let i=index">
+              
+            <div *ngIf="i<3">
+            <div class="select-card" [class.well]="Attendy.injuryStatus!=1 && Attendy.injuryStatus!=2"
+              [class.RecoveredPlayer]="Attendy.injuryStatus==2" [class.InjuredPlayer]="Attendy.injuryStatus==1" *ngFor="let Attendy of StateAttendy">
+
+              <div class="row">
+                <div class="card-img col-xs-2 p-0">
+                  <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2" [class.no-response]="Attendy.state==3"
+                    [class.maybe]="Attendy.state==4" *ngIf="!Attendy.photoPath">
+                    <div class="img-circle"><span class="img-text">{{Attendy.first_name[0] | uppercase}} {{Attendy.last_name[0] | uppercase}} </span></div>
+                    
+                  </span>
+                  <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2" [class.no-response]="Attendy.state==3"
+                    [class.maybe]="Attendy.state==4" *ngIf="Attendy.photoPath">
+                    <img src={{PhotoApiUrl}}{{Attendy.photoPath}} alt="" class="img-circle">
+                  </span>
+
+                </div>
+                <div class="card-title col-xs-8 p-0" [class.InjuredPlayerName]="">{{Attendy.first_name | uppercase}}
+                  {{Attendy.last_name | uppercase}}
+                  <div class="select-group clearfix">
+                      <div class="checkArrow-group pull-left" [class.OuterDiv]="PersonData.PERSON_ID==Attendy.person_id && FunctionAccess.event_EventDetail=='self'"
+                        *ngIf="FunctionAccess">
+                          
+                          <div *ngIf="FunctionAccess.event_EventDetail=='yes'">
+                            <div class=" arrowUp ArrowLight" (click)="ArrowFunctionality($event)">
+                              <ion-icon name="ios-arrow-down" class=" collapsed-arrow"></ion-icon>
+                            </div>
+                          </div>
+                          <div class=" " *ngIf="PersonData.PERSON_ID==Attendy.person_id && FunctionAccess.event_EventDetail=='self'">
+                            <div class="p-0 arrowUp loggedIn-Arrow ArrowLight" (click)="ArrowFunctionality($event)">
+                              <ion-icon name="ios-arrow-down" class=" collapsed-arrow"></ion-icon>
+                            </div>
+                          </div>
+                          
+                      </div>
+                      <div class="display-status pull-left">
+                      <p class="Show_Status" [class.InjuredPlayerStatus]="" *ngIf="Attendy.reasondeclined_by_coach==''">{{Attendy.reasondeclined}}</p>
+                      <p class="Show_Status" [class.InjuredPlayerStatus]="" *ngIf="Attendy.reasondeclined_by_coach!=''">{{Attendy.reasondeclined_by_coach}}</p>
+                      </div>
+                    </div>
+                    <div class="suit-iconCard fixedRight" (click)="DisplaySeverityDetails(Attendy)" *ngIf="FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1 && ((Attendy.playerAilmentsSeverityIcon) || (Attendy.showMedicine==1))">
+                        <img src={{global.ImagesPath}}{{Attendy.playerAilmentsSeverityIcon}} class="suit-icon" *ngIf="(Attendy.playerAilmentsSeverityIcon  && (Attendy.showMedicine==1 || Attendy.showMedicine==0))">
+                        <img src="{{global.ImagesPath}}pills.svg" class="medical-bottle" *ngIf="((Attendy.showMedicine==1) && (!Attendy.playerAilmentsSeverityIcon))">
+                      </div>
+                  </div>
+               
+                <div class="col-xs-2 pr-0 checkArrow-group" [class.OuterDiv]="PersonData.PERSON_ID==Attendy.person_id && FunctionAccess.event_EventDetail_checkbox=='self'"
+                  *ngIf="FunctionAccess">
+
+                  <div class="col-xs-2 p-0 checkbox-col" *ngIf="FunctionAccess.event_EventDetail_checkbox=='yes'">
+
+                    <div class="checkbox1" [class.PresentCheckbox1]="Attendy.attended==1" [class.AbsentCheckbox1]="Attendy.attended==0"
+                      (click)="AttendanceMark($event,Attendy.attended,Attendy.person_id)">
+                    </div>
+                    <div class="checkbox"></div>
+                  </div>
+                </div>
+
+                <ul class="dropdown-menu card-dropdown" style="display: none;">
+                  <li *ngFor="let key of reason_options_list[0]" (click)="SinglePlayersAttdStates(key.confirm_reason,'',key.reason_display,Attendy.person_id,$event)">
+                    <a href="javascript:void(0)" [class.SelectedReason]="key.reason_display==Attendy.reasondeclined_by_coach || key.reason_display==Attendy.reasondeclined">{{key.reason_display}}</a>
+                  </li>
+                </ul>
+
+              </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Borrowed player combined Start -->
+        <div class="combinedBorrowedPlayersArray" *ngIf="BorrowTagFlag==1 && combinedBorrowedPlayersArray?.length > 0">
+          <div class="select-card" [class.well]="Attendy.injuryStatus!=1 && Attendy.injuryStatus!=2"
+            [class.RecoveredPlayer]="Attendy.injuryStatus==2" [class.InjuredPlayer]="Attendy.injuryStatus==1"
+            *ngFor="let Attendy of combinedBorrowedPlayersArray">
+
+            <div class="row">
+              <div class="card-img col-xs-2 p-0">
+                <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2"
+                  [class.no-response]="Attendy.state==3" [class.maybe]="Attendy.state==4" *ngIf="!Attendy.PHOTOPATH">
+                  <div class="img-circle"><span class="img-text">{{Attendy.first_name[0] | uppercase}} {{Attendy.last_name[0] | uppercase}} </span>
+                  </div>
+                </span>
+                <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2"
+                  [class.no-response]="Attendy.state==3" [class.maybe]="Attendy.state==4" *ngIf="Attendy.PHOTOPATH">
+                  <img src={{PhotoApiUrl}}{{Attendy.PHOTOPATH}} alt="" class="img-circle">
+                </span>
+
+              </div>
+              <div class="card-title col-xs-8 p-0" [class.InjuredPlayerName]="">{{Attendy.first_name | uppercase}}
+                {{Attendy.last_name | uppercase}}
+                <div class="select-group clearfix">
+                  <div class="checkArrow-group pull-left"
+                    [class.OuterDiv]="PersonData.PERSON_ID==Attendy.person_id && FunctionAccess.event_EventDetail=='self'"
+                    *ngIf="FunctionAccess">
+                    
+                    <div *ngIf="FunctionAccess.event_EventDetail=='yes'">
+                      <div class=" arrowUp ArrowLight" (click)="ArrowFunctionality($event)">
+                        <ion-icon name="ios-arrow-down" class=" collapsed-arrow"></ion-icon>
+                      </div>
+                    </div>
+                    <div class=" " *ngIf="PersonData.PERSON_ID==Attendy.person_id && FunctionAccess.event_EventDetail=='self'">
+                      <div class="p-0 arrowUp loggedIn-Arrow ArrowLight" (click)="ArrowFunctionality($event)">
+                        <ion-icon name="ios-arrow-down" class=" collapsed-arrow"></ion-icon>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="display-status pull-left">
+                    <p class="Show_Status" [class.InjuredPlayerStatus]="" *ngIf="Attendy.reasondeclined_by_coach==''">
+                      {{Attendy.reasondeclined}}</p>
+                    <p class="Show_Status" [class.InjuredPlayerStatus]="" *ngIf="Attendy.reasondeclined_by_coach!=''">
+                      {{Attendy.reasondeclined_by_coach}}</p>
+                  </div>
+                </div>
+                <div class="suit-iconCard fixedRight" (click)="DisplaySeverityDetails(Attendy)" *ngIf="FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1 && ((Attendy.playerAilmentsSeverityIcon) || (Attendy.showMedicine==1))">
+                    <img src={{global.ImagesPath}}{{Attendy.playerAilmentsSeverityIcon}} class="suit-icon" *ngIf="(Attendy.playerAilmentsSeverityIcon  && (Attendy.showMedicine==1 || Attendy.showMedicine==0))">
+                    <img src="{{global.ImagesPath}}pills.svg" class="medical-bottle" *ngIf="((Attendy.showMedicine==1) && (!Attendy.playerAilmentsSeverityIcon))">
+                  </div>
+              </div>
+              
+              <div class="col-xs-2 p-0 checkArrow-group"
+                [class.OuterDiv]="PersonData.PERSON_ID==Attendy.person_id && FunctionAccess.event_EventDetail_checkbox=='self'"
+                *ngIf="FunctionAccess">
+
+                <div class="col-xs-2 p-0 checkbox-col" *ngIf="FunctionAccess.event_EventDetail_checkbox=='yes'">
+
+                  <div class="checkbox1" [class.PresentCheckbox1]="Attendy.attended==1"
+                    [class.AbsentCheckbox1]="Attendy.attended==0"
+                    (click)="AttendanceMark($event,Attendy.attended,Attendy.person_id)">
+                  </div>
+                  <div class="checkbox"></div>
+                </div>
+              </div>
+
+
+              <ul class="dropdown-menu card-dropdown" style="display: none;">
+                <li *ngFor="let key of reason_options_list[0]"
+                  (click)="SinglePlayersAttdStates(key.confirm_reason,'',key.reason_display,Attendy.person_id,$event)">
+                  <a href="javascript:void(0)"
+                    [class.SelectedReason]="key.reason_display==Attendy.reasondeclined_by_coach || key.reason_display==Attendy.reasondeclined">{{key.reason_display}}</a>
+                </li>
+              </ul>
+
+            </div>
+
+          </div>
+        </div>
+        <!-- Borrowed player combined End -->
+      </div>
+    </form>
+  </section>
+</ion-content>
+
+<!-- Welfare -->
+<ion-content *ngIf="segments=='Welfare'" class="welfare-content">
+    <section class="main">
+    <form action="" class="user-form player-item">
+        <section class=" heightAuto xs-padding bg-gray show-card">
+            <div class="event-card welfare" *ngIf="WelfarePeopleDetail==''">
+                <div class="well select-card " >
+                    <div class="row">
+                        <div class="col-xs-12 ">
+                            <h5 class="sub-title">NO TEAM MATES FOUND</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="event-card welfare" *ngFor="let details of WelfarePeopleDetail">
+                <div class="well select-card" (click)="PlayerQuestion(details,$event)" style="margin-bottom: 0 !important">
+
+                    <div class="row">
+                        <div class="card-img col-xs-2 p-0">
+                            <span class="" *ngIf="!details.photopath">
+                                <div class="img-circle"><span class="img-text">{{details.first_name[0] | uppercase}} {{details.last_name[0] | uppercase}} </span></div>
+                                <!-- <img src="assets/images/test-user.svg" alt="" class="img-circle"> -->
+                            </span>
+                            <span class="" *ngIf="details.photopath">
+                                        <img src="{{PhotoApiUrl}}{{details.photopath}}" alt="" class="img-circle">
+                            </span>
+                        </div>
+
+                        <div class="card-title col-xs-8 p-0">{{details.first_name | uppercase}} {{details.last_name | uppercase}}
+                           
+                            <div>
+                                <span *ngIf="details.uniform_id">#{{details.uniform_id}}</span>
+                            </div>
+                            <div class="suit-iconCard fixedRight" (click)="DisplaySeverityDetails(details)" *ngIf="FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1 && ((details.playerAilmentsSeverityIcon) || (details.showMedicine==1))">
+                                <img src={{global.ImagesPath}}{{details.playerAilmentsSeverityIcon}} class="suit-icon" *ngIf="(details.playerAilmentsSeverityIcon  && (details.showMedicine==1 || details.showMedicine==0))">
+                                <img src="{{global.ImagesPath}}pills.svg" class="medical-bottle" *ngIf="((details.showMedicine==1) && (!details.playerAilmentsSeverityIcon))">
+                            </div>
+                            
+                        </div>
+                        <div class="event-next col-xs-1 p-0 show-tickmark">
+                            <ion-icon class="tickIcon" ios="ios-checkmark" md="md-checkmark" color=primary *ngIf="details.welfare_answer==1"></ion-icon>
+                        </div>
+                        
+                        <div class="event-next col-xs-1 p-0">
+                            <a href="javascript:void(0)" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+              </div>
+        </section>
+      </form>
+      </section>
+
+</ion-content>
+
+<!-- Result  -->
+<ion-content *ngIf="segments=='Result'" class="bg-gray event result-content" (click)="keyboardCheck()">
+    <section class="main">
+        <form action="" class="user-form profile event-results">
+            <section class="profileFirst bg-black heightAuto xs-padding" *ngIf="FunctionAccess &&  FunctionAccess.event_Result=='yes'">
+                <div class="form-group" *ngFor="let detail of arrDetail">
+                    <div class="date_time text-blue text-center">
+                        <span class="dateOption">{{key.week}} {{date}}</span>
+                        <span class="glyphicon glyphicon-time" *ngIf="arrDetail"></span> <span
+                            class="timeOption">{{key.time_started}}</span>
+                    </div>
+                    <div class="homeAway-title text-center text-blue">{{homeAwayText}}</div>
+                    <h4 class="info-item text-center inverseText" *ngFor="let detail of arrDetail">{{detail.name}}</h4>
+                    <p class="text-center inverseText">{{detail.ground_name}}
+                        <br>{{detail.ground_address}},
+                        {{detail.ground_state}}
+                    </p>
+					<div class="bookmark-line mt-30"></div>
+					<h5 class="section-title mt-30">FINAL SCORE</h5>
+					<div class="voting score clearfix">
+						<div class="pull-left">
+							<div class="select-val" >
+								<ion-item>
+									<ion-input type="number" pattern="[0-9]*" elastic [(ngModel)]="scoreHome" name="scoreHome" (keyup)="prefixNumber($event)" (ionFocus)="inputFocus()" (ionBlur)="inputBlur()"
+										[readonly]="(FunctionAccess && FunctionAccess.game_score=='no') || scoreIsUpdated==1" ></ion-input>
+								</ion-item>
+							</div>
+							<h5 class="inverseText fontBold m-0">{{detail.hometeamname}}</h5>
+						</div>
+						<div class="pull-right">
+							<div class="select-val">
+								<ion-item>
+									<ion-input type="number" pattern="[0-9]*" elastic [(ngModel)]="scoreAway" name="scoreAway" (keyup)="prefixNumber($event)" (ionFocus)="inputFocus()" (ionBlur)="inputBlur()"
+										[readonly]="(FunctionAccess && FunctionAccess.game_score=='no') || scoreIsUpdated==1"></ion-input>
+								</ion-item>
+							</div>
+							<h5 class="inverseText fontBold m-0">{{detail.awayteamname}}</h5>
+						</div>
+					</div>
+					<div class="bookmark-line mt-30"></div>
+                </div>
+                <div class="row">
+                    <div class="radio-option">
+                        <div class="col-xs-12 p-0 flatten">
+                            <div class="radio col-xs-6">
+                                <input type="radio" value="washout" name="gameDismissed" [(ngModel)]="gameDismissed" class="radio-game-dismissed"
+                                    (click)="gameDismissedChange($event);" [disabled]="FunctionAccess && FunctionAccess.game_score=='no'" />
+                                <label class="sub-title inverseText fontBold Washout">WASHOUT</label>
+                            </div>
+
+
+                            <div class="radio col-xs-6">
+                                <input type="radio" value="forfeit" name="gameDismissed" [(ngModel)]="gameDismissed" class="radio-game-dismissed"
+                                    (click)="gameDismissedChange($event);" [disabled]="FunctionAccess && FunctionAccess.game_score=='no'" />
+                                <label class="sub-title inverseText fontBold Forfeit">FORFEIT</label>
+                            </div>
+                        </div>
+                        <!--<div class="team-report-wrap col-xs-2 p-0 text-center" (click)="reportTextRowOpened=true" *ngIf="FunctionAccess && FunctionAccess.game_report=='yes'">
+                            <img src="assets/images/team-report.svg" alt="">
+                            <div class="xs-title">TEAM<br> REPORT</div>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="row" *ngIf="FunctionAccess && FunctionAccess.game_report=='yes'" (click)="keyboardCheck()">
+                  <div class="well report bg-white mt-30 col-xs-12">
+                      <h5 class="section-title">REPORT</h5>
+                      <ion-item>
+                        <ion-textarea class="form-control iontextarea" name="reportText" cols="30" rows="5" [(ngModel)]="reportText"
+                          (ionFocus)="inputFocus()" (ionBlur)="inputBlur()"></ion-textarea>
+                      </ion-item>
+                  </div>
+                  <button type="submit" class="btn btn-sm-black radius-10" (click)="saveGameScoreAndReport()">SAVE</button>
+                </div>
+            </section>
+            <div class="event-card bg-gray" *ngIf="FunctionAccess && FunctionAccess.voting_for_player!='no'">
+                <h5 class="section-title">3-2-1 VOTING</h5>
+                <div *ngIf="FunctionAccess && FunctionAccess.voting_for_player=='yes'">
+                  <div class="well select-card" *ngFor="let coach of coachDetails" [class.active]="(activePlayer==coach.PERSON_ID)" (click)="voteForPlayer(coach.PERSON_ID, coach)">
+                      <div class="row">
+                        <div class="card-img col-xs-2 p-0">
+                            <span class="">
+                                <div class="img-circle" *ngIf="coach.PHOTOPATH == ''"><span class="img-text">{{coach.FIRST_NAME[0]}} {{coach.LAST_NAME[0]}} </span></div>
+                                <img src="{{global.PROFILEIMAGEURL}}/{{coach.PHOTOPATH}}" alt="" class="img-circle"
+                                    onerror="this.src='assets/images/test-user.svg'" *ngIf="coach.PHOTOPATH != ''">
+                                <!-- <img src="assets/images/test-user.svg" alt="" class="img-circle" *ngIf="coach.PHOTOPATH == ''"> -->
+                            </span>
+                        </div>
+                        <div class="card-title col-xs-8 p-0">My Vote</div>
+                        <div class="event-next col-xs-1 p-0 show-tickmark" *ngIf="FunctionAccess && FunctionAccess.voting_for_player=='yes'">
+                          <ion-icon class="next-arrow v-center" ios="ios-checkmark" md="md-checkmark" color=primary *ngIf="(voteSuccess==true && voteForPlayerId==coach.PERSON_ID) || (coach.voted==1)"></ion-icon>
+                        </div>
+                          <div class="event-next col-xs-1 p-0" *ngIf="FunctionAccess && FunctionAccess.voting_for_player=='yes'">
+                            <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                          </div>
+                      </div>
+                  </div>
+                  <h5 class="section-title">TEAM MATES</h5>
+                </div>
+                <div class="well select-card" *ngFor="let player of players" [class.active]="(activePlayer==player.person_id)" (click)="voteForPlayer(player.person_id, player)">
+                    <div class="row">
+                        <div class="card-img col-xs-2 p-0">
+                            <span class="">
+                                    <div class="img-circle" *ngIf="player.photoPath == ''"><span class="img-text">{{player.first_name[0] | uppercase}} {{player.last_name[0] | uppercase}} </span></div>
+                                <img src="{{global.PROFILEIMAGEURL}}/{{player.photoPath}}" alt="" class="img-circle"
+                                    onerror="this.src='assets/images/test-user.svg'" *ngIf="player.photoPath != ''">
+                                <!-- <img src="assets/images/test-user.svg" alt="" class="img-circle" *ngIf="player.photoPath == ''"> -->
+                            </span>
+                        </div>
+                        <div class="card-title  p-0"
+                        [class.col-xs-5]="FunctionAccess && FunctionAccess.voting_for_player=='self'"
+                        [class.col-xs-8]="FunctionAccess && FunctionAccess.voting_for_player=='yes'"
+                        >{{player.first_name}} {{player.last_name}}
+                          
+                        <div>
+                            <span *ngIf="player.uniform_id">#{{player.uniform_id}}</span>
+                        </div>
+                        <!-- <div class="suit-iconCard fixedRight" (click)="DisplaySeverityDetails(player)" *ngIf="FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1 && ((player.playerAilmentsSeverityIcon) || (player.showMedicine==1))">
+                            <img src={{global.ImagesPath}}{{player.playerAilmentsSeverityIcon}} class="suit-icon" *ngIf="(player.playerAilmentsSeverityIcon  && (player.showMedicine==1 || player.showMedicine==0))">
+                            <img src="{{global.ImagesPath}}pills.svg" class="medical-bottle" *ngIf="((player.showMedicine==1) && (!player.playerAilmentsSeverityIcon))">
+                        </div> -->
+
+                          
+                        </div>
+                       
+                      <div class="event-next  col-xs-1 p-0 show-tickmark" *ngIf="FunctionAccess && FunctionAccess.voting_for_player=='yes'">
+                        <ion-icon class="next-arrow v-center" ios="ios-checkmark" md="md-checkmark" color=primary *ngIf="(voteSuccess==true && voteForPlayerId==player.person_id) || (player.voted==1)"></ion-icon>
+                      </div>
+                        <div class="event-next col-xs-1 p-0" *ngIf="FunctionAccess && FunctionAccess.voting_for_player=='yes'">
+                          <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="voting col-xs-5 p-0" *ngIf="FunctionAccess && FunctionAccess.voting_for_player=='self'">
+                            <a href="javascript:void(0)" class="select-val vote3" [class.active]="player.person_id == player.vote3" (click)="saveVote($event, player.person_id, 3)">3</a>
+                            <a href="javascript:void(0)" class="select-val vote2" [class.active]="player.person_id == player.vote2" (click)="saveVote($event, player.person_id, 2)">2</a>
+                            <a href="javascript:void(0)" class="select-val vote1" [class.active]="player.person_id == player.vote1" (click)="saveVote($event, player.person_id, 1)">1</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</ion-content>
+
+

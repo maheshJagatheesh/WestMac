@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21.5" height="23.5" viewBox="0 0 21.5 23.5">
+  <g id="p-heart" transform="translate(0.75 0.75)">
+    <path id="Path_1204" data-name="Path 1204" d="M12,23H5a2,2,0,0,1-2-2V3A2,2,0,0,1,5,1H17a2,2,0,0,1,2,2v8" transform="translate(-3 -1)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1.5"/>
+    <circle id="Ellipse_539" data-name="Ellipse 539" cx="1" cy="1" r="1" transform="translate(7 16)" fill="#fff"/>
+    <path id="Path_1205" data-name="Path 1205" d="M22.361,15.631A2.2,2.2,0,0,0,19,15.964a2.2,2.2,0,0,0-3.361-.333,2.137,2.137,0,0,0,0,3.048L19,22l3.361-3.321A2.137,2.137,0,0,0,22.361,15.631Z" transform="translate(-3 -1)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1.5"/>
+  </g>
+</svg>

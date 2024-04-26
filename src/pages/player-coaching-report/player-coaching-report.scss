@@ -1,0 +1,41 @@
+page-player-coaching-report {
+  .noData{
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 10px;
+    font-family: "Halvetica", sans-serif;
+  }
+  .chart-area{
+    height: 300px;
+  }
+  #chart #bars li{
+    height: 270px;
+  }
+  #chart #numbers li{
+    height: 27px;
+  }
+  .player #bar-title li span{
+    padding-left: 3px;
+    min-width: 0;
+    width: auto;
+    text-align: left;
+    font-size: 9px;
+    -moz-transform: rotate(-90deg) translate(-100%);
+    -webkit-transform: rotate(-90deg) translate(-100%);
+    -o-transform: rotate(-90deg) translate(-100%);
+    -ms-transform: rotate(-90deg) translate(-100%);
+    transform: rotate(-90deg) translate(-100%);
+  }
+  ion-header.header.bg-black {
+    background: #15233C;
+  }
+  .img-circle .img-text{
+    width:76px;
+    height: 76px;
+    line-height: 56px !important;
+    font-size: 20px;
+  }
+
+  .col-xs-6{
+    width: 49%;
+  }
+}

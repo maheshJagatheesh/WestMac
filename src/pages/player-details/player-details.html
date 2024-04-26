@@ -1,0 +1,95 @@
+<!--
+  Generated template for the PlayerDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <nav class="navbar navbar-fixed-top " hideBackButton="true" transparent>
+  
+  <div class="col-xs-6">
+    <div class="backArrow inverse inverseText" (click)="goBack()"> PLAYERS</div>
+  </div>
+  
+</nav> -->
+
+<!--<ion-header class="bg-black mt-20">
+  <div class="top-bar">
+    <div class="col-xs-6">
+      <div *ngIf="FunctionAccess?.user_adminLevel == 1 || FunctionAccess?.user_adminLevel == 2" class="backArrow inverse inverseText" (click)="goBack()" > TEAM MATES</div>
+      <div *ngIf="FunctionAccess?.user_adminLevel == 4" class="backArrow inverse inverseText" (click)="goBack()" > TEAM MATES</div>
+    </div>
+  </div>
+</ion-header>-->
+
+<ion-header>
+  <ion-navbar class="main">
+  <div class="top-bar">
+    <div class="col-xs-6">
+      <div class="inverse inverseText" (click)="goBack()"> PLAYERS</div>
+    </div>
+  </div>
+</ion-navbar>
+</ion-header>
+
+<ion-content class="bg-black">
+  <section class="main mt-20">
+    <form action="" class="user-form" *ngIf="PersonData && FunctionAccess">
+      <section class="profileFirst heightAuto p-0" *ngFor="let player of playerDetails">
+        <div class="player-section">
+          <div class="thumbImage image-sm">
+            <img *ngIf="player.photoPath != null && player.photoPath.length > 0; else noImage" src="{{global.PROFILEIMAGEURL}}{{player.photoPath}}" alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+            <ng-template #noImage>
+                <div class="img-circle"><span class="img-text">{{player.first_name[0]}} {{player.last_name[0]}} </span></div>
+            </ng-template>
+          </div>
+          <div class="player-info mt-20">
+            <h4 class="info-item">{{player.first_name}} {{player.last_name}}</h4>
+            <p *ngIf="player.uniform_id != null && player.uniform_id.toString().length > 0">#{{player.uniform_id}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="report-circle col-xs-6 p-0" [class.pl-0]="(PersonData.PERSON_ID==player.person_id || FunctionAccess.user_adminLevel!=4) && FunctionAccess.HasMedicineReviewAccess==1">
+            <div class="xl-circle">
+              <div class="xs-title coaching coaching-report" (click)="coachingReport()">COACHING <br> REPORT</div>
+            </div>
+          </div>
+          <div class="records-circle col-xs-6 pr-0" *ngIf="(PersonData.PERSON_ID==player.person_id || FunctionAccess.user_adminLevel!=4) && FunctionAccess.HasMedicineReviewAccess==1">
+            <div class="xl-circle">
+              <div class="xs-title records medical-records" (click)="medicalRecords()">MEDICAL<br>RECORDS</div>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-inner" *ngIf="FunctionAccess.user_adminLevel!=4 || PersonData.PERSON_ID==player.person_id">
+          <ul class="nav navbar-nav">
+            <li class="chat border-right" [class.active]="(active == 'sms')" *ngIf="FunctionAccess.player_sms=='yes'">
+              <a href="javascript:void(0);" (click)="viewChat()"><div class="icon-circle"></div>CHAT</a>
+            </li>
+            <li class="email border-right" [class.active]="(active == 'email')">
+              <a href="javascript:void(0);" (click)="showEmailModal()"><div class="icon-circle"></div>EMAIL</a>
+            </li>
+            <li class="phone border-right" [class.active]="(active == 'phone')" *ngIf="FunctionAccess.player_phone=='yes'">
+              <a href="javascript:void(0);" (click)="showCallModal(false)"><div class="icon-circle"></div>PHONE</a>
+            </li>
+            <li class="injury emergency"  [class.active]="(active == 'emergencyPhone')" *ngIf="FunctionAccess.player_emergency_phone=='yes' ">
+              <a href="javascript:void(0);" (click)="showCallModal(true)"><div class="icon-circle"></div>EMERGENCY PHONE</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </form>
+  </section>
+</ion-content>
+
+<!-- <ion-footer>
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="home" (click)="gFn.gotoHome()"><a href="javascript:void(0);">Home</a></li>
+        <li class="events" (click)="gFn.gotoDisplayEvents()"><a href="javascript:void(0);">Events</a></li>
+        <li class="players active" (click)="gFn.goToPlayersDashboard()"><a href="javascript:void(0);">Players</a></li>
+        <li class="comment" (click)="gFn.goToChatDashboard()"><a href="javascript:void(0);">Comments</a></li>
+        <li class="more" (click)="gFn.goToMenuPage()"><a href="javascript:void(0);">More</a></li>
+      </ul>
+    </div>
+  </nav>
+</ion-footer> -->

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="40" height="40" fill="none"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x2="1.17" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#428cf4"/>
+      <stop offset="1" stop-color="#43c9bb"/>
+    </linearGradient>
+  </defs>
+  <g id="button-add" clip-path="url(#clip-path)">
+    <path id="Path_1083" data-name="Path 1083" d="M20,0A20,20,0,1,1,0,20,20,20,0,0,1,20,0Z" fill="url(#linear-gradient)"/>
+    <g id="pencil" transform="translate(10.716 10.344)">
+      <line id="Line_420" data-name="Line 420" x2="3.541" y2="3.541" transform="translate(10.852 3.72)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line id="Line_421" data-name="Line 421" x2="3.541" y2="3.541" transform="translate(2.708 11.864)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="Path_1364" data-name="Path 1364" d="M6.249,15.4,2,16.113l.708-4.249,9.621-9.621a1.416,1.416,0,0,1,2,0L15.87,3.781a1.416,1.416,0,0,1,0,2Z" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

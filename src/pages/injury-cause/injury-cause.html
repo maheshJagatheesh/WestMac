@@ -1,0 +1,103 @@
+<ion-content class="bg-black">
+  <div class="top-bar" (click)="close()">
+    <div class="col-xs-3">
+      <div class="backArrow inverse"></div>
+    </div>
+  </div>
+  <!-- Modal content-->
+  <div class="modal-content modalView">
+    <div class="modal-header shadow">
+      <h5 class="modal-title fontBold text-center">{{header}}</h5>
+    </div>
+    <!-- <div class="modal-body modal-report select-option" *ngIf="header!='BODY PARTS'">
+                <div class="form-group" *ngFor="let key of Selectors">
+                    <div class="row" >
+                        <div class="col-xs-12 p-0">
+                            <div class="checkbox checkbox-info checkbox-circle" >
+                                <input id="checkbox5" class="styled" type="checkbox" (click)="getIncidentDetails(key.INCIDENT_AREA_ID,key.AREA_DATA,$event)"
+                                        [checked]='(readAddedIncidentId(key.AREA_DATA,key.INCIDENT_AREA_ID))'>
+                                <label for="checkbox5" ></label>
+                                <span>{{key.INCIDENT_AREA}}</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+    <div class="modal-body modal-report select-option">
+      <div class="form-group" *ngFor="let key of injuryValues; index as i">
+        <div class="row">
+          <div class="col-xs-12 p-0">
+            <div class="checkbox checkbox-info checkbox-circle">
+              <input
+                id="checkbox5"
+                class="styled"
+                type="checkbox"
+                (click)="getIncidentDetails(key, i,injuryValues)"
+                [checked]="checkedStatus(key.status)"
+              />
+              <label for="checkbox5"></label>
+
+              <span
+              
+                [style.background-color]="msgstatus ? 'red' : 'initial'"
+                [style.color]="msgstatus ? 'white' : 'initial'"
+              >
+                {{ key.value }}
+              </span>
+
+            
+            </div>
+            <div *ngIf="key.specify && key.status">
+              <input
+                type="text"
+                id="fspecify{{i}}"
+                name="specify"
+                style="margin-top: 5px; margin-left: 10px"
+                [(ngModel)]="key.specifyValue"
+              /><br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal-body modal-report select-option"
+      *ngIf="header=='BODY PARTS'"
+    >
+      <div *ngFor="let key of Selectors;let i=index">
+        <p *ngIf="i==0">Injured Body Part</p>
+        <p *ngIf="i==1">Side of body</p>
+        <div class="form-group" *ngFor="let key1 of key">
+          <div class="row">
+            <!-- <div class="col-xs-12 p-0"> 
+                                <div class="col-xs-2 p-0"  >
+                                    <div class="checkbox1" [class.ActiveCheckbox]='(readAddedIncidentId(key1.AREA_DATA,key1.INCIDENT_AREA_ID))'
+                                    (click)="getIncidentDetails(key1.INCIDENT_AREA_ID,key1.AREA_DATA,$event)" >
+                                    </div>
+                                    <div class="Outercheckbox"></div>
+                                </div>
+                                <div class="col-xs-9 p-5"><span>{{key1.INCIDENT_AREA}}</span></div>
+                            </div> -->
+
+            <div class="col-xs-12 p-0">
+              <div class="checkbox checkbox-info checkbox-circle">
+                <input
+                  id="checkbox5"
+                  class="styled"
+                  type="checkbox"
+                  (click)="getIncidentDetails(key1.INCIDENT_AREA_ID,key1.AREA_DATA,$event)"
+                  [checked]="(readAddedIncidentId(key1.AREA_DATA,key1.INCIDENT_AREA_ID))"
+                />
+                <label for="checkbox5"></label>
+                <span>{{key1.INCIDENT_AREA}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

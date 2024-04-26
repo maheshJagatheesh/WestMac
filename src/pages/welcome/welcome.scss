@@ -1,0 +1,43 @@
+page-welcome {
+  .circle.success {
+    border: none;
+  }
+
+  .circle.success img {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid;
+  }
+
+  .Card_View {
+    min-height: -webkit-fill-available !important;
+  }
+
+  .form-group.mb-30 {
+    color: #08448D;
+  }
+
+  .mb-30 {
+    color: #0A4E93;
+  }
+
+  .bg-color {
+    background: #0A4E93;
+  }
+
+  .login-circle.xs:before {
+    content: "";
+    background: url(../assets/images/arrow-blue.svg) no-repeat;
+    background-size: 30px;
+    background-position: center;
+    width: 115%;
+    height: 100%;
+    display: inline-block;
+    transform: rotate(0deg);
+    cursor: pointer;
+  }
+}

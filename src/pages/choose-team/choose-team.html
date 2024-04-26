@@ -1,0 +1,84 @@
+<ion-content class="bg-gradient {{bgThemeColor}}">
+  <div class="bg-gradient {{bgThemeColor}}">
+    <section class="main">
+      <form action="" class="user-form profile" [formGroup]="chooseTeamForm">
+        <section class="profileFirst">
+          <div class="form-group">
+            <label class="mb-10">WHICH TEAM DO YOU <br> WANT TO SEE TODAY?</label>
+          </div>
+          <div class="form-group mb-30">
+            <div class="row" *ngIf="IsParent">
+              <div class="col-xs-612 pl-0">
+                <label for="client">Team for:</label>
+                <select class="form-control" id="person" (change)="changePerson($event.target.value)">
+                  <option [value]="" *ngIf="">Self</ption>
+                  <option *ngFor="let siblingIsPlayerlooggedInUserPersonId of siblings" [value]="sibling.person_id" [selected]="person_id==sibling.person_id">{{sibling.first_name}}
+                    {{sibling.last_name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 pl-0">
+                <label for="client">League</label>
+                <select class="form-control" id="client" (change)="changeClient($event.target.value)" [disabled]="clients.length==0">
+                  <option *ngFor="let client of clients" [value]="client.client_id" [selected]="client_id==client.client_id">{{client.client_name}}</option>
+                </select>
+              </div>
+              <div class="col-xs-6 pl-0">
+                <label for="season">{{lblSeason}}</label>
+                <select class="form-control" id="season" (change)="changeSeason($event.target.value)" [disabled]="seasons.length==0">
+                  <ng-container *ngFor="let season of seasons">
+                    <option *ngIf="season.season_id" [value]="season.season_id" [selected]="season_id==season.season_id">
+                      {{seasonNames[season.period]}} {{season.year}}
+                    </option>
+                  </ng-container>
+                </select>
+              </div>
+              <div class="col-xs-6 pl-0">
+                <label for="client">Division</label>
+                <select class="form-control" id="" (change)="changeDivision($event.target.value)">
+                  <option [value]="0" [selected]="">All</option>
+                  <ng-container *ngFor="let division of divisions">
+                    <option *ngIf="division.division_id" [value]="division.division_id" [selected]="divisionID==division.division_id">
+                      {{division.division_name}}
+                    </option>
+                  </ng-container>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="form-group mt-sm" *ngFor="let team of teams; let i = index;">
+            <div class="radio clearfix">
+              <div class="leftWrap">
+                  <input type="radio" value="{{team.club_division_id}}::{{team.team_name}}" name="team" formControlName="team"
+                  [checked]="((defaultSelected && team.club_division_id==selectTeam) || (!defaultSelected && i == 0))" (click)="goToChooseTeam(team.club_division_id + '::' + team.team_name)">
+
+                  <label class="sub-title textBlack fontBold">
+                    {{team.client_name}}
+                  </label>
+                  <div class="infoWrap">
+                    <h6 class="inverseText fontBold">{{team.division_name}}</h6>
+                    <h6 class="inverseText fontBold">{{team.team_name}}</h6>
+                  </div>
+                </div>
+                <div class="rightWrap" [class.active]="((defaultSelected && team.club_division_id==selectTeam) || (!defaultSelected && i == 0))" *ngIf="teams.length">
+                  <button type="button" class="login-circle xs" (click)="goToChooseHomeImage()"></button>
+                </div>
+              </div>
+          </div>
+          <div class="form-group mt-sm info-item" *ngIf="teams.length == 0">
+            If you do not see the team you believe you should have access to, please contact the Sports department so we can update your access.
+          </div>
+          <div class="form-group mt-30">
+            <div class="info-item">You can come back here and change the team you are viewing at any time by using the
+              menu button at the top of your screen</div>
+          </div>
+          <div class="sign-up-left mt-30" *ngIf="teams.length==0">
+            <button type="button" class="login-circle xs" (click)="goToChooseHomeImageWithNoTeam()"></button>
+          </div>
+        </section>
+      </form>
+    </section>
+  </div>
+</ion-content>

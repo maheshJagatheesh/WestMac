@@ -1,0 +1,117 @@
+page-event-welfare {
+    .top-bar{
+      padding-left: 10px;
+    }
+  
+    .back-button{
+      display: none !important;
+    }
+    .BackButton{
+      background: #fff;
+  
+    }
+    .event-card{
+        margin-bottom:0 !important; 
+        padding: 3px !important;
+    }
+    .show-card{
+        margin-top: 2%;
+        margin-bottom: 25%;
+    }
+    .show-tickmark{
+        line-height: 60px;
+    }
+    .col {
+      a{
+        justify-content: center;
+        display: flex;
+        position: relative;
+        
+      }
+    }
+    .tickIcon{
+      font-size: 34px;
+    padding-left: 4px;
+    padding-top: 0 !important;
+    }
+    
+    span.active:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      // display: inline-block;
+      width: 100%;
+      height: 5px;
+      background: #428CF4;
+      justify-content: center;
+      display: flex;
+      background: -webkit-gradient(linear, left top, right top, from(#428CF4), to(#43C9BB));
+      background: -webkit-linear-gradient(left, #428CF4, #43C9BB);
+      background: -moz-linear-gradient(left, #428CF4, #43C9BB);
+      background: -ms-linear-gradient(left, #428CF4, #43C9BB);
+      background: -o-linear-gradient(left, #428CF4, #43C9BB);
+    }
+    .grid{
+      padding-bottom: 0px !important;
+    }
+    .suit-iconCard{
+      float: right;
+      padding: 0 8px;
+      line-height: 55px;
+      .suit-icon{
+        width:25px;
+        height:25px;
+      }
+    }
+    
+    .medical-bottleCard{
+      margin: 0 8px;
+      line-height: 55px;
+      float: right;
+      .medical-bottle{
+        height:25px;
+      }
+    }
+    .top-bar .location img {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+    }
+    .top-bar .location {
+      margin-right: 20px;
+    }
+    .card-title span {
+      padding-top: 0;
+      color: #8B8B8B;
+      font-size: 12px;
+      font-weight: normal;
+      width: 100%;
+  }
+  .suit-iconCard.fixedRight {
+    padding: 0;
+    right: 0!important;
+    width: 26px;
+    left: inherit;
+    top: 45%;
+    position: absolute;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
+    
+  .col-xs-8{
+    width:65.67% ;
+  }
+}
+.img-text{
+  display: block;
+  width: 46px;
+  height: 46px;
+  background: #eee;
+  border-radius: 50%;
+  margin: 8px auto;
+  position: relative;
+}

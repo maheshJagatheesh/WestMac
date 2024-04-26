@@ -1,0 +1,70 @@
+<ion-header mode="md">
+    <ion-navbar>
+        <div class="top-bar" (click)="backArrow()">
+            <div class="inverse"> SURVEY</div>
+        </div>
+    </ion-navbar>
+</ion-header>
+<ion-content class="bg-black">
+    <section class="main mt-20">
+        
+        <form action="" class="user-form event-player">
+            <section class="profileFirst heightAuto">
+                <div class="date_Option text-blue text-center">
+                    <span>TODAY AT 12:00 PM</span>
+                </div>
+                <h4 class="info-item text-center inverseText">GAME VS TRINITY GRAMMAR</h4>
+                <div class="divider inverse"></div>
+                <div class="info-item already-filled-text">You have already filled the survey</div> 
+                <div class="group-item" *ngFor="let key of surveyQuestionList;let i=index" >
+                    <div class="info-content surveySlider" *ngIf="key.QUESTIONTYPE == '0' " >
+                        <div  >
+                            <h4 class="sm-title">{{key.QUESTION}}</h4>
+                            <div class="range-slider">
+                                <div  class="fixed-right"> <span class="text-blue" *ngIf="saveSurveyQuestionDetails[2][i] == ''; then minValue else actualValue"></span> / {{key.OPTIONLIST.length}}</div>
+                                <ng-template #minValue>{{saveSurveyQuestionDetails[1][i]}}</ng-template>
+                                <ng-template #actualValue>{{saveSurveyQuestionDetails[2][i]}}</ng-template>
+                                <ion-range [disabled]="alreadySaved" min="1" max="{{key.OPTIONLIST.length}}" (ngModelChange)="rangeChange(i,$event)" step="1" debounce="5000" [(ngModel)]="saveSurveyQuestionDetails[2][i]" [ngModelOptions]="{standalone: true}" color="primary"> </ion-range>
+                                <div class="slider-value">
+                                    <div *ngIf="saveSurveyQuestionDetails[2][i] == ''; then minValue else actualValue"></div>
+                                </div>
+                                <div id="range" style="width:100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-content heightAuto"  *ngIf="key.QUESTIONTYPE == 2">
+                        <h4 class="sm-title">{{key.QUESTION}}</h4>
+                        <div class="form-group">
+                            <input type="text" name="txtType" [disabled]="alreadySaved" value="{{surveyData[i].ANSWERVALUE}}" [(ngModel)]="saveSurveyQuestionDetails[2][i]" class="form-control" (ngModelChange)="textChange(i,$event)">
+                        </div>
+                    </div>
+
+                    <div class="info-content heightAuto" *ngIf="key.QUESTIONTYPE == 1">
+                        <h4 class="sm-title">{{key.QUESTION}}</h4>
+                        <div class="form-group">
+                            <select name="selectType" [disabled]="alreadySaved" [(ngModel)]="saveSurveyQuestionDetails[2][i]" (ngModelChange)="selectBox(i,saveSurveyQuestionDetails[2][i])"  class="form-control select-box">
+                                <option value="{{data.OPTIONVALUE}}" *ngFor="let data of key.OPTIONLIST;let k=index;">{{data.OPTIONVALUE}}</option> 
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="info-content heightAuto" *ngIf="key.QUESTIONTYPE == 3">
+                        <ion-item class="surveyRadio" mode="ios">
+                            <ion-label><h4 class="sm-title">{{key.QUESTION}}</h4></ion-label>
+                            <ion-toggle [(ngModel)]="saveSurveyQuestionDetails[2][i]" [ngModelOptions]="{standalone: true}" (ionChange)="yesNoType(i,$event.checked)" checked="false" [disabled]="alreadySaved"></ion-toggle>
+                        </ion-item>
+                    </div>
+                </div>
+                <!-- <div class="group-item" >
+                        
+                </div>
+                <div class="group-item">
+                   
+                </div>  -->                
+                <div class="btn-section" *ngIf="!alreadySaved">
+                    <button type="submit" class="btn btn-rounded" (click)="save()">SAVE</button>
+                </div>
+            </section>
+        </form>
+    </section>
+</ion-content>

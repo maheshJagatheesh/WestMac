@@ -1,0 +1,11 @@
+<ion-tabs selectedIndex={{activatedTab}} (ionChange)='getTabId($event)' class="tabs-md">
+  <ion-tab class='home_menu' [root]='tab1Root' tabTitle=" " tabIcon="custom-home"></ion-tab>
+  <ion-tab class='event_menu' [root]='tab2Root' tabTitle=" " tabIcon="custom-events"></ion-tab>
+  <ion-tab class='students_menu' [root]='tab3Root' tabTitle=" " tabIcon="custom-students"   ></ion-tab>
+  <!-- <ion-tab class='team_mates_menu' [root]='tab8Root' tabTitle=" " tabIcon="custom-students" [show]="FunctionAccess?.user_adminLevel == 4"></ion-tab> -->
+  <ion-tab class='chat_menu' [root]='tab4Root' tabTitle=" " tabIcon="custom-chat" tabBadge="..."></ion-tab>
+  <ion-tab class='more_menu' [root]='tab5Root' tabTitle=" " tabIcon="custom-more" ></ion-tab>
+  <ion-tab class='more_menu' [root]='tab6Root' tabTitle=" " tabIcon="custom-more" ></ion-tab>
+  <ion-tab class='more_menu' [root]='tab7Root' tabTitle=" " tabIcon="custom-more" ></ion-tab>
+</ion-tabs>
+

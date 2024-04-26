@@ -1,0 +1,84 @@
+<!--
+  Generated template for the ChatViewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <nav class="navbar navbar-fixed-top">
+      <div class="top-bar clearfix">
+          <div class="pull-left">
+              <div class="backArrow info-item" (click)="goBack()">CHAT</div>
+          </div>
+          <div class="prev-next pull-right">
+            <div class="dropdown">
+                <a  class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);"><img src="assets/images/chat-more.svg" style="width: 25px;" ></a>
+                <ul class="dropdown-menu">
+                    <li *ngIf="this.viewMuteUnmute == 0" (click)="muteNotification()">Mute notifications</li>
+                   <li *ngIf="this.viewMuteUnmute == 1" (click)="unmuteNotification()">Unmute notifications</li>
+                    <li *ngIf="isBlocked == 0" (click)="blockUnblockSingleChat(1)">Block</li>
+                </ul>
+            </div>
+          </div>
+          <!--<div class="prev-next pull-right" (click)="goToChooseTeamsPage()">
+              <a href="javascript:void(0);" class="next"></a>
+              <a href="javascript:void(0);" class="prev"></a
+          </div>>-->
+      </div>
+  </nav>
+</ion-header>
+<ion-content>
+  <div class="bg-grey chatMsgColorWidth" cz-shortcut-listen="true">
+    <section class="main">
+        <form action="" class="user-form p-0">
+            <section class="profileFirst heightAuto chat">
+                <div class="chat-logo text-center image-sm" style=" padding-top: 20%;">
+                    <!--<img *ngIf="profilePic != ''" src="{{global.PROFILEIMAGEDEVURL + profilePic}}" alt="">
+                    <img *ngIf="profilePic == ''" src="assets/images/test-user.svg" alt="">-->
+                    <img *ngIf="profilePic != ''; else noImage" src="{{global.PROFILEIMAGEURL + profilePic}}" alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+                    <ng-template #noImage>
+                        <div class="img-circle" *ngIf="name != ''"><span class="img-text">{{name[0] | uppercase}} {{receiver_last_name[0] | uppercase}} </span></div>
+                        <div class="img-circle" *ngIf="name == ''"><span class="img-text"> N N </span></div>
+                    </ng-template>
+                    <h5 class="img-circle" *ngIf="name != ''" class="xs-title">{{name}}</h5>
+                    <h5 class="img-circle" *ngIf="name == ''" class="xs-title">No Name</h5>
+                </div>
+                <div class="group-chat" *ngFor="let chatMessage of chatMessages;let last=last">
+                    <div class="msg-card right" *ngIf="chatMessage.checkSender == 'Me'"> <!--from me-->
+                        <span class="msg chat-blue forNewLine" *ngIf="chatMessage.msg_type == 0">{{chatMessage.message}}</span>
+                        <span class="img-wrap" *ngIf="chatMessage.msg_type == 1" (click)="viewImage(chatMessage.image)"><img src="{{global.MESSAGEIMAGE+chatMessage.image}}" alt=""></span>
+                        <span class="chat-date chat-date-right">{{chatMessage.chatDateTime}}  <ion-icon *ngIf="chatMessage.unread==0" ios="ios-done-all" md="md-done-all"></ion-icon> </span>
+                    </div>
+                    <div class="msg-card left" *ngIf="chatMessage.checkSender != 'Me'"> <!--from others-->
+                        <div class="msg-group">
+                            <span class="msg forNewLine" *ngIf="chatMessage.msg_type == 0">{{chatMessage.message}}</span>
+                            <span class="img-wrap" *ngIf="chatMessage.msg_type == 1" (click)="viewImage(chatMessage.image)"><img src="{{global.MESSAGEIMAGE+chatMessage.image}}" alt=""></span>
+                            <span class="chat-date" *ngIf="chatMessage.checkSender != 'Me'">{{chatMessage.chatDateTime}}</span>
+                        </div>
+                    </div>
+                  {{(last && isScroll) ? gototillBottom() : ''}}
+                </div>
+                <div *ngIf="isBlocked == 1">
+                    <button type="button" class="btn btn-remove xs-btn" (click)="blockUnblockSingleChat(0)">Unblock</button>
+                </div>
+            </section>
+        </form>
+    </section>
+  </div>
+</ion-content>
+<ion-footer>
+    <nav class="navbar navbar-default navbar-fixed-bottom chatbar-fixed navbar-chat-microph">
+        <div class="row">
+            <div class="col-xs-2">
+                <img src="assets/images/icons8-camera.svg" alt="" class="chat-camera" (click)="settingGroupIcon()">
+            </div>
+            <form class="input-wrap col-xs-8">
+                <!--<input type="text" id="messageContent" class="form-control" placeholder="" name="srch-term" (keyup.enter)="sendMessage($event)">-->
+                <textarea id="messageContent" class="form-control" placeholder="" name="srch-term" (keyup.enter)="sendMessage($event)"></textarea>
+            </form>
+            <div class="col-xs-2">
+                <ion-icon ios="md-send" md="md-send" class="chat-send"  (click)="sendMessage($event)"></ion-icon>
+            </div>
+        </div>
+    </nav>
+</ion-footer>

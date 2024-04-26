@@ -1,0 +1,192 @@
+
+    <nav class="navbar navbar-fixed-top" hideBackButton="true" transparent>
+        <!-- <div class="prev-next pull-right" (click)="goToChooseTeamsPage()">
+          <a href="javascript:void(0);" class="next"></a>
+        </div> -->
+        <div class="prev-next pull-right trophy" (click)="sendToMessageLog()">
+          <img src="assets/images/bell.svg">
+        </div>
+      </nav>
+
+
+<ion-content class="bg-homeScreen {{bgThemeColor}}" [ngStyle]="{'background-image':'url(' + setHomeScreenImage + ')'}">
+  <div>
+    <section class="main">
+
+      <form action="" class="user-form profile">
+        <section class="profileFirst heightAuto">
+            <img class="logo-top" src="assets/images/Brisbaneboys-logo.svg" alt="">
+          <div class="form-group">
+            <h5 class="info-item">{{CurrentDate}}</h5>
+          </div>
+
+          <div class="form-group mt-xl">
+            <div class="title" *ngIf="loggedInUserData && loggedInUserData.ISPARENT == 0">
+              Hi {{loggedInUserData.LOGGEDIN_USER_FIRST_NAME}},
+              <br>
+              <div *ngIf="setActivatedTeam">
+                welcome to {{setActivatedTeam.TEAM_NAME}},
+                <span *ngIf="setActivatedTeam.DIVISION_NAME && setActivatedTeam.DIVISION_NAME.length > 0">
+                <br>{{setActivatedTeam.DIVISION_NAME}},
+                </span>
+                <br> {{setActivatedTeam.CLIENT_NAME}}
+              </div>
+            </div>
+            <div class="title" *ngIf="loggedInUserData && loggedInUserData.ISPARENT == 1">
+                Hi {{loggedInUserData.LOGGEDIN_USER_FIRST_NAME}}
+                <span *ngIf="loggedInUserData.LOGGEDIN_USER_PERSON_ID!=loggedInUserData.PERSON_ID">
+                  ! You are looking at:<br><br> {{loggedInUserData.FIRST_NAME}}
+                </span>
+
+                <div *ngIf="setActivatedTeam">
+                  <span *ngIf="setActivatedTeam.DIVISION_NAME && setActivatedTeam.DIVISION_NAME.length > 0">
+                  <br>{{setActivatedTeam.DIVISION_NAME}},
+                  </span>
+                  <br> {{setActivatedTeam.CLIENT_NAME}}
+                </div>
+
+              </div>
+          </div>
+
+          <div class="option-item mt-30">
+            <div class="row">
+              <div class="well col-xs-6">
+                <div class="icon-wrap" (click)="getPreviousEventDetails()">
+                  <img src="assets/images/event-prev.svg" alt="">
+                  <label >PREVIOUS EVENT</label>
+                </div>
+              </div>
+              <div class="well col-xs-6">
+                <div class="icon-wrap" (click)="getNextEventDetails()">
+                  <img src="assets/images/event-nxt.svg" alt="">
+                  <label >NEXT EVENT</label>
+                </div>
+              </div>
+            </div>
+            <div class="row" *ngIf="loggedInUserData && ((loggedInUserData.ISCONTRACTOR || loggedInUserData.TIMESHEETREVIEWER) || ShowAlert)">
+              <div class="well col-xs-6" *ngIf="loggedInUserData && (loggedInUserData.ISCONTRACTOR || loggedInUserData.TIMESHEETREVIEWER)">
+                <div class="icon-wrap" (click)="sendTimesheetDashboard()">
+                  <img src="assets/images/time_sheet.svg" alt="" >
+                  <label>TIMESHEETS</label>
+                </div>
+              </div>
+              <div class="well col-xs-6" *ngIf="loggedInUserData && (loggedInUserData.ISCONTRACTOR || loggedInUserData.TIMESHEETREVIEWER)">&nbsp;</div>
+              <div class="well col-xs-6" (click)="gotoAlerts()" *ngIf="ShowAlert">
+                <div class="icon-wrap" >
+                  <img src="assets/images/alerts.svg" alt="">
+                  <label>ALERTS</label>
+                </div>
+              </div>
+              <div class="well col-xs-6" *ngIf="ShowAlert">&nbsp;</div>
+            </div>
+            <!--
+            <div class="row">
+              <div class="well col-xs-6">
+                <div class="icon-wrap" >
+                  <img src="assets/images/start-game.png" alt="">
+                  <label>START GAME</label>
+                </div>
+              </div>
+              <div class="well col-xs-6">
+                <div class="icon-wrap" (click)="goToGradingPage()">
+                  <img src="assets/images/grading.png" alt="">
+                  <label>GRADING</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="well in col-xs-6">
+                <div class="icon-wrap" (click)="gotoGalleryEvent()">
+                  <img src="assets/images/gallery.png">
+                  <label>GALLERY</label>
+                </div>
+              </div>
+              <div class="well col-xs-6">
+                <div class="icon-wrap">
+                  <img src="assets/images/stats-lineup.png" alt="">
+                  <label>LEADERBOARD</label>
+                </div>
+              </div>
+            </div>
+              -->
+        
+          </div>
+        </section>
+        <!-- <div class="slider">
+          <div class="sliderBg">
+            <ion-slides loop="true" pager="true">
+              <ion-slide>
+              <div class="item">
+                <div class="card">
+                  <h4 class="inverseText">NEWSFEED</h4>
+                  <div class="row pt-30">
+                    <div class="thumbnail col-xs-3">
+                      <img src="assets/images/img-2.png" class="img-responsive" alt="">
+                    </div>
+                    <div class="col-xs-9">
+                      <h4 class="card-title">Thanks to everyone who helped raise $300 at the cake stall.</h4>
+                    </div>
+                  </div>
+                  <div class="card-circle bottom-right">
+                    <span>56</span> <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+              </ion-slide>
+              <ion-slide>
+              <div class="item">
+                <div class="card">
+                  <h4 class="inverseText">NEWSFEED</h4>
+                  <div class="row pt-30">
+                    <div class="thumbnail col-xs-3">
+                      <img src="assets/images/img-2.png" class="img-responsive" alt="">
+                    </div>
+                    <div class="col-xs-9">
+                      <h4 class="card-title">Thanks to everyone who helped raise $300 at the cake stall.</h4>
+                    </div>
+                  </div>
+                  <div class="card-circle bottom-right">
+                    <span>56</span> <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+              </ion-slide>
+              <ion-slide>
+              <div class="item">
+                <div class="card">
+                  <h4 class="inverseText">NEWSFEED</h4>
+                  <div class="row pt-30">
+                    <div class="thumbnail col-xs-3">
+                      <img src="assets/images/img-2.png" class="img-responsive" alt="">
+                    </div>
+                    <div class="col-xs-9">
+                      <h4 class="card-title">Thanks to everyone who helped raise $300 at the cake stall.</h4>
+                    </div>
+                  </div>
+                  <div class="card-circle bottom-right">
+                    <span>56</span> <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+              </ion-slide>
+            </ion-slides>
+          </div>
+        </div> -->
+      </form>
+    </section>
+  </div>
+</ion-content>
+<!--
+<ion-footer>
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="home active"><a href="javascript:void(0)">Home</a></li>
+        <li class="events" (click)="gotoDisplayEvents()"><a href="javascript:void(0)">Events</a></li>
+        <li class="players" (click)="goToPlayersDashboard()"><a href="javascript:void(0)">Players</a></li>
+        <li class="comment" (click)="goToChatDashboard()"><a href="javascript:void(0)">Comments</a></li>
+        <li class="more" (click)="goToMenuPage()"><a href="javascript:void(0);">More</a></li>
+      </ul>
+    </div>
+  </nav>
+</ion-footer> -->

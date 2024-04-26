@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15.5" height="15.5" viewBox="0 0 15.5 15.5">
+  <g id="basketball" transform="translate(-0.75 -0.75)">
+    <path id="Path_1185" data-name="Path 1185" d="M13.591,3.706a6.974,6.974,0,0,0,0,9.588" fill="none" stroke="#15233c" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <path id="Path_1186" data-name="Path 1186" d="M3.409,3.706A6.964,6.964,0,0,1,5.318,8.5a6.969,6.969,0,0,1-1.909,4.794" fill="none" stroke="#15233c" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line id="Line_275" data-name="Line 275" y2="14" transform="translate(8.5 1.5)" fill="none" stroke="#15233c" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line id="Line_276" data-name="Line 276" x1="14" transform="translate(1.5 8.5)" fill="none" stroke="#15233c" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <circle id="Ellipse_529" data-name="Ellipse 529" cx="7" cy="7" r="7" transform="translate(1.5 1.5)" stroke-width="1.5" stroke="#15233c" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" fill="none"/>
+  </g>
+</svg>

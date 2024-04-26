@@ -1,0 +1,64 @@
+<ion-header class="header-md">
+  <ion-navbar class="main">
+    
+    <div class="top-bar clearfix">
+      <div class="pull-left col-xs-6 pr-0" (click)="backArrow()">
+        <div class="backArrow"> MESSAGE LOG </div>
+    </div>
+      <!-- <div class="prev-next pull-right pr-10" (click)="goToChooseTeamsPage()">
+        <a href="javascript:void(0);" class="next"></a>
+      </div> -->
+    </div>
+  </ion-navbar>
+  
+</ion-header>
+
+
+<ion-content class="bg-gray event">
+    <section class="main">
+        
+            <section class=" heightAuto bg-gray show-card">
+                <div class="event-card welfare" *ngIf="success==1 && messageDetails.length<=0">
+                    <div class="well select-card " >
+                        <div class="row">
+                            <div class="col-xs-12 ">
+                                <h5 class="sub-title">No alerts found</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card welfare" *ngFor="let details of messageDetails.slice().reverse()">
+                    <div class="well select-card" style="margin-bottom: 0 !important">
+    
+                        <div class="row">
+                            <div class="card-img col-xs-2 p-0">
+                                <span class="" *ngIf="!details.SENDER_IMAGE">
+                                    <div class="img-circle"><span class="img-text">{{details.SENDERFIRSTNAME[0] | uppercase}} {{details.SENDERLASTNAME[0] | uppercase}} </span></div>
+                                    
+                                </span>
+                                <span class="" *ngIf="details.SENDER_IMAGE">
+                                            <img src="{{PhotoApiUrl}}{{details.SENDER_IMAGE}}" alt="" class="img-circle">
+                                </span>
+                            </div>
+    
+                            <div class="card-title col-xs-9 p-0">{{details.EVENTNAME}} 
+                                <p class="MESSAGE_DATE-color">{{details.MESSAGEDATE}}</p>
+                                <div class="MessageCard">
+                                    <p>
+                                        {{details.MESSAGE}}
+                                    </p>
+                                    <span class="text-Color">{{details.SENDERFIRSTNAME | uppercase}} {{details.SENDERLASTNAME | uppercase}}</span>
+                                    <span class="text-Color" style="float: right">{{details.MESSAGETIME}}</span>
+                                </div>
+                                
+                            </div>
+                        
+                        </div>
+                    </div>
+    
+                  </div>
+            </section>
+          
+          </section>
+
+</ion-content>

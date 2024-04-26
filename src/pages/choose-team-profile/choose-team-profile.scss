@@ -1,0 +1,17 @@
+page-choose-team-profile {
+	.leftWrap{
+		float: left;
+		width: 80%;
+	}
+	.rightWrap{
+		display: none;
+		float: left;
+		width: 20%;
+	}
+	.rightWrap.active{
+		display: block;
+	}
+	.rightWrap.active::after {
+		clear: both !important;
+	}
+}

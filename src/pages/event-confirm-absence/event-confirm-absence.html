@@ -1,0 +1,62 @@
+<ion-content class="bg-black" padding>
+  <div class="fixed-top_ modal-close">
+    <!-- <img src="assets/images/close-white.png" alt="" data-dismiss="modal"> -->
+    <div class="rotate-text pwrotate-text-white" (click)="close()">
+          <span class="close_" data-dismiss="modal">CLOSE
+              <ion-icon name="close" class="close_-button"></ion-icon>
+          </span>
+      </div>
+</div>
+    <!-- Modal content-->
+    <div class="modal-content modalView" >
+        <div class="modal-header shadow">
+            <h5 class="modal-title fontBold text-center">CONFIRM ABSENCE AND REASON</h5>
+        </div>
+        <div class="modal-body modal-report select-option" >
+            <ion-item class='AbsenceCard'>
+              <div class="top-section text-left">
+                <div class="card-img">
+                    <img alt="" class="img-circle" src="assets/images/test-user.svg">
+                </div>
+                <h5 class="sub-title" *ngIf="PersonDetails">{{PersonDetails.attendInfo.first_name}} {{PersonDetails.attendInfo.last_name}}</h5>
+                <h5 class="sub-title" *ngIf="PersonDetails">{{PersonDetails.event_name}}</h5>
+                <p class="text-fade" *ngIf="PersonDetails">{{PersonDetails.date}}</p>
+              </div>
+              <div class="reasonAbsence form-group clearfix">
+                <label class="titleText pull-left">Reason for Absence:</label>
+                <select class="label-text form-control pull-right" [(ngModel)]="SelectReason">
+                  <option class="label-text" *ngFor="let key of reasonList" value={{key.reason}}>{{key.reason_display}}</option>
+                </select>
+              </div>
+              </ion-item>
+              <div>
+                <p class="label-text titleText">Comments:</p>
+                <ion-input [(ngModel)]="comment" class="input-box textarea-box form-control"></ion-input>
+              </div>
+              <div >
+                <div class="text-center mb-10" *ngIf="(AttendanceApproveOption && AttendanceApproveOption.alert_status==2)">
+                    <img class="medicalCertificateImg" *ngIf="MedicalCertificate == '' && MedicalCertificatePrev != ''" src="{{global.MEDICALCERTIFICATEIMAGEURL}}{{MedicalCertificatePrev}}?r={{randomNumber}}" />
+                    <div class="circle success" id="profileImgWrap" *ngIf="MedicalCertificate; else noImage">
+                      <img src="{{MedicalCertificate}}" alt="" (click)="presentActionSheet()" onerror="this.src='assets/images/camera.svg';var element = document.getElementById('profileImgWrap');element.classList.remove('success');" />
+                    </div>
+                </div>
+                <div class="linkOption text-center" *ngIf="AttendanceApproveOption && AttendanceApproveOption.alert_status==2">
+                    <span class="titleText fixed-left">Medical Certificate </span>   <ion-icon name="cloud-upload" class="download-icon" (click)="presentActionSheet()"></ion-icon>
+                </div>
+                <!-- <div class="circle success" id="profileImgWrap" *ngIf="MedicalCertificate; else noImage">
+                    <img src="{{MedicalCertificate}}" alt="" (click)="presentActionSheet()" onerror="this.src='assets/images/camera.svg';var element = document.getElementById('profileImgWrap');element.classList.remove('success');" />
+                </div> -->
+                
+                <!-- <ng-template #noImage>
+                    <ion-icon name="cloud-upload"></ion-icon>
+                </ng-template> -->
+              </div>
+              <div class="confirm-card">
+                <ion-button class="confirm-Button btn btn-save xs-btn" (click)="saveAttendanceWorkflow()">Confirm</ion-button>
+              </div>
+            
+        </div>
+        
+    </div>
+</ion-content>
+

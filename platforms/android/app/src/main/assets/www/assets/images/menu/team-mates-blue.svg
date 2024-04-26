@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38.459" height="36" viewBox="0 0 40 40">
+  <g id="Group_5559" data-name="Group 5559" transform="translate(-174.543 -626)">
+    <g id="Group_5558" data-name="Group 5558">
+      <g id="Group_5557" data-name="Group 5557">
+        <text id="Players" transform="translate(195 659.001)" fill="#43b7cc" font-size="11" font-family="ArialMT, Arial"><tspan x="-20.672" y="0">Groups</tspan></text>
+      </g>
+    </g>
+    <g id="Group_4983" data-name="Group 4983" transform="translate(175.543 626)">
+      <g id="Group_4244" data-name="Group 4244">
+        <g id="Ellipse_254" data-name="Ellipse 254" transform="translate(4.857)" fill="none" stroke="#43b7cc" stroke-linecap="round" stroke-width="2">
+          <circle cx="6.071" cy="6.071" r="6.071" stroke="none"/>
+          <circle cx="6.071" cy="6.071" r="5.071" fill="none"/>
+        </g>
+        <path id="Path_160" data-name="Path 160" d="M-1693-879.952s2.957-7.761,10.785-7.763,10.674,7.763,10.674,7.763" transform="translate(1693 901.218)" fill="none" stroke="#43b7cc" stroke-linecap="round" stroke-width="2"/>
+      </g>
+      <g id="Group_4982" data-name="Group 4982" transform="translate(15)">
+        <g id="Ellipse_254-2" data-name="Ellipse 254" transform="translate(4.857)" fill="none" stroke="#43b7cc" stroke-linecap="round" stroke-width="2">
+          <circle cx="6.071" cy="6.071" r="6.071" stroke="none"/>
+          <circle cx="6.071" cy="6.071" r="5.071" fill="none"/>
+        </g>
+        <path id="Path_160-2" data-name="Path 160" d="M-1693-879.952s2.957-7.761,10.785-7.763,10.674,7.763,10.674,7.763" transform="translate(1693 901.218)" fill="none" stroke="#43b7cc" stroke-linecap="round" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,66 @@
+<!--
+  Generated template for the GalleryTimelinePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <nav class="navbar navbar-fixed-top">
+    <div class="top-bar clearfix">
+      <div class="prev-next pull-right" (click)="goToChooseTeamsPage()">
+        <a href="javascript:void(0);" class="next"></a>
+        <a href="javascript:void(0);" class="prev"></a>
+      </div>
+    </div>
+    <div class="bg-header">
+      <div class="title fontBold">GALLERY</div>
+    </div>
+    <ul class="nav navbar-nav top-menu galry-event-mnu timeline-select">
+      <li class="active"><a href="javascript:void(0);">Timeline</a></li>
+      <li><a href="javascript:void(0);" (click)="goToGalleryEvents()">Events</a></li>
+      <li><a href="javascript:void(0);" (click)="goToGalleryAlbums()">Albums</a></li>
+    </ul>
+  </nav>
+</ion-header>
+
+<ion-content class="bg-gray event">
+  <section class="main">
+    <form action="" class="user-form player-item">
+      <section class="profileFirst heightAuto xs-padding">
+        <div class="event-card welfare bg-gray">
+          <a href="javascript:void(0);" class="circle-plus" (click)="addGalleryImage()">
+            <i class="material-icons">add</i>
+          </a>
+          <div *ngFor="let photosByMonth of photosByMonths">
+            <div class="row">
+              <div class="card-img col-xs-6 p-0 gallery-home">
+                {{ photosByMonth.month }}
+              </div>
+            </div>
+            <div class="homeScreen mb-30">
+              <div class="row">
+                <div *ngFor="let image of photosByMonth.images" class="thumbnail col-xs-3" (click)="goToGalleryTimelineDetails()">
+                  <img src="{{global.GALLERYIMAGEURL}}{{image.media_link}}" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </form>
+  </section>
+</ion-content>
+
+<ion-footer>
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="home" (click)="gotoHome()"><a href="javascript:void(0);">Home</a></li>
+        <li class="events" (click)="gotoDisplayEvents()"><a href="javascript:void(0);">Events</a></li>
+        <li class="players" (click)="goToPlayersDashboard()"><a href="javascript:void(0);">Players</a></li>
+        <li class="comment" (click)="goToChatDashboard()"><a href="javascript:void(0);">Comments</a></li>
+        <li class="more" (click)="goToMenuPage()"><a href="javascript:void(0);">More</a></li>
+      </ul>
+    </div>
+  </nav>
+</ion-footer>

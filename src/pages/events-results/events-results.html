@@ -1,0 +1,351 @@
+<ion-header>
+
+    <ion-navbar class="main">
+        <div class="top-bar clearfix">
+            <div class="pull-left">
+                <div>
+                    <button class="BackButton" (click)="backArrow()" *ngIf="BackButton"><img src="assets/images/arrow-black.svg"></button> RESULT
+                </div>
+            </div>
+            <!--<div class="prev-next pull-right" (click)="goToChooseTeamsPage()">
+                <a href="javascript:void(0);" class="next"></a>
+                <a href="javascript:void(0);" class="prev"></a>
+            </div>
+            <div class="calendar pull-right" (click)="addEventToCalendar()">
+                <img src="assets/images/calendar.svg">
+
+            </div>
+            <div class="location pull-right" (click)="openMap(groundAdress,groundState,latitude,longitude)">
+              <img src="assets/images/Location.svg">
+            </div>-->
+        </div>
+    </ion-navbar>
+    <!-- <ion-grid class="nav navbar-nav top-menu">
+            <ion-row *ngIf="FunctionAccess "> -->
+    <!--<ion-col >
+                    <a  href="javascript:void(0)" *ngIf="FunctionAccess.event_tab_Attendance=='yes'" (click)="gotoAttandance()">
+                        <span class="ActiveSpan InactiveSpan">Attendance</span>
+                    </a>
+                    <a  href="javascript:void(0)" *ngIf="FunctionAccess.event_tab_Overview=='yes'" (click)="gotoAttandance()">
+                        <span class=" ActiveSpan InactiveSpan">Overview</span>
+                    </a>
+                </ion-col>-->
+    <!--<ion-col *ngIf="FunctionAccess.event_Welfare=='yes' && (UpcomingSingleEvent && UpcomingSingleEvent.welfare_question==1)">
+                    <a href="javascript:void(0)" (click)="gotoWelfare()">
+                        <span class="ActiveSpan InactiveSpan">Welfare</span>
+                    </a>
+                </ion-col>-->
+    <!--<ion-col *ngIf=" UpcomingSingleEvent && UpcomingSingleEvent.event_type_id!=2">
+                    <a href="javascript:void(0)" (click)="gotoStats()">
+                        <span class=" ActiveSpan InactiveSpan">Stats</span>
+                    </a>
+                </ion-col>-->
+    <!-- <ion-col *ngIf="FunctionAccess.event_Result=='yes' && UpcomingSingleEvent && UpcomingSingleEvent.event_type_id!=2">
+                    <a href="javascript:void(0)">
+                        <span class="active ActiveSpan">Results</span>
+                    </a>
+                </ion-col>
+            </ion-row>
+        </ion-grid> -->
+</ion-header>
+<ion-content class="bg-black event" (click)="keyboardCheck()">
+    <section class="main">
+        <form action="" class="user-form profile event-results">
+            <section class="profileFirst bg-black heightAuto xs-padding" *ngIf="FunctionAccess &&  FunctionAccess.event_Result=='yes'">
+                <div class="form-group" *ngFor="let detail of arrDetail">
+                    <div class="date_time text-blue text-center">
+                        <span class="dateOption">{{key.week}} {{date}}</span>
+                        <span class="glyphicon glyphicon-time" *ngIf="arrDetail"></span> <span class="timeOption">{{key.time_started}}</span>
+                    </div>
+                    <div class="homeAway-title text-center text-blue">{{homeAwayText}}</div>
+                    <h4 class="info-item text-center inverseText" *ngFor="let detail of arrDetail">{{detail.name}}</h4>
+                    <p class="text-center inverseText">{{detail.ground_name}}
+                        <br>{{detail.ground_address}}, {{detail.ground_state}}
+                    </p>
+                    <div class="bookmark-line mt-30"></div>
+                    <h5 class="section-title mt-30">FINAL SCORE</h5>
+                    <!-- code from riverView starts scoreType:1-->
+                    <div *ngIf="detail.scoreType != '2' && detail.scoreType != '3'" class="voting score clearfix">
+                        <div class="pull-left">
+                            <div class="select-val">
+                                <ion-item>
+                                    <ion-input type="number" pattern="[0-9]*" elastic [(ngModel)]="simpleHomeScore" (input)="onInputChange($event)" name="simpleHomeScore" (keyup)="prefixNumber($event)" (ionFocus)="inputFocus()" (ionBlur)="inputBlur()" [readonly]="(FunctionAccess && FunctionAccess.game_score=='no') || scoreIsUpdated==1"></ion-input>
+                                </ion-item>
+                            </div>
+                            <h5 class="inverseText fontBold m-0">{{detail.hometeamname}}</h5>
+                        </div>
+                        <div class="pull-right">
+                            <div class="select-val">
+                                <ion-item>
+                                    <ion-input type="number" pattern="[0-9]*" elastic [(ngModel)]="simpleAwayScore" (input)="onAwayChange($event)"
+                                    name="simpleAwayScore" (keyup)="prefixNumber($event)" (ionFocus)="inputFocus()" (ionBlur)="inputBlur()" [readonly]="(FunctionAccess && FunctionAccess.game_score=='no') || scoreIsUpdated==1"></ion-input>
+                                </ion-item>
+                            </div>
+                            <h5 class="inverseText fontBold m-0">{{detail.awayteamname}}</h5>
+                        </div>
+                    </div>
+                    <!-- code from riverView ends scoreType:1 -->
+                    <!-- scoreType:2 starts -->
+                    <div>
+
+                        <ion-grid *ngIf="detail.scoreType == '2'">
+                            <!-- home team design starts -->
+                            <ion-row>
+                                <ion-col no-lines no-padding text-center>
+                                    <h5 class="inverseText fontBold m-0" style="padding-top: 31% !important;">
+                                        {{detail.hometeamname}}</h5>
+                                </ion-col>
+                                <ion-col size="3">
+                                    <div class="pull-left">
+                                        <h5 class="inverseText fontBold m-0">{{detail.homeAwayScoreLabel}}</h5>
+                                        <div class="select-val">
+                                            <ion-item>
+                                                <!-- style="width: 60% !important;" -->
+                                                <ion-input type="number" pattern="[0-9]*" elastic [(ngModel)]="simpleHomeScore" 
+                                                name="simpleHomeScore" (keyup)="prefixNumber($event)" (ionFocus)="inputFocus()" (ionBlur)="inputBlur()" [readonly]="(FunctionAccess && FunctionAccess.game_score=='no') || scoreIsUpdated==1">
+                                                </ion-input>
+                                            </ion-item>
+                                        </div>
+
+                                    </div>
+                                </ion-col>
+                                <ion-col size="3">
+                                    <div class="pull-left">
+                                        <h5 class="inverseText fontBold m-0">{{detail.homeAwayT2ScoreLabel}}</h5>
+                                        <div class="select-val">
+                                            <ion-item>
+                                                <ion-input type="number" pattern="[0-9]*" elastic [(ngModel)]="tier2HomeScore" name="tier2HomeScore" (keyup)="prefixNumber($event)" (ionFocus)="inputFocus()" (ionBlur)="inputBlur()" [readonly]="(FunctionAccess && FunctionAccess.game_score=='no') || scoreIsUpdated==1">
+                                                </ion-input>
+                                            </ion-item>
+                                        </div>
+
+                                    </div>
+                                </ion-col>
+
+                            </ion-row>
+                            <!-- home team design ends -->
+
+                            <!-- Away team design starts -->
+                            <ion-row>
+                                <ion-col no-lines no-padding text-center>
+                                    <h5 class="inverseText fontBold m-0" style="padding-top: 20% !important;">
+                                        {{detail.awayteamname}}</h5>
+                                </ion-col>
+                                <ion-col size="3">
+                                    <div class="pull-left">
+                                        <div class="select-val">
+                                            <ion-item>
+                                                <!-- style="width: 60% !important;" -->
+                                                <ion-input type="number" pattern="[0-9]*" elastic [(ngModel)]="simpleAwayScore" name="simpleAwayScore" (keyup)="prefixNumber($event)" (ionFocus)="inputFocus()" (ionBlur)="inputBlur()" [readonly]="(FunctionAccess && FunctionAccess.game_score=='no') || scoreIsUpdated==1">
+                                                </ion-input>
+                                            </ion-item>
+                                        </div>
+
+                                    </div>
+                                </ion-col>
+                                <ion-col size="3">
+                                    <div class="pull-left">
+                                        <div class="select-val">
+                                            <ion-item>
+                                                <ion-input type="number" pattern="[0-9]*" elastic [(ngModel)]="tier2AwayScore" name="tier2AwayScore" (keyup)="prefixNumber($event)" (ionFocus)="inputFocus()" (ionBlur)="inputBlur()" [readonly]="(FunctionAccess && FunctionAccess.game_score=='no') || scoreIsUpdated==1">
+                                                </ion-input>
+                                            </ion-item>
+                                        </div>
+
+                                    </div>
+                                </ion-col>
+
+                            </ion-row>
+                            <!-- Away team designing ends -->
+
+                        </ion-grid>
+                    </div>
+                    <!-- scoreType:2 ends -->
+
+                    <!-- code from riverview starts scoreType:3-->
+                    <div>
+                        <ion-grid *ngIf="detail.scoreType == '3'">
+                            <!-- home team design starts -->
+                            <ion-row>
+                                <ion-col no-lines no-padding text-center>
+                                    <h5 class="inverseText fontBold m-0" style="padding-top: 31% !important;">{{detail.hometeamname}}</h5>
+                                </ion-col>
+                                <ion-col size="3">
+                                    <div class="pull-left">
+                                        <h5 class="inverseText fontBold m-0">{{detail.homeAwayScoreLabel}}</h5>
+                                        <div class="select-val">
+                                            <ion-item>
+                                                <!-- style="width: 60% !important;" -->
+                                                <ion-input type="number" pattern="[0-9]*" elastic [(ngModel)]="simpleHomeScore" name="simpleHomeScore" (keyup)="prefixNumber($event)" (ionFocus)="inputFocus()" (ionBlur)="inputBlur()" [readonly]="(FunctionAccess && FunctionAccess.game_score=='no') || scoreIsUpdated==1"
+                                                (input)="onInputChange($event)"></ion-input>
+                                            </ion-item>
+                                        </div>
+
+                                    </div>
+                                </ion-col>
+                                <ion-col size="3">
+                                    <div class="pull-left">
+                                        <h5 class="inverseText fontBold m-0">{{detail.homeAwayT2ScoreLabel}}</h5>
+                                        <div class="select-val">
+                                            <ion-item>
+                                                <ion-input type="number" pattern="[0-9]*" elastic [(ngModel)]="tier2HomeScore" name="tier2HomeScore" (keyup)="prefixNumber($event)" (ionFocus)="inputFocus()" (ionBlur)="inputBlur()" [readonly]="(FunctionAccess && FunctionAccess.game_score=='no') || scoreIsUpdated==1"></ion-input>
+                                            </ion-item>
+                                        </div>
+
+                                    </div>
+                                </ion-col>
+                                <ion-col size="3">
+                                    <div class="pull-left">
+                                        <h5 class="inverseText fontBold m-0">{{detail.homeAwayT3ScoreLabel}}</h5>
+                                        <div class="select-val">
+                                            <ion-item>
+                                                <!-- style="width: 60% !important;" -->
+                                                <ion-input type="number" pattern="[0-9]*" elastic [(ngModel)]="tier3HomeScore" name="tier3HomeScore" (keyup)="prefixNumber($event)" (ionFocus)="inputFocus()" (ionBlur)="inputBlur()" [readonly]="(FunctionAccess && FunctionAccess.game_score=='no') || scoreIsUpdated==1"></ion-input>
+                                            </ion-item>
+                                        </div>
+
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                            <!-- home team design ends -->
+
+                            <!-- Away team design starts -->
+                            <ion-row>
+                                <ion-col no-lines no-padding text-center>
+                                    <h5 class="inverseText fontBold m-0" style="padding-top: 20% !important;">{{detail.awayteamname}}</h5>
+                                </ion-col>
+                                <ion-col size="3">
+                                    <div class="pull-left">
+                                        <div class="select-val">
+                                            <ion-item>
+                                                <!-- style="width: 60% !important;" -->
+                                                <ion-input type="number" pattern="[0-9]*" elastic [(ngModel)]="simpleAwayScore" name="simpleAwayScore" (keyup)="prefixNumber($event)" (ionFocus)="inputFocus()" (ionBlur)="inputBlur()" [readonly]="(FunctionAccess && FunctionAccess.game_score=='no') || scoreIsUpdated==1"
+                                                (input)="onAwayChange($event)"></ion-input>
+                                            </ion-item>
+                                        </div>
+
+                                    </div>
+                                </ion-col>
+                                <ion-col size="3">
+                                    <div class="pull-left">
+                                        <div class="select-val">
+                                            <ion-item>
+                                                <ion-input type="number" pattern="[0-9]*" elastic [(ngModel)]="tier2AwayScore" name="tier2AwayScore" (keyup)="prefixNumber($event)" (ionFocus)="inputFocus()" (ionBlur)="inputBlur()" [readonly]="(FunctionAccess && FunctionAccess.game_score=='no') || scoreIsUpdated==1"></ion-input>
+                                            </ion-item>
+                                        </div>
+
+                                    </div>
+                                </ion-col>
+                                <ion-col size="3">
+                                    <div class="pull-left">
+                                        <div class="select-val">
+                                            <ion-item>
+                                                <!-- style="width: 60% !important;" -->
+                                                <ion-input type="number" pattern="[0-9]*" elastic [(ngModel)]="tier3AwayScore" name="tier3AwayScore" (keyup)="prefixNumber($event)" (ionFocus)="inputFocus()" (ionBlur)="inputBlur()" [readonly]="(FunctionAccess && FunctionAccess.game_score=='no') || scoreIsUpdated==1"></ion-input>
+                                            </ion-item>
+                                        </div>
+
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                            <!-- Away team designing ends -->
+
+                        </ion-grid>
+                    </div>
+                    <!-- code from riverview ends scoreType:3-->
+                </div>
+                <div class="row" *ngIf="(FunctionAccess && FunctionAccess.user_adminLevel !=4) ||
+                (((loggedInUserData && loggedInUserData.ISPARENT) || (FunctionAccess && FunctionAccess.user_adminLevel ==4)) && gameDismissed.length)">
+                    <div class="bookmark-line mt-30"></div>
+                    <div class="radio-option">
+                        <div class="col-xs-12 p-0 flatten">
+                            <div class="radio col-xs-6">
+                                <input type="radio" value="washout" name="gameDismissed" [(ngModel)]="gameDismissed" class="radio-game-dismissed" (click)="gameDismissedChange($event);" />
+                                <label class="sub-title inverseText fontBold Washout">WASHOUT</label>
+                            </div>
+
+
+                            <div class="radio col-xs-6">
+                                <input type="radio" value="forfeit" name="gameDismissed" [(ngModel)]="gameDismissed" class="radio-game-dismissed" (click)="gameDismissedChange($event);" [disabled]="FunctionAccess && FunctionAccess.game_score=='no'" />
+                                <label class="sub-title inverseText fontBold Forfeit">FORFEIT</label>
+                            </div>
+                        </div>
+                        <!--<div class="team-report-wrap col-xs-2 p-0 text-center" (click)="reportTextRowOpened=true" *ngIf="FunctionAccess && FunctionAccess.game_report=='yes'">
+                            <img src="assets/images/team-report.svg" alt="">
+                            <div class="xs-title">TEAM<br> REPORT</div>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="row" *ngIf="FunctionAccess && FunctionAccess.game_report=='yes'" (click)="keyboardCheck()">
+                    <div class="well report bg-white mt-30 col-xs-12">
+                        <h5 class="section-title report-text">REPORT</h5>
+                        <ion-item>
+                            <ion-textarea class="form-control iontextarea" name="reportText" cols="30" rows="5" [(ngModel)]="reportText" (ionFocus)="inputFocus()" (ionBlur)="inputBlur()"></ion-textarea>
+                        </ion-item>
+                    </div>
+                    <!-- <button type="submit" class="btn btn-save btn-sm-black radius-10" (click)="saveGameScoreAndReport()" *ngIf="input_disable">SAVE</button> -->
+                    <button type="submit" [disabled]="!input_disable" class="btn btn-save btn-sm-black radius-10" (click)="saveGameScoreAndReport()" >SAVE</button>
+                </div>
+            </section>
+            <div class="event-card bg-gray" *ngIf="FunctionAccess && FunctionAccess.voting_for_player!='no' && titleHide">
+                <h5 class="section-title">3-2-1 VOTING</h5>
+                <div *ngIf="FunctionAccess && FunctionAccess.voting_for_player=='yes'">
+                    <div class="well select-card" *ngFor="let coach of coachDetails" [class.active]="(activePlayer==coach.PERSON_ID)" (click)="voteForPlayer(coach.PERSON_ID, coach)">
+                        <div class="row">
+                            <div class="card-img col-xs-2 p-0">
+                                <span class="">
+                                <div class="img-circle" *ngIf="coach.PHOTOPATH == ''"><span class="img-text">{{coach.FIRST_NAME[0]}} {{coach.LAST_NAME[0]}} </span></div>
+                            <img src="{{global.PROFILEIMAGEURL}}/{{coach.PHOTOPATH}}" alt="" class="img-circle" onerror="this.src='assets/images/test-user.svg'" *ngIf="coach.PHOTOPATH != ''">
+                            <!-- <img src="assets/images/test-user.svg" alt="" class="img-circle" *ngIf="coach.PHOTOPATH == ''"> -->
+                            </span>
+                        </div>
+                        <div class="card-title col-xs-8 p-0">My Vote</div>
+                        <div class="event-next col-xs-1 p-0 show-tickmark" *ngIf="FunctionAccess && FunctionAccess.voting_for_player=='yes'">
+                            <ion-icon class="next-arrow v-center" ios="ios-checkmark" md="md-checkmark" color=primary *ngIf="(voteSuccess==true && voteForPlayerId==coach.PERSON_ID) || (coach.voted==1)"></ion-icon>
+                        </div>
+                        <div class="event-next col-xs-1 p-0" *ngIf="FunctionAccess && FunctionAccess.voting_for_player=='yes'">
+                            <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="section-title">TEAM MATES</h5>
+            </div>
+            <div class="well select-card" *ngFor="let player of players" [class.active]="(activePlayer==player.person_id)" (click)="voteForPlayer(player.person_id, player)">
+                <div class="row">
+                    <div class="card-img col-xs-2 p-0">
+                        <span class="">
+                                    <div class="img-circle" *ngIf="player.photoPath == ''"><span class="img-text">{{player.first_name[0] | uppercase}} {{player.last_name[0] | uppercase}} </span></div>
+                    <img src="{{global.PROFILEIMAGEURL}}/{{player.photoPath}}" alt="" class="img-circle" onerror="this.src='assets/images/test-user.svg'" *ngIf="player.photoPath != ''">
+                    <!-- <img src="assets/images/test-user.svg" alt="" class="img-circle" *ngIf="player.photoPath == ''"> -->
+                    </span>
+                </div>
+                <div class="card-title  p-0" [class.col-xs-5]="FunctionAccess && FunctionAccess.voting_for_player=='self'" [class.col-xs-8]="FunctionAccess && FunctionAccess.voting_for_player=='yes'">{{player.first_name}} {{player.last_name}}
+
+                    <div>
+                        <span *ngIf="player.uniform_id">#{{player.uniform_id}}</span>
+                    </div>
+                    <!-- <div class="suit-iconCard fixedRight" (click)="DisplaySeverityDetails(player)" *ngIf="FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1 && ((player.playerAilmentsSeverityIcon) || (player.showMedicine==1))">
+                            <img src={{global.ImagesPath}}{{player.playerAilmentsSeverityIcon}} class="suit-icon" *ngIf="(player.playerAilmentsSeverityIcon  && (player.showMedicine==1 || player.showMedicine==0))">
+                            <img src="{{global.ImagesPath}}pills.svg" class="medical-bottle" *ngIf="((player.showMedicine==1) && (!player.playerAilmentsSeverityIcon))">
+                        </div> -->
+
+
+                </div>
+
+                <div class="event-next  col-xs-1 p-0 show-tickmark" *ngIf="FunctionAccess && FunctionAccess.voting_for_player=='yes'">
+                    <ion-icon class="next-arrow v-center" ios="ios-checkmark" md="md-checkmark" color=primary *ngIf="(voteSuccess==true && voteForPlayerId==player.person_id) || (player.voted==1)"></ion-icon>
+                </div>
+                <div class="event-next col-xs-1 p-0" *ngIf="FunctionAccess && FunctionAccess.voting_for_player=='yes'">
+                    <a href="javascript:void(0);" class="next-arrow v-center"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+                <div class="voting col-xs-5 p-0" *ngIf="FunctionAccess && FunctionAccess.voting_for_player=='self'">
+                    <a href="javascript:void(0)" class="select-val vote3" [class.active]="player.person_id == player.vote3" (click)="saveVote($event, player.person_id, 3)">3</a>
+                    <a href="javascript:void(0)" class="select-val vote2" [class.active]="player.person_id == player.vote2" (click)="saveVote($event, player.person_id, 2)">2</a>
+                    <a href="javascript:void(0)" class="select-val vote1" [class.active]="player.person_id == player.vote1" (click)="saveVote($event, player.person_id, 1)">1</a>
+                </div>
+            </div>
+            </div>
+            </div>
+        </form>
+    </section>
+</ion-content>

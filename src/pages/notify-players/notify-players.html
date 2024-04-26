@@ -1,0 +1,116 @@
+<ion-content class="bg-black borrowPlayer">
+    <section class="main mt-20">
+        <div class="top-bar" (click)="backArrow()">
+            <div class="col-xs-3">
+                <div class="backArrow inverse"></div>
+            </div>
+        </div>
+        <form action="" class="user-form">
+            <h5 class="sm-title text-left col-xs-12 mt-20">CHOOSE STUDENT/S TO NOTIFY</h5>
+            <section class="profileFirst heightAuto">
+                <div class="event-card EventPlayer">
+                    <div class="CardStyle" *ngFor="let StateAttendy of DupeventAttendsec;let y=index" >
+                        <div *ngIf="y<3">
+                            <div class="well select-card" [class.SelectCard]=" notifyFlag==Attendy.state-1" 
+                                        *ngFor="let Attendy of StateAttendy;let i=index" (click)="togglePlayerTileSelection(Attendy.person_id,$event)">
+                                <div class="row"  >
+                                    <!-- [class.AutoSelec]="AutoSect(Attendy.person_id,selectPlayerCard,selectFontColor,Attendy.state-1,i)" -->
+                                    <div class="card-img col-xs-2 p-0">
+                                    <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2" [class.no-response]="Attendy.state==3"
+                                        [class.maybe]="Attendy.state==4" *ngIf="!Attendy.PHOTOPATH">
+                                        <div class="img-circle"><span class="img-text">{{Attendy.first_name[0]}} {{Attendy.last_name[0]}} </span></div>
+                                        <!-- <img src="assets/images/test-user.svg" alt="" class="img-circle"> -->
+                                    </span>
+                                    <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2" [class.no-response]="Attendy.state==3"
+                                        [class.maybe]="Attendy.state==4" *ngIf="Attendy.PHOTOPATH">
+                                        <img src={{PhotoApiUrl}}{{Attendy.PHOTOPATH}} alt="" class="img-circle">
+                                    </span>
+                                    </div>
+                
+                                    <div  class="card-title col-xs-10 p-0" [class.SelectCard]=" notifyFlag==Attendy.state-1">{{Attendy.first_name
+                                    | uppercase}} {{Attendy.last_name | uppercase}}
+                                       
+                                        <div>
+                                          
+                                            <span *ngIf="Attendy.uniformid">#{{Attendy.uniformid}}</span>
+                                        </div>
+                                        <div class="suit-iconCard fixedRight" (click)="DisplaySeverityDetails(Attendy)" *ngIf="FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1 && ((Attendy.playerAilmentsSeverityIcon) || (Attendy.showMedicine==1))">
+                                            <img src={{global.ImagesPath}}{{Attendy.playerAilmentsSeverityIcon}} class="suit-icon" *ngIf="(Attendy.playerAilmentsSeverityIcon  && (Attendy.showMedicine==1 || Attendy.showMedicine==0))">
+                                            <img src="{{global.ImagesPath}}pills.svg" class="medical-bottle" *ngIf="((Attendy.showMedicine==1) && (!Attendy.playerAilmentsSeverityIcon))">
+                                        </div>
+                                        
+                                    </div>
+                                    <!-- <div class="col-xs-3 p-0">
+                                        <div class="suit-iconCard" (click)="DisplaySeverityDetails(Attendy.playerAilments)" *ngIf="Attendy.playerAilmentsSeverityIcon && FunctionAccess && FunctionAccess.medicalKit=='yes'">
+                                            <img src={{global.ImagesPath}}{{Attendy.playerAilmentsSeverityIcon}}  class="suit-icon">
+                                        </div> -->
+<!--                                         
+                                        <div class="medical-bottleCard" (click)="MedicineInformation(Attendy)" *ngIf="Attendy.showMedicine==1 && FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1">
+                                            <img src="{{global.ImagesPath}}medicine_bottle.png" class="medical-bottle">
+                                        </div>
+                                    </div> -->
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                    <div class="borrowHeading" *ngIf="BorrowTagFlag==1">
+                        <!-- <h5 class="sm-title text-left col-xs-12 mt-20">BORROWED PLAYERS</h5> -->
+                        <p class="sm-title text-left">BORROWED TEAM MATES</p>
+                    </div>
+                    <div class="CardStyle" *ngFor="let StateAttendy of DupEventAttendSecBorrowed;let i=index">
+                        <div *ngIf="i<3">
+                            <div class="well select-card" [class.SelectCard]="notifyFlag==Attendy.state-1" *ngFor="let Attendy of StateAttendy">
+                                    <div class="row" (click)="togglePlayerTileSelection(Attendy.person_id,$event)">
+                                        <div class="card-img col-xs-2 p-0">
+                                        <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2" [class.no-response]="Attendy.state==3"
+                                            [class.maybe]="Attendy.state==4" *ngIf="!Attendy.photoPath">
+                                            <div class="img-circle"><span class="img-text">{{Attendy.first_name[0]}} {{Attendy.last_name[0]}} </span></div>
+                                            <!-- <img src="assets/images/test-user.svg" alt="" class="img-circle"> -->
+                                        </span>
+                                        <span [class.going]="Attendy.state==1" [class.not-going]="Attendy.state==2" [class.no-response]="Attendy.state==3"
+                                            [class.maybe]="Attendy.state==4" *ngIf="Attendy.photoPath">
+                                            <img src={{PhotoApiUrl}}{{Attendy.photoPath}} alt="" class="img-circle">
+                                        </span>
+                        
+                                        </div>
+                                        <div class="card-title col-xs-10 p-0" [class.SelectCard]="notifyFlag==Attendy.state-1">{{Attendy.first_name | uppercase}}
+                                        {{Attendy.last_name | uppercase}}
+                                            <div>
+                                                <span *ngIf="Attendy.uniformid">#{{Attendy.uniformid}}</span>
+                                            </div>
+                                            <div class="suit-iconCard fixedRight" (click)="DisplaySeverityDetails(Attendy)" *ngIf="FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1 && ((Attendy.playerAilmentsSeverityIcon) || (Attendy.showMedicine==1))">
+                                                <img src={{global.ImagesPath}}{{Attendy.playerAilmentsSeverityIcon}} class="suit-icon" *ngIf="(Attendy.playerAilmentsSeverityIcon  && (Attendy.showMedicine==1 || Attendy.showMedicine==0))">
+                                                <img src="{{global.ImagesPath}}pills.svg" class="medical-bottle" *ngIf="((Attendy.showMedicine==1) && (!Attendy.playerAilmentsSeverityIcon))">
+                                            </div>
+                                            <!-- <div class="col-xs-3 p-0">
+                                                <div class="suit-iconCard" (click)="DisplaySeverityDetails(Attendy.playerAilments)" *ngIf="Attendy.playerAilmentsSeverityIcon && FunctionAccess && FunctionAccess.medicalKit=='yes'">
+                                                    <img src={{global.ImagesPath}}{{Attendy.playerAilmentsSeverityIcon}}  class="suit-icon">
+                                                </div> -->
+                                                
+                                                <!-- <div class="medical-bottleCard" (click)="MedicineInformation(Attendy)" *ngIf="Attendy.showMedicine==1 && FunctionAccess && FunctionAccess.HasMedicineReviewAccess==1">
+                                                    <img src="{{global.ImagesPath}}medicine_bottle.png" class="medical-bottle">
+                                                </div> -->
+                                            <!-- </div> -->
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+
+                        </div>
+
+                        
+                    </div>   
+                </div>
+            </section>
+            <div class="btn-section mb-30 mt-30" >
+                <button type="submit" class="btn btn-save{{bgThemeColor}} btn-sm-black radius-10" (click)=" Notify()">Notify to RSVP</button>
+            </div>
+            
+        </form>
+        </section>
+        
+</ion-content>

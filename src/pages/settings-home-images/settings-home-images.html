@@ -1,0 +1,73 @@
+<!--
+  Generated template for the SettingsHomeImagesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content class="bg-gradient {{bgThemeColor}}">
+  <section class="main mt-20">
+    <div class="top-bar">
+      <div class="col-xs-3">
+        <div class="backArrow" (click)="goBack()"></div>
+      </div>
+    </div>
+    <form action="" class="user-form profile">
+      <section class="innerContent">
+        <div class="form-group">
+          <label class="mb-30">CHOOSE YOUR <br> HOMESCREEN IMAGE</label>
+        </div>
+        <div class="divider"></div>
+        <div class="form-group mt-xl">
+          <div class="homeScreen mb-30">
+            <div class="row">
+              <div class="thumbnail col-xs-4" [class.active]="(getHomeImageName=='img-1.jpg')">
+                <img src="assets/images/img-xs-1.jpg" alt="" (click)="setSettingsHomeImage('img-1.jpg')">
+              </div>
+              <div class="thumbnail col-xs-4" [class.active]="(getHomeImageName=='img-2.jpg')">
+                <img src="assets/images/img-xs-2.jpg" alt="" (click)="setSettingsHomeImage('img-2.jpg')">
+              </div>
+              <div class="thumbnail col-xs-4" [class.active]="(getHomeImageName=='img-3.jpg')">
+                <img src="assets/images/img-xs-3.jpg" alt="" (click)="setSettingsHomeImage('img-3.jpg')">
+              </div>
+            </div>
+            <div class="row">
+              <div class="thumbnail col-xs-4" [class.active]="(getHomeImageName=='img-4.jpg')">
+                <img src="assets/images/img-xs-4.jpg" alt="" (click)="setSettingsHomeImage('img-4.jpg')">
+              </div>
+              <div class="thumbnail col-xs-4" [class.active]="(getHomeImageName=='img-5.jpg')">
+                <img src="assets/images/img-xs-5.jpg" alt="" (click)="setSettingsHomeImage('img-5.jpg')">
+              </div>
+              <div class="thumbnail col-xs-4" [class.active]="(getHomeImageName=='img-6.jpg')">
+                <img src="assets/images/img-xs-6.jpg" alt="" (click)="setSettingsHomeImage('img-6.jpg')">
+              </div>
+            </div>
+            <div class="row">
+              <div class="thumbnail col-xs-4" [class.active]="(getHomeImageName=='img-7.jpg')">
+                <img src="assets/images/img-xs-7.jpg" alt="" (click)="setSettingsHomeImage('img-7.jpg')">
+              </div>
+              <div class="thumbnail col-xs-4" [class.active]="(getHomeImageName=='img-8.jpg')">
+                <img src="assets/images/img-xs-8.jpg" alt="" (click)="setSettingsHomeImage('img-8.jpg')">
+              </div>
+              <div class="thumbnail col-xs-4" [class.active]="(getHomeImageName=='img-9.jpg')">
+                <img src="assets/images/img-xs-9.jpg" alt="" (click)="setSettingsHomeImage('img-9.jpg')">
+              </div>
+            </div>
+            <div class="row">
+              <div class="thumbnail col-xs-4" [class.active]="(getHomeImageName=='img-10.jpg')">
+                <img src="assets/images/img-xs-10.jpg" alt="" (click)="setSettingsHomeImage('img-10.jpg')">
+              </div>
+              <div class="thumbnail col-xs-4" [class.active]="(getHomeImageName=='img-12.jpg')">
+                <img src="assets/images/img-xs-12.jpg" alt="" (click)="setSettingsHomeImage('img-12.jpg')">
+              </div>
+              <div class="thumbnail col-xs-4" [class.active]="(getHomeImageName=='img-13.jpg')">
+                <img src="assets/images/img-xs-13.jpg" alt="" (click)="setSettingsHomeImage('img-13.jpg')">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="info-item text-left"></div>
+      </section>
+    </form>
+  </section>
+</ion-content>

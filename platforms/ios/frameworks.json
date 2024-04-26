@@ -1,0 +1,18 @@
+{
+    "EventKit.framework": 1,
+    "EventKitUI.framework": 1,
+    "ImageIO.framework": 1,
+    "CoreLocation.framework": 3,
+    "AVFoundation.framework": 2,
+    "AudioToolbox.framework": 3,
+    "MessageUI.framework": 2,
+    "SystemConfiguration.framework": 3,
+    "CoreTelephony.framework": 1,
+    "Speech.framework": 1,
+    "Accelerate.framework": 1,
+    "Security.framework": 1,
+    "Photos.framework": 1,
+    "QuartzCore.framework": 1,
+    "WebKit.framework": 1,
+    "MapKit.framework": 1
+}

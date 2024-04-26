@@ -1,0 +1,41 @@
+
+<ion-content class="bg-black" (click)="close($event)">
+    
+  <div class="modal-content logsModal">
+      
+      <div class="modal-body logsCard" *ngIf="PersonData">
+          <div class="modal-header">
+              <h5 class="modal-title fontBold text-center">{{PersonData.FIRST_NAME}} {{PersonData.LAST_NAME}}</h5>
+              <!-- <div class="card-img mt-20">
+                  <img src="assets/images/user.svg" alt="" class="img-circle">
+              </div> -->
+              <div class="card-img">
+                <span class="">
+                    <img *ngIf="PersonData.PHOTOPATH" alt="" class="img-circle" src={{global.PROFILEIMAGEURL}}{{PersonData.PHOTOPATH}}>
+                    <div *ngIf="!PersonData.PHOTOPATH" class="img-circle"><span class="img-text">{{PersonData.FIRST_NAME[0]}} {{PersonData.LAST_NAME[0]}} </span></div>
+                </span>
+            </div>
+          </div>
+          <div class="barCodePreview text-center" >
+            <img *ngIf="PersonData.BARCODEIMAGE" src={{PersonData.BARCODEIMAGE}} alt="" class="barCodethumb ">
+            <div *ngIf="!PersonData.BARCODEIMAGE" class="barCodePreview noBarcodeCard"><span>No Barcode Present</span></div>
+        </div>
+          
+        </div>
+    </div>
+    
+</ion-content>
+<!-- <ion-footer [hidden]="keyboard.isOpen()">
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li class="home" (click)="gotoHome()"><a href="javascript:void(0);">Home</a></li>
+            <li class="events active" (click)="gotoDisplayEvents()"><a href="javascript:void(0);">Events</a></li>
+            <li class="players" (click)="goToPlayersDashboard()"><a href="javascript:void(0);">Players</a></li>
+            <li class="comment" (click)="goToChatDashboard()"><a href="javascript:void(0);">Comments</a></li>
+            <li class="more" (click)="goToMenuPage()"><a href="javascript:void(0);">More</a></li>
+        </ul>
+    </div>
+  </div>
+</ion-footer> -->
+

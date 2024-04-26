@@ -1,0 +1,90 @@
+page-chat-view {
+    .msg-card.right .img-wrap{
+        text-align: right;
+    }
+    .msg-card.left .img-wrap{
+        text-align: left;
+    }
+    .img-wrap img {
+        max-width: 70%;
+        padding-bottom: 3px;
+    }
+    .chat {
+        padding-bottom: 70px!important;
+        
+    }
+    .group-chat {
+        margin-top: 0px;
+        padding: 5px 10px;
+    }
+    .chat-camera {
+        width: 25px;
+        height: 25px;
+        max-width: 100%;
+        margin-top: 12px;
+        margin-left: 5px;
+    }
+    .chatMsgColorWidth{
+        min-height: 100%;
+    }
+    .navbar .top-bar .info-item {
+        line-height: 28px;
+    }
+    .chat-send{
+        width: 25px;
+        height: 25px;
+        max-width: 100%;
+        margin-top: 12px;
+        margin-left: 5px;
+        font-size: 25px;
+    }
+    .navbar-chat-microph input{
+        margin: 5px 0!important;
+    }
+    .navbar-chat-microph textarea {
+        width: 100%;
+        padding: 10px 15px;
+        height: 40px;
+        margin: 5px 0;
+        background-image: url(../images/microphone.png);
+        background-repeat: no-repeat;
+        background-position: 95% 55%;
+        border-radius: 25px;
+    }
+    .input-wrap.col-xs-8{
+        padding-right: 0!important;
+    }
+    ion-header .dropdown-menu {
+        left: inherit;
+        right: -11px;
+        padding: 0;
+        min-width: 170px!important;
+    }
+    ion-header .dropdown-menu li {
+        padding: 10px 15px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    ion-header .dropdown-menu li:hover {
+        background-color: #eee;
+    }
+    ion-header .dropdown-toggle{
+        padding: 10px;
+    }
+    .forNewLine{
+        white-space: pre-wrap;
+    }
+    .btn-remove{
+        background-color: transparent;
+        width: 60%;
+        padding: 12px;
+    }
+    .msg-card .chat-date ion-icon {
+        display: inline-block;
+        font-size: 1.8em;
+        color: #43b7cc;
+    }
+
+    .col-xs-2{
+        width: 0px;
+    }
+}

@@ -1,0 +1,133 @@
+page-survey {
+    .muscleNameCard{
+        color: #fff;
+    }
+    .img-text{
+        width: 76px;
+        height: 76px;
+        line-height: 50px;
+        font-size: 20px;
+        padding-top: 26px !important;
+    }
+    .nameCard{
+        text-transform: uppercase;
+    }
+    .text_inputCard{
+        border: 1px solid #fff;
+        .text-input{
+            text-align: center;
+            color: #fff;
+        }
+    }
+    .timeCard{
+        padding: 20px;
+        color: #fff;
+        align-items: center;
+    }
+    
+    .Show-card{
+        margin:5%
+    }
+    .SkeletonCard{
+        fill: #404c62;
+        width: 100%;
+        height: 100%;
+    }
+    .light-0{
+        fill:map-get($colors , skeleton0);
+    }
+    .light-meduim-1{
+        fill:map-get($colors , skeleton1);
+
+    }
+    .medium-2{
+        fill:map-get($colors , skeleton2);
+    }
+    .dark-meduim-3{
+        fill:map-get($colors , skeleton3);
+    }
+    .dark-4{
+        fill:map-get($colors , skeleton4);
+    }
+    .grey-default{
+        fill: #404c62;
+    }
+    .btn-rounded{
+        width: 100%;
+        border-radius: 30px;
+        background-color:#3bcf30 ;
+        border: 1px solid #3bcf30;
+        color: #fff;
+        padding: 16px 12px;
+        box-shadow: none;
+    }
+    .btn-rounded.focus, .btn-rounded:focus, .btn-rounded:hover, .btn-rounded.active, .btn-rounded:active{
+        background-color:#3bcf30 ;
+        border: 1px solid #3bcf30;
+        color: #fff;
+    }
+    
+    ion-header .top-bar .backArrow{
+        color:#fff;
+        text-transform: uppercase;
+    }
+    ion-header ion-navbar .top-bar{
+        padding: 10px 10px;
+    }
+    ion-header{
+        background: transparent!important;
+    }
+    .date_Option span{
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    .date_Option .info-item {
+        text-transform: uppercase;
+    }
+    .divider.inverse{
+        border-top: 1px solid #404c62;
+        filter: alpha(opacity=90);
+        opacity: 0.9;
+        margin: 30px 15px;
+    }
+    .form-control{
+        background: #eee!important;
+        color: #15233C!important;
+        text-align: left!important;
+        font-size: 14px!important;
+    }
+    .info-content.heightAuto{
+        min-height: auto!important;
+    }
+    ion-content.bg-black{
+        background: #17253e!important;
+    }
+    .already-filled-text{
+        color: #fff;
+        font-size: 18px;
+        display:none;
+    }
+    .range-md.range-disabled .range-knob{
+        outline:none!important;
+    }
+    .surveyRadio{
+        background-color: transparent;
+        padding-left: 0;
+        margin: 10px 0px 10px 0px;
+    }
+    .surveyRadio ion-label{
+        opacity: 1!important;
+        padding-left: 0!important;
+        margin: 11px 0px 11px 0;
+    }
+    .info-content.surveySlider{
+        min-height: 120px!important;
+    }
+    .surveyRadio ion-label h4{
+        font-size: 13px;
+    }
+    .surveyRadio ion-toggle{
+        width: 46px;
+        padding: 6px 5px 5px 2px!important;
+    }
+}

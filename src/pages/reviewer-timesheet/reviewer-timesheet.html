@@ -1,0 +1,66 @@
+<ion-content class="bg-black" (click)="setTimePad()">
+    <section class="main mt-20">
+        <div class="top-bar" (click)="backArrow()">
+            <div class="col-xs-3">
+                <div class="backArrow inverse"></div>
+            </div>
+        </div>
+      
+      
+          <form action="" class="user-form profile bg-black" style=" padding-top: 5%!important;">
+            <section class="profileFirst heightAuto" >
+              <div *ngFor="let detail of arrDetail">
+                <div class="form-group">
+                  <div class="date_time text-blue text-center">
+                    <span class="dateOption">{{key.week}} {{date}} {{detail.months | titlecase}}</span>
+                    <span class="glyphicon glyphicon-time" *ngIf="arrDetail"></span>
+                    <span class="timeOption">
+                      <span>{{key.time_started}}</span>
+                    </span>
+                  </div>
+                  <div class="homeAway-title text-center text-blue" *ngIf="detail.event_type_id==1">{{homeAwayText}}</div>
+                </div>
+                <h4 class="info-item text-center inverseText" *ngIf="detail.event_type_id==1">{{detail.hometeamname}} vs {{detail.awayteamname}}</h4>
+                <h4 class="info-item text-center inverseText">{{detail.name}}</h4>
+              </div>
+
+              <p class="status-info mt-20" *ngIf="UpcomingSingleEvent && (UpcomingSingleEvent.CONTRACTORS[0].TSStatus || !UpcomingSingleEvent.CONTRACTORS[0].TSStatus)" [class.pending]="UpcomingSingleEvent.CONTRACTORS[0].TSStatus=='Pending' || !UpcomingSingleEvent.CONTRACTORS[0].TSStatus" [class.approved]="UpcomingSingleEvent.CONTRACTORS[0].TSStatus=='Approved'" [class.rejected]="UpcomingSingleEvent.CONTRACTORS[0].TSStatus=='Rejected'">
+                <span>{{UpcomingSingleEvent.CONTRACTORS[0].TSStatus?UpcomingSingleEvent.CONTRACTORS[0].TSStatus:'Pending'}}</span> 
+              </p>
+            
+              <!-- <p class="Status-Text" *ngIf="UpcomingSingleEvent && UpcomingSingleEvent.TSStatus">
+                  {{UpcomingSingleEvent.TSStatus}}
+                </p> -->
+             <div class="bookmark-line mt-20">&nbsp;</div>
+            <h5 class="section-title">HOURS RECORDED</h5>
+            <div class="voting score clearfix">
+                <div >
+                    <div class="select-val">
+                        <ion-item>
+                        <ion-label class="hours">{{scoreHour}} : {{scoreMinutes}}</ion-label>
+                            
+                        </ion-item>
+                    </div>
+                </div>
+            </div>
+            <div class="bookmark-line mt-30"> <i class="glyphicon glyphicon-bookmark" style="background: #fff;width: 30px;height: 30px;border-radius: 15px;padding-top: 10px;"></i></div>
+            <p class="Status-Text" *ngIf="comment">{{comment}}</p>
+            <div class="background group-msg" *ngIf="UpcomingSingleEvent && UpcomingSingleEvent.TSStatus!='Approved'">
+                <div class="modal-content msg-send radius-20 backgroundColor">
+                    <h4 class="modal-title text-center">COMMENT</h4>
+                    <div class="modal-body backgroundColor">
+                        <textarea class="form-control msg-box" name="" id="" cols="30" rows="7" [(ngModel)]="reviewerComment" [ngModelOptions]="{standalone: true}">{{comment}}</textarea>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <div class="btn-section mb-30 mt-30" *ngIf="UpcomingSingleEvent && UpcomingSingleEvent.TSStatus!='Approved'">
+                <button type="submit" class="btn btn-save btn-accept radius-10" *ngIf="UpcomingSingleEvent.TSApprove || (loggedInUser?.PERSON_ID != UpcomingSingleEvent?.CONTRACTORS[0]?.PERSON_ID)" (click)="TimesheetStatus(1)">ACCEPT TIMESHEET</button>
+            </div>
+            <div class="btn-section mb-30 mt-30" *ngIf="UpcomingSingleEvent && (UpcomingSingleEvent.TSStatus!='Approved' && UpcomingSingleEvent.TSStatus!='Rejected')" >
+                <button type="submit" class="btn btn-save btn-reject radius-10" *ngIf="UpcomingSingleEvent.TSApprove || (loggedInUser?.PERSON_ID != UpcomingSingleEvent?.CONTRACTORS[0]?.PERSON_ID)" (click)="TimesheetStatus(0)">REJECT TIMESHEET</button>
+            </div>
+          </form>
+        </section>
+  </ion-content>
+  

@@ -1,0 +1,18 @@
+<ion-content class="bg-black" padding>
+  <div class="fixed-top_ modal-close">
+    <span class="pwrotate-text-white" (click)="download()">
+        <ion-icon name="md-download" class="download"></ion-icon>
+    </span>
+    <div class="rotate-text pwrotate-text-white" (click)="close()">
+      <span class="close_" data-dismiss="modal">CLOSE
+          <ion-icon name="close" class="close_-button"></ion-icon>
+      </span>
+    </div>
+  </div>
+  <!-- Modal content-->
+  <div class="modalView" >
+      <div class="modal-body modal-report select-option" >
+        <img src="{{global.MESSAGEIMAGE+image}}" />
+      </div>        
+  </div>
+</ion-content>

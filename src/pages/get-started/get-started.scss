@@ -1,0 +1,47 @@
+page-get-started {
+    .Logo-Header{
+        position: relative;
+        padding-top: 50px;
+        text-align: center;
+        width: 100%;
+        font-size: 30px;
+    }
+    .title{
+        font-size: 15px;
+        font-weight: 500;
+        color: #08448D !important; 
+    }
+    .mt-20{
+        margin-top: 100px !important;
+        color: #08448D !important; 
+    }
+     .btn-login {
+        width: 90%;
+        background-color: #08448D;
+        border-color: #08448D;
+        color: #fff;
+        padding: 15px 12px;
+        font-size: 15px;
+        border-radius:30px;
+        margin-top: 30px !important;
+    }
+
+    button.parent-sso {
+        margin-top: 20px;
+        background-color: #6992cc;
+      }
+    button.staff-sso {
+        background-color: #030141;
+    }
+
+    .main div.sso-login{
+        position: relative;
+        margin-top: 25px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    
+    
+
+}

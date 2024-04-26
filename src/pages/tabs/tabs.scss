@@ -1,0 +1,199 @@
+page-tabs {
+
+    .tabs-md {
+        padding-bottom: 0px !important;
+    }
+
+    ion-icon {
+        &[class*="custom-"] {
+          mask-size: contain;
+          mask-position: 50% 50%;
+          mask-repeat: no-repeat;
+          background: currentColor;
+          min-width: 32px;
+          height: 22px;
+        }
+        &[class*="custom-home"] {
+          background: url(../assets/images/menu/home.svg);
+          background-repeat: no-repeat !important;
+          min-width: 32px!important;
+
+        }
+        &[class*="custom-events"] {
+            background: url(../assets/images/menu/events.svg);
+          background-repeat: no-repeat !important;
+
+            min-width: 32px!important;
+
+        }
+        &[class*="custom-students"] {
+          background-repeat: no-repeat !important;
+          background: url(../assets/images/menu/player.svg);
+            min-width: 36px!important;
+        }
+        &[class*="custom-chat"] {
+          background-repeat: no-repeat !important;
+          background: url(../assets/images/menu/chat.svg);
+        }
+        &[class*="custom-more"] {
+          background-repeat: no-repeat !important;
+          background: url(../assets/images/menu/more.svg);
+        }
+    }
+    .tab-button.has-badge ion-icon[class*="custom-chat"]{
+          background-repeat: no-repeat !important;
+          background: url(../assets/images/menu/chat.svg);
+    }
+
+   
+    // =-=--=-=-=-=-=-=-
+      // &[class*="custom-player"] {
+        //     background: url(../assets/images/menu/player.svg);
+        //     min-width: 36px!important;
+        
+        // }
+
+    // =-=--=-=--=-=-=-=-=-
+
+    // .tabs-md .tab-button:nth-child(3){
+    //     display: none;
+    // }
+     .tabs-md .tab-button[aria-selected=true]:nth-child(1) .tab-button-icon,
+     .tabs-ios .tab-button[aria-selected=true]:nth-child(1) .tab-button-icon{
+        background: url(../assets/images/menu/home-blue.svg);
+        background-repeat: no-repeat !important;
+        height: 32px;
+    }
+    .tabs-md .tab-button[aria-selected=true]:nth-child(2) .tab-button-icon,
+    .tabs-ios .tab-button[aria-selected=true]:nth-child(2) .tab-button-icon{
+        background: url(../assets/images/menu/events-blue.svg);
+        background-repeat: no-repeat !important;
+        height: 36px;
+    } 
+    .tabs-md .tab-button[aria-selected=true]:nth-child(3) .tab-button-icon,
+    .tabs-ios .tab-button[aria-selected=true]:nth-child(3) .tab-button-icon{
+        background:  url(../assets/images/menu/team-mates-blue.svg) ;
+        background-repeat: no-repeat !important;
+        height: 32px;
+    }
+    // .tabs-md .tab-button[aria-selected=true]:nth-child(4) .tab-button-icon,
+    // .tabs-ios .tab-button[aria-selected=true]:nth-child(4) .tab-button-icon{
+    //     background:  url(../assets/images/menu/team-mates-blue.svg) ;
+    //     height: 32px;
+    // }
+
+    // .player_menu[aria-selected=true]:nth-child(3){
+    //     background:  url(../assets/images/menu/player-blue.svg) ;
+    //     height: 32px;
+    // }
+
+    // .admin_menu[aria-selected=true]:nth-child(3){
+    //     background:  url(../assets/images/menu/player-blue.svg) ;
+    //     height: 32px;
+    // }
+
+    .tabs-md .tab-button[aria-selected=true]:nth-child(4) .tab-button-icon,
+    .tabs-ios .tab-button[aria-selected=true]:nth-child(4) .tab-button-icon{
+        background: url(../assets/images/menu/chat_val_blue.svg);
+        background-repeat: no-repeat !important;
+        height: 32px;
+    }
+    .tabs-md .tab-button[aria-selected=true].has-badge:nth-child(4) .tab-button-icon,
+    .tabs-ios .tab-button[aria-selected=true].has-badge:nth-child(4) .tab-button-icon{
+        background: url(../assets/images/menu/chat_val_blue.svg);
+        background-repeat: no-repeat !important;
+        height: 32px;
+    }
+    .tabs-md .tab-button[aria-selected=true]:nth-child(4) .tab-button-icon,
+    .tabs-ios .tab-button[aria-selected=true]:nth-child(4) .tab-button-icon{
+        background: url(../assets/images/menu/chat-blue.svg);
+        background-repeat: no-repeat !important;
+        height: 32px;
+    }
+    .tabs-md .tab-button[aria-selected=true]:nth-child(5) .tab-button-icon,
+    .tabs-ios .tab-button[aria-selected=true]:nth-child(5) .tab-button-icon{
+        color:#dedede
+    }
+    .tabs-md .tab-button:nth-child(6), .tabs-md .tab-button:nth-child(7), .tabs-ios .tab-button:nth-child(6), .tabs-ios .tab-button:nth-child(7)  {
+        display: none;
+    }
+    .tabs-md .tab-button[aria-selected=true] .tab-button-icon,
+    .tabs-ios .tab-button[aria-selected=true] .tab-button-icon{
+        color:map-get($colors , SelectedMenuIcons );
+        margin-top: 5px;
+    }
+    .tabs .tabbar{
+        background: #ffffff;
+        border-top:none;
+        // padding-bottom: 5px !important;
+    }
+    .tabs .tab-button-icon{
+        color: #dedede;
+    }
+    .tabs-ios .tab-button-icon{
+        height: 22px;
+        margin-top: 1px;
+    }
+    .tabs-ios .tab-button:nth-child(5) .tab-button-icon{
+        height: 12px!important;
+    }
+    .tabs-ios .tab-button[aria-selected=true] .tab-button-icon,
+    .tabs-md .tab-button[aria-selected=true] .tab-button-icon{
+        color: #43ACD7;
+    }
+    .tabs-ios .tab-button{
+        min-height: 56px;
+    }
+    .hideTaskbar{
+        display: none !important;
+    }
+//chat value fix
+    .has-badge ion-badge.tab-badge {
+        right: 34%!important;
+        background: transparent;
+        color: #dedede;
+        top: 36%;
+        position: absolute;
+        font-size: 10px;
+        transform: translate(0%, -20%);
+        display:block;
+    }
+    .has-badge ion-badge.tab-badge.single{
+        right: 32%!important;
+    } 
+    .tabs-md .tab-button.has-badge[aria-selected=true]:nth-child(4) ion-badge.tab-badge.single,
+    .tabs-ios .tab-button.has-badge[aria-selected=true]:nth-child(4) ion-badge.tab-badge.single{
+        right: 32%!important;
+    }
+    .has-badge ion-badge.tab-badge.badge-ios{
+        top: 26%;
+    } 
+    ion-badge.tab-badge{
+        display:none;
+    } 
+    .tabs-md .tab-button.has-badge:nth-child(4) ion-badge.tab-badge,
+    .tabs-ios .tab-button.has-badge:nth-child(4) ion-badge.tab-badge{
+        color:#fcfdfd !important;
+        background: #ff0000;
+        top: 8% !important;
+        right: 33% !important;
+        -webkit-transform: translate3d(0, -2px, 0);
+        transform: translate3d(0, -2px, 0);
+    }
+    .tabs-ios .tab-button.has-badge[aria-selected=true]:nth-child(3) ion-badge.tab-badge.badge-ios{
+        top: 17% !important;
+    }
+    
+}
+@media (min-width: 768px){
+    page-tabs .tab-button.has-badge ion-badge.tab-badge.badge-ios.single,page-tabs .tab-button.has-badge ion-badge.tab-badge.single{
+        // top: 25%!important;
+        right: 43%!important;
+    }
+    page-tabs .tabs-md .tab-button.has-badge[aria-selected=true]:nth-child(3) ion-badge.tab-badge, page-tabs .tabs-ios .tab-button.has-badge[aria-selected=true]:nth-child(3) ion-badge.tab-badge{
+        right: 41.5%!important;
+    }
+    page-tabs .tab-button.has-badge ion-badge.tab-badge{
+        right: 41.5%!important;
+    }
+}

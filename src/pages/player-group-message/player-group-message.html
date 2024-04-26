@@ -1,0 +1,144 @@
+<!--
+  Generated template for the PlayerGroupMessagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <nav class="navbar navbar-fixed-top">
+    <div class="top-bar clearfix">
+      <div class="pull-left">
+        <div class="backArrow info-item" (click)="goToPlayersDashboard()">PLAYERS</div>
+      </div>
+      <div class="prev-next pull-right" (click)="goToChooseTeamsPage()">
+        <a href="javascript:void(0);" class="next"></a>
+        <a href="javascript:void(0);" class="prev"></a>
+      </div>
+    </div>
+    <ul class="nav navbar-nav top-menu player-menu">
+      <li class="active"><a href="javascript:void(0);">Group message</a></li>
+      <li class=""><a href="javascript:void(0);" (click)="goToPlayerGrading()">Grading</a></li>
+      <li class=""><a href="javascript:void(0);" (click)="goToPlayerAddForGrading()">Add player</a></li>
+    </ul>
+  </nav>
+</ion-header>
+
+<ion-content class="bg-black event">
+  <section class="main">
+    <form action="" class="user-form player-item togle-slider">
+      <section class="profileFirst heightAuto xs-padding plyr-section">
+        <div class="fade group-msg player-group-message" role="dialog">
+          <div class="modal-dialog plr-group-msg">
+            <div class="modal-content msg-send radius-10">
+              <div class="modal-header">
+                <h4 class="modal-title text-center">Group Message</h4>
+              </div>
+              <div class="modal-body">
+                <textarea class="form-control msg-box plr-msg-box" name="message" [(ngModel)]="message" cols="30" rows="6"></textarea>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="submit-link col-xs-12 text-right">
+                    <button type="button" class="btn" (click)="sendMessage()">Send</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="list-group profile-list">
+          <div class="send-to-all">
+            <label class="switch">
+              <input type="radio" name="sendOption" id="sendToAll" (click)="setSendOption()">
+              <span class="slider round plr-grup-msg-chk"></span>
+            </label>
+            <span class="check-text">Send to all</span>
+          </div>
+          <div class="send-to-select">
+            <label class="switch">
+              <input type="radio" name="sendOption" id="sendToSelection" checked (click)="setSendOption()">
+              <span class="slider round plr-grup-msg-chk"></span>
+            </label>
+            <span class="check-text">Send to selection</span>
+          </div>
+          <div class="send-to-group">
+            <label class="switch">
+              <input type="radio" name="sendOption" id="sendToGroup" (click)="setSendOption()">
+              <span class="slider round plr-grup-msg-chk"></span>
+            </label>
+            <span class="check-text">Send to group</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="event-card bg-gray plyr-all-list" *ngIf="!showGroups && players.length > 0;">
+        <div class="well select-card" *ngFor="let player of players">
+          <div class="row">
+            <div class="card-img col-xs-2 p-0">
+              <span class="progressCircle" *ngIf="player.PHOTOPATH != null && player.PHOTOPATH.length > 0; else noImage">
+                <img src="{{global.PROFILEIMAGEURL}}{{player.PHOTOPATH}}" alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+              </span>
+              <ng-template #noImage><span class="progressCircle"><img src="assets/images/test-user.svg" alt="" class="img-circle"></span></ng-template>
+            </div>
+            <div class="card-title col-xs-6 p-0">
+              {{player.FIRST_NAME}} {{player.LAST_NAME}}
+              <p *ngIf="player.UNIFORMID != null && player.UNIFORMID.length > 0">#{{player.UNIFORMID}}</p>
+            </div>
+            <div class="col-xs-4 p-0">
+              <label class="switch plyr-list">
+                <input type="checkbox" name="playerIDs" class="playerIDs" [attr.value]="player.PERSON_ID">
+                <span class="slider round plr-grup-msg-chk"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card bg-gray plyr-all-list" *ngIf="!showGroups && !players.length;">
+        <div class="well select-card">
+          <div class="row">
+            <div class="card-title col-xs-12 p-0">No Players Found</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card bg-gray plyr-all-list" *ngIf="showGroups && groups.length > 0;">
+        <div class="well select-card" *ngFor="let group of groups">
+          <div class="row">
+            <div class="card-title col-xs-8 p-0">
+              {{group.group_name}}
+            </div>
+            <div class="col-xs-4 p-0">
+              <label class="switch plyr-list">
+                <input type="checkbox" name="groupIDs" class="groupIDs" [attr.value]="group.group_id" [attr.data-type]="group.group_type">
+                <span class="slider round plr-grup-msg-chk"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card bg-gray plyr-all-list" *ngIf="showGroups && !groups.length;">
+        <div class="well select-card">
+          <div class="row">
+            <div class="card-title col-xs-12 p-0">No Groups Found</div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+</ion-content>
+
+<ion-footer>
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="home" (click)="gotoHome()"><a href="javascript:void(0);">Home</a></li>
+        <li class="events" (click)="gotoDisplayEvents()"><a href="javascript:void(0);">Events</a></li>
+        <li class="players active" (click)="goToPlayersDashboard()"><a href="javascript:void(0);">Players</a></li>
+        <li class="comment" (click)="goToChatDashboard()"><a href="javascript:void(0);">Comments</a></li>
+        <li class="more" (click)="goToMenuPage()"><a href="javascript:void(0);">More</a></li>
+      </ul>
+    </div>
+  </nav>
+</ion-footer>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Group_6234" data-name="Group 6234" transform="translate(-285 -332)">
+    <g id="Group_6212" data-name="Group 6212" transform="translate(22 -1)">
+      <g id="Path_1395" data-name="Path 1395" transform="translate(263 333)" fill="none">
+        <path d="M12,0A12,12,0,1,1,0,12,12,12,0,0,1,12,0Z" stroke="none"/>
+        <path d="M 12 1.5 C 6.21027946472168 1.5 1.5 6.21027946472168 1.5 12 C 1.5 17.78972053527832 6.21027946472168 22.5 12 22.5 C 17.78972053527832 22.5 22.5 17.78972053527832 22.5 12 C 22.5 6.21027946472168 17.78972053527832 1.5 12 1.5 M 12 0 C 18.62742042541504 0 24 5.372579574584961 24 12 C 24 18.62742042541504 18.62742042541504 24 12 24 C 5.372579574584961 24 0 18.62742042541504 0 12 C 0 5.372579574584961 5.372579574584961 0 12 0 Z" stroke="none" fill="#FF5722"/>
+      </g>
+      <line id="Line_410" data-name="Line 410" y1="7.636" transform="translate(275 337.909)" fill="none" stroke="#FF5722" stroke-linecap="round" stroke-width="1.5"/>
+      <line id="Line_411" data-name="Line 411" x1="4.909" y1="3.273" transform="translate(275 345.545)" fill="none" stroke="#FF5722" stroke-linecap="round" stroke-width="1.5"/>
+    </g>
+    <line id="Line_412" data-name="Line 412" y2="1" transform="translate(297 333.5)" fill="none" stroke="#FF5722" stroke-width="1"/>
+    <line id="Line_413" data-name="Line 413" y2="1" transform="translate(297 353.5)" fill="none" stroke="#FF5722" stroke-width="1"/>
+    <line id="Line_414" data-name="Line 414" y2="1" transform="translate(287 343.5)" fill="none" stroke="#FF5722" stroke-width="1"/>
+    <line id="Line_415" data-name="Line 415" y2="1" transform="translate(307 343.5)" fill="none" stroke="#FF5722" stroke-width="1"/>
+  </g>
+</svg>

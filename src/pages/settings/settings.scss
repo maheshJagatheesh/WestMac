@@ -1,0 +1,74 @@
+page-settings {
+
+  .circle-image {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .logo_position{
+    text-align: left;
+  }
+  .textFont{
+    text-align: left;
+    font-size: 12px;
+  }
+  .lineSpace{
+    margin-bottom: 30px;
+  }
+  .formUpperPadding{
+    padding-top: 10px!important;
+  }
+  .settingTextColor{
+    margin-bottom: 4px!important;
+    color: #fff !important;
+  }
+  .textFontColor{
+    color: #fff!important;
+  }
+  .textFontColor.red{
+    color: #000!important;
+  }
+  .hideTaskbar{
+    display: none !important;
+  }
+  .set-choose-theme.red {
+    color: #000!important;
+  }
+  .set-choose-theme.yellow {
+    color: #000!important;
+  }
+  .set-choose-theme.blue{
+    color: #000!important;
+  }
+  .setting-title.red{
+    color: #000!important;
+  }
+  .setting-title.yellow{
+    color: #fff!important;
+  }
+  .setting-title.blue{
+    color: #fff!important;
+  }
+.settingTextColor.red{
+    margin-bottom: 4px!important;
+    color: #000!important;
+  }
+  .settingTextColor.yellow{
+    margin-bottom: 4px!important;
+    color: #fff!important;
+  }
+  .settingTextColor.blue{
+    margin-bottom: 4px!important;
+    color: #000!important;
+  }
+ .setting-arrow .next-arrow i.grey {
+    color: #948f8f!important;
+}
+.setting-arrow .next-arrow i.blue {
+  color: #fff!important;
+}
+
+}

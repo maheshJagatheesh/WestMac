@@ -1,0 +1,49 @@
+<!--
+  Generated template for the MedicineInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>
+            <button class="BackButton"(click)="backArrow()"><img src="assets/images/arrow-black.svg"></button>
+          Medicine Information
+        </ion-title>
+      </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg-black" padding>
+    <div *ngFor="let key of MedicineInformation">
+      <ion-label class="MedicineCard">
+        <div class="col-xs-12">
+            <div class="col-xs-8">
+              <span style="float: left">
+                  {{key.MedicineName}}
+              </span>
+               
+            </div>
+              <div class="col-xs-2 pr-0 checkArrow-group" >
+                <div class="col-xs-2 p-0 checkbox-col" >
+                  <div class="defaultCheckbox1" [class.ActiveCheckbox1]="key.MedicineFlag==1">
+                  </div>
+                  <div class="checkbox"></div>
+                </div>
+              </div>
+
+              <div class="col-xs-2 pr-0 checkArrow-group">
+                <div class="col-xs-2 p-0 checkbox-col">
+                  <div class="defaultCheckbox1" [class.ActiveCheckbox1]="key.MedicineFlag==0">
+                  </div>
+                  <div class="checkbox"></div>
+                </div>
+              </div>
+
+        </div>
+        
+      </ion-label>
+    </div>
+</ion-content>

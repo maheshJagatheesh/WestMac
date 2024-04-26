@@ -1,0 +1,52 @@
+page-notify-parents {
+    .modalView {
+        margin-right: 2%;
+        margin-left: 2%;
+        margin-top: 30%;
+        margin-bottom: 10%;
+        border-radius: 10px;
+    }
+    .modal-content{
+        background-color: #f5f5f5;
+    }
+    textarea.text-input,ion-textarea{
+        background-color: #f5f5f5;
+        color: #000;
+    }
+    .modal-header .modal-title {
+        color: #000000;
+        font-size: 14px;
+        font-family: 'Helvetica', sans-serif;
+        letter-spacing: 0.05em;
+    }
+    .modal-body {
+        padding: 15px 5px;
+    }
+    ion-content.bg-black{
+        background: rgba(21, 35, 60, 0.6);
+    }
+    .modal-header{
+        border-bottom: 1px solid #bbbbbb;
+    }
+    .modal-footer{
+        border-top: 1px solid #bbbbbb;
+    }
+    .item.item-textarea{
+        padding:0;
+    }
+    .modal-footer .send{
+        font-weight: bold;
+        font-size: 14px;
+    }
+    .text-counter{
+        font-weight: bold;
+        font-size: 12px;
+    } 
+    .membar-card .item {
+        background-color: #f5f5f5 !important;
+    }
+    .text_fix{
+        font-size: 17px !important;
+        font-family:'Helvetica', sans-serif
+    }
+}

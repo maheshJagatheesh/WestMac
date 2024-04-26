@@ -1,0 +1,31 @@
+page-message-log-dashboard {
+    .back-button{
+        display: none !important;
+    }
+    .event-card {
+        padding-top:5px;
+        padding-bottom:5px;
+        margin-bottom: 0px !important; 
+        .sub-title{
+            text-align: center;
+        }
+    }
+    .main{
+        padding: 5px;
+    }
+    .MessageCard{
+        width:100%
+    }
+    .text-Color{
+        color: #8B8B8B
+    }
+    .MESSAGE_DATE-color{
+        padding-top: 5px !important;
+        color: #000 !important;
+    }
+    .pr-10{
+        padding-right: 10px
+    }
+
+
+}

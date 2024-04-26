@@ -1,0 +1,94 @@
+
+<ion-content class="bg-black" (click)="close($event)">
+    
+  <div class="modal-content logsModal">
+      
+      <div class="modal-body logsCard">
+          <div class="modal-header">
+              <h5 class="modal-title fontBold text-center">{{passenger.firstName | uppercase}} {{passenger.lastName | uppercase}}</h5>
+              <div class="card-img">
+                  <!-- <img src="assets/images/user.svg" alt="" class="img-circle"> -->
+                  <img src="{{global.PROFILEIMAGEURL}}{{passenger.photoPath}}" alt="" class="img-circle" *ngIf="passenger.photoPath!=''">
+                  <span class="" *ngIf="passenger.photoPath==''">
+                    <div class="img-circle"><span class="img-text">{{passenger.firstName[0]}} {{passenger.lastName[0]}} </span></div>                                  
+                  </span>
+              </div>
+          </div>
+          
+          <div class="navbar-inner clearfix">
+              <ul class="nav navbar-nav">
+                <li class="sms">
+                  <a href="javascript:void(0);" (click)="showSMSModal()"><div class="icon-circle"></div>SMS</a>
+                </li>
+                <li class="email">
+                  <a href="javascript:void(0);" (click)="showEmailModal()"><div class="icon-circle"></div>EMAIL</a>
+                </li>
+                <li class="phone">
+                  <a href="javascript:void(0);" (click)="showCallModal(false)"><div class="icon-circle"></div>PHONE</a>
+                </li>
+                <li class="emergency" *ngIf="!ShowLogs">
+                  <a href="javascript:void(0);" (click)="showCallModal(true)"><div class="icon-circle"></div>EMERGENCY</a>
+                </li>
+                <li class="logs" *ngIf="ShowLogs">
+                  <a href="javascript:void(0);" (click)="showCallModal(true)"><div class="icon-circle"></div>LOGS</a>
+                </li>
+              </ul>
+          </div>
+          <div class="log-section" *ngIf="ShowLogs">
+              <div class="header-border">
+                  <h4>EMERGENCY CONTACT</h4>
+              </div>
+              <div *ngIf="NoContactFound=='-1'">
+                <div class="logs-card eContact">
+                  <div class="logItem clearfix mt-10">
+                    <div class="info-item pull-left">
+                      <h4 class="m-0">No associated contact found.</h4> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngFor="let key of emergencyContacts">
+                <div class="logs-card eContact">
+                  <div class="logItem clearfix mt-10">
+                    <div class="info-item pull-left">
+                      <h4 class="m-0">{{key.parentName}}</h4> 
+                      <p>{{relations[key.relationship]}}</p>  
+                    </div>
+                    <div class="icon-item pull-left">
+                        <span (click)="showSMSModal(key.phone_mobile)"><img src="assets/images/transport/sms-black.svg" alt=""></span> 
+                        <span (click)="showEmailModal(key.email_address)"><img src="assets/images/transport/email-black.svg" alt=""></span> 
+                        <span (click)="showCallModal(false,key.phone_mobile)"><img src="assets/images/transport/phone-black.svg" alt=""></span> 
+                    </div>
+                  </div>
+                </div>
+            </div>
+              
+          </div>
+          <div class="log-section" *ngIf="!ShowLogs">
+            <div class="header-border">
+                <h4>Rollcall logs</h4>
+            </div>
+            <div class="logs-card">
+              <div class="logItem clearfix" *ngFor="let player of rollCallLogList">
+                <div class="itemFirst pull-left"><span>{{player.onTime}}</span> {{player.statusDescription}} </div>
+                <div class="itemLast pull-right text-right">{{player.status}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+</ion-content>
+<!-- <ion-footer [hidden]="keyboard.isOpen()">
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li class="home" (click)="gotoHome()"><a href="javascript:void(0);">Home</a></li>
+            <li class="events active" (click)="gotoDisplayEvents()"><a href="javascript:void(0);">Events</a></li>
+            <li class="players" (click)="goToPlayersDashboard()"><a href="javascript:void(0);">Players</a></li>
+            <li class="comment" (click)="goToChatDashboard()"><a href="javascript:void(0);">Comments</a></li>
+            <li class="more" (click)="goToMenuPage()"><a href="javascript:void(0);">More</a></li>
+        </ul>
+    </div>
+  </div>
+</ion-footer> -->

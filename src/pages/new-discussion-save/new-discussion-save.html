@@ -1,0 +1,87 @@
+<!--
+  Generated template for the NewDiscussionSavePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <nav class="navbar"> 
+        <div class="top-bar clearfix">
+            <div class="pull-left">
+                <div class="backArrow info-item" (click)="goBack()">NEW DISCUSSION</div>
+            </div>
+        </div>
+    </nav>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="profileFirst heightAuto setting-first">
+    <h3 class="heading_title">DISCUSSION NAME</h3>
+    <input type="text" class="form-control" id="groupName" [(ngModel)]="groupName" name="groupName"  placeholder="Type name here" (focus)="inputFocus()" (blur)="inputBlur()">
+    <h3 class="heading_title">DISCUSSION ICON</h3>
+    <div class="logo-wrap"  (click)="saveLogoDetails($event)"> 
+      <!-- <div *ngFor="let logos of chatsLogos" (click)="saveLogoDetails(this.logos)">
+        <div class="col-xs-3 svg_img p-0" *ngIf="logos.SPORTBANNER != ''">
+          <div class="background_color_hover">
+            <img src="{{global.CHATGROUPLOGOURL + logos.SPORTBANNER}}">
+          </div> 
+        </div>
+        <div class="col-xs-3 svg_img p-0" *ngIf="logos.SPORTBANNER == '' && logos.BANNERIMAGE != ''">
+          <div class="background_color_hover">
+            <img src="{{global.CHATGROUPLOGOURL + logos.BANNERIMAGE}}">
+          </div>
+        </div>
+      </div> -->
+      <div class="svg_img p-0">
+        <div class="background_color_hover disc-1" id="disc-1"></div> 
+      </div>
+      <div class="svg_img p-0">
+        <div class="background_color_hover disc-2" id="disc-2"></div> 
+      </div>
+      <div class="svg_img p-0">
+        <div class="background_color_hover disc-3" id="disc-3"></div> 
+      </div>
+      <div class="svg_img p-0">
+        <div class="background_color_hover disc-4" id="disc-4"></div> 
+      </div>
+    </div>
+    <div class="logo-wrap"  (click)="saveLogoDetails($event)"> 
+      <div class="svg_img p-0">
+        <div class="background_color_hover disc-5" id="disc-5"></div> 
+      </div>
+      <div class="svg_img p-0">
+        <div class="background_color_hover disc-6" id="disc-6"></div> 
+      </div>
+      <div class="svg_img p-0">
+        <div class="background_color_hover disc-7" id="disc-7"></div> 
+      </div>
+      <div class="svg_img p-0">
+        <div class="background_color_hover disc-8" id="disc-8"></div> 
+      </div>
+    </div>
+  </div>
+  <div class="bottom_sec">
+    <div class="card-info">
+      <h3 class="heading_title">PARTICIPANTS</h3> 
+      <div class="parent_group">
+        <div class="group_div" *ngFor="let discussionDetails of newDiscussionDetails;" (click)="deletedPersonName(discussionDetails.id,$event)">
+          <div class="rounded_img">
+              <img *ngIf="discussionDetails.image == '' && discussionDetails.imageFrom == 'group'" src="assets/images/group-name.svg" alt="ab" class="img-circle">
+              <img *ngIf="discussionDetails.image != ''" src="{{global.PROFILEIMAGEURL + discussionDetails.image}}" alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+              <img *ngIf="discussionDetails.image == '' && discussionDetails.imageFrom != 'group'" src="assets/images/test-user.svg" alt="ab" class="img-circle">
+              <p>{{discussionDetails.discussionName}}</p>
+            <div class="x_button">
+              <span class="closebtn"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</ion-content>
+<div class="arrow" (click)="createChatGroup(newDiscussionDetails,groupName,gruopsIds,personIds,discussionIcon)"><ion-icon name="arrow-round-forward"></ion-icon></div>
+
+

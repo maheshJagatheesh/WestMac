@@ -1,0 +1,78 @@
+<ion-content class="bg-black" >
+  <div class="fixed-top_ modal-close">
+    <div class="rotate-text pwrotate-text-white" (click)="close()">
+        <span class="close_" data-dismiss="modal">CLOSE
+            <ion-icon name="close" class="close_-button"></ion-icon>
+        </span>
+    </div>
+  </div>
+  <div class="modal-content modalView" *ngIf="!isRemove">
+    <div class="modal-header shadow">
+        <h5 class="modal-title fontBold text-center">ADD STAFF</h5>
+    </div>
+    <div class="modal-body">
+      <div class="event-card mt-20 p-0">
+            <div class="well select-card selectCard d-flex align-center" *ngIf="staffList.length == 0">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h5 class="sub-title">NO STAFF AVAILABLE</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="well select-card modal-card" *ngFor="let staff of staffList">
+              <div class="row">
+                  <div class="card-img col-xs-2 p-0">
+                    <span class="" *ngIf="staff.photoPath==''">
+                        <div class="img-circle"><span class="img-text">{{staff.firstName[0]}} {{staff.lastName[0]}} </span></div>                                  
+                    </span>
+                    <span class="" *ngIf="staff.photoPath">
+                        <img src="{{global.PROFILEIMAGEURL}}{{staff.photoPath}}" alt="" class="img-circle">
+                    </span>
+                  </div>
+                  <div class="card-title col-xs-7">
+                    {{staff.firstName | uppercase}} {{staff.lastName | uppercase}}
+                  </div>
+                  <div class="event-next col-xs-3 p-0 d-flex flex-end align-center">
+                      <div class="toggle">
+                          <label class="switch">
+                              <input type="checkbox" class="person_ids" [attr.value]="staff.personId">
+                              <span class="slider round"></span>
+                          </label>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+    
+        <div class="btn-section mt-30" *ngIf="staffList.length > 0">
+            <button type="submit" class="btn btn-save xs-btn" (click)="addStaff()">ADD</button>
+        </div>
+        <div class="modal-footer"></div>
+
+      </div>
+  </div>
+
+  <div class="modal-content modalView" *ngIf="isRemove">
+    <div class="modal-header shadow">
+        <h5 class="modal-title fontBold text-center">STAFF</h5>
+    </div>
+    <div class="modal-body modal-report">
+      <div class="row">
+        <div class="d-flex align-center col-xs-3 p-0">
+          <span class="textGray">Name</span>
+        </div>
+        <div class="col-xs-9 p-0">
+            <input type="text" class="form-control" [(ngModel)]="removeStaffName" [readonly]="isRemove">
+        </div>
+      </div>
+      <div class="modal-footer mt-20">
+        <div class="row">
+          <div class="col-xs-12">
+            <button type="submit" class="btn btn-remove xs-btn" (click)="removeStaff()">REMOVE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</ion-content>

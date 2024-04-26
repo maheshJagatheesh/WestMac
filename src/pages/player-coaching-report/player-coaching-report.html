@@ -1,0 +1,130 @@
+<!--
+  Generated template for the PlayerCoachingReportPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="bg-black mt-20">
+  <div class="top-bar">
+    <div class="col-xs-6">
+      <div class="backArrow inverse inverseText" (click)="goBack()"></div>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content class="bg-black event">
+  <section class="main mt-20">
+    <form action="" class="user-form player">
+      <section class="profileFirst heightAuto p-0">
+        <div class="player-section" *ngFor="let player of playerDetails">
+          <div class="thumbImage image-sm">
+            <img *ngIf="player.photoPath != null && player.photoPath.length > 0; else noImage" src="{{global.PROFILEIMAGEURL}}{{player.photoPath}}" alt="" class="img-circle" onerror="this.onerror=null;this.src='assets/images/test-user.svg';">
+            <ng-template #noImage>
+              <div class="img-circle" *ngIf="!player.photoPath"><span class="img-text">{{player.first_name[0]}} {{player.last_name[0]}} </span>
+              </div>
+            </ng-template>
+          </div>
+          <div class="player-info mt-20">
+            <h4 class="info-item">{{player.first_name}} {{player.last_name}}</h4>
+            <p *ngIf="player.uniform_id != null && player.uniform_id.toString().length > 0">#{{player.uniform_id}}</p>
+          </div>
+        </div>
+        <section class="radial-slider mt-20" *ngFor="let playerAttendance of playerAttendanceStats">
+          <div class="row">
+            <div class="col-xs-6">
+              <circle-progress [percent]="playerAttendance.trainingAttended" [subtitle]="'TRAINING ATTENDANCE'" ></circle-progress>
+            </div>
+            <div class="col-xs-6">
+              <circle-progress [percent]="playerAttendance.gamesAttended" [subtitle]="'GAME ATTENDANCE'" ></circle-progress>
+            </div>
+          </div>
+        </section>
+        <!--<section class="game-time mt-xl">
+          <h4 class="section-head">GAME TIME</h4>
+          <div *ngIf="playerGameDetails.length > 0; else noGame">
+            <div class="row" *ngFor="let playerGameDetail of playerGameDetails">
+              <div class="date-wrap col-xs-2">
+                <div class="date-item">{{playerGameDetail.date}}</div>
+              </div>
+              <div class="time-wrap col-xs-10">
+                <div class="time-dots">
+                  <span class="dots" [class.active]="gameTime <= playerGameDetail.timeGrade" *ngFor="let gameTime of gameTimes"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="date-wrap col-xs-2"></div>
+              <div class="time-wrap col-xs-10">
+                <div class="time-dots">
+                  <span class="time-item">10</span>
+                  <span class="time-item">20</span>
+                  <span class="time-item">30</span>
+                  <span class="time-item">40</span>
+                  <span class="time-item">50</span>
+                  <span class="time-item">60</span>
+                  <span class="time-item">70</span>
+                  <span class="time-item">80</span>
+                  <span class="time-item">90</span>
+                  <span class="time-item">100</span>
+                  <span class="time-item">110</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="date-wrap col-xs-2"></div>
+              <div class="time-wrap col-xs-10">
+                <span class="time-item fontBold">MINUTES</span>
+              </div>
+            </div>
+          </div>
+          <ng-template #noGame>
+            <div class="row">
+              <div class="col-xs-12">
+                <span class="fontBold noData">No data found</span>
+              </div>
+            </div>
+          </ng-template>
+        </section>
+        <section class="chart-wrap mt-30">
+          <h4 class="section-head">MY WELFARE</h4>
+          <div id="chart" *ngIf="playerRPEDetails.length > 0; else noRPE">
+            <div class="chart-area">
+              <ul id="numbers">
+                <li><span>RPE</span></li>
+                <li><span>10</span></li>
+                <li><span>9</span></li>
+                <li><span>8</span></li>
+                <li><span>7</span></li>
+                <li><span>6</span></li>
+                <li><span>5</span></li>
+                <li><span>4</span></li>
+                <li><span>3</span></li>
+                <li><span>2</span></li>
+                <li><span>1</span></li>
+                <li><span>0</span></li>
+              </ul>
+              <ul id="bars">
+                <li *ngFor="let playerRPEDetail of playerRPEDetails; let i = index">
+                  <div *ngIf="i < 7" [attr.data-rpe]="playerRPEDetail.rpe" class="bar"></div>
+                </li>
+              </ul>
+            </div>
+            <ul id="bar-title">
+              <li *ngFor="let playerRPEDetail of playerRPEDetails; let i = index">
+                <span *ngIf="i < 7">{{playerRPEDetail.date}}</span>
+              </li>
+            </ul>
+          </div>
+          <ng-template #noRPE>
+            <div class="row">
+              <div class="col-xs-12">
+                <span class="fontBold noData">No data found</span>
+              </div>
+            </div>
+          </ng-template>
+        </section>-->
+      </section>
+    </form>
+  </section>
+</ion-content>
+

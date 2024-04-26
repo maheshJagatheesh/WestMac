@@ -1,0 +1,89 @@
+page-read-only-timesheet {
+    .status-info.approved span:before{
+        content: "";
+        background: url(../assets/images/approv.svg) no-repeat;
+        background-size: 100%;
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        margin: 10px;
+        position: relative;
+        vertical-align: middle;
+    }
+    .status-info.rejected span:before{
+        content: "";
+        background: url(../assets/images/reject.svg) no-repeat;
+        background-size: 100%;
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        margin: 10px;
+        position: relative;
+        vertical-align: middle;
+    }
+    
+    .status-info.pending span:before{
+        content: "";
+        background: url(../assets/images/pending-blue.svg) no-repeat;
+        background-size: 100%;
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        margin: 10px;
+        position: relative;
+        vertical-align: middle;
+    }
+    .status-info.pending{
+        margin: 0;
+        color:#B8B8B8;
+        font-size:13px;
+        font-weight: normal;
+        line-height: 18px;
+        font-family: "Halvetica",sans-serif;
+    }
+    .status-info.rejected{
+        margin: 0;
+        color:#CC4364;
+        font-size:13px;
+        font-weight: normal;
+        line-height: 18px;
+        font-family: "Halvetica",sans-serif;
+    }
+    .status-info.approved{
+        margin: 0;
+        color:#43B7CC;
+        font-size:13px;
+        font-weight: normal;
+        line-height: 18px;
+        font-family: "Halvetica",sans-serif;
+    }
+    .Status-Text {
+        color: #8B8B8B;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 18px;
+        font-family: "Halvetica",sans-serif;
+        letter-spacing: 0.05em;
+        margin: 0 0 20px;
+    }
+    .profileFirst{
+        padding: 0;
+    }
+    .hours{
+        .text-input-md{
+            text-align: right !important;
+        }
+    }
+    .minute{
+        .text-input-md{
+            text-align: left !important;
+        }
+    }
+    .voting .select-val{
+        background-color: transparent !important;
+        ion-datetime{
+            margin: 0 auto;
+            padding: 0!important;
+        }
+    }
+}

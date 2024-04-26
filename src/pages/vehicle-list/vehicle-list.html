@@ -1,0 +1,30 @@
+<ion-content class="bg-black" (click)="close($event)">
+    
+    <div class="modal-content fixed_bottom modal-body">
+        <div class="modal-body logsCard">
+            <ion-item *ngFor="let key of VehicleList" (click)="selectVehicle(key.TRANSPORTVEHICLEID)">
+              <ion-label>{{key.VEHICLENAME}}</ion-label>
+            </ion-item>
+            
+            <!-- <ion-item>
+                <ion-label>Picked up by parents</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label>Dropped to friends</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label>Lorem ipsum</ion-label>
+            </ion-item> -->
+            
+          </div>
+      </div>
+      <div class="modal-content fixed_bottom_cancel modal-footer">
+          <div class="modal-body logsCard">
+              <ion-item (click)="back()">
+                <ion-label>Cancel</ion-label>
+              </ion-item>
+              
+            </div>
+        </div>
+      
+  </ion-content>

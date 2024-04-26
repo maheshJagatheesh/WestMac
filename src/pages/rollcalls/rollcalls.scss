@@ -1,0 +1,217 @@
+page-rollcalls {
+    .emptyCard .select-card{
+        height:72px;
+        text-align: left;
+    }
+    .select-card .card-title p {
+        margin: 5px 0 0;
+    }
+    .addIcon {
+        color: white;
+        padding: 5px !important;
+        font-size: 2.2em !important;
+    }
+    .select-card.SelectCard {
+        background-color: #2BBFF0 !important;
+        color: #fff !important;
+        .card-title{
+            color: #fff !important;
+        }
+        .event-next .next-arrow i{
+            color: #fff !important;
+        }
+    }
+    .borrow .event-next{
+        height:56px;
+    }
+    .borrow .select-card{
+        height:72px;
+    }
+    .staffIcon::before{
+        content: '';
+        background-image: url('../../assets/images/transport/button-edit.svg');
+        background-size: 100%;
+        width: 40px;
+        height: 40px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .borrowPlayer .borrow {
+        padding-top: 10px;
+    }
+    .event-card.location {
+        margin-bottom: 20px!important;
+    }
+    .addIconCircle .addIcon.edit-icon{
+        padding: 0!important;
+    }
+    .content{
+        background-color: map-get($Transport-colors ,light )
+    }
+    .sm-title {
+        color: #000;
+    }
+    // transport topsection
+
+    .top-section .header{
+        color: #fff;
+        text-align: center;
+        background: transparent;
+        margin: 0 auto;
+        padding: 20% 0px 30px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #fff;
+        font-size: 22px;
+        font-weight: bold;
+        font-family: 'Haveltica',sans-serif;
+        width: 100%;
+      }
+      .bgTeal {
+        background: #43b7cc;
+    }
+    .top-section{
+        padding: 15px;
+        height: auto;
+        min-height: 490px;
+        position: relative;
+    }
+    .top-section .title-md{
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .btn-rounded{
+        border-radius: 25px;
+    }
+    .fixed-bottom.full-width{
+        width:100%;
+        right:0;
+        padding: 0 15px;
+    }
+    .btn-teal{
+        width: 100%;
+        padding: 15px 12px;
+        font-size: 10px;
+        text-transform: uppercase;
+        background-color: #096B91;
+        border-color: #096B91;
+        color: #fff;
+    }
+    .btn.disabled{
+        opacity: 0.3;
+    }
+    .btn-teal:hover,.btn-teal:focus{
+        color: #fff;
+    }
+    .bus-img{
+        padding-top:25px;
+    }
+    .toggleGroup{
+        padding:0;
+        margin-top: 10px;
+
+        .toggle {
+            margin-right: 10px;
+        }
+    }
+    .no-vehicle{
+        font-size: 11px;
+        font-weight: normal;
+        color: rgba(255, 255, 255, 0.6);
+        text-transform: none;
+    }
+    .toggleGroup .text-info{
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 12px;
+        padding: 5px 0;
+    }
+    input:checked + .slider, input:checked + .slider {
+        background-color: #FF5722!important;
+    }
+    .text-center{
+        color: #15233C;
+    }
+    .busName{
+        color: map-get($Transport-colors,  primary-text )
+    }
+    ion-header ion-title{
+        line-height: 25px!important;
+    }
+    .next-arrow img{
+        width:14px;
+        height:19px;
+    }
+    .ul-text{
+        text-decoration: underline;
+    }
+    .ff_impliment{
+        font-family:'Helvetica',sans-serif !important;
+    }
+    .back-button .back-button-icon:before {
+        height: 20px;
+        vertical-align: bottom;
+    }
+    .back-button ion-icon.back-button-icon  {
+        padding:6px 0 6px 16px;
+    }
+    .staffImage {
+        width: 35px;
+        height: 35px;
+    }
+    .img-xs .img-text{
+        width: 35px;
+        height: 35px;
+        margin: 0;
+        line-height: 36px;
+        text-align: center;
+        font-size: 11px;
+    }
+    //ios -header fix
+    
+    .toolbar-ios ion-title{
+        padding: 0 50px 1px!important;
+    }
+    .toolbar-title-ios{
+        text-align: left;
+        padding-left: 5px;
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 25px;
+        letter-spacing: 0.02em;
+        font-family: "Halvetica", sans-serif;
+        color: #15233C;
+    }
+    .toolbar-ios ion-icon.back-button-icon {
+        padding: 6px 0 0 6px;
+    }
+    .toolbar-ios ion-icon.back-button-icon {
+        margin-top: 10px;
+    }
+    // locked fix
+    .select-card.locked{
+        -moz-shadow: 0 0 10px 2px #ddd;
+        -webkit-box-shadow: 0 0 10px 2px #ddd;
+        box-shadow: 0 0 10px 2px #ddd;
+    }
+    .select-card.locked .event-next .next-arrow{
+        opacity: 0.5;
+    }
+    .select-card.locked .card-title p{
+        color: #8B8B8B;
+        font-size: 13px;
+        font-weight: normal;
+        font-family: "Helvetica",sans-serif;
+        width: 100%;
+        margin:0;
+        letter-spacing: 0.05em;
+    }
+    .select-card.noRollcall{
+        background-color: #f5f5f5;
+        box-shadow: none;
+    }
+    .col-xs-7{
+      width: 57.33333333%;
+    }
+}
+
+

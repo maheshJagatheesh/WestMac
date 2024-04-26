@@ -1,0 +1,27 @@
+page-settings-profile-edit {
+  .inputMargin{
+    margin-left: 6px;
+  }
+  .btn-section{
+    margin: 0 auto;
+  }
+  input[type="text"]{
+    border: none;
+    color: #000;
+    background: #fafafa;
+  }
+  .edit-profile .title .first-name, .edit-profile .title .last-name{
+    width: 30%;
+    overflow: hidden;
+  }
+  .edit-profile .title .last-name{
+    padding: 0;
+    margin-left: 20px;
+  }
+  .errorMsg{
+    text-align: left;
+    color: #f00;
+    float: left;
+    width: 100%;
+  }
+}

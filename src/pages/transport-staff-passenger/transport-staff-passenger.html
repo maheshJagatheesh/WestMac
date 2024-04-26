@@ -1,0 +1,33 @@
+<ion-content class="bg-black" >
+  <div class="fixed-top_ modal-close">
+    <div class="rotate-text pwrotate-text-white" (click)="close()">
+        <span class="close_" data-dismiss="modal">CLOSE
+            <ion-icon name="close" class="close_-button"></ion-icon>
+        </span>
+    </div>
+  </div>
+
+  <div class="modal-content modalView">
+    <div class="modal-header shadow">
+        <h5 class="modal-title fontBold text-center">Are you a passenger?</h5>
+    </div>
+    <div class="modal-body modal-report">
+      <div class="row">
+        <div class="d-flex text-center col-xs-offset-2 col-xs-8 p-0">
+          Let us know if you are going to be present in the vehicles. You can still update it later.
+        </div>
+      </div>
+      <div class="modal-footer mt-20">
+        <div class="row">
+          <div class="col-xs-offset-2 col-xs-2">
+            <button type="submit" class="no-btn" (click)="updateStaffIsPassenger(0)">NO</button>
+          </div>
+          <div class="col-xs-offset-4 col-xs-2">
+            <button type="submit" class="yes-btn" (click)="updateStaffIsPassenger(1)">YES</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</ion-content>
