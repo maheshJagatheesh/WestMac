@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 778:
+/***/ 779:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,8 +8,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventGroupMessagePageModule", function() { return EventGroupMessagePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__event_group_message__ = __webpack_require__(881);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng4_click_outside__ = __webpack_require__(882);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__event_group_message__ = __webpack_require__(882);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng4_click_outside__ = __webpack_require__(883);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng4_click_outside___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng4_click_outside__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -169,7 +169,7 @@ exports.ClickOutsideDirective = ClickOutsideDirective;
 
 /***/ }),
 
-/***/ 881:
+/***/ 882:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -244,7 +244,7 @@ var EventGroupMessagePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 882:
+/***/ 883:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -252,13 +252,13 @@ var EventGroupMessagePage = /** @class */ (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var click_outside_directive_1 = __webpack_require__(858);
 exports.ClickOutsideDirective = click_outside_directive_1.ClickOutsideDirective;
-var click_outside_module_1 = __webpack_require__(883);
+var click_outside_module_1 = __webpack_require__(884);
 exports.ClickOutsideModule = click_outside_module_1.ClickOutsideModule;
 
 
 /***/ }),
 
-/***/ 883:
+/***/ 884:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
