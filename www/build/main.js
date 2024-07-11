@@ -5466,11 +5466,11 @@ var GlobalApiProvider = /** @class */ (function () {
 
 var map = {
 	"../pages/add-rollcalls/add-rollcalls.module": [
-		753,
+		752,
 		95
 	],
 	"../pages/additional-passenger/additional-passenger.module": [
-		752,
+		753,
 		94
 	],
 	"../pages/alert-dashboard/alert-dashboard.module": [
@@ -5496,59 +5496,59 @@ var map = {
 		90
 	],
 	"../pages/chat-view/chat-view.module": [
-		758,
+		759,
 		89
 	],
 	"../pages/choose-home-image/choose-home-image.module": [
-		759,
+		758,
 		88
 	],
 	"../pages/choose-players/choose-players.module": [
-		760,
+		762,
 		87
 	],
 	"../pages/choose-team-profile/choose-team-profile.module": [
-		761,
+		760,
 		105
 	],
 	"../pages/choose-team/choose-team.module": [
-		762,
+		761,
 		86
 	],
 	"../pages/choose-theme/choose-theme.module": [
-		765,
+		763,
 		85
 	],
 	"../pages/contracter-timesheet-list/contracter-timesheet-list.module": [
-		763,
+		764,
 		84
 	],
 	"../pages/create-node/create-node.module": [
-		764,
+		765,
 		83
 	],
 	"../pages/display-events-new/display-events-new.module": [
-		768,
+		766,
 		104
 	],
 	"../pages/display-events/display-events.module": [
-		769,
+		767,
 		103
 	],
 	"../pages/email-modal/email-modal.module": [
-		766,
+		768,
 		82
 	],
 	"../pages/event-attendance-confirm/event-attendance-confirm.module": [
-		767,
+		770,
 		81
 	],
 	"../pages/event-attendance-loadingpage/event-attendance-loadingpage.module": [
-		771,
+		769,
 		80
 	],
 	"../pages/event-attendance-note/event-attendance-note.module": [
-		770,
+		771,
 		79
 	],
 	"../pages/event-attendance/event-attendance.module": [
@@ -5564,15 +5564,15 @@ var map = {
 		77
 	],
 	"../pages/event-dashboard-new/event-dashboard-new.module": [
-		775,
+		777,
 		76
 	],
 	"../pages/event-dashboard/event-dashboard.module": [
-		776,
+		775,
 		75
 	],
 	"../pages/event-group-message-text/event-group-message-text.module": [
-		777,
+		776,
 		74
 	],
 	"../pages/event-group-message/event-group-message.module": [
@@ -5588,7 +5588,7 @@ var map = {
 		101
 	],
 	"../pages/event-home-new/event-home-new.module": [
-		782,
+		857,
 		72
 	],
 	"../pages/event-home/event-home.module": [
@@ -5596,35 +5596,35 @@ var map = {
 		100
 	],
 	"../pages/event-offline-alt/event-offline-alt.module": [
-		783,
+		782,
 		71
 	],
 	"../pages/event-offline/event-offline.module": [
-		784,
+		783,
 		70
 	],
 	"../pages/event-session-plan/event-session-plan.module": [
-		785,
+		784,
 		69
 	],
 	"../pages/event-stats-graph/event-stats-graph.module": [
-		786,
+		785,
 		68
 	],
 	"../pages/event-stats/event-stats.module": [
-		787,
+		786,
 		67
 	],
 	"../pages/event-update-player-modal/event-update-player-modal.module": [
-		788,
+		787,
 		66
 	],
 	"../pages/event-welfare/event-welfare.module": [
-		789,
+		788,
 		65
 	],
 	"../pages/events-results/events-results.module": [
-		796,
+		791,
 		64
 	],
 	"../pages/filter-temp/filter-temp.module": [
@@ -5632,7 +5632,7 @@ var map = {
 		63
 	],
 	"../pages/forget/forget.module": [
-		791,
+		789,
 		62
 	],
 	"../pages/gallery-album/gallery-album.module": [
@@ -5652,14 +5652,14 @@ var map = {
 		58
 	],
 	"../pages/gameboard/gameboard.module": [
-		797,
+		796,
 		57
 	],
 	"../pages/get-started/get-started.module": [
 		290
 	],
 	"../pages/group-chat-view/group-chat-view.module": [
-		799,
+		797,
 		56
 	],
 	"../pages/home/home.module": [
@@ -5667,11 +5667,11 @@ var map = {
 		55
 	],
 	"../pages/injured-list/injured-list.module": [
-		800,
+		799,
 		54
 	],
 	"../pages/injury-cause/injury-cause.module": [
-		801,
+		800,
 		53
 	],
 	"../pages/injury-incident-report/injury-incident-report.module": [
@@ -5679,11 +5679,11 @@ var map = {
 		52
 	],
 	"../pages/last-rollcall/last-rollcall.module": [
-		803,
+		801,
 		51
 	],
 	"../pages/login/login.module": [
-		804,
+		803,
 		50
 	],
 	"../pages/map-tracker/map-tracker.module": [
@@ -5691,43 +5691,43 @@ var map = {
 		49
 	],
 	"../pages/medicine-info/medicine-info.module": [
-		806,
+		804,
 		48
 	],
 	"../pages/menu/menu.module": [
-		808,
+		807,
 		47
 	],
 	"../pages/message-log-dashboard/message-log-dashboard.module": [
-		807,
+		806,
 		99
 	],
 	"../pages/new-discussion-create/new-discussion-create.module": [
-		809,
+		808,
 		46
 	],
 	"../pages/new-discussion-list/new-discussion-list.module": [
-		810,
+		809,
 		45
 	],
 	"../pages/new-discussion-save/new-discussion-save.module": [
-		811,
+		810,
 		44
 	],
 	"../pages/notify-parents/notify-parents.module": [
-		812,
+		811,
 		43
 	],
 	"../pages/notify-players/notify-players.module": [
-		814,
+		813,
 		42
 	],
 	"../pages/player-add-for-grading/player-add-for-grading.module": [
-		813,
+		812,
 		41
 	],
 	"../pages/player-coaching-report/player-coaching-report.module": [
-		815,
+		837,
 		40
 	],
 	"../pages/player-details/player-details.module": [
@@ -5735,27 +5735,27 @@ var map = {
 		39
 	],
 	"../pages/player-grading/player-grading.module": [
-		817,
+		814,
 		38
 	],
 	"../pages/player-group-message/player-group-message.module": [
-		819,
+		815,
 		37
 	],
 	"../pages/player-list-grade-report/player-list-grade-report.module": [
-		818,
+		817,
 		36
 	],
 	"../pages/player-medical-records/player-medical-records.module": [
-		820,
+		818,
 		35
 	],
 	"../pages/player-question/player-question.module": [
-		822,
+		819,
 		34
 	],
 	"../pages/player-scanner-attendance/player-scanner-attendance.module": [
-		821,
+		820,
 		33
 	],
 	"../pages/players-dashboard/players-dashboard.module": [
@@ -5763,71 +5763,71 @@ var map = {
 		98
 	],
 	"../pages/pregame-rollcall/pregame-rollcall.module": [
-		824,
+		821,
 		32
 	],
 	"../pages/rated-perceived/rated-perceived.module": [
-		825,
+		822,
 		31
 	],
 	"../pages/read-only-timesheet/read-only-timesheet.module": [
-		826,
+		824,
 		30
 	],
 	"../pages/reviewer-timesheet/reviewer-timesheet.module": [
-		827,
+		825,
 		29
 	],
 	"../pages/rollcall-logs/rollcall-logs.module": [
-		828,
+		826,
 		28
 	],
 	"../pages/rollcalls-players/rollcalls-players.module": [
-		829,
+		827,
 		27
 	],
 	"../pages/rollcalls/rollcalls.module": [
-		830,
+		828,
 		26
 	],
 	"../pages/scanning/scanning.module": [
-		831,
+		829,
 		25
 	],
 	"../pages/set-home-image/set-home-image.module": [
-		832,
+		831,
 		24
 	],
 	"../pages/set-to-go/set-to-go.module": [
-		833,
+		830,
 		23
 	],
 	"../pages/settings-home-images/settings-home-images.module": [
-		834,
+		832,
 		22
 	],
 	"../pages/settings-profile-edit/settings-profile-edit.module": [
-		835,
+		834,
 		21
 	],
 	"../pages/settings-profile-statistics/settings-profile-statistics.module": [
-		836,
+		833,
 		20
 	],
 	"../pages/settings/settings.module": [
-		837,
+		835,
 		97
 	],
 	"../pages/severity-details-modal/severity-details-modal.module": [
-		841,
+		836,
 		19
 	],
 	"../pages/signup/signup.module": [
-		838,
+		839,
 		18
 	],
 	"../pages/sms-modal/sms-modal.module": [
-		839,
+		838,
 		17
 	],
 	"../pages/startgame-dashboard/startgame-dashboard.module": [
@@ -5835,18 +5835,18 @@ var map = {
 		16
 	],
 	"../pages/survey/survey.module": [
-		842,
+		841,
 		15
 	],
 	"../pages/tabs/tabs.module": [
 		291
 	],
 	"../pages/team-list/team-list.module": [
-		843,
+		842,
 		14
 	],
 	"../pages/timesheet-adhoc/timesheet-adhoc.module": [
-		845,
+		843,
 		13
 	],
 	"../pages/timesheet-dashboard/timesheet-dashboard.module": [
@@ -5854,35 +5854,35 @@ var map = {
 		12
 	],
 	"../pages/timesheet/timesheet.module": [
-		847,
+		846,
 		11
 	],
 	"../pages/track-member/track-member.module": [
-		846,
+		845,
 		10
 	],
 	"../pages/transport-add-staff/transport-add-staff.module": [
-		857,
+		847,
 		9
 	],
 	"../pages/transport-dashboard/transport-dashboard.module": [
-		852,
+		848,
 		8
 	],
 	"../pages/transport-list/transport-list.module": [
-		848,
+		849,
 		7
 	],
 	"../pages/transport-remove-modal/transport-remove-modal.module": [
-		850,
+		851,
 		6
 	],
 	"../pages/transport-staff-passenger/transport-staff-passenger.module": [
-		849,
+		850,
 		5
 	],
 	"../pages/vehicle-details/vehicle-details.module": [
-		851,
+		852,
 		4
 	],
 	"../pages/vehicle-list/vehicle-list.module": [
@@ -5890,15 +5890,15 @@ var map = {
 		3
 	],
 	"../pages/vehicle/vehicle.module": [
-		854,
+		856,
 		2
 	],
 	"../pages/vote-for-player/vote-for-player.module": [
-		855,
+		854,
 		1
 	],
 	"../pages/welcome/welcome.module": [
-		856,
+		855,
 		96
 	]
 };
@@ -8358,39 +8358,38 @@ var AppModule = /** @class */ (function () {
                     swipeBackEnabled: false,
                 }, {
                     links: [
-                        { loadChildren: '../pages/additional-passenger/additional-passenger.module#AdditionalPassengerPageModule', name: 'AdditionalPassengerPage', segment: 'additional-passenger', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-rollcalls/add-rollcalls.module#AddRollcallsPageModule', name: 'AddRollcallsPage', segment: 'add-rollcalls', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/additional-passenger/additional-passenger.module#AdditionalPassengerPageModule', name: 'AdditionalPassengerPage', segment: 'additional-passenger', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/borrowed-player/borrowed-player.module#BorrowedPlayerPageModule', name: 'BorrowedPlayerPage', segment: 'borrowed-player', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/alert-dashboard/alert-dashboard.module#AlertDashboardPageModule', name: 'AlertDashboardPage', segment: 'alert-dashboard', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/call-modal/call-modal.module#CallModalPageModule', name: 'CallModalPage', segment: 'call-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/chat-dashboard/chat-dashboard.module#ChatDashboardPageModule', name: 'ChatDashboardPage', segment: 'chat-dashboard', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/chat-group-info/chat-group-info.module#ChatGroupInfoPageModule', name: 'ChatGroupInfoPage', segment: 'chat-group-info', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/chat-view-image/chat-view-image.module#ChatViewImagePageModule', name: 'ChatViewImagePage', segment: 'chat-view-image', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/chat-view/chat-view.module#ChatViewPageModule', name: 'ChatViewPage', segment: 'chat-view', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/choose-home-image/choose-home-image.module#ChooseHomeImagePageModule', name: 'ChooseHomeImagePage', segment: 'choose-home-image', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/choose-players/choose-players.module#ChoosePlayersPageModule', name: 'ChoosePlayersPage', segment: 'choose-players', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/chat-view/chat-view.module#ChatViewPageModule', name: 'ChatViewPage', segment: 'chat-view', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/choose-team-profile/choose-team-profile.module#ChooseTeamProfilePageModule', name: 'ChooseTeamProfilePage', segment: 'choose-team-profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/choose-team/choose-team.module#ChooseTeamPageModule', name: 'ChooseTeamPage', segment: 'choose-team', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/choose-players/choose-players.module#ChoosePlayersPageModule', name: 'ChoosePlayersPage', segment: 'choose-players', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/choose-theme/choose-theme.module#ChooseThemePageModule', name: 'ChooseThemePage', segment: 'choose-theme', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/contracter-timesheet-list/contracter-timesheet-list.module#ContracterTimesheetListPageModule', name: 'ContracterTimesheetListPage', segment: 'contracter-timesheet-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/create-node/create-node.module#CreateNodePageModule', name: 'CreateNodePage', segment: 'create-node', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/choose-theme/choose-theme.module#ChooseThemePageModule', name: 'ChooseThemePage', segment: 'choose-theme', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/email-modal/email-modal.module#EmailModalPageModule', name: 'EmailModalPage', segment: 'email-modal', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/event-attendance-confirm/event-attendance-confirm.module#EventAttendanceConfirmPageModule', name: 'EventAttendanceConfirmPage', segment: 'event-attendance-confirm', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/display-events-new/display-events-new.module#DisplayEventsNewPageModule', name: 'DisplayEventsNewPage', segment: 'display-events-new', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/display-events/display-events.module#DisplayEventsPageModule', name: 'DisplayEventsPage', segment: 'display-events', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/event-attendance-note/event-attendance-note.module#EventAttendanceNotePageModule', name: 'EventAttendanceNotePage', segment: 'event-attendance-note', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/email-modal/email-modal.module#EmailModalPageModule', name: 'EmailModalPage', segment: 'email-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-attendance-loadingpage/event-attendance-loadingpage.module#EventAttendanceLoadingpagePageModule', name: 'EventAttendanceLoadingpagePage', segment: 'event-attendance-loadingpage', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/event-attendance-confirm/event-attendance-confirm.module#EventAttendanceConfirmPageModule', name: 'EventAttendanceConfirmPage', segment: 'event-attendance-confirm', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/event-attendance-note/event-attendance-note.module#EventAttendanceNotePageModule', name: 'EventAttendanceNotePage', segment: 'event-attendance-note', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-attendance/event-attendance.module#EventAttendancePageModule', name: 'EventAttendancePage', segment: 'event-attendance', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-confirm-absence/event-confirm-absence.module#EventConfirmAbsencePageModule', name: 'EventConfirmAbsencePage', segment: 'event-confirm-absence', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-dashboard-loading/event-dashboard-loading.module#EventDashboardLoadingPageModule', name: 'EventDashboardLoadingPage', segment: 'event-dashboard-loading', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/event-dashboard-new/event-dashboard-new.module#EventDashboardNewPageModule', name: 'EventDashboardNewPage', segment: 'event-dashboard-new', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-dashboard/event-dashboard.module#EventDashboardPageModule', name: 'EventDashboardPage', segment: 'event-dashboard', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-group-message-text/event-group-message-text.module#EventGroupMessageTextPageModule', name: 'EventGroupMessageTextPage', segment: 'event-group-message-text', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/event-dashboard-new/event-dashboard-new.module#EventDashboardNewPageModule', name: 'EventDashboardNewPage', segment: 'event-dashboard-new', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-group-message/event-group-message.module#EventGroupMessagePageModule', name: 'EventGroupMessagePage', segment: 'event-group-message', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-group-send-message/event-group-send-message.module#EventGroupSendMessagePageModule', name: 'EventGroupSendMessagePage', segment: 'event-group-send-message', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-home-menu/event-home-menu.module#EventHomeMenuPageModule', name: 'EventHomeMenuPage', segment: 'event-home-menu', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-home/event-home.module#EventHomePageModule', name: 'EventHomePage', segment: 'event-home', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/event-home-new/event-home-new.module#EventHomeNewPageModule', name: 'EventHomeNewPage', segment: 'event-home-new', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-offline-alt/event-offline-alt.module#EventOfflineAltPageModule', name: 'EventOfflineAltPage', segment: 'event-offline-alt', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-offline/event-offline.module#EventOfflinePageModule', name: 'EventOfflinePage', segment: 'event-offline', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-session-plan/event-session-plan.module#EventSessionPlanPageModule', name: 'EventSessionPlanPage', segment: 'event-session-plan', priority: 'low', defaultHistory: [] },
@@ -8398,24 +8397,24 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/event-stats/event-stats.module#EventStatsPageModule', name: 'EventStatsPage', segment: 'event-stats', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-update-player-modal/event-update-player-modal.module#EventUpdatePlayerModalPageModule', name: 'EventUpdatePlayerModalPage', segment: 'event-update-player-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/event-welfare/event-welfare.module#EventWelfarePageModule', name: 'EventWelfarePage', segment: 'event-welfare', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/filter-temp/filter-temp.module#FilterTempPageModule', name: 'FilterTempPage', segment: 'filter-temp', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/forget/forget.module#ForgetPageModule', name: 'ForgetPage', segment: 'forget', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/filter-temp/filter-temp.module#FilterTempPageModule', name: 'FilterTempPage', segment: 'filter-temp', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/events-results/events-results.module#EventsResultsPageModule', name: 'EventsResultsPage', segment: 'events-results', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/gallery-album/gallery-album.module#GalleryAlbumPageModule', name: 'GalleryAlbumPage', segment: 'gallery-album', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/gallery-events/gallery-events.module#GalleryEventsPageModule', name: 'GalleryEventsPage', segment: 'gallery-events', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/gallery-timeline-details/gallery-timeline-details.module#GalleryTimelineDetailsPageModule', name: 'GalleryTimelineDetailsPage', segment: 'gallery-timeline-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/gallery-timeline/gallery-timeline.module#GalleryTimelinePageModule', name: 'GalleryTimelinePage', segment: 'gallery-timeline', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/events-results/events-results.module#EventsResultsPageModule', name: 'EventsResultsPage', segment: 'events-results', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/gameboard/gameboard.module#GameboardPageModule', name: 'GameboardPage', segment: 'gameboard', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/group-chat-view/group-chat-view.module#GroupChatViewPageModule', name: 'GroupChatViewPage', segment: 'group-chat-view', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/injured-list/injured-list.module#InjuredListPageModule', name: 'InjuredListPage', segment: 'injured-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/get-started/get-started.module#GetStartedPageModule', name: 'GetStartedPage', segment: 'get-started', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/injury-cause/injury-cause.module#InjuryCausePageModule', name: 'InjuryCausePage', segment: 'injury-cause', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/injury-incident-report/injury-incident-report.module#InjuryIncidentReportPageModule', name: 'InjuryIncidentReportPage', segment: 'injury-incident-report', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/last-rollcall/last-rollcall.module#LastRollcallPageModule', name: 'LastRollcallPage', segment: 'last-rollcall', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/injury-incident-report/injury-incident-report.module#InjuryIncidentReportPageModule', name: 'InjuryIncidentReportPage', segment: 'injury-incident-report', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/map-tracker/map-tracker.module#MapTrackerPageModule', name: 'MapTrackerPage', segment: 'map-tracker', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/medicine-info/medicine-info.module#MedicineInfoPageModule', name: 'MedicineInfoPage', segment: 'medicine-info', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/map-tracker/map-tracker.module#MapTrackerPageModule', name: 'MapTrackerPage', segment: 'map-tracker', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/message-log-dashboard/message-log-dashboard.module#MessageLogDashboardPageModule', name: 'MessageLogDashboardPage', segment: 'message-log-dashboard', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/new-discussion-create/new-discussion-create.module#NewDiscussionCreatePageModule', name: 'NewDiscussionCreatePage', segment: 'new-discussion-create', priority: 'low', defaultHistory: [] },
@@ -8424,50 +8423,51 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/notify-parents/notify-parents.module#NotifyParentsPageModule', name: 'NotifyParentsPage', segment: 'notify-parents', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/player-add-for-grading/player-add-for-grading.module#PlayerAddForGradingPageModule', name: 'PlayerAddForGradingPage', segment: 'player-add-for-grading', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/notify-players/notify-players.module#NotifyPlayersPageModule', name: 'NotifyPlayersPage', segment: 'notify-players', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/player-coaching-report/player-coaching-report.module#PlayerCoachingReportPageModule', name: 'PlayerCoachingReportPage', segment: 'player-coaching-report', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/player-details/player-details.module#PlayerDetailsPageModule', name: 'PlayerDetailsPage', segment: 'player-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/player-grading/player-grading.module#PlayerGradingPageModule', name: 'PlayerGradingPage', segment: 'player-grading', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/player-list-grade-report/player-list-grade-report.module#PlayerListGradeReportPageModule', name: 'PlayerListGradeReportPage', segment: 'player-list-grade-report', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/player-group-message/player-group-message.module#PlayerGroupMessagePageModule', name: 'PlayerGroupMessagePage', segment: 'player-group-message', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/player-details/player-details.module#PlayerDetailsPageModule', name: 'PlayerDetailsPage', segment: 'player-details', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/player-list-grade-report/player-list-grade-report.module#PlayerListGradeReportPageModule', name: 'PlayerListGradeReportPage', segment: 'player-list-grade-report', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/player-medical-records/player-medical-records.module#PlayerMedicalRecordsPageModule', name: 'PlayerMedicalRecordsPage', segment: 'player-medical-records', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/player-scanner-attendance/player-scanner-attendance.module#PlayerScannerAttendancePageModule', name: 'PlayerScannerAttendancePage', segment: 'player-scanner-attendance', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/player-question/player-question.module#PlayerQuestionPageModule', name: 'PlayerQuestionPage', segment: 'player-question', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/players-dashboard/players-dashboard.module#PlayersDashboardPageModule', name: 'PlayersDashboardPage', segment: 'players-dashboard', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/player-scanner-attendance/player-scanner-attendance.module#PlayerScannerAttendancePageModule', name: 'PlayerScannerAttendancePage', segment: 'player-scanner-attendance', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/pregame-rollcall/pregame-rollcall.module#PregameRollcallPageModule', name: 'PregameRollcallPage', segment: 'pregame-rollcall', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/rated-perceived/rated-perceived.module#RatedPerceivedPageModule', name: 'RatedPerceivedPage', segment: 'rated-perceived', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/players-dashboard/players-dashboard.module#PlayersDashboardPageModule', name: 'PlayersDashboardPage', segment: 'players-dashboard', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/read-only-timesheet/read-only-timesheet.module#ReadOnlyTimesheetPageModule', name: 'ReadOnlyTimesheetPage', segment: 'read-only-timesheet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/reviewer-timesheet/reviewer-timesheet.module#ReviewerTimesheetPageModule', name: 'ReviewerTimesheetPage', segment: 'reviewer-timesheet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/rollcall-logs/rollcall-logs.module#RollcallLogsPageModule', name: 'RollcallLogsPage', segment: 'rollcall-logs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/rollcalls-players/rollcalls-players.module#RollcallsPlayersPageModule', name: 'RollcallsPlayersPage', segment: 'rollcalls-players', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/rollcalls/rollcalls.module#RollcallsPageModule', name: 'RollcallsPage', segment: 'rollcalls', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/scanning/scanning.module#ScanningPageModule', name: 'ScanningPage', segment: 'scanning', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/set-home-image/set-home-image.module#SetHomeImagePageModule', name: 'SetHomeImagePage', segment: 'set-home-image', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/set-to-go/set-to-go.module#SetToGoPageModule', name: 'SetToGoPage', segment: 'set-to-go', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/set-home-image/set-home-image.module#SetHomeImagePageModule', name: 'SetHomeImagePage', segment: 'set-home-image', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings-home-images/settings-home-images.module#SettingsHomeImagesPageModule', name: 'SettingsHomeImagesPage', segment: 'settings-home-images', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/settings-profile-edit/settings-profile-edit.module#SettingsProfileEditPageModule', name: 'SettingsProfileEditPage', segment: 'settings-profile-edit', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings-profile-statistics/settings-profile-statistics.module#SettingsProfileStatisticsPageModule', name: 'SettingsProfileStatisticsPage', segment: 'settings-profile-statistics', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/settings-profile-edit/settings-profile-edit.module#SettingsProfileEditPageModule', name: 'SettingsProfileEditPage', segment: 'settings-profile-edit', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/sms-modal/sms-modal.module#SmsModalPageModule', name: 'SmsModalPage', segment: 'sms-modal', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/startgame-dashboard/startgame-dashboard.module#StartgameDashboardPageModule', name: 'StartgameDashboardPage', segment: 'startgame-dashboard', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/severity-details-modal/severity-details-modal.module#SeverityDetailsModalPageModule', name: 'SeverityDetailsModalPage', segment: 'severity-details-modal', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/player-coaching-report/player-coaching-report.module#PlayerCoachingReportPageModule', name: 'PlayerCoachingReportPage', segment: 'player-coaching-report', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/sms-modal/sms-modal.module#SmsModalPageModule', name: 'SmsModalPage', segment: 'sms-modal', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/startgame-dashboard/startgame-dashboard.module#StartgameDashboardPageModule', name: 'StartgameDashboardPage', segment: 'startgame-dashboard', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/survey/survey.module#SurveyPageModule', name: 'SurveyPage', segment: 'survey', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/team-list/team-list.module#TeamListPageModule', name: 'TeamListPage', segment: 'team-list', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/timesheet-dashboard/timesheet-dashboard.module#TimesheetDashboardPageModule', name: 'TimesheetDashboardPage', segment: 'timesheet-dashboard', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/timesheet-adhoc/timesheet-adhoc.module#TimesheetAdhocPageModule', name: 'TimesheetAdhocPage', segment: 'timesheet-adhoc', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/timesheet-dashboard/timesheet-dashboard.module#TimesheetDashboardPageModule', name: 'TimesheetDashboardPage', segment: 'timesheet-dashboard', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/track-member/track-member.module#TrackMemberPageModule', name: 'TrackMemberPage', segment: 'track-member', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/timesheet/timesheet.module#TimesheetPageModule', name: 'TimesheetPage', segment: 'timesheet', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/transport-add-staff/transport-add-staff.module#TransportAddStaffPageModule', name: 'TransportAddStaffPage', segment: 'transport-add-staff', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/transport-dashboard/transport-dashboard.module#TransportDashboardPageModule', name: 'TransportDashboardPage', segment: 'transport-dashboard', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/transport-list/transport-list.module#TransportListPageModule', name: 'TransportListPage', segment: 'transport-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/transport-staff-passenger/transport-staff-passenger.module#TransportStaffPassengerPageModule', name: 'TransportStaffPassengerPage', segment: 'transport-staff-passenger', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/transport-remove-modal/transport-remove-modal.module#TransportRemoveModalPageModule', name: 'TransportRemoveModalPage', segment: 'transport-remove-modal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/vehicle-details/vehicle-details.module#VehicleDetailsPageModule', name: 'VehicleDetailsPage', segment: 'vehicle-details', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/transport-dashboard/transport-dashboard.module#TransportDashboardPageModule', name: 'TransportDashboardPage', segment: 'transport-dashboard', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/vehicle-list/vehicle-list.module#VehicleListPageModule', name: 'VehicleListPage', segment: 'vehicle-list', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/vehicle/vehicle.module#VehiclePageModule', name: 'VehiclePage', segment: 'vehicle', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/vote-for-player/vote-for-player.module#VoteForPlayerPageModule', name: 'VoteForPlayerPage', segment: 'vote-for-player', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/transport-add-staff/transport-add-staff.module#TransportAddStaffPageModule', name: 'TransportAddStaffPage', segment: 'transport-add-staff', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/vehicle/vehicle.module#VehiclePageModule', name: 'VehiclePage', segment: 'vehicle', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/event-home-new/event-home-new.module#EventHomeNewPageModule', name: 'EventHomeNewPage', segment: 'event-home-new', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_42_ng_lazyload_image__["a" /* LazyLoadImageModule */],
